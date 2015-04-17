@@ -1,3 +1,0 @@
-C:\Users\Adminstrator\Desktop\root\Server.debug.exe.config
-C:\Users\Adminstrator\Desktop\root\Core Source Code\obj\Release\Server.debug.exe
-C:\Users\Adminstrator\Desktop\root\Server.debug.exe

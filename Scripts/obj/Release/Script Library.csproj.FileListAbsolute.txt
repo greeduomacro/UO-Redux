@@ -1,9 +1,0 @@
-C:\Users\Adminstrator\Desktop\root\Scripts\Output\Scripts.CS.dll
-C:\Users\Adminstrator\Desktop\root\Scripts\Output\Scripts.CS.pdb
-C:\Users\Adminstrator\Desktop\root\Scripts\Output\Server.debug.exe
-C:\Users\Adminstrator\Desktop\root\Scripts\Output\System.Data.SQLite.dll
-C:\Users\Adminstrator\Desktop\root\Scripts\Output\System.Data.SQLite.Linq.dll
-C:\Users\Adminstrator\Desktop\root\Scripts\Output\Server.debug.pdb
-C:\Users\Adminstrator\Desktop\root\Scripts\obj\Release\Script Library.csprojResolveAssemblyReference.cache
-C:\Users\Adminstrator\Desktop\root\Scripts\obj\Release\Scripts.CS.dll
-C:\Users\Adminstrator\Desktop\root\Scripts\obj\Release\Scripts.CS.pdb
