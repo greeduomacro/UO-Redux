@@ -30,7 +30,7 @@ YOU MUST SET RTFM="true" or DELETE OR YOU WILL GET AN EXCEPTION!!!
 <LOS 
     RTFM="true" 
     on="true" 
-    facets="Felucca,Backtrol,Trammel,Ilshenar,Malas,Tokuno"
+    facets="Felucca,Trammel,Ilshenar,Malas,Tokuno"
     mobiles="true" 
     items="true" 
     losForMobs="true" 

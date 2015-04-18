@@ -1,4 +1,15 @@
 /***************************************************************************
+ *                                  Main.cs
+ *                            -------------------
+ *   begin                : May 1, 2002
+ *   copyright            : (C) The RunUO Software Team
+ *   email                : info@runuo.com
+ *
+ *   $Id: Main.cs 401 2009-10-17 07:27:30Z mark $
+ *
+ ***************************************************************************/
+
+/***************************************************************************
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -275,6 +286,7 @@ namespace Server
 					}
 				}
 
+				EventLog.Error(404, e.ExceptionObject.ToString());
 				m_Closing = true;
 			}
 		}
@@ -379,10 +391,7 @@ namespace Server
 			AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler( CurrentDomain_UnhandledException );
 			AppDomain.CurrentDomain.ProcessExit += new EventHandler( CurrentDomain_ProcessExit );
 
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.Gray;
-
-			Console.Title = "UO Aberration : Core";
+			Console.Title = "RunUO Game Server";
 
 			for( int i = 0; i < args.Length; ++i )
 			{
@@ -407,14 +416,14 @@ namespace Server
 
 					Console.SetOut( m_MultiConOut = new MultiTextWriter( new FileLogger( "Logs/Console.log" ) ) );
 				}
-
 				else
 				{
 					Console.SetOut( m_MultiConOut = new MultiTextWriter( Console.Out ) );
 				}
 			}
-
-			catch			{			}
+			catch
+			{
+			}
 
 			m_Thread = Thread.CurrentThread;
 			m_Process = Process.GetCurrentProcess();
@@ -432,77 +441,7 @@ namespace Server
 
 			Version ver = m_Assembly.GetName().Version;
 
-            /*
-             * ServUO's Original Code
-            if (File.Exists("publish.txt"))
-            {
-                try
-                {
-                    FileStream fs = new FileStream("publish.txt", FileMode.Open, FileAccess.Read, FileShare.Read);
-                    StreamReader sr = new StreamReader(fs);
-
-                    publishNumber = sr.ReadLine();
-
-                    sr.Close();
-                    fs.Close();
-                }
-                catch
-                { }
-            }*/
-            //Concept Expanded based upon ServUO's publish number.
-
-            string header = "";
-            ConsoleColor desiredColor = ConsoleColor.White;
-
-            if (File.Exists("header.txt"))
-            {
-                bool chopColor = false;
-
-                try
-                {
-                    FileStream file = new FileStream("header.txt", FileMode.Open, FileAccess.Read, FileShare.Read);
-                    StreamReader reader = new StreamReader(file);
-
-                    string determineTextColor = (string)(reader.ReadLine().Trim().ToLower());
-
-                    if (Enum.TryParse<ConsoleColor>(determineTextColor, true, out desiredColor))
-                        chopColor = true;
-
-                    else Utility.PushColor(ConsoleColor.White);
-
-                    if (chopColor)
-                    {
-                        header = (string)(reader.ReadToEnd());
-                    }
-
-                    file.Close();
-                    reader.Close();
-
-                    file.Dispose();
-                    reader.Dispose();
-                }
-
-                catch
-                {
-                    Utility.PushColor(ConsoleColor.Red);
-                    Console.Write("Error: ");
-                    Utility.PushColor(ConsoleColor.White);
-                    Console.WriteLine("Your are either missing header.txt or it is misconfigured.");
-                }
-            }
-
-            else 
-            {
-                Utility.PushColor(ConsoleColor.Red);
-                Console.Write("Error: ");
-                Utility.PushColor(ConsoleColor.White);
-                Console.WriteLine("header.txt could not be located.");
-            }
-
-            Utility.PushColor( desiredColor );
-            Console.WriteLine( header );
-            Utility.PushColor(ConsoleColor.White);
-            Console.WriteLine();
+			Console.WriteLine( "RunUO - [www.runuo.com] Version {0}.{1}, Build {2}.{3}", ver.Major, ver.Minor, ver.Build, ver.Revision );		
 			Console.WriteLine( "Core ({3}): Running on .NET Framework Version {0}.{1}.{2}", Environment.Version.Major, Environment.Version.Minor, Environment.Version.Build, Environment.Is64BitProcess ? "x64" : "x86" );
 
 			string s = Arguments;

@@ -632,24 +632,24 @@
 		Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zenon, Zion, Ziven, Zorn
 	</namelist>
 	<namelist type="ElfMale">
-		Legaranduil, M√©ndil, Febrimbor, Cal√°mir, Thrombor, Eowebring, Elvang, Isar,
-		R√©l, El√°ldor, G√≥ril, Celyng, Elvand, E√§rebrin, Tinilmaldur, Cadrieriand,
-		Fithrawyn, E√§ruldur, Sebrilith, H√≥ng 
+		Legaranduil, MÈndil, Febrimbor, Cal·mir, Thrombor, Eowebring, Elvang, Isar,
+		RÈl, El·ldor, GÛril, Celyng, Elvand, E‰rebrin, Tinilmaldur, Cadrieriand,
+		Fithrawyn, E‰ruldur, Sebrilith, HÛng 
 	</namelist>
 	<namelist type="ElfFemale">
-		L√≥m√≥lith, Vorficlya, Isebrilia, N√©ndra, Anodia, Hodith, Galirith, Selith,
-		Culith, Galaclya, Hebrithien, Nithiel, Pothiel, Celebriclya, E√§raralia,
-		Elvuclya, Glaraclya, N√©ndra, Gaviel, L√≥madrielia
+		LÛmÛlith, Vorficlya, Isebrilia, NÈndra, Anodia, Hodith, Galirith, Selith,
+		Culith, Galaclya, Hebrithien, Nithiel, Pothiel, Celebriclya, E‰raralia,
+		Elvuclya, Glaraclya, NÈndra, Gaviel, LÛmadrielia
 	</namelist>
 	<namelist type="DrowMale">
-		Legaranduil, M√©ndil, Febrimbor, Cal√°mir, Thrombor, Eowebring, Elvang, Isar,
-		R√©l, El√°ldor, G√≥ril, Celyng, Elvand, E√§rebrin, Tinilmaldur, Cadrieriand,
-		Fithrawyn, E√§ruldur, Sebrilith, H√≥ng 
+		Legaranduil, MÈndil, Febrimbor, Cal·mir, Thrombor, Eowebring, Elvang, Isar,
+		RÈl, El·ldor, GÛril, Celyng, Elvand, E‰rebrin, Tinilmaldur, Cadrieriand,
+		Fithrawyn, E‰ruldur, Sebrilith, HÛng 
 	</namelist>
 	<namelist type="DrowFemale">
-		L√≥m√≥lith, Vorficlya, Isebrilia, N√©ndra, Anodia, Hodith, Galirith, Selith,
-		Culith, Galaclya, Hebrithien, Nithiel, Pothiel, Celebriclya, E√§raralia,
-		Elvuclya, Glaraclya, N√©ndra, Gaviel, L√≥madrielia
+		LÛmÛlith, Vorficlya, Isebrilia, NÈndra, Anodia, Hodith, Galirith, Selith,
+		Culith, Galaclya, Hebrithien, Nithiel, Pothiel, Celebriclya, E‰raralia,
+		Elvuclya, Glaraclya, NÈndra, Gaviel, LÛmadrielia
 	</namelist>
 	<namelist type="BacktrolMale">
 		A'ler, Brontus, Carl, D'mere, Echta, Lan'ro, Be'rathis, Hat'usta, Tai, Ered'i, Ker'peln, Rilato,

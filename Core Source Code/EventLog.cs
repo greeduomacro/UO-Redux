@@ -22,46 +22,38 @@ using System;
 using System.Diagnostics;
 using DiagELog = System.Diagnostics.EventLog;
 
-namespace Server
-{
-	public static class EventLog
-	{
-		static EventLog()
-		{
-			if ( !DiagELog.SourceExists( "Project1501" ) )
-			{
-				DiagELog.CreateEventSource( "Project1501", "Application" );
-			}
-		}
+namespace Server {
+    public static class EventLog {
+        public static readonly string SystemName = "RunUO";
 
-		public static void Error( int eventID, string text )
-		{
-			DiagELog.WriteEntry( "Project1501", text, EventLogEntryType.Error, eventID );
-		}
+        static EventLog() {
+            if(!DiagELog.SourceExists(SystemName)) {
+                DiagELog.CreateEventSource(SystemName, "Application");
+            }
+        }
 
-		public static void Error( int eventID, string format, params object[] args )
-		{
-			Error( eventID, String.Format( format, args ) );
-		}
+        public static void Error(int eventID, string text) {
+            DiagELog.WriteEntry(SystemName, text, EventLogEntryType.Error, eventID);
+        }
 
-		public static void Warning( int eventID, string text )
-		{
-			DiagELog.WriteEntry( "Project1501", text, EventLogEntryType.Warning, eventID );
-		}
+        public static void Error(int eventID, string format, params object[] args) {
+            Error(eventID, String.Format(format, args));
+        }
 
-		public static void Warning( int eventID, string format, params object[] args )
-		{
-			Warning( eventID, String.Format( format, args ) );
-		}
+        public static void Warning(int eventID, string text) {
+            DiagELog.WriteEntry(SystemName, text, EventLogEntryType.Warning, eventID);
+        }
 
-		public static void Inform( int eventID, string text )
-		{
-			DiagELog.WriteEntry( "Project1501", text, EventLogEntryType.Information, eventID );
-		}
+        public static void Warning(int eventID, string format, params object[] args) {
+            Warning(eventID, String.Format(format, args));
+        }
 
-		public static void Inform( int eventID, string format, params object[] args )
-		{
-			Inform( eventID, String.Format( format, args ) );
-		}
-	}
+        public static void Inform(int eventID, string text) {
+            DiagELog.WriteEntry(SystemName, text, EventLogEntryType.Information, eventID);
+        }
+
+        public static void Inform(int eventID, string format, params object[] args) {
+            Inform(eventID, String.Format(format, args));
+        }
+    }
 }

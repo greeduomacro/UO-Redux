@@ -231,7 +231,7 @@ public partial class LineOfSight
     public void Clear( )
     {
         m_cache = new Cache<VisibilityMatrix,int>(m_size);
-        Console.WriteLine("LOS: Cache Cleared for map \"{0}\"", m_map.Name);
+        Console.WriteLine("LOS: Cache cleared for map \"{0}\"", m_map.Name);
     }
 
     //--------------------------------------------------------------------------

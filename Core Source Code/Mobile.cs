@@ -964,9 +964,6 @@ namespace Server
                 if( max < min )
                     max = min;
 
-                if(this.Player)
-                //Console.WriteLine("Resistance {0}: {1} (min={2} max={3})", (ResistanceType)i, m_Resistances[i], min, max);
-
                 if( m_Resistances[i] > max )
                     m_Resistances[i] = max;
                 else if( m_Resistances[i] < min )

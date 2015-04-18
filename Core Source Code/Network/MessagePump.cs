@@ -1,4 +1,13 @@
-//UOAberration Copyright 2014
+/***************************************************************************
+ *                               MessagePump.cs
+ *                            -------------------
+ *   begin                : May 1, 2002
+ *   copyright            : (C) The RunUO Software Team
+ *   email                : info@runuo.com
+ *
+ *   $Id: MessagePump.cs 402 2009-10-17 07:28:17Z mark $
+ *
+ ***************************************************************************/
 
 /***************************************************************************
  *
@@ -19,7 +28,6 @@ using System.Threading;
 using Server;
 using Server.Diagnostics;
 using Server.Network;
-using Server.Accounting;
 
 namespace Server.Network
 {
@@ -137,27 +145,6 @@ namespace Server.Network
 
 			if( buffer == null || buffer.Length <= 0 )
 				return true;
-
-            //NetState[] states;
-            //states = NetState.Instances.ToArray();
-            //int duplicateStates = 0;
-            //bool beyondLimit = false;
-
-            //for (int x = 0; x < states.Length; x++)
-            //{
-            //    if (states[x].Address == ns.Address) duplicateStates++;
-            //    if (duplicateStates > 3)
-            //    {
-            //        beyondLimit = true; break;
-            //    }
-            //}
-
-            //if (beyondLimit)
-            //{
-            //    Console.WriteLine("Client: {0}: Exceeded connection limit, disconnecting", ns);
-            //    ns.Dispose();
-            //    return false;
-            //}
 
 			lock( buffer )
 			{

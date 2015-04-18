@@ -1,3 +1,13 @@
+/***************************************************************************
+ *                              AssemblyInfo.cs
+ *                            -------------------
+ *   begin                : May 1, 2002
+ *   copyright            : (C) The RunUO Software Team
+ *   email                : info@runuo.com
+ *
+ *   $Id: AssemblyInfo.cs 400 2009-10-07 10:25:04Z mark $
+ *
+ ***************************************************************************/
 
 /***************************************************************************
  *
@@ -10,17 +20,16 @@
 
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 
 //
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: AssemblyTitle("Aberration Core : RunUO")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("0.0.8")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyTitle("RunUO Server Core")]	//Having just RunUO there is reundant, ie, RunUO.exe with the word 'RunUO' under it
+[assembly: AssemblyDescription("UO Server Software")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("The RunUO Team")]
 [assembly: AssemblyProduct("")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
@@ -37,7 +46,7 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
 
-[assembly: AssemblyVersion("0.0.8")]
+[assembly: AssemblyVersion("2.1.*")]
 
 //
 // In order to sign your assembly you must specify a key to use. Refer to the 
@@ -67,5 +76,3 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyKeyFile("")]
 [assembly: AssemblyKeyName("")]
-
-[assembly: ComVisible(false)]

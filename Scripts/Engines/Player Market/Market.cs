@@ -27,11 +27,11 @@ namespace Server.Market
 
         public static void Initialize()
         {
-            SQLConn = new SQLiteConnection(String.Format("Data Source={0}", DBFile));
-            SetupDatabase();
-
-            if( Enabled )
+            if( Enabled ) 
             {
+                SQLConn = new SQLiteConnection(String.Format("Data Source={0}", DBFile));
+                SetupDatabase();
+
                 CommandSystem.Register("MyMarket", AccessLevel.Player, new CommandEventHandler(MyMarket_OnCommand));
                 CommandSystem.Register("ViewMarket", AccessLevel.Player, new CommandEventHandler(ViewMarket_OnCommand));
             }
