@@ -12,8 +12,6 @@ namespace Server.Misc
     {
         private static Mobile m_Mobile;
 
-        public static CityInfo StartingCity = new CityInfo("Britain", "Blackthorn Castle", 1523, 1456, 15, Map.Felucca);
-
         public static void Initialize()
         {
             EventSink.CharacterCreated += new CharacterCreatedEventHandler(EventSink_CharacterCreated);
@@ -469,14 +467,15 @@ namespace Server.Misc
 
             FillBankbox(newChar);
 
-            newChar.MoveToWorld(StartingCity.Location, StartingCity.Map);
+            CityInfo ci = args.City;
+            newChar.MoveToWorld(ci.Location, ci.Map);
 
-            ((Player)newChar).RespawnLocation = StartingCity.Location;
-            ((Player)newChar).RespawnMap = StartingCity.Map;
+            ((Player)newChar).RespawnLocation = ci.Location;
+            ((Player)newChar).RespawnMap = ci.Map;
 
             Console.WriteLine("Login: {0}: New character being created (account={1})", args.State, args.Account.Username);
             Console.WriteLine(" - Character: {0} (serial={1})", newChar.Name, newChar.Serial);
-            Console.WriteLine(" - Started: {0} {1} in {2}", StartingCity.City, StartingCity.Location, StartingCity.Map.ToString());
+            Console.WriteLine(" - Started: {0} {1} in {2}", ci.City, ci.Location, ci.Map.ToString());
 
             new WelcomeTimer(newChar).Start();
         }

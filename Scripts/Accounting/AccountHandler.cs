@@ -38,18 +38,18 @@ namespace Server.Misc
             set { m_LockdownLevel = value; }
         }
 
-        private static CityInfo[] StartingCities = new CityInfo[]
+        public static CityInfo[] StartingCities = new CityInfo[]
 			{
-				new CityInfo( "Yew",		"The Empath Abbey",			633,	858,	0  ),
-				new CityInfo( "Minoc",		"The Barnacle",				2476,	413,	15 ),
-				new CityInfo( "Britain",	"Sweet Dreams Inn",			1496,	1628,	10 ),
-				new CityInfo( "Moonglow",	"The Scholars Inn",			4408,	1168,	0  ),
-				new CityInfo( "Trinsic",	"The Traveler's Inn",		1845,	2745,	0  ),
-				new CityInfo( "Magincia",	"The Great Horns Tavern",	3734,	2222,	20 ),
-				new CityInfo( "Jhelom",		"The Mercenary Inn",		1374,	3826,	0  ),
-				new CityInfo( "Skara Brae",	"The Falconer's Inn",		618,	2234,	0  ),
-				new CityInfo( "Vesper",		"The Ironwood Inn",			2771,	976,	0  ),
-				new CityInfo( "Haven",		"Buckler's Hideaway",		3667,	2625,	0  )
+				new CityInfo( "Yew",		"The Empath Abbey",			1075072,    633,	858,	0,  Map.Felucca ),
+				new CityInfo( "Minoc",		"The Barnacle",				1075073,    2476,	413,	15, Map.Felucca ),
+				new CityInfo( "Britain",	"Sweet Dreams Inn",			1075074,    1496,	1628,	10, Map.Felucca ),
+				new CityInfo( "Moonglow",	"The Scholars Inn",			1075075,    4408,	1168,	0,  Map.Felucca ),
+				new CityInfo( "Trinsic",	"The Traveler's Inn",		1075076,    1845,	2745,	0,  Map.Felucca ),
+				new CityInfo( "Magincia",	"The Great Horns Tavern",	1075077,    3734,	2222,	20, Map.Felucca ),
+				new CityInfo( "Jhelom",		"The Mercenary Inn",		1075078,    1374,	3826,	0,  Map.Felucca ),
+				new CityInfo( "Skara Brae",	"The Falconer's Inn",       1075079,    618,	2234,	0,  Map.Felucca ),
+				new CityInfo( "Vesper",		"The Ironwood Inn",			1075080,    2771,	976,	0,  Map.Felucca ),
+				new CityInfo( "Haven",		"Buckler's Hideaway",		1150168,    3667,	2625,	0,  Map.Felucca )
 			};
 
         private static bool PasswordCommandEnabled = true;

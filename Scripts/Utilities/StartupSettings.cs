@@ -112,10 +112,10 @@ namespace Server.Utilities
                         pl.EoCLedger = new EssenceOfCharacter.EoCLedger(pl);
 
                     if(pl.RespawnLocation == Point3D.Zero)
-                        pl.RespawnLocation = CharacterCreation.StartingCity.Location;
+                        pl.RespawnLocation = AccountHandler.StartingCities[0].Location;
 
                     if(pl.RespawnMap == null || pl.RespawnMap == Map.Internal)
-                        pl.RespawnMap = CharacterCreation.StartingCity.Map;
+                        pl.RespawnMap = AccountHandler.StartingCities[0].Map;
                 }
             }
         }
