@@ -1,10 +1,9 @@
-using System;
 using Server.Accounting;
+using Server.Currency;
 using Server.Items;
 using Server.Mobiles;
 using Server.Network;
-using Server.Gumps;
-using Server.Currency;
+using System;
 using System.Text.RegularExpressions;
 
 namespace Server.Misc
@@ -13,7 +12,7 @@ namespace Server.Misc
     {
         private static Mobile m_Mobile;
 
-        public static CityInfo StartingCity = new CityInfo("Raivac", "The Inn", 3383, 1930, 5, Map.Trammel);
+        public static CityInfo StartingCity = new CityInfo("Britain", "Blackthorn Castle", 1523, 1456, 15, Map.Felucca);
 
         public static void Initialize()
         {
@@ -21,15 +20,15 @@ namespace Server.Misc
         }
 
         #region +static bool VerifyProfession( int )
-        public static bool VerifyProfession( int profession )
+        public static bool VerifyProfession(int profession)
         {
-            if( profession < 0 )
+            if(profession < 0)
                 return false;
-            else if( profession < 4 )
+            else if(profession < 4)
                 return true;
-            else if( Core.AOS && profession < 6 )
+            else if(Core.AOS && profession < 6)
                 return true;
-            else if( Core.SE && profession < 8 )
+            else if(Core.SE && profession < 8)
                 return true;
             else
                 return false;
@@ -37,11 +36,11 @@ namespace Server.Misc
         #endregion
 
         #region -static void AddBackpack( Mobile )
-        private static void AddBackpack( Mobile m )
+        private static void AddBackpack(Mobile m)
         {
             Container pack = m.Backpack;
 
-            if( pack == null )
+            if(pack == null)
             {
                 pack = new Backpack();
                 pack.Movable = false;
@@ -52,9 +51,9 @@ namespace Server.Misc
         #endregion
 
         #region -static void AddSkillItems( SkillName, Mobile )
-        private static void AddSkillItems( SkillName skill, Mobile m )
+        private static void AddSkillItems(SkillName skill, Mobile m)
         {
-            switch( skill )
+            switch(skill)
             {
                 case SkillName.Alchemy:
                     {
@@ -90,7 +89,7 @@ namespace Server.Misc
                     }
                 case SkillName.ArmsLore:
                     {
-                        switch( Utility.Random(3) )
+                        switch(Utility.Random(3))
                         {
                             case 0: EquipItem(new Kryss()); break;
                             case 1: EquipItem(new Katana()); break;
@@ -242,9 +241,9 @@ namespace Server.Misc
                         BagOfReagents regs = new BagOfReagents(50);
                         regs.LootType = LootType.Regular;
 
-                        if( !Core.ML )
+                        if(!Core.ML)
                         {
-                            foreach( Item item in regs.Items )
+                            foreach(Item item in regs.Items)
                                 item.LootType = LootType.Newbied;
                         }
 
@@ -334,11 +333,11 @@ namespace Server.Misc
                     }
                 case SkillName.Tracking:
                     {
-                        if( m_Mobile != null )
+                        if(m_Mobile != null)
                         {
                             Item shoes = m_Mobile.FindItemOnLayer(Layer.Shoes);
 
-                            if( shoes != null )
+                            if(shoes != null)
                                 shoes.Delete();
                         }
 
@@ -364,14 +363,14 @@ namespace Server.Misc
         }
         #endregion
 
-        private static Mobile CreateMobile( Account a )
+        private static Mobile CreateMobile(Account a)
         {
-            if( a.Count >= a.Limit || a.Count >= AccountHandler.ServerLimit )
+            if(a.Count >= a.Limit || a.Count >= AccountHandler.ServerLimit)
                 return null;
 
-            for( int i = 0; i < a.Length; ++i )
+            for(int i = 0; i < a.Length; ++i)
             {
-                if( a[i] == null )
+                if(a[i] == null)
                     return (a[i] = new Player());
             }
 
@@ -379,36 +378,36 @@ namespace Server.Misc
         }
 
         #region -static void EquipItem(...)
-        private static void EquipItem( Item item )
+        private static void EquipItem(Item item)
         {
             EquipItem(item, false);
         }
 
-        private static void EquipItem( Item item, bool mustEquip )
+        private static void EquipItem(Item item, bool mustEquip)
         {
-            if( !Core.SE )
+            if(!Core.SE)
                 item.LootType = LootType.Newbied;
 
-            if( m_Mobile != null && m_Mobile.EquipItem(item) )
+            if(m_Mobile != null && m_Mobile.EquipItem(item))
                 return;
 
             Container pack = m_Mobile.Backpack;
 
-            if( !mustEquip && pack != null )
+            if(!mustEquip && pack != null)
                 pack.DropItem(item);
             else
                 item.Delete();
         }
         #endregion
 
-        private static void EventSink_CharacterCreated( CharacterCreatedEventArgs args )
+        private static void EventSink_CharacterCreated(CharacterCreatedEventArgs args)
         {
-            if( !VerifyProfession(args.Profession) )
+            if(!VerifyProfession(args.Profession))
                 args.Profession = 0;
 
             Mobile newChar = CreateMobile(args.Account as Account);
 
-            if( newChar == null )
+            if(newChar == null)
             {
                 Console.WriteLine("Login: {0}: Character creation failed, account full", args.State);
                 return;
@@ -424,8 +423,8 @@ namespace Server.Misc
             newChar.Hue = Utility.ClipSkinHue(args.Hue & 0x3FFF) | 0x8000;
             newChar.Hunger = 20;
             newChar.Thirst = 20;
-            newChar.SkillsCap = 9000;
-            newChar.StatCap = 325;
+            newChar.SkillsCap = 7000;
+            newChar.StatCap = 225;
             newChar.Name = args.Name;
             newChar.RawInt = 75;
             newChar.RawDex = 75;
@@ -443,86 +442,19 @@ namespace Server.Misc
 
             AddBackpack(newChar);
 
-            newChar.AddToBackpack( new Silver(100) );
-            newChar.AddToBackpack( new Copper(500) );
+            newChar.AddToBackpack(new Silver(100));
+            newChar.AddToBackpack(new Copper(500));
 
-            newChar.AddToBackpack( new SkillScroll() );
+            newChar.AddToBackpack(new SkillScroll());
 
-            SkillName[] emptySkills = new SkillName[]
-				{
-
-                    #region SkillNames
-                    SkillName.Alchemy,
-                    SkillName.Anatomy,
-                    SkillName.AnimalLore,
-                    SkillName.ItemID,      
-                    SkillName.ArmsLore,
-                    SkillName.Parry,
-                    SkillName.Begging,
-                    SkillName.Blacksmith,
-                    SkillName.Fletching,
-                    SkillName.Peacemaking,
-                    SkillName.Camping,
-                    SkillName.Carpentry,
-                    SkillName.Cartography,
-                    SkillName.Cooking,
-                    SkillName.DetectHidden,
-                    SkillName.Discordance,
-                    SkillName.EvalInt,
-                    SkillName.Healing,
-                    SkillName.Fishing,
-                    SkillName.Forensics,
-                    SkillName.Herding,
-                    SkillName.Hiding,
-                    SkillName.Provocation,
-                    SkillName.Inscribe,
-                    SkillName.Lockpicking,
-                    SkillName.Magery,
-                    SkillName.MagicResist,
-                    SkillName.Tactics,
-                    SkillName.Snooping,
-                    SkillName.Musicianship,
-                    SkillName.Poisoning,
-                    SkillName.Archery,
-                    SkillName.SpiritSpeak,
-                    SkillName.Stealing,
-                    SkillName.Tailoring,
-                    SkillName.AnimalTaming,
-                    SkillName.TasteID,
-                    SkillName.Tinkering,
-                    SkillName.Tracking,
-                    SkillName.Veterinary,
-                    SkillName.Swords,
-                    SkillName.Macing,
-                    SkillName.Fencing,
-                    SkillName.Wrestling,
-                    SkillName.Lumberjacking,
-                    SkillName.Mining,
-                    SkillName.Meditation,
-                    SkillName.Stealth,
-                    SkillName.RemoveTrap,
-                    SkillName.Necromancy,
-                    SkillName.Focus,
-                    //SkillName.Chivalry,
-                    //SkillName.Bushido,
-                    //SkillName.Ninjitsu,
-                    //SkillName.Spellweaving,
-                    //SkillName.Mysticism,
-                    //SkillName.Imbuing,
-                    //SkillName.Throwing
-                    #endregion
-
-				};
-
-            for( int i = 0; i < SkillInfo.Table.Length; i++ )
+            for(int i = 0; i < SkillInfo.Table.Length; i++)
             {
                 newChar.Skills[i].Base = 0;
 
-                if( Array.IndexOf<SkillName>(emptySkills, newChar.Skills[i].SkillName) > -1 )
-                    newChar.Skills[i].Cap = 100;
-
-                else
+                if(SkillInfo.Table[i].SkillID >= (int)SkillName.Necromancy)
                     newChar.Skills[i].Cap = 0;
+                else
+                    newChar.Skills[i].Cap = 100;
             }
 
             newChar.HairItemID = args.HairID;
@@ -550,36 +482,36 @@ namespace Server.Misc
         }
 
         #region -static void FixStat( ref int, int)
-        private static void FixStat( ref int stat, int diff )
+        private static void FixStat(ref int stat, int diff)
         {
             stat += diff;
 
-            if( stat < 0 )
+            if(stat < 0)
                 stat = 0;
-            else if( stat > 50 )
+            else if(stat > 50)
                 stat = 50;
         }
         #endregion
 
         #region -static void FixStats( ref int, ref int, ref int )
-        private static void FixStats( ref int str, ref int dex, ref int intel )
+        private static void FixStats(ref int str, ref int dex, ref int intel)
         {
             int vStr = str - 10;
             int vDex = dex - 10;
             int vInt = intel - 10;
 
-            if( vStr < 0 )
+            if(vStr < 0)
                 vStr = 0;
 
-            if( vDex < 0 )
+            if(vDex < 0)
                 vDex = 0;
 
-            if( vInt < 0 )
+            if(vInt < 0)
                 vInt = 0;
 
             int total = vStr + vDex + vInt;
 
-            if( total == 0 || total == 50 )
+            if(total == 0 || total == 50)
                 return;
 
             double scalar = 50 / (double)total;
@@ -601,7 +533,7 @@ namespace Server.Misc
         #region -static void PackInstrument()
         private static void PackInstrument()
         {
-            switch( Utility.Random(6) )
+            switch(Utility.Random(6))
             {
                 case 0: PackItem(new Drums()); break;
                 case 1: PackItem(new Harp()); break;
@@ -614,14 +546,14 @@ namespace Server.Misc
         #endregion
 
         #region -static void PackItem( Item )
-        private static void PackItem( Item item )
+        private static void PackItem(Item item)
         {
-            if( !Core.SE )
+            if(!Core.SE)
                 item.LootType = LootType.Newbied;
 
             Container pack = m_Mobile.Backpack;
 
-            if( pack != null )
+            if(pack != null)
                 pack.DropItem(item);
             else
                 item.Delete();
@@ -629,9 +561,9 @@ namespace Server.Misc
         #endregion
 
         #region -static void PackScroll( int )
-        private static void PackScroll( int circle )
+        private static void PackScroll(int circle)
         {
-            switch( Utility.Random(8) * (circle * 8) )
+            switch(Utility.Random(8) * (circle * 8))
             {
                 case 0: PackItem(new ClumsyScroll()); break;
                 case 1: PackItem(new CreateFoodScroll()); break;
@@ -662,16 +594,16 @@ namespace Server.Misc
         #endregion
 
         #region -static void SetName( Mobile, string )
-        private static void SetName( Mobile m, string name )
+        private static void SetName(Mobile m, string name)
         {
             bool badName = false;
             name = name.Trim();
 
-            for( int i = 0; i < m.Account.Length; i++ )
+            for(int i = 0; i < m.Account.Length; i++)
             {
-                if( m.Account[i] != null )
+                if(m.Account[i] != null)
                 {
-                    if( Insensitive.Compare(m.Account[i].RawName, name) == 0 )
+                    if(Insensitive.Compare(m.Account[i].RawName, name) == 0)
                         badName = true;
                 }
             }
@@ -679,10 +611,10 @@ namespace Server.Misc
             Regex rx = new Regex(" ");
             Match match = rx.Match(name);
 
-            if (match.Success)
+            if(match.Success)
                 badName = true;
 
-            if( badName || !NameVerification.Validate(name, 2, 16, true, true, true, 1, NameVerification.SpaceDashPeriodQuote) )
+            if(badName || !NameVerification.Validate(name, 2, 16, true, true, true, 1, NameVerification.SpaceDashPeriodQuote))
                 name = NameList.RandomName(m.Female ? "female" : "male");
 
             m.Name = name;
@@ -691,11 +623,11 @@ namespace Server.Misc
 
 
         #region -static void SetStats( Mobile, int, int, int )
-        private static void SetStats( Mobile m, int str, int dex, int intel )
+        private static void SetStats(Mobile m, int str, int dex, int intel)
         {
             FixStats(ref str, ref dex, ref intel);
 
-            if( str < 10 || str > 60 || dex < 10 || dex > 60 || intel < 10 || intel > 60 || (str + dex + intel) != 80 )
+            if(str < 10 || str > 60 || dex < 10 || dex > 60 || intel < 10 || intel > 60 || (str + dex + intel) != 80)
             {
                 str = 10;
                 dex = 10;
@@ -707,20 +639,20 @@ namespace Server.Misc
         #endregion
 
         #region -static bool ValidSkills( SkillNameValue[] )
-        private static bool ValidSkills( SkillNameValue[] skills )
+        private static bool ValidSkills(SkillNameValue[] skills)
         {
             int total = 0;
 
-            for( int i = 0; i < skills.Length; ++i )
+            for(int i = 0; i < skills.Length; ++i)
             {
-                if( skills[i].Value < 0 || skills[i].Value > 50 )
+                if(skills[i].Value < 0 || skills[i].Value > 50)
                     return false;
 
                 total += skills[i].Value;
 
-                for( int j = i + 1; j < skills.Length; ++j )
+                for(int j = i + 1; j < skills.Length; ++j)
                 {
-                    if( skills[j].Value > 0 && skills[j].Name == skills[i].Name )
+                    if(skills[j].Value > 0 && skills[j].Name == skills[i].Name)
                         return false;
                 }
             }
@@ -730,25 +662,25 @@ namespace Server.Misc
         #endregion
 
         #region Item/BankBox Additions
-        private static void PlaceItemIn( Container parent, int x, int y, Item item )
+        private static void PlaceItemIn(Container parent, int x, int y, Item item)
         {
             parent.AddItem(item);
             item.Location = new Point3D(x, y, 0);
         }
 
-        private static void FillBankbox( Mobile m )
+        private static void FillBankbox(Mobile m)
         {
             BankBox bank = m.BankBox;
 
-            if( bank == null )
+            if(bank == null)
                 return;
         }
 
-        private static void AddShirt( Mobile m, int shirtHue )
+        private static void AddShirt(Mobile m, int shirtHue)
         {
             int hue = Utility.ClipDyedHue(shirtHue & 0x3FFF);
 
-            switch( Utility.Random(3) )
+            switch(Utility.Random(3))
             {
                 case 0: EquipItem(new Shirt(hue), true); break;
                 case 1: EquipItem(new FancyShirt(hue), true); break;
@@ -756,17 +688,17 @@ namespace Server.Misc
             }
         }
 
-        private static void AddPants( Mobile m, int pantsHue )
+        private static void AddPants(Mobile m, int pantsHue)
         {
             int hue = Utility.ClipDyedHue(pantsHue & 0x3FFF);
 
-            if( m.Female )
+            if(m.Female)
                 EquipItem(new Skirt(hue), true);
             else
                 EquipItem(new LongPants(hue), true);
         }
 
-        private static void AddShoes( Mobile m )
+        private static void AddShoes(Mobile m)
         {
             EquipItem(new Shoes(Utility.RandomYellowHue()), true);
         }

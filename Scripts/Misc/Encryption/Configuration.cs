@@ -8,6 +8,7 @@ namespace Server.Customs.Encryption
 
         public static LoginKey[] LoginKeys = new LoginKey[]
 		{
+            new LoginKey("7.0.45 2D",       0x2644752D, 0xA66A1E7F),
             new LoginKey("7.0.35 2D",       0x283235CD, 0xA1345E7F),
             new LoginKey("7.0.34 2D",       0x28EAAFDD, 0xA157227F),
             new LoginKey("7.0.33 2D",       0x28A325ED, 0xA1767E7F),

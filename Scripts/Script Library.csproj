@@ -7,8 +7,8 @@
     <ProjectGuid>{4B520937-B40B-48C0-BC3B-EF2C2D3935BD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Script_Library</RootNamespace>
-    <AssemblyName>Script Library</AssemblyName>
+    <RootNamespace>Server</RootNamespace>
+    <AssemblyName>Scripts.CS</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

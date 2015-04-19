@@ -11,3 +11,6 @@
 /Server.debug.vshost.exe.config
 /Server.debug.vshost.exe.manifest
 /Logs
+/Saves
+/Data/treasure.cfg
+/Data/market.db3
