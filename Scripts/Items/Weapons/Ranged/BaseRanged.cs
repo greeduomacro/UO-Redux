@@ -1,8 +1,8 @@
-using System;
 using Server.Mobiles;
 using Server.Network;
 using Server.Perks;
 using Server.Spells;
+using System;
 
 namespace Server.Items
 {
@@ -23,24 +23,24 @@ namespace Server.Items
 
         private Timer m_RecoveryTimer; // so we don't start too many timers
 
-        public BaseRanged( int itemID )
+        public BaseRanged(int itemID)
             : base(itemID)
         {
             Resource = CraftResource.RegularWood;
         }
 
-        public BaseRanged( Serial serial )
+        public BaseRanged(Serial serial)
             : base(serial)
         {
         }
 
         public override bool OnEquip(Mobile from)
         {
-            if (from is Player)
+            if(from is Player)
             {
                 Marksman mm = Perk.GetByType<Marksman>((Player)from);
 
-                if (mm != null && mm.LongShot() == true)
+                if(mm != null && mm.LongShot() == true)
                 {
                     this.MaxRange += 3;
                     mm.BowConverted = true;
@@ -50,15 +50,15 @@ namespace Server.Items
             return base.OnEquip(from);
         }
 
-        public override void OnRemoved(object parent)
+        public override void OnRemoved(IEntity parent)
         {
-            if (parent is Player)
+            if(parent is Player)
             {
                 Marksman mm = Perk.GetByType<Marksman>((Player)parent);
 
-                if (mm != null && mm.LongShot() == true)
+                if(mm != null && mm.LongShot() == true)
                 {
-                    if (mm.BowConverted)
+                    if(mm.BowConverted)
                     {
                         this.MaxRange -= 3;
                         mm.BowConverted = false;
@@ -69,23 +69,23 @@ namespace Server.Items
             base.OnRemoved(parent);
         }
 
-        public override TimeSpan OnSwing( Mobile attacker, Mobile defender )
+        public override TimeSpan OnSwing(Mobile attacker, Mobile defender)
         {
             WeaponAbility a = WeaponAbility.GetCurrentAbility(attacker);
 
-            if (this.Parent is Player)
+            if(this.Parent is Player)
             {
                 Marksman mm = Perk.GetByType<Marksman>((Player)this.Parent);
 
-                if (mm != null && mm.RunAndGun())
+                if(mm != null && mm.RunAndGun())
                 {
                     bool canSwing = true;
 
-                    if (Core.AOS)
+                    if(Core.AOS)
                     {
                         canSwing = (!attacker.Paralyzed && !attacker.Frozen);
 
-                        if (canSwing)
+                        if(canSwing)
                         {
                             Spell sp = attacker.Spell as Spell;
 
@@ -93,16 +93,16 @@ namespace Server.Items
                         }
                     }
 
-                    if (canSwing && attacker.HarmfulCheck(defender))
+                    if(canSwing && attacker.HarmfulCheck(defender))
                     {
                         attacker.DisruptiveAction();
                         attacker.Send(new Swing(0, attacker, defender));
 
                         Item weapon = this as BaseRanged;
 
-                        if (weapon != null)
+                        if(weapon != null)
                         {
-                            if (((Player)this.Parent).Stam < (int)(((weapon.Weight + 2) / 2) + 3))
+                            if(((Player)this.Parent).Stam < (int)(((weapon.Weight + 2) / 2) + 3))
                             {
                                 canSwing = false;
                                 ((Player)this.Parent).SendMessage("You do not have the stamina to draw your bow.");
@@ -113,9 +113,9 @@ namespace Server.Items
                             }
                         }
 
-                        if (OnFired(attacker, defender))
+                        if(OnFired(attacker, defender))
                         {
-                            if (CheckHit(attacker, defender))
+                            if(CheckHit(attacker, defender))
                                 OnHit(attacker, defender);
                             else
                                 OnMiss(attacker, defender);
@@ -129,15 +129,15 @@ namespace Server.Items
             }
 
             // Make sure we've been standing still for .25/.5/1 second depending on Era
-            if( DateTime.Now > (attacker.LastMoveTime + TimeSpan.FromSeconds(Core.SE ? 0.25 : (Core.AOS ? 0.5 : 1.0))) || (Core.AOS && WeaponAbility.GetCurrentAbility(attacker) is MovingShot) )
+            if(DateTime.Now > (attacker.LastMoveTime + TimeSpan.FromSeconds(Core.SE ? 0.25 : (Core.AOS ? 0.5 : 1.0))) || (Core.AOS && WeaponAbility.GetCurrentAbility(attacker) is MovingShot))
             {
                 bool canSwing = true;
 
-                if( Core.AOS )
+                if(Core.AOS)
                 {
                     canSwing = (!attacker.Paralyzed && !attacker.Frozen);
 
-                    if( canSwing )
+                    if(canSwing)
                     {
                         Spell sp = attacker.Spell as Spell;
 
@@ -145,7 +145,7 @@ namespace Server.Items
                     }
                 }
 
-                if( canSwing && attacker.HarmfulCheck(defender) )
+                if(canSwing && attacker.HarmfulCheck(defender))
                 {
                     attacker.DisruptiveAction();
                     attacker.Send(new Swing(0, attacker, defender));
@@ -153,11 +153,11 @@ namespace Server.Items
                     Item weapon = this as BaseRanged;
 
 
-                    if (Parent is Player)
+                    if(Parent is Player)
                     {
-                        if (weapon != null)
+                        if(weapon != null)
                         {
-                            if (((Player)this.Parent).Stam < (int)(((weapon.Weight + 2) / 2) + 3))
+                            if(((Player)this.Parent).Stam < (int)(((weapon.Weight + 2) / 2) + 3))
                             {
                                 canSwing = false;
                                 ((Player)this.Parent).SendMessage("You do not have the stamina to draw your bow.");
@@ -169,9 +169,9 @@ namespace Server.Items
                         }
                     }
 
-                    if( OnFired(attacker, defender) )
+                    if(OnFired(attacker, defender))
                     {
-                        if( CheckHit(attacker, defender) )
+                        if(CheckHit(attacker, defender))
                             OnHit(attacker, defender);
                         else
                             OnMiss(attacker, defender);
@@ -190,17 +190,17 @@ namespace Server.Items
             }
         }
 
-        public override bool CheckHit( Mobile attacker, Mobile defender )
+        public override bool CheckHit(Mobile attacker, Mobile defender)
         {
-            if (defender is Player)
+            if(defender is Player)
             {
                 Legionnaire leg = Perk.GetByType<Legionnaire>((Player)defender);
 
-                if (leg != null)                 
+                if(leg != null)
                 {
-                    if (base.CheckHit(attacker, defender))
+                    if(base.CheckHit(attacker, defender))
                     {
-                        if (leg.TryDodgeMissile())
+                        if(leg.TryDodgeMissile())
                         {
                             return false;
                         }
@@ -213,15 +213,15 @@ namespace Server.Items
             return base.CheckHit(attacker, defender);
         }
 
-        public override void OnHit( Mobile attacker, Mobile defender, double damageBonus )
+        public override void OnHit(Mobile attacker, Mobile defender, double damageBonus)
         {
-            if( attacker.Player && !defender.Player && (defender.Body.IsAnimal || defender.Body.IsMonster) && 0.4 >= Utility.RandomDouble() )
+            if(attacker.Player && !defender.Player && (defender.Body.IsAnimal || defender.Body.IsMonster) && 0.4 >= Utility.RandomDouble())
                 defender.AddToBackpack(Ammo);
 
-            if( attacker.Player)
+            if(attacker.Player)
             {
                 Marksman mm = Perk.GetByType<Marksman>((Player)attacker);
-                if (mm != null)
+                if(mm != null)
                 {
                     mm.WoundingShot(attacker, defender);
                 }
@@ -230,29 +230,29 @@ namespace Server.Items
             base.OnHit(attacker, defender, damageBonus);
         }
 
-        public override void OnMiss( Mobile attacker, Mobile defender )
+        public override void OnMiss(Mobile attacker, Mobile defender)
         {
-            if( attacker.Player && 0.4 >= Utility.RandomDouble() )
+            if(attacker.Player && 0.4 >= Utility.RandomDouble())
             {
-                if( Core.AOS )
+                if(Core.AOS)
                 {
                     PlayerMobile p = attacker as PlayerMobile;
 
-                    if( p != null )
+                    if(p != null)
                     {
                         Type ammo = AmmoType;
 
-                        if( p.RecoverableAmmo.ContainsKey(ammo) )
+                        if(p.RecoverableAmmo.ContainsKey(ammo))
                             p.RecoverableAmmo[ammo]++;
                         else
                             p.RecoverableAmmo.Add(ammo, 1);
 
-                        if( !p.Warmode )
+                        if(!p.Warmode)
                         {
-                            if( m_RecoveryTimer == null )
+                            if(m_RecoveryTimer == null)
                                 m_RecoveryTimer = Timer.DelayCall(TimeSpan.FromSeconds(10), new TimerCallback(p.RecoverAmmo));
 
-                            if( !m_RecoveryTimer.Running )
+                            if(!m_RecoveryTimer.Running)
                                 m_RecoveryTimer.Start();
                         }
                     }
@@ -266,12 +266,12 @@ namespace Server.Items
             base.OnMiss(attacker, defender);
         }
 
-        public virtual bool OnFired( Mobile attacker, Mobile defender )
+        public virtual bool OnFired(Mobile attacker, Mobile defender)
         {
             Container pack = attacker.Backpack;
             Quiver quiver = attacker.FindItemOnLayer(Layer.Cloak) as Quiver;
 
-            if( quiver != null && quiver.ConsumeTotal(AmmoType, 1) )
+            if(quiver != null && quiver.ConsumeTotal(AmmoType, 1))
             {
                 quiver.UpdateTotals();
                 quiver.InvalidateProperties();
@@ -279,7 +279,7 @@ namespace Server.Items
                 attacker.MovingEffect(defender, EffectID, 18, 1, false, false);
                 return true;
             }
-            else if( pack != null && pack.ConsumeTotal(AmmoType, 1) )
+            else if(pack != null && pack.ConsumeTotal(AmmoType, 1))
             {
                 attacker.MovingEffect(defender, EffectID, 18, 1, false, false);
                 return true;
@@ -288,20 +288,20 @@ namespace Server.Items
             return false;
         }
 
-        public override void Serialize( GenericWriter writer )
+        public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
             writer.Write((int)2); // version
         }
 
-        public override void Deserialize( GenericReader reader )
+        public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
 
-            switch( version )
+            switch(version)
             {
                 case 2:
                 case 1:
@@ -316,7 +316,7 @@ namespace Server.Items
                     }
             }
 
-            if( version < 2 )
+            if(version < 2)
             {
                 WeaponAttributes.MageWeapon = 0;
                 WeaponAttributes.UseBestSkill = 0;

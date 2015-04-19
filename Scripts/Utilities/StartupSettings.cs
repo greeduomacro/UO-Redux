@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using Server.Items;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Network;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 
 namespace Server.Utilities
 {
@@ -32,23 +32,23 @@ namespace Server.Utilities
             sw.Stop();
             Console.WriteLine("done ({0:F2} second{1})", sw.Elapsed.TotalSeconds, ((int)sw.Elapsed.TotalSeconds == 1 ? "" : "s"));
 
-            if( DateTime.Now.DayOfWeek == TreasureRandomizationDay )
+            if(DateTime.Now.DayOfWeek == TreasureRandomizationDay)
                 RandomizeTreasureLocations();
         }
 
         #region -static void CloseDoors()
         private static void CloseDoors()
         {
-            foreach( Item i in World.Items.Values )
+            foreach(Item i in World.Items.Values)
             {
-                if( i is BaseDoor )
+                if(i is BaseDoor)
                     ((BaseDoor)i).Open = false;
             }
         }
         #endregion
 
         #region -static void HandleOnLogout( LogoutEventArgs )
-        private static void HandleOnLogout( LogoutEventArgs args )
+        private static void HandleOnLogout(LogoutEventArgs args)
         {
             Mobile m = args.Mobile;
 
@@ -68,29 +68,29 @@ namespace Server.Utilities
 					2702,	2704
 				};
 
-                foreach( Item item in m.GetItemsInRange(6) )
+                foreach(Item item in m.GetItemsInRange(6))
                 {
-                    for( int i = 0; !safe && i < bedID.Length; i++ )
+                    for(int i = 0; !safe && i < bedID.Length; i++)
                     {
-                        for( int j = 0; !safe && j < tiles.Length; j++ )
+                        for(int j = 0; !safe && j < tiles.Length; j++)
                         {
                             tileID = tiles[j].ID;
 
-                            if( tiles[j].Z == m.Z )
+                            if(tiles[j].Z == m.Z)
                                 safe = (tileID == bedID[i]) || (item.ItemID == bedID[i]);
                         }
                     }
                 }
 
-                if( safe )
+                if(safe)
                 {
                     ((PlayerMobile)m).BedrollLogout = true;
 
-                    if( state != null )
+                    if(state != null)
                         state.Dispose();
                 }
             }
-            catch( Exception e )
+            catch(Exception e)
             {
                 ExceptionManager.LogException("StartupSettings.cs", e);
             }
@@ -99,22 +99,22 @@ namespace Server.Utilities
 
         private static void ProcessMobiles()
         {
-            foreach( Mobile m in World.Mobiles.Values )
+            foreach(Mobile m in World.Mobiles.Values)
             {
-                if( m.Player )
+                if(m.Player)
                 {
                     Player pl = m as Player;
 
                     m.Hunger = 20;
                     m.Thirst = 20;
 
-                    if( pl.EoCLedger == null )
+                    if(pl.EoCLedger == null)
                         pl.EoCLedger = new EssenceOfCharacter.EoCLedger(pl);
 
-                    if( pl.RespawnLocation == Point3D.Zero )
+                    if(pl.RespawnLocation == Point3D.Zero)
                         pl.RespawnLocation = CharacterCreation.StartingCity.Location;
 
-                    if( pl.RespawnMap == null || pl.RespawnMap == Map.Internal )
+                    if(pl.RespawnMap == null || pl.RespawnMap == Map.Internal)
                         pl.RespawnMap = CharacterCreation.StartingCity.Map;
                 }
             }
@@ -124,7 +124,7 @@ namespace Server.Utilities
         {
             try
             {
-                if( Directory.Exists("Backups") )
+                if(Directory.Exists("Backups"))
                     DeleteOldBackups("Backups");
             }
             catch
@@ -136,15 +136,15 @@ namespace Server.Utilities
         }
 
         #region +static void DeleteOldBackups( string )
-        public static void DeleteOldBackups( string path )
+        public static void DeleteOldBackups(string path)
         {
             DirectoryInfo info = new DirectoryInfo(path);
             string[] subDirs = Directory.GetDirectories(path);
 
-            foreach( string dir in subDirs )
+            foreach(string dir in subDirs)
                 DeleteOldBackups(dir);
 
-            if( info.Name != "Backups" && info.CreationTime < (DateTime.Now.Subtract(TimeSpan.FromDays(5.0))) )
+            if(info.Name != "Backups" && info.CreationTime < (DateTime.Now.Subtract(TimeSpan.FromDays(5.0))))
             {
                 Directory.Delete(path, true);
             }
@@ -153,7 +153,7 @@ namespace Server.Utilities
 
         private static void RandomizeTreasureLocations()
         {
-            Map map = Map.Backtrol;
+            Map map = Map.Felucca;
             Rectangle2D[] TreasureBounds = new Rectangle2D[]
 				{
 					new Rectangle2D( 4312, 1148, 428, 920 ), new Rectangle2D( 3204, 1066, 716, 396 ),
@@ -169,26 +169,26 @@ namespace Server.Utilities
 
             try
             {
-                using( StreamWriter writer = new StreamWriter("Data/treasure.cfg", false) )
+                using(StreamWriter writer = new StreamWriter("Data/treasure.cfg", false))
                 {
                     List<IPoint2D> createdPoints = new List<IPoint2D>();
                     IPoint2D currPoint = Point2D.Zero;
                     Rectangle2D rect;
                     Region currReg;
 
-                    for( int i = 0, x = 0, y = 0; i < 400; i++ )
+                    for(int i = 0, x = 0, y = 0; i < 400; i++)
                     {
                         rect = TreasureBounds[Utility.Random(TreasureBounds.Length)];
                         x = Utility.Random(rect.X, rect.Width);
                         y = Utility.Random(rect.Y, rect.Height);
                         currPoint = new Point2D(x, y);
-                        currReg = Region.Find(new Point3D(currPoint, map.GetAverageZ(x, y)), Map.Backtrol);
+                        currReg = Region.Find(new Point3D(currPoint, map.GetAverageZ(x, y)), map);
 
-                        if( Server.Multis.BaseHouse.FindHouseAt(new Point3D(x, y, map.GetAverageZ(x, y)), map, 16) != null )
+                        if(Server.Multis.BaseHouse.FindHouseAt(new Point3D(x, y, map.GetAverageZ(x, y)), map, 16) != null)
                             continue;
-                        else if( currReg != null && (!currReg.AllowSpawn() || currReg is Server.Regions.GuardedRegion) )
+                        else if(currReg != null && (!currReg.AllowSpawn() || currReg is Server.Regions.GuardedRegion))
                             continue;
-                        else if( createdPoints.Contains(currPoint) || !map.CanSpawnMobile((Point2D)currPoint, map.GetAverageZ(x, y)) )
+                        else if(createdPoints.Contains(currPoint) || !map.CanSpawnMobile((Point2D)currPoint, map.GetAverageZ(x, y)))
                             continue;
 
                         createdPoints.Add(currPoint);
@@ -205,7 +205,7 @@ namespace Server.Utilities
 
                 Console.Write("done");
             }
-            catch( Exception e )
+            catch(Exception e)
             {
                 Utility.PushColor(ConsoleColor.Red);
                 Console.Write("failed!");

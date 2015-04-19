@@ -291,14 +291,7 @@ namespace Server.Perks
 
                         catch (Exception e)
                         {
-                            //Console.WriteLine();
-                            //Utility.PushColor(ConsoleColor.Yellow);
-                            //Console.Write("Warning: ");
-                            //Utility.PushColor(ConsoleColor.White);
-                            //Console.WriteLine("[Perks, OnWorldLoad ("+e.Message+")]");
-
-                            //if (e.InnerException != null)
-                            //Console.WriteLine("[Inner Exception: (" + e.InnerException + ")]");
+                            Utilities.ExceptionManager.LogException("Perk", e);
                         }
 
                         break;

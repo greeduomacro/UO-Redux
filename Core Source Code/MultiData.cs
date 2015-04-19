@@ -35,6 +35,10 @@ namespace Server
 		{
 			MultiComponentList mcl;
 
+			#region Stygian Abyss
+			multiID &= 0x3FFF; // The value of the actual multi is shifted by 0x4000, so this is left alone.
+			#endregion
+
 			if ( multiID >= 0 && multiID < m_Components.Length )
 			{
 				mcl = m_Components[multiID];
@@ -173,6 +177,11 @@ namespace Server
 
 		public void Add( int itemID, int x, int y, int z )
 		{
+			#region Stygian Abyss
+			itemID &= TileData.MaxItemValue;
+			itemID |= 0x10000;
+			#endregion
+
 			int vx = x + m_Center.m_X;
 			int vy = y + m_Center.m_Y;
 
@@ -513,7 +522,11 @@ namespace Server
 					int xOffset = allTiles[i].m_OffsetX + m_Center.m_X;
 					int yOffset = allTiles[i].m_OffsetY + m_Center.m_Y;
 
-					tiles[xOffset][yOffset].Add( (ushort)allTiles[i].m_ItemID, (sbyte)allTiles[i].m_OffsetZ );
+					#region Stygian Abyss
+					//tiles[xOffset][yOffset].Add( (ushort)allTiles[i].m_ItemID, (sbyte)allTiles[i].m_OffsetZ );
+					tiles[xOffset][yOffset].Add(
+						(ushort)((allTiles[i].m_ItemID & TileData.MaxItemValue) | 0x10000), (sbyte)allTiles[i].m_OffsetZ);
+					#endregion
 				}
 			}
 
@@ -578,7 +591,11 @@ namespace Server
 					int xOffset = allTiles[i].m_OffsetX + m_Center.m_X;
 					int yOffset = allTiles[i].m_OffsetY + m_Center.m_Y;
 
-					tiles[xOffset][yOffset].Add( (ushort)allTiles[i].m_ItemID, (sbyte)allTiles[i].m_OffsetZ );
+					#region Stygian Abyss
+					//tiles[xOffset][yOffset].Add( (ushort)allTiles[i].m_ItemID, (sbyte)allTiles[i].m_OffsetZ );
+					tiles[xOffset][yOffset].Add(
+						(ushort)((allTiles[i].m_ItemID & TileData.MaxItemValue) | 0x10000), (sbyte)allTiles[i].m_OffsetZ);
+					#endregion
 				}
 			}
 

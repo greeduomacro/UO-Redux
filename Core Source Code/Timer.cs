@@ -214,6 +214,7 @@ namespace Server
 
 				public void Free()
 				{
+					m_Timer = null;
 					//m_InstancePool.Enqueue( this );
 				}
 

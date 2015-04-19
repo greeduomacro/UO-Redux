@@ -82,8 +82,6 @@ namespace Server
 		public static Map TerMur { get { return m_Maps[5]; } }
 		public static Map Internal { get { return m_Maps[0x7F]; } }
 
-		public static Map Backtrol { get { return m_Maps[13]; } }
-
 		private static List<Map> m_AllMaps = new List<Map>();
 
 		public static List<Map> AllMaps { get { return m_AllMaps; } }

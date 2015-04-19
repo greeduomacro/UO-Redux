@@ -543,6 +543,9 @@ namespace Server
 
 		public static Type FindTypeByFullName( string fullName, bool ignoreCase )
 		{
+			if (String.IsNullOrWhiteSpace(fullName))
+				return null;
+
 			Type type = null;
 
 			for( int i = 0; type == null && i < m_Assemblies.Length; ++i )
@@ -561,6 +564,9 @@ namespace Server
 
 		public static Type FindTypeByName( string name, bool ignoreCase )
 		{
+			if (String.IsNullOrWhiteSpace(name))
+				return null;
+
 			Type type = null;
 
 			for( int i = 0; type == null && i < m_Assemblies.Length; ++i )
@@ -609,11 +615,17 @@ namespace Server
 
 		public Type GetTypeByName( string name, bool ignoreCase )
 		{
+			if (String.IsNullOrWhiteSpace(name))
+				return null;
+
 			return m_Names.Get( name, ignoreCase );
 		}
 
 		public Type GetTypeByFullName( string fullName, bool ignoreCase )
 		{
+			if (String.IsNullOrWhiteSpace(fullName))
+				return null;
+
 			return m_FullNames.Get( fullName, ignoreCase );
 		}
 
@@ -667,6 +679,9 @@ namespace Server
 
 		public Type Get( string key, bool ignoreCase )
 		{
+			if (String.IsNullOrWhiteSpace(key))
+				return null;
+
 			Type t = null;
 
 			if( ignoreCase )

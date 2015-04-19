@@ -543,7 +543,7 @@ namespace Server
         {
             try
             {
-                return XmlConvert.ToDateTime(dateTimeString, XmlDateTimeSerializationMode.Local);
+		return XmlConvert.ToDateTime(dateTimeString, XmlDateTimeSerializationMode.Utc);
             }
             catch
             {
@@ -1074,7 +1074,10 @@ namespace Server
 				SkillName.Chivalry,
 				SkillName.Bushido,
 				SkillName.Ninjitsu,
-				SkillName.Spellweaving
+				SkillName.Spellweaving,
+				SkillName.Mysticism,
+				SkillName.Imbuing,
+				SkillName.Throwing
 			};
 
         private static SkillName[] m_CombatSkills = new SkillName[]

@@ -115,13 +115,15 @@ namespace Server
 			get
 			{
 				return m_BodyID >= 0
-					&& m_BodyID < m_Types.Length
+					&& (m_BodyID < m_Types.Length
 					&& m_Types[m_BodyID] == BodyType.Human
 					&& m_BodyID != 402
 					&& m_BodyID != 403
 					&& m_BodyID != 607
 					&& m_BodyID != 608
-					&& m_BodyID != 970;
+					&& m_BodyID != 970)
+					/** StygianAbyss **/
+					|| m_BodyID == 694 || m_BodyID == 695;
 			}
 		}
 
@@ -135,7 +137,9 @@ namespace Server
 					|| m_BodyID == 402
 					|| m_BodyID == 605
 					|| m_BodyID == 607
-					|| m_BodyID == 750;
+					|| m_BodyID == 750
+					/** StygianAbyss **/
+					|| m_BodyID == 666 || m_BodyID == 694;
 			}
 		}
 
@@ -149,7 +153,11 @@ namespace Server
 					|| m_BodyID == 403
 					|| m_BodyID == 606
 					|| m_BodyID == 608
-					|| m_BodyID == 751;
+					|| m_BodyID == 751
+					/** StygianAbyss **/
+					|| m_BodyID == 667 || m_BodyID == 695
+					/** HighSeas **/
+					|| m_BodyID == 1253;
 			}
 		}
 
@@ -161,7 +169,9 @@ namespace Server
 					|| m_BodyID == 403
 					|| m_BodyID == 607
 					|| m_BodyID == 608
-					|| m_BodyID == 970;
+					|| m_BodyID == 970
+					/** StygianAbyss **/
+					|| m_BodyID == 694 || m_BodyID == 695;
 			}
 		}
 
@@ -214,6 +224,10 @@ namespace Server
 					&& m_Types[m_BodyID] == BodyType.Equipment;
 			}
 		}
+
+		#region Stygian Abyss
+		public bool IsGargoyle { get { return m_BodyID == 666 || m_BodyID == 667 || m_BodyID == 694 || m_BodyID == 695; } }
+		#endregion
 
 		public int BodyID
 		{

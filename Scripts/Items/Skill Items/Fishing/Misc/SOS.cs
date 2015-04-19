@@ -1,258 +1,254 @@
-using System;
-using Server.Network;
 using Server.Gumps;
+using System;
 
 namespace Server.Items
 {
-	[Flipable( 0x14ED, 0x14EE )]
-	public class SOS : Item
-	{
-		public override int LabelNumber
-		{
-			get
-			{
-				if( IsAncient )
-					return 1063450; // an ancient SOS
+    [Flipable(0x14ED, 0x14EE)]
+    public class SOS : Item
+    {
+        public override int LabelNumber
+        {
+            get
+            {
+                if(IsAncient)
+                    return 1063450; // an ancient SOS
 
-				return 1041081; // a waterstained SOS
-			}
-		}
+                return 1041081; // a waterstained SOS
+            }
+        }
 
-		private int m_Level;
-		private Map m_TargetMap;
-		private Point3D m_TargetLocation;
-		private int m_MessageIndex;
+        private int m_Level;
+        private Map m_TargetMap;
+        private Point3D m_TargetLocation;
+        private int m_MessageIndex;
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public bool IsAncient
-		{
-			get { return (m_Level >= 4); }
-		}
+        [CommandProperty(AccessLevel.GameMaster)]
+        public bool IsAncient
+        {
+            get { return (m_Level >= 4); }
+        }
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public int Level
-		{
-			get { return m_Level; }
-			set
-			{
-				m_Level = Math.Max( 1, Math.Min( value, 4 ) );
-				UpdateHue();
-				InvalidateProperties();
-			}
-		}
+        [CommandProperty(AccessLevel.GameMaster)]
+        public int Level
+        {
+            get { return m_Level; }
+            set
+            {
+                m_Level = Math.Max(1, Math.Min(value, 4));
+                UpdateHue();
+                InvalidateProperties();
+            }
+        }
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public Map TargetMap
-		{
-			get { return m_TargetMap; }
-			set { m_TargetMap = value; }
-		}
+        [CommandProperty(AccessLevel.GameMaster)]
+        public Map TargetMap
+        {
+            get { return m_TargetMap; }
+            set { m_TargetMap = value; }
+        }
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public Point3D TargetLocation
-		{
-			get { return m_TargetLocation; }
-			set { m_TargetLocation = value; }
-		}
+        [CommandProperty(AccessLevel.GameMaster)]
+        public Point3D TargetLocation
+        {
+            get { return m_TargetLocation; }
+            set { m_TargetLocation = value; }
+        }
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public int MessageIndex
-		{
-			get { return m_MessageIndex; }
-			set { m_MessageIndex = value; }
-		}
+        [CommandProperty(AccessLevel.GameMaster)]
+        public int MessageIndex
+        {
+            get { return m_MessageIndex; }
+            set { m_MessageIndex = value; }
+        }
 
-		public void UpdateHue()
-		{
-			if( IsAncient )
-				Hue = 0x481;
-			else
-				Hue = 0;
-		}
+        public void UpdateHue()
+        {
+            if(IsAncient)
+                Hue = 0x481;
+            else
+                Hue = 0;
+        }
 
-		[Constructable]
-		public SOS()
-			: this( Map.Backtrol )
-		{
-		}
+        [Constructable]
+        public SOS()
+            : this(Map.Felucca)
+        {
+        }
 
-		[Constructable]
-		public SOS( Map map )
-			: this( map, MessageInABottle.GetRandomLevel() )
-		{
-		}
+        [Constructable]
+        public SOS(Map map)
+            : this(map, MessageInABottle.GetRandomLevel())
+        {
+        }
 
-		[Constructable]
-		public SOS( Map map, int level )
-			: base( 0x14ED )
-		{
-			Weight = 1.0;
+        [Constructable]
+        public SOS(Map map, int level)
+            : base(0x14ED)
+        {
+            Weight = 1.0;
 
-			m_Level = level;
-			m_MessageIndex = Utility.Random( MessageEntry.Entries.Length );
-			m_TargetMap = map;
-			m_TargetLocation = FindLocation( m_TargetMap );
+            m_Level = level;
+            m_MessageIndex = Utility.Random(MessageEntry.Entries.Length);
+            m_TargetMap = map;
+            m_TargetLocation = FindLocation(m_TargetMap);
 
-			UpdateHue();
-		}
+            UpdateHue();
+        }
 
-		public SOS( Serial serial )
-			: base( serial )
-		{
-		}
+        public SOS(Serial serial)
+            : base(serial)
+        {
+        }
 
-		public override void Serialize( GenericWriter writer )
-		{
-			base.Serialize( writer );
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
 
-			writer.Write( (int)4 ); // version
+            writer.Write((int)4); // version
 
-			writer.Write( m_Level );
+            writer.Write(m_Level);
 
-			writer.Write( m_TargetMap );
-			writer.Write( m_TargetLocation );
-			writer.Write( m_MessageIndex );
-		}
+            writer.Write(m_TargetMap);
+            writer.Write(m_TargetLocation);
+            writer.Write(m_MessageIndex);
+        }
 
-		public override void Deserialize( GenericReader reader )
-		{
-			base.Deserialize( reader );
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
 
-			int version = reader.ReadInt();
+            int version = reader.ReadInt();
 
-			switch( version )
-			{
-				case 4:
-				case 3:
-				case 2:
-					{
-						m_Level = reader.ReadInt();
-						goto case 1;
-					}
-				case 1:
-					{
-						m_TargetMap = reader.ReadMap();
-						m_TargetLocation = reader.ReadPoint3D();
-						m_MessageIndex = reader.ReadInt();
+            switch(version)
+            {
+                case 4:
+                case 3:
+                case 2:
+                    {
+                        m_Level = reader.ReadInt();
+                        goto case 1;
+                    }
+                case 1:
+                    {
+                        m_TargetMap = reader.ReadMap();
+                        m_TargetLocation = reader.ReadPoint3D();
+                        m_MessageIndex = reader.ReadInt();
 
-						break;
-					}
-				case 0:
-					{
-						m_TargetMap = this.Map;
+                        break;
+                    }
+                case 0:
+                    {
+                        m_TargetMap = this.Map;
 
-						if( m_TargetMap == null || m_TargetMap == Map.Internal )
-							m_TargetMap = Map.Backtrol;
+                        if(m_TargetMap == null || m_TargetMap == Map.Internal)
+                            m_TargetMap = Map.Felucca;
 
-						m_TargetLocation = FindLocation( m_TargetMap );
-						m_MessageIndex = Utility.Random( MessageEntry.Entries.Length );
+                        m_TargetLocation = FindLocation(m_TargetMap);
+                        m_MessageIndex = Utility.Random(MessageEntry.Entries.Length);
 
-						break;
-					}
-			}
+                        break;
+                    }
+            }
 
-			if( version < 2 )
-				m_Level = MessageInABottle.GetRandomLevel();
+            if(version < 2)
+                m_Level = MessageInABottle.GetRandomLevel();
 
-			if( version < 3 )
-				UpdateHue();
+            if(version < 3)
+                UpdateHue();
 
-			if( version < 4 && m_TargetMap == Map.Tokuno )
-				m_TargetMap = Map.Trammel;
-		}
+            if(version < 4 && m_TargetMap == Map.Tokuno)
+                m_TargetMap = Map.Trammel;
+        }
 
-		public override void OnDoubleClick( Mobile from )
-		{
-			if( IsChildOf( from.Backpack ) )
-			{
-				MessageEntry entry;
+        public override void OnDoubleClick(Mobile from)
+        {
+            if(IsChildOf(from.Backpack))
+            {
+                MessageEntry entry;
 
-				if( m_MessageIndex >= 0 && m_MessageIndex < MessageEntry.Entries.Length )
-					entry = MessageEntry.Entries[m_MessageIndex];
-				else
-					entry = MessageEntry.Entries[m_MessageIndex = Utility.Random( MessageEntry.Entries.Length )];
+                if(m_MessageIndex >= 0 && m_MessageIndex < MessageEntry.Entries.Length)
+                    entry = MessageEntry.Entries[m_MessageIndex];
+                else
+                    entry = MessageEntry.Entries[m_MessageIndex = Utility.Random(MessageEntry.Entries.Length)];
 
-				//from.CloseGump( typeof( MessageGump ) );
-				from.SendGump( new MessageGump( entry, m_TargetMap, m_TargetLocation ) );
-			}
-			else
-			{
-				from.SendLocalizedMessage( 1042001 ); // That must be in your pack for you to use it.
-			}
-		}
+                //from.CloseGump( typeof( MessageGump ) );
+                from.SendGump(new MessageGump(entry, m_TargetMap, m_TargetLocation));
+            }
+            else
+            {
+                from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
+            }
+        }
 
-		private static int[] m_WaterTiles = new int[]
+        private static int[] m_WaterTiles = new int[]
 			{
 				0x00A8, 0x00AB,
 				0x0136, 0x0137
 			};
 
-		private static Rectangle2D[] m_BritRegions = new Rectangle2D[] { new Rectangle2D( 0, 0, 5120, 4096 ) };
-		private static Rectangle2D[] m_IlshRegions = new Rectangle2D[] { new Rectangle2D( 1472, 272, 304, 240 ), new Rectangle2D( 1240, 1000, 312, 160 ) };
-		private static Rectangle2D[] m_MalasRegions = new Rectangle2D[] { new Rectangle2D( 1376, 1520, 464, 280 ) };
-		private static Rectangle2D[] m_BacktrolRegions = new Rectangle2D[] { new Rectangle2D( 0, 0, 740, 2400 ), new Rectangle2D( 740, 0, 4370, 3070 ) };
+        private static Rectangle2D[] m_BritRegions = new Rectangle2D[] { new Rectangle2D(0, 0, 5120, 4096) };
+        private static Rectangle2D[] m_IlshRegions = new Rectangle2D[] { new Rectangle2D(1472, 272, 304, 240), new Rectangle2D(1240, 1000, 312, 160) };
+        private static Rectangle2D[] m_MalasRegions = new Rectangle2D[] { new Rectangle2D(1376, 1520, 464, 280) };
 
-		public static Point3D FindLocation( Map map )
-		{
-			if( map == null || map == Map.Internal )
-				return Point3D.Zero;
+        public static Point3D FindLocation(Map map)
+        {
+            if(map == null || map == Map.Internal)
+                return Point3D.Zero;
 
-			Rectangle2D[] regions;
+            Rectangle2D[] regions;
 
-			if( map == Map.Felucca || map == Map.Trammel )
-				regions = m_BritRegions;
-			else if( map == Map.Ilshenar )
-				regions = m_IlshRegions;
-			else if( map == Map.Malas )
-				regions = m_MalasRegions;
-			else if( map == Map.Backtrol )
-				regions = m_BacktrolRegions;
-			else
-				regions = new Rectangle2D[] { new Rectangle2D( 0, 0, map.Width, map.Height ) };
+            if(map == Map.Felucca || map == Map.Trammel)
+                regions = m_BritRegions;
+            else if(map == Map.Ilshenar)
+                regions = m_IlshRegions;
+            else if(map == Map.Malas)
+                regions = m_MalasRegions;
+            else
+                regions = new Rectangle2D[] { new Rectangle2D(0, 0, map.Width, map.Height) };
 
-			if( regions.Length == 0 )
-				return Point3D.Zero;
+            if(regions.Length == 0)
+                return Point3D.Zero;
 
-			for( int i = 0; i < 50; ++i )
-			{
-				Rectangle2D reg = regions[Utility.Random( regions.Length )];
-				int x = Utility.Random( reg.X, reg.Width );
-				int y = Utility.Random( reg.Y, reg.Height );
+            for(int i = 0; i < 50; ++i)
+            {
+                Rectangle2D reg = regions[Utility.Random(regions.Length)];
+                int x = Utility.Random(reg.X, reg.Width);
+                int y = Utility.Random(reg.Y, reg.Height);
 
-				if( !ValidateDeepWater( map, x, y ) )
-					continue;
+                if(!ValidateDeepWater(map, x, y))
+                    continue;
 
-				bool valid = true;
+                bool valid = true;
 
-				for( int j = 1, offset = 5; valid && j <= 5; ++j, offset += 5 )
-				{
-					if( !ValidateDeepWater( map, x + offset, y + offset ) )
-						valid = false;
-					else if( !ValidateDeepWater( map, x + offset, y - offset ) )
-						valid = false;
-					else if( !ValidateDeepWater( map, x - offset, y + offset ) )
-						valid = false;
-					else if( !ValidateDeepWater( map, x - offset, y - offset ) )
-						valid = false;
-				}
+                for(int j = 1, offset = 5; valid && j <= 5; ++j, offset += 5)
+                {
+                    if(!ValidateDeepWater(map, x + offset, y + offset))
+                        valid = false;
+                    else if(!ValidateDeepWater(map, x + offset, y - offset))
+                        valid = false;
+                    else if(!ValidateDeepWater(map, x - offset, y + offset))
+                        valid = false;
+                    else if(!ValidateDeepWater(map, x - offset, y - offset))
+                        valid = false;
+                }
 
-				if( valid )
-					return new Point3D( x, y, 0 );
-			}
+                if(valid)
+                    return new Point3D(x, y, 0);
+            }
 
-			return Point3D.Zero;
-		}
+            return Point3D.Zero;
+        }
 
-		private static bool ValidateDeepWater( Map map, int x, int y )
-		{
-			int tileID = map.Tiles.GetLandTile( x, y ).ID;
-			bool water = false;
+        private static bool ValidateDeepWater(Map map, int x, int y)
+        {
+            int tileID = map.Tiles.GetLandTile(x, y).ID;
+            bool water = false;
 
-			for( int i = 0; !water && i < m_WaterTiles.Length; i += 2 )
-				water = (tileID >= m_WaterTiles[i] && tileID <= m_WaterTiles[i + 1]);
+            for(int i = 0; !water && i < m_WaterTiles.Length; i += 2)
+                water = (tileID >= m_WaterTiles[i] && tileID <= m_WaterTiles[i + 1]);
 
-			return water;
-		}
+            return water;
+        }
 
 #if false
 		private class MessageGump : Gump
@@ -275,55 +271,56 @@ namespace Server.Items
 			}
 		}
 #else
-		private class MessageGump : Gump
-		{
-			public MessageGump( MessageEntry entry, Map map, Point3D loc ) : base( 150, 50 )
-			{
-				int xLong = 0, yLat = 0;
-				int xMins = 0, yMins = 0;
-				bool xEast = false, ySouth = false;
-				string fmt;
+        private class MessageGump : Gump
+        {
+            public MessageGump(MessageEntry entry, Map map, Point3D loc)
+                : base(150, 50)
+            {
+                int xLong = 0, yLat = 0;
+                int xMins = 0, yMins = 0;
+                bool xEast = false, ySouth = false;
+                string fmt;
 
-				if ( Sextant.Format( loc, map, ref xLong, ref yLat, ref xMins, ref yMins, ref xEast, ref ySouth ) )
-					fmt = String.Format( "{0}°{1}'{2},{3}°{4}'{5}", yLat, yMins, ySouth ? "S" : "N", xLong, xMins, xEast ? "E" : "W" );
-				else
-					fmt = "?????";
+                if(Sextant.Format(loc, map, ref xLong, ref yLat, ref xMins, ref yMins, ref xEast, ref ySouth))
+                    fmt = String.Format("{0}°{1}'{2},{3}°{4}'{5}", yLat, yMins, ySouth ? "S" : "N", xLong, xMins, xEast ? "E" : "W");
+                else
+                    fmt = "?????";
 
-				AddPage( 0 );
+                AddPage(0);
 
-				AddBackground( 0, 40, 350, 300, 2520 );
+                AddBackground(0, 40, 350, 300, 2520);
 
-				AddHtmlLocalized( 30, 80, 285, 160, 1018326, true, true ); /* This is a message hastily scribbled by a passenger aboard a sinking ship.
+                AddHtmlLocalized(30, 80, 285, 160, 1018326, true, true); /* This is a message hastily scribbled by a passenger aboard a sinking ship.
 																			* While it is probably too late to save the passengers and crew,
 																			* perhaps some treasure went down with the ship!
 																			* The message gives the ship's last known sextant co-ordinates.
 																			*/
 
-				AddHtml( 35, 240, 230, 20, fmt, false, false );
+                AddHtml(35, 240, 230, 20, fmt, false, false);
 
-				AddButton( 35, 265, 4005, 4007, 0, GumpButtonType.Reply, 0 );
-				AddHtmlLocalized( 70, 265, 100, 20, 1011036, false, false ); // OKAY
-			}
-		}
+                AddButton(35, 265, 4005, 4007, 0, GumpButtonType.Reply, 0);
+                AddHtmlLocalized(70, 265, 100, 20, 1011036, false, false); // OKAY
+            }
+        }
 #endif
 
-		private class MessageEntry
-		{
-			private int m_Width, m_Height;
-			private string m_Message;
+        private class MessageEntry
+        {
+            private int m_Width, m_Height;
+            private string m_Message;
 
-			public int Width { get { return m_Width; } }
-			public int Height { get { return m_Height; } }
-			public string Message { get { return m_Message; } }
+            public int Width { get { return m_Width; } }
+            public int Height { get { return m_Height; } }
+            public string Message { get { return m_Message; } }
 
-			public MessageEntry( int width, int height, string message )
-			{
-				m_Width = width;
-				m_Height = height;
-				m_Message = message;
-			}
+            public MessageEntry(int width, int height, string message)
+            {
+                m_Width = width;
+                m_Height = height;
+                m_Message = message;
+            }
 
-			private static MessageEntry[] m_Entries = new MessageEntry[]
+            private static MessageEntry[] m_Entries = new MessageEntry[]
 				{
 					new MessageEntry( 280, 180, "...Ar! {0} and a fair wind! No chance... storms, though--ar! Is that a sea serp...<br><br>uh oh." ),
 					new MessageEntry( 280, 215, "...been inside this whale for three days now. I've run out of food I can pick out of his teeth. I took a sextant reading through the blowhole: {0}. I'll never see my treasure again..." ),
@@ -339,10 +336,10 @@ namespace Server.Items
 					new MessageEntry( 280, 250, "...was a cad and a boor, no matter what momma s...rew him overboard! Oh, Anna, 'twas so exciting!<br>  Unfort...y he grabbe...est, and all his riches went with him!<br>  ...sked the captain, and he says we're at {0}<br>...so maybe..." )
 				};
 
-			public static MessageEntry[] Entries
-			{
-				get { return m_Entries; }
-			}
-		}
-	}
+            public static MessageEntry[] Entries
+            {
+                get { return m_Entries; }
+            }
+        }
+    }
 }

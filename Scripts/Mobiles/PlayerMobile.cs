@@ -2578,7 +2578,7 @@ namespace Server.Mobiles
 
         public virtual bool UsesFastwalkPrevention { get { return (AccessLevel < AccessLevel.Counselor); } }
 
-        public virtual TimeSpan ComputeMovementSpeed( Direction dir, bool checkTurning )
+        public override TimeSpan ComputeMovementSpeed( Direction dir, bool checkTurning )
         {
             if( checkTurning && (dir & Direction.Mask) != (this.Direction & Direction.Mask) )
                 return Mobile.RunMount;	// We are NOT actually moving (just a direction change)

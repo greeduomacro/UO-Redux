@@ -1727,6 +1727,15 @@
     <Compile Include="Misc\DispellableFieldAttribute.cs" />
     <Compile Include="Misc\Email.cs" />
     <Compile Include="Misc\Emitter.cs" />
+    <Compile Include="Misc\Encryption\Configuration.cs" />
+    <Compile Include="Misc\Encryption\Encryption.cs" />
+    <Compile Include="Misc\Encryption\GameEncryption.cs" />
+    <Compile Include="Misc\Encryption\IClientEncryption.cs" />
+    <Compile Include="Misc\Encryption\LoginEncryption.cs" />
+    <Compile Include="Misc\Encryption\LoginKey.cs" />
+    <Compile Include="Misc\Encryption\NoEncryption.cs" />
+    <Compile Include="Misc\Encryption\TwofishBase.cs" />
+    <Compile Include="Misc\Encryption\TwofishEncryption.cs" />
     <Compile Include="Misc\Fastwalk.cs" />
     <Compile Include="Misc\FindByName.cs" />
     <Compile Include="Misc\FoodDecay.cs" />

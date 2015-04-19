@@ -239,7 +239,7 @@ namespace Server.Network
             m_Stream.Write((short)item.Amount);
             m_Stream.Write((short)item.X);
             m_Stream.Write((short)item.Y);
-            m_Stream.Write((byte)0); // Grid Location?
+            m_Stream.Write((byte)Container.GetGridLocationItemForContainer(item)); // Enhanced Client grid location
             m_Stream.Write((int)m.Serial);
             m_Stream.Write((short)item.Hue);
         }
@@ -334,7 +334,7 @@ namespace Server.Network
                 m_Stream.Write((ushort)bis.Amount);
                 m_Stream.Write((short)(i + 1));//x
                 m_Stream.Write((short)1);//y
-                m_Stream.Write((byte)0); // Grid Location?
+                m_Stream.Write((byte)i); // Enhanced Client grid location
                 m_Stream.Write((int)bis.ContainerSerial);
                 m_Stream.Write((ushort)bis.Hue);
             }
@@ -465,7 +465,12 @@ namespace Server.Network
             this.EnsureCapacity(12);
 
             m_Stream.Write((short)0x19);
-            m_Stream.Write((byte)2);
+            #region Enhanced Client
+            if(m.NetState.IsKRClient)
+                m_Stream.Write((byte)5);
+            else
+                m_Stream.Write((byte)2);
+            #endregion
             m_Stream.Write((int)m.Serial);
             m_Stream.Write((byte)0);
 
@@ -476,6 +481,14 @@ namespace Server.Network
             lockBits |= (int)m.IntLock;
 
             m_Stream.Write((byte)lockBits);
+
+            #region Enhanced Client
+            if(m.NetState.IsKRClient)
+            {
+                m_Stream.Write((byte)0);
+                m_Stream.Write((int)0);
+            }
+            #endregion
         }
     }
 
@@ -979,8 +992,14 @@ namespace Server.Network
             {
                 ContextMenuEntry e = entries[i];
 
-                m_Stream.Write((int)e.Number);
+                #region Enhanced Client
+                if(e.Number <= 65535)
+                    m_Stream.Write((uint)(e.Number + 3000000));
+                else
+                    m_Stream.Write((uint)e.Number);
+
                 m_Stream.Write((short)i);
+                #endregion
 
                 int range = e.Range;
 
@@ -1912,7 +1931,7 @@ namespace Server.Network
                     m_Stream.Write((ushort)(i + offset));
                     m_Stream.Write((short)0);
                     m_Stream.Write((short)0);
-                    m_Stream.Write((byte)0); // Grid Location?
+                    m_Stream.Write((byte)Container.GetGridLocationItemForContainer(item)); // Enhanced Client grid location
                     m_Stream.Write((int)item.Serial);
                     m_Stream.Write((short)0);
 
@@ -1997,7 +2016,7 @@ namespace Server.Network
             m_Stream.Write((ushort)item.Amount);
             m_Stream.Write((short)item.X);
             m_Stream.Write((short)item.Y);
-            m_Stream.Write((byte)0); // Grid Location?
+            m_Stream.Write((byte)Container.GetGridLocationItemForContainer(item)); // Enhanced Client grid location
             m_Stream.Write((int)parentSerial);
             m_Stream.Write((ushort)(item.QuestItem ? Item.QuestItemHue : item.Hue));
         }
@@ -2061,6 +2080,11 @@ namespace Server.Network
 
             m_Stream.Write((ushort)0);
 
+            #region Enhanced Client
+            // 	if the items do not have GridLocation
+            bool defineGridLocation = items.FindAll(i => i.GridLocation == 0).Count.Equals(items.Count);
+            #endregion
+
             for(int i = 0; i < count; ++i)
             {
                 Item child = items[i];
@@ -2075,7 +2099,14 @@ namespace Server.Network
                     m_Stream.Write((ushort)child.Amount);
                     m_Stream.Write((short)loc.m_X);
                     m_Stream.Write((short)loc.m_Y);
-                    m_Stream.Write((byte)0); // Grid Location?
+
+                    #region Enhanced Client
+                    if(defineGridLocation)
+                        child.GridLocation = i;
+
+                    m_Stream.Write((byte)child.GridLocation); // Enhanced Client grid location
+                    #endregion
+
                     m_Stream.Write((int)beheld.Serial);
                     m_Stream.Write((ushort)(child.QuestItem ? Item.QuestItemHue : child.Hue));
 
@@ -2935,7 +2966,7 @@ namespace Server.Network
 
             if(acct != null && acct.Limit >= 6)
             {
-                flags |= FeatureFlags.Unk7;
+                flags |= FeatureFlags.LiveAccount;
                 flags &= ~FeatureFlags.UOTD;
 
                 if(acct.Limit > 6)
@@ -3171,6 +3202,106 @@ namespace Server.Network
         }
     }
 
+    //ToDo
+    // review MobileStatus and MobileStatusExtended - both use same packet ID and structure, why the difference?
+    // see type=0 - stop packet data for smaller packet
+    /*
+     * Packet Build
+BYTE[1] 0x11
+BYTE[2] Length
+BYTE[4] Player Serial
+BYTE[30] Player Name
+BYTE[2] Current Hit Points (see notes)
+BYTE[2] Max Hit Points (see notes)
+BYTE[1] Name Change Flag (see notes)
+BYTE[1] Status Flag (see notes)
+BYTE[1] Sex+Race (see notes)
+BYTE[2] Strength
+BYTE[2] Dexterity
+BYTE[2] Intelligence
+BYTE[2] Current Stamina
+BYTE[2] Max Stamina
+BYTE[2] Current Mana
+BYTE[2] Max Mana
+BYTE[4] Gold In Pack
+BYTE[2] Armor Rating (see notes)
+BYTE[2] Weight
+If (flag 5 or higher)
+BYTE[2] Max Weight
+BYTE[1] Race (see notes)
+If (flag 3 or higher )
+BYTE[2] Stats Cap
+BYTE[1] Followers (Pets)
+BYTE[1] Followers Max Possible (Pets)
+If (flag 4 or higher)
+BYTE[2] Fire Resist (see notes)
+BYTE[2] Cold Resist (see notes)
+BYTE[2] Poison Resist (see notes)
+BYTE[2] Energy Resist (see notes)
+BYTE[2] Luck
+BYTE[2] Damage Minimum
+BYTE[2] Damage Maximum
+BYTE[4] Tithing points (Paladin Books)
+If (flag 6 or higher)
+BYTE[2] Hit Chance Increase
+BYTE[2] Swing Speed Increase
+BYTE[2] Damage Chance Increase
+BYTE[2] Lower Reagent Cost
+BYTE[2] Hit Points Regeneration
+BYTE[2] Stamina Regeneration
+BYTE[2] Mana Regeneration
+BYTE[2] Reflect Physical Damage
+BYTE[2] Enhance Potions
+BYTE[2] Defense Chance Increase
+BYTE[2] Spell Damage Increase
+BYTE[2] Faster Cast Recovery
+BYTE[2] Faster Casting
+BYTE[2] Lower Mana Cost
+BYTE[2] Strength Increase
+BYTE[2] Dexterity Increase
+BYTE[2] Intelligence Increase
+BYTE[2] Hit Points Increase
+BYTE[2] Stamina Increase
+BYTE[2] Mana Increase
+BYTE[2] Maximum Hit Points Increase
+BYTE[2] Maximum Stamina Increase
+BYTE[2] Maximum Mana Increase
+
+Subcommand Build
+N/A
+
+Notes
+For characters other than the player, Current Hitpoints and Max Hitpoints are not the actual values. Max Hitpoints is a fixed value, and Current Hitpoints works like a percentage. This is to assist in blocking injection style tools from seeing real hitpoint values.
+
+Name Change Flag
+1: Allowed to Change In StatusBar (like with pets)
+0: Not allowed
+
+Status Flag
+0x00: no more data following (end of packet here).
+0x01: T2A Extended Info
+0x03: UOR Extended Info
+0x04: AOS Extended Info (4.0+)
+0x05: UOML Extended Info (5.0+)
+0x06: UOKR Extended Info (UOKR+)
+
+Sex + Race
+0: Male Human
+1: Female Human
+2: Male Elf
+3: Female Elf
+
+Armor Rating
+Armor Rating depends on client settings. If client has AOS Resistances enabled, this should be the Physical Resist instead of older AR Rating.
+
+UOML+ Race Flag
+1: Human
+2: Elf
+3: Gargoyle
+
+Resistances
+Resistances can be negatives. Easiest method for handling this correctly is, if a negative is to be sent is: 0x10000+amount
+     */
     public sealed class MobileStatusExtended : Packet
     {
         public MobileStatusExtended(Mobile m)
@@ -3191,7 +3322,7 @@ namespace Server.Network
                 type = 6;
                 EnsureCapacity(121);
             }
-            else if(/*Core.ML &&*/ ns != null && ns.SupportsExpansion(Expansion.ML, false))
+            else if(Core.ML && ns != null && ns.SupportsExpansion(Expansion.ML, false))
             {
                 type = 5;
                 EnsureCapacity(91);
@@ -3260,11 +3391,40 @@ namespace Server.Network
                 m_Stream.Write((int)m.TithingPoints);
             }
 
-            if(type >= 6)
+            #region EC Support
+            if(m.NetState != null && m.NetState.IsKRClient)
             {
-                for(int i = 0; i < 15; ++i)
-                    m_Stream.Write((short)0); //m_Stream.Write((short)m.GetAOSStatus(i));
+                m_Stream.Write((short)0); // Hit Chance Increase
+                m_Stream.Write((short)0); // Swing Speed Increase
+                m_Stream.Write((short)0); // Damage Increase
+                m_Stream.Write((short)0); // Lower Reagent Cost
+                m_Stream.Write((short)0); // Hit Points Regeneration
+                m_Stream.Write((short)0); // Stamina Regeneration
+                m_Stream.Write((short)0); // Mana Regeneration
+                m_Stream.Write((short)0); // Reflect Physical Damage
+                m_Stream.Write((short)0); // Enhance Potions
+                m_Stream.Write((short)0); // Defense Chance Increase
+                m_Stream.Write((short)0); // Spell Damage Increase
+                m_Stream.Write((short)0); // Faster Cast Recovery
+                m_Stream.Write((short)0); // Faster Casting
+                m_Stream.Write((short)0); // Lower Mana Cost
+                m_Stream.Write((short)0); // Strength Increase
+                m_Stream.Write((short)0); // Dexterity Increase
+                m_Stream.Write((short)0); // Intelligence Increase
+                m_Stream.Write((short)0); // Hit Points Increase
+                m_Stream.Write((short)0); // Stamina Increase
+                m_Stream.Write((short)0); // Mana Increase
+                m_Stream.Write((short)0); // Maximum Hit Points Increase
+                m_Stream.Write((short)0); // Maximum Stamina Increase
+                m_Stream.Write((short)0); // Maximum Mana Increase
             }
+            #endregion
+
+            //if(type >= 6)
+            //{
+            //    for(int i = 0; i < 15; ++i)
+            //        m_Stream.Write((short)0); //m_Stream.Write((short)m.GetAOSStatus(i));
+            //}
         }
     }
 
@@ -3293,7 +3453,7 @@ namespace Server.Network
                 type = 6;
                 EnsureCapacity(121);
             }
-            else if(/*Core.ML &&*/ ns != null && ns.SupportsExpansion(Expansion.ML, false))
+            else if(Core.ML && ns != null && ns.SupportsExpansion(Expansion.ML, false))
             {
                 type = 5;
                 EnsureCapacity(91);
@@ -3364,11 +3524,41 @@ namespace Server.Network
                     m_Stream.Write((int)beheld.TithingPoints);
                 }
 
-                if(type >= 6)
+                //ToDo is this needed here?
+                #region EC Support
+                if(ns != null && ns.IsKRClient)
                 {
-                    for(int i = 0; i < 15; ++i)
-                        m_Stream.Write((short)0); //m_Stream.Write((short)beheld.GetAOSStatus(i));
+                    m_Stream.Write((short)0); // Hit Chance Increase
+                    m_Stream.Write((short)0); // Swing Speed Increase
+                    m_Stream.Write((short)0); // Damage Increase
+                    m_Stream.Write((short)0); // Lower Reagent Cost
+                    m_Stream.Write((short)0); // Hit Points Regeneration
+                    m_Stream.Write((short)0); // Stamina Regeneration
+                    m_Stream.Write((short)0); // Mana Regeneration
+                    m_Stream.Write((short)0); // Reflect Physical Damage
+                    m_Stream.Write((short)0); // Enhance Potions
+                    m_Stream.Write((short)0); // Defense Chance Increase
+                    m_Stream.Write((short)0); // Spell Damage Increase
+                    m_Stream.Write((short)0); // Faster Cast Recovery
+                    m_Stream.Write((short)0); // Faster Casting
+                    m_Stream.Write((short)0); // Lower Mana Cost
+                    m_Stream.Write((short)0); // Strength Increase
+                    m_Stream.Write((short)0); // Dexterity Increase
+                    m_Stream.Write((short)0); // Intelligence Increase
+                    m_Stream.Write((short)0); // Hit Points Increase
+                    m_Stream.Write((short)0); // Stamina Increase
+                    m_Stream.Write((short)0); // Mana Increase
+                    m_Stream.Write((short)0); // Maximum Hit Points Increase
+                    m_Stream.Write((short)0); // Maximum Stamina Increase
+                    m_Stream.Write((short)0); // Maximum Mana Increase
                 }
+                #endregion
+
+                //if(type >= 6)
+                //{
+                //    for(int i = 0; i < 15; ++i)
+                //        m_Stream.Write((short)0); //m_Stream.Write((short)beheld.GetAOSStatus(i));
+                //}
             }
         }
 
@@ -3500,6 +3690,10 @@ namespace Server.Network
                 count++;
             if(beheld.FacialHairItemID > 0)
                 count++;
+            #region Enhanced Client
+            if(beholder.NetState != null && beholder.NetState.IsKRClient && beheld.FaceItemID > 0)
+                count++;
+            #endregion
 
             this.EnsureCapacity(23 + (count * 9));
 
@@ -3599,6 +3793,36 @@ namespace Server.Network
                         m_Stream.Write((short)hue);
                 }
             }
+
+            #region Enhanced Client
+            if(beheld.FaceItemID > 0)
+            {
+                if(m_DupedLayers[(int)Layer.Face] != m_Version)
+                {
+                    m_DupedLayers[(int)Layer.Face] = m_Version;
+                    hue = beheld.FaceHue;
+
+                    if(beheld.SolidHueOverride >= 0)
+                    {
+                        hue = beheld.SolidHueOverride;
+                    }
+
+                    int itemID = beheld.FaceItemID & 0x3FFF;
+
+                    bool writeHue = (hue != 0);
+
+                    if(writeHue)
+                        itemID |= 0x8000;
+
+                    m_Stream.Write((int)FaceInfo.FakeSerial(beheld));
+                    m_Stream.Write((short)itemID);
+                    m_Stream.Write((byte)Layer.Face);
+
+                    if(writeHue)
+                        m_Stream.Write((short)hue);
+                }
+            }
+            #endregion
 
             m_Stream.Write((int)0); // terminate
         }
@@ -4122,7 +4346,8 @@ namespace Server.Network
 
     public sealed class CharacterList : Packet
     {
-        public CharacterList(IAccount a, CityInfo[] info)
+        /// <param name="isKRClient">added for Enhanced Client support</param>
+        public CharacterList(IAccount a, CityInfo[] info, bool isKRClient)
             : base(0xA9)
         {
             this.EnsureCapacity(11 + (a.Length * 60) + (info.Length * 89));
@@ -4177,6 +4402,10 @@ namespace Server.Network
                 flags |= CharacterListFlags.SixthCharacterSlot; // 6th Character Slot
             else if(a.Limit == 1)
                 flags |= (CharacterListFlags.SlotLimit & CharacterListFlags.OneCharacterSlot); // Limit Characters & One Character
+            #region Enhanced Client
+            if(isKRClient)
+                flags |= CharacterListFlags.KR;	// ToDo still dont know KR Flags.
+            #endregion
 
             m_Stream.Write((int)(flags | m_AdditionalFlags)); // Additional Flags
 
@@ -4518,6 +4747,155 @@ namespace Server.Network
             m_Stream.Write((int)m_AuthID);
         }
     }
+
+    #region EC Support
+    // ToDo KR Verifier Packet (Still didnt research on it. Just replying)
+    public sealed class KRVerifier : Packet
+    {
+        public static readonly Packet Instance = Packet.SetStatic(new KRVerifier());
+
+        public KRVerifier()
+            : base(0xE3, 77)
+        {
+            // First 2 - Size
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x4D);
+
+            // Next ones... I have no idea from now on
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x03);
+            m_Stream.Write((byte)0x02);
+            m_Stream.Write((byte)0x01);
+            m_Stream.Write((byte)0x03);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x13);
+            m_Stream.Write((byte)0x02);
+            m_Stream.Write((byte)0x11);
+
+            // Next 16
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0xFC);
+            m_Stream.Write((byte)0x2F);
+            m_Stream.Write((byte)0xE3);
+            m_Stream.Write((byte)0x81);
+            m_Stream.Write((byte)0x93);// old book packet
+            m_Stream.Write((byte)0xD4);// new ec book packet?? testing
+            m_Stream.Write((byte)0xCB);
+            m_Stream.Write((byte)0xAF);
+            m_Stream.Write((byte)0x98);
+            m_Stream.Write((byte)0xDD);
+            m_Stream.Write((byte)0x83);
+            m_Stream.Write((byte)0x13);
+            m_Stream.Write((byte)0xD2);
+            m_Stream.Write((byte)0x9E);
+            m_Stream.Write((byte)0xEA);
+            m_Stream.Write((byte)0xE4);
+
+            // Next 16
+            m_Stream.Write((byte)0x13);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x10);
+            m_Stream.Write((byte)0x78);
+            m_Stream.Write((byte)0x13);
+            m_Stream.Write((byte)0xB7);
+            m_Stream.Write((byte)0x7B);
+            m_Stream.Write((byte)0xCE);
+            m_Stream.Write((byte)0xA8);
+            m_Stream.Write((byte)0xD7);
+            m_Stream.Write((byte)0xBC);
+            m_Stream.Write((byte)0x52);
+            m_Stream.Write((byte)0xDE);
+            m_Stream.Write((byte)0x38);
+
+            // Next 16
+            m_Stream.Write((byte)0x30);
+            m_Stream.Write((byte)0xEA);
+            m_Stream.Write((byte)0xE9);
+            m_Stream.Write((byte)0x1E);
+            m_Stream.Write((byte)0xA3);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x20);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x00);
+            m_Stream.Write((byte)0x10);
+            m_Stream.Write((byte)0x5A);
+            m_Stream.Write((byte)0xCE);
+            m_Stream.Write((byte)0x3E);
+
+            // Next 13
+            m_Stream.Write((byte)0xE3);
+            m_Stream.Write((byte)0x97);
+            m_Stream.Write((byte)0x92);
+            m_Stream.Write((byte)0xE4);
+            m_Stream.Write((byte)0x8A);
+            m_Stream.Write((byte)0xF1);
+            m_Stream.Write((byte)0x9A);
+            m_Stream.Write((byte)0xD3);
+            m_Stream.Write((byte)0x04);
+            m_Stream.Write((byte)0x41);
+            m_Stream.Write((byte)0x03);
+            m_Stream.Write((byte)0xCB);
+            m_Stream.Write((byte)0x53);
+        }
+    }
+
+    public sealed class KRDropConfirm : Packet
+    {
+        public static readonly Packet Instance = Packet.SetStatic(new KRDropConfirm());
+
+        public KRDropConfirm()
+            : base(0x29, 1)
+        {
+        }
+    }
+
+    public sealed class HideWaypoint : Packet
+    {
+        public HideWaypoint(Serial serial)
+            : base(0xE6, 5)
+        {
+            m_Stream.Write((int)serial);
+        }
+    }
+
+    public sealed class DisplayWaypoint : Packet
+    {
+        public DisplayWaypoint(Serial serial, int x, int y, int z, int mapID, int type, string name)
+            : base(0xE5)
+        {
+            this.EnsureCapacity(25);
+
+            m_Stream.Write((int)serial);
+
+            m_Stream.Write((short)x);
+            m_Stream.Write((short)y);
+            m_Stream.Write((sbyte)z);
+            m_Stream.Write((byte)mapID); //map 
+
+            m_Stream.Write((short)type); //type 
+
+            m_Stream.Write((short)0);
+
+            if(type.Equals(1))
+                m_Stream.Write((int)1046414);
+            else
+                m_Stream.Write((int)1062613);
+
+            m_Stream.WriteLittleUniNull(name);
+
+            m_Stream.Write((short)0); // terminate 
+        }
+    }
+    #endregion
 
     public abstract class Packet
     {

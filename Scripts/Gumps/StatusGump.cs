@@ -8,8 +8,6 @@ namespace Server.Gumps
 {
     public class StatusGump : Gump
     {
-        private static int LabelHue = 1152;
-
         public StatusGump( Player from )
             : base(200, 200)
         {

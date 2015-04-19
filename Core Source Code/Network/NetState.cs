@@ -18,6 +18,12 @@
  *
  ***************************************************************************/
 
+using Server.Accounting;
+using Server.Diagnostics;
+using Server.Gumps;
+using Server.HuePickers;
+using Server.Items;
+using Server.Menus;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,14 +31,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
-using Server;
-using Server.Accounting;
-using Server.Network;
-using Server.Items;
-using Server.Gumps;
-using Server.Menus;
-using Server.HuePickers;
-using Server.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Server.Network
 {
@@ -75,6 +74,7 @@ namespace Server.Network
         private ClientVersion m_Version;
         private bool m_SentFirstPacket;
         private bool m_BlockAllPackets;
+        private bool m_KRClient; //Enhanced Client
 
         private DateTime m_ConnectedOn;
 
@@ -171,6 +171,20 @@ namespace Server.Network
             }
         }
 
+        #region Enhanced Client
+        public bool IsKRClient
+        {
+            get
+            {
+                return m_KRClient;
+            }
+            set
+            {
+                m_KRClient = value;
+            }
+        }
+        #endregion
+
         public ClientFlags Flags
         {
             get
@@ -193,7 +207,11 @@ namespace Server.Network
             {
                 m_Version = value;
 
-                if(value >= m_Version70300)
+                if(value >= m_Version70331)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version70331;
+                }
+                else if(value >= m_Version70300)
                 {
                     _ProtocolChanges = ProtocolChanges.Version70300;
                 }
@@ -256,6 +274,7 @@ namespace Server.Network
         private static ClientVersion m_Version70130 = new ClientVersion("7.0.13.0");
         private static ClientVersion m_Version70160 = new ClientVersion("7.0.16.0");
         private static ClientVersion m_Version70300 = new ClientVersion("7.0.30.0");
+        private static ClientVersion m_Version70331 = new ClientVersion("7.0.33.1");
 
         private ProtocolChanges _ProtocolChanges;
 
@@ -273,6 +292,7 @@ namespace Server.Network
             NewCharacterList = 0x00000200,
             NewCharacterCreation = 0x00000400,
             ExtendedStatus = 0x00000800,
+            NewMobileIncoming = 0x00001000,
 
             Version400a = NewSpellbook,
             Version407a = Version400a | DamagePacket,
@@ -285,7 +305,8 @@ namespace Server.Network
             Version7090 = Version7000 | HighSeas,
             Version70130 = Version7090 | NewCharacterList,
             Version70160 = Version70130 | NewCharacterCreation,
-            Version70300 = Version70160 | ExtendedStatus
+            Version70300 = Version70160 | ExtendedStatus,
+            Version70331 = Version70300 | NewMobileIncoming
         }
 
         public bool NewSpellbook { get { return ((_ProtocolChanges & ProtocolChanges.NewSpellbook) != 0); } }
@@ -300,6 +321,7 @@ namespace Server.Network
         public bool NewCharacterList { get { return ((_ProtocolChanges & ProtocolChanges.NewCharacterList) != 0); } }
         public bool NewCharacterCreation { get { return ((_ProtocolChanges & ProtocolChanges.NewCharacterCreation) != 0); } }
         public bool ExtendedStatus { get { return ((_ProtocolChanges & ProtocolChanges.ExtendedStatus) != 0); } }
+        public bool NewMobileIncoming { get { return ((_ProtocolChanges & ProtocolChanges.NewMobileIncoming) != 0); } }
 
         public bool IsUOTDClient
         {
@@ -886,6 +908,10 @@ namespace Server.Network
                 Dispose(false);
                 return;
             }
+            else if(m_Disposing || m_Buffer == null)
+            {
+                return;
+            }
 
             m_NextCheckActivity = DateTime.Now + TimeSpan.FromMinutes(1.2);
 
@@ -893,9 +919,6 @@ namespace Server.Network
 
             if(m_Encoder != null)
                 m_Encoder.DecodeIncomingPacket(this, ref buffer, ref byteCount);
-
-            if(m_Disposing || m_Buffer == null)
-                return;
 
             lock(m_Buffer)
                 m_Buffer.Enqueue(buffer, 0, byteCount);
@@ -946,6 +969,9 @@ namespace Server.Network
             lock(m_SendQueue)
             {
                 gram = m_SendQueue.Dequeue();
+
+                if(gram == null && m_SendQueue.IsFlushReady)
+                    gram = m_SendQueue.CheckFlushReady();
             }
 
             if(gram != null)
@@ -1144,6 +1170,9 @@ namespace Server.Network
 				lock( m_SendQueue )
 				{
 					gram = m_SendQueue.Dequeue();
+
+					if (gram == null && m_SendQueue.IsFlushReady)
+						gram = m_SendQueue.CheckFlushReady();
 				}
 
 				if( gram != null )
@@ -1253,11 +1282,16 @@ namespace Server.Network
 
         public static void FlushAll()
         {
-            for(int i = 0; i < m_Instances.Count; ++i)
+            if(m_Instances.Count > 1024)
             {
-                NetState ns = m_Instances[i];
-
-                ns.Flush();
+                Parallel.ForEach(m_Instances, ns => ns.Flush());
+            }
+            else
+            {
+                for(int i = 0; i < m_Instances.Count; ++i)
+                {
+                    m_Instances[i].Flush();
+                }
             }
         }
 
@@ -1393,9 +1427,16 @@ namespace Server.Network
         {
             try
             {
-                for(int i = 0; i < m_Instances.Count; ++i)
+                if(m_Instances.Count >= 1024)
                 {
-                    m_Instances[i].CheckAlive();
+                    Parallel.ForEach(m_Instances, ns => ns.CheckAlive());
+                }
+                else
+                {
+                    for(int i = 0; i < m_Instances.Count; ++i)
+                    {
+                        m_Instances[i].CheckAlive();
+                    }
                 }
             }
             catch(Exception ex)
@@ -1408,39 +1449,42 @@ namespace Server.Network
 
         public static void ProcessDisposedQueue()
         {
-            int breakout = 0;
-
-            while(breakout < 200 && m_Disposed.Count > 0)
+            lock(m_Disposed)
             {
-                ++breakout;
+                int breakout = 0;
 
-                NetState ns = (NetState)m_Disposed.Dequeue();
-
-                Mobile m = ns.m_Mobile;
-                IAccount a = ns.m_Account;
-
-                if(m != null)
+                while(breakout < 200 && m_Disposed.Count > 0)
                 {
-                    m.NetState = null;
-                    ns.m_Mobile = null;
-                }
+                    ++breakout;
 
-                ns.m_Gumps.Clear();
-                ns.m_Menus.Clear();
-                ns.m_HuePickers.Clear();
-                ns.m_Account = null;
-                ns.m_ServerInfo = null;
-                ns.m_CityInfo = null;
+                    NetState ns = (NetState)m_Disposed.Dequeue();
 
-                m_Instances.Remove(ns);
+                    Mobile m = ns.m_Mobile;
+                    IAccount a = ns.m_Account;
 
-                if(a != null)
-                {
-                    ns.WriteConsole("Disconnected [{2}] [{0} Online]", m_Instances.Count, ns, DateTime.Now.ToLongTimeString());
-                }
-                else
-                {
-                    ns.WriteConsole("Disconnected. [{0} Online]", m_Instances.Count);
+                    if(m != null)
+                    {
+                        m.NetState = null;
+                        ns.m_Mobile = null;
+                    }
+
+                    ns.m_Gumps.Clear();
+                    ns.m_Menus.Clear();
+                    ns.m_HuePickers.Clear();
+                    ns.m_Account = null;
+                    ns.m_ServerInfo = null;
+                    ns.m_CityInfo = null;
+
+                    m_Instances.Remove(ns);
+
+                    if(a != null)
+                    {
+                        ns.WriteConsole("Disconnected [{2}] [{0} Online]", m_Instances.Count, ns, DateTime.Now.ToLongTimeString());
+                    }
+                    else
+                    {
+                        ns.WriteConsole("Disconnected. [{0} Online]", m_Instances.Count);
+                    }
                 }
             }
         }
@@ -1513,7 +1557,7 @@ namespace Server.Network
                 return false;
 
             if(info.RequiredClient != null)
-                return (this.Version >= info.RequiredClient);
+                return (IsKRClient || Version >= info.RequiredClient);
 
             return ((this.Flags & info.ClientFlags) != 0);
         }

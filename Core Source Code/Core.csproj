@@ -198,6 +198,7 @@
     <Content Include="runuo.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="LOS\genspiral.py" />
     <None Include="LOS\test.py" />
   </ItemGroup>

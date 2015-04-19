@@ -311,7 +311,7 @@ namespace Server
 			if( World.Saving || (m_Service && type == ConsoleEventType.CTRL_LOGOFF_EVENT) )
 				return true;
 
-			Kill();	//Kill -> HandleClosed will hadnle waiting for the completion of flushign to disk
+			Kill(); //Kill -> HandleClosed will handle waiting for the completion of flushing to disk
 
 			return true;
 		}
@@ -503,7 +503,7 @@ namespace Server
 
 			try
 			{
-				DateTime now, last = DateTime.UtcNow;
+				DateTime now, last = DateTime.Now;
 
 				const int sampleInterval = 100;
 				const float ticksPerSecond = (float)(TimeSpan.TicksPerSecond * sampleInterval);
@@ -526,7 +526,7 @@ namespace Server
 
 					if( (++sample % sampleInterval) == 0 )
 					{
-						now = DateTime.UtcNow;
+						now = DateTime.Now;
 						m_CyclesPerSecond[m_CycleIndex++ % m_CyclesPerSecond.Length] =
 							ticksPerSecond / (now.Ticks - last.Ticks);
 						last = now;
