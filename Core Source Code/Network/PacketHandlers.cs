@@ -131,7 +131,7 @@ namespace Server.Network
             Register(0xB6, 9, true, new OnPacketReceive(ObjectHelpRequest));
             Register(0xB8, 0, true, new OnPacketReceive(ProfileReq));
             Register(0xBB, 9, false, new OnPacketReceive(AccountID));
-            Register(0xBD, 0, false, new OnPacketReceive(ClientVersion));
+            Register(0xBD, 0, true, new OnPacketReceive(ClientVersion));
             Register(0xBE, 0, true, new OnPacketReceive(AssistVersion));
             Register(0xBF, 0, true, new OnPacketReceive(ExtendedCommand));
             Register(0xC2, 0, true, new OnPacketReceive(UnicodePromptResponse));

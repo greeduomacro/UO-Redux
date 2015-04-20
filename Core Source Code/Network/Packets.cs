@@ -3727,7 +3727,7 @@ Resistances can be negatives. Easiest method for handling this correctly is, if 
                     if(beheld.SolidHueOverride >= 0)
                         hue = beheld.SolidHueOverride;
 
-                    int itemID = item.ItemID & 0x7FFF;
+                    int itemID = item.ItemID & (beholder.NetState.NewMobileIncoming ? 0xFFFF : 0x7FFF);
                     bool writeHue = (hue != 0);
 
                     if(writeHue)
@@ -3752,7 +3752,7 @@ Resistances can be negatives. Easiest method for handling this correctly is, if 
                     if(beheld.SolidHueOverride >= 0)
                         hue = beheld.SolidHueOverride;
 
-                    int itemID = beheld.HairItemID & 0x7FFF;
+                    int itemID = beheld.HairItemID & (beholder.NetState.NewMobileIncoming ? 0xFFFF : 0x7FFF);
 
                     bool writeHue = (hue != 0);
 
@@ -3778,7 +3778,7 @@ Resistances can be negatives. Easiest method for handling this correctly is, if 
                     if(beheld.SolidHueOverride >= 0)
                         hue = beheld.SolidHueOverride;
 
-                    int itemID = beheld.FacialHairItemID & 0x7FFF;
+                    int itemID = beheld.FacialHairItemID & (beholder.NetState.NewMobileIncoming ? 0xFFFF : 0x7FFF);
 
                     bool writeHue = (hue != 0);
 
