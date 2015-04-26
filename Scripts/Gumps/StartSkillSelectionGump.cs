@@ -152,7 +152,7 @@ namespace Server.SkillSelection {
 												if( GetRemainingPoints() < (sk.Cap - sk.Base) )
 													sk.Base = GetRemainingPoints();
 												else
-													sk.Base = 75.0;
+													sk.Base = 50.0;
 											}
 
 											break;

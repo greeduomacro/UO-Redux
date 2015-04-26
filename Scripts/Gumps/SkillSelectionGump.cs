@@ -28,7 +28,7 @@ namespace Server.SkillCapSelection {
 
 			AddHtml( 27, 45, 290, 105, String.Format( "By using Essence of Character your may increase your individual skill levels."
                                     + ""
-                                    + " Please note: decreasing a skillcap does not refund Essence of Character."
+                                    + ""
 									+ "", (from.SkillsCap / 10).ToString( "F1" ) ), false, true );
 			AddAlphaRegion( 27, 45, 290, 105 );
 

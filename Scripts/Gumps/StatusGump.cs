@@ -63,10 +63,6 @@ namespace Server.Gumps
 
             sender.Mobile.CloseGump(typeof(StatusGump));
 
-            if (info.ButtonID != (int)Buttons.invalid)
-                ((Player)sender.Mobile).SendGump
-                    (new StatusGump(((Player)sender.Mobile)));
-
             Player p = sender.Mobile as Player;
 
             if (info.ButtonID == (int)Buttons.strButton)
@@ -152,6 +148,10 @@ namespace Server.Gumps
                 p.CloseGump(typeof(SkillSelectionGump));
                 sender.Mobile.SendGump(new SkillSelectionGump((Player)sender.Mobile));
             }
+
+            if (info.ButtonID != (int)Buttons.invalid)
+                ((Player)sender.Mobile).SendGump
+                    (new StatusGump(((Player)sender.Mobile)));
         }
     }
 }
