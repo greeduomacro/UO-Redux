@@ -15,7 +15,7 @@ namespace Server.Misc
 
 		private static string[] m_Messages = new string[]
 				{
-                    "Welcome to UO Aberration.",
+                    "Welcome to Ultima Online : Redux.",
                     "If you find yourself in need of assistance, please use the 'help' button on your character's papperdoll.",
                     "Thank you for chosing UO Aberration, we hope you enjoy your stay."
 				};

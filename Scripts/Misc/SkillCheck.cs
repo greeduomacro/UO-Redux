@@ -155,10 +155,11 @@ namespace Server.Misc
             if (!skillImproved)
             {
                 skillImproved 
-                    = ((skill.Base < 33.3 && Utility.RandomDouble() <= 0.1665)
-                    || (skill.Base < 66.7 && Utility.RandomDouble() <= 0.08325) 
-                    || (skill.Base <= 91.1 && Utility.RandomDouble() <= 0.041625)
-                    || (skill.Base <= 125.0 && Utility.RandomDouble() <= 0.01));
+                    = ((skill.Base < 33.3 && Utility.RandomDouble()   <= 0.010)
+                    || (skill.Base < 66.7 && Utility.RandomDouble()   <= 0.008) 
+                    || (skill.Base <= 91.1 && Utility.RandomDouble()  <= 0.006)
+                    || (skill.Base <= 100.0 && Utility.RandomDouble() <= 0.004)
+                    || (skill.Base <= 125.0 && Utility.RandomDouble() <= 0.002));
             }
 
             if(skillImproved)

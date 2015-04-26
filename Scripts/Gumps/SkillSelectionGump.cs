@@ -26,7 +26,7 @@ namespace Server.SkillCapSelection {
 			AddBackground( 10, 10, 325, (205 + (SkillGroup.Groups.Length * 20) + ((selected == null ? 0 : selected.Skills.Length) * 20)), 9250 );
 			AddLabel( 115, 20, 1152, "Skill Cap Overview" );
 
-			AddHtml( 27, 45, 290, 105, String.Format( "By using Essence of Character your may increase your individual skillcaps, allowing you to further your training."
+			AddHtml( 27, 45, 290, 105, String.Format( "By using Essence of Character your may increase your individual skill levels."
                                     + ""
                                     + " Please note: decreasing a skillcap does not refund Essence of Character."
 									+ "", (from.SkillsCap / 10).ToString( "F1" ) ), false, true );
@@ -113,26 +113,26 @@ namespace Server.SkillCapSelection {
                                             if (sk.Base >= sk.Cap)
                                                 _from.SendMessage("That skill is at its maximum level. It cannot be raised any further");
 
-                                            else if (((Player)_from).EoC < 2000)
-                                                _from.SendMessage("You need 2,000 Essence of Character to increase this skill's level.");
+                                            else if (((Player)_from).EoC < sk.Base * 10)
+                                                _from.SendMessage("You need {0} Essence of Character to increase this skill's level.", sk.Base * 10);
 
                                             else
                                             {
                                                 sk.Base += 1.0;
-                                                ((Player)_from).EoC -= 2000;
+                                                ((Player)_from).EoC -= (int)(sk.Base * 10);
                                             }
 											break;
 										}
 
 									case "dec": 
                                         {
-											if( sk.Cap <= 0.0 ) 
+                                            if (sk.Base <= 0.0) 
 												_from.SendMessage( "That skill is at its minimum level. It cannot be lowered further." );
 
                                             else 
                                             {
-												sk.Cap -= 1.0;
-                                                ((Player)_from).EoC += 2000;
+                                                sk.Base -= 1.0;
+                                                ((Player)_from).EoC += (int)(sk.Base * 10);
                                                 if (sk.Base > sk.Cap)
                                                     sk.Base = sk.Cap;
 											}

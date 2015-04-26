@@ -60,7 +60,12 @@ namespace Server.Gumps
         {
             if( sender.Mobile == null || !(sender.Mobile is Player))
                 return;
+
             sender.Mobile.CloseGump(typeof(StatusGump));
+
+            if (info.ButtonID == (int)Buttons.invalid)
+                ((Player)sender.Mobile).SendGump
+                    (new StatusGump(((Player)sender.Mobile)));
 
             Player p = sender.Mobile as Player;
 
@@ -73,10 +78,10 @@ namespace Server.Gumps
                     return;
                 }
 
-                if (p.EoC >= 1500)
+                if (p.EoC >= 100 * p.Str)
                 {
                     p.Str++;
-                    p.EoC -= 1500;
+                    p.EoC -= 100 * p.Str;
                 }
 
                 else p.SendMessage("You must have atleast 1,500 eoc to do this.");
@@ -91,10 +96,10 @@ namespace Server.Gumps
                     return;
                 }
 
-                if (p.EoC >= 1500)
+                if (p.EoC >= 100 * p.Dex)
                 {
                     p.Dex++;
-                    p.EoC -= 1500;
+                    p.EoC -= 100 * p.Dex;
                 }
 
                 else p.SendMessage("You must have atleast 1,500 eoc to do this.");
@@ -109,10 +114,10 @@ namespace Server.Gumps
                     return;
                 }
 
-                if (p.EoC >= 1500)
+                if (p.EoC >= 100 * p.Int)
                 {
                     p.Int++;
-                    p.EoC -= 1500;
+                    p.EoC -= 100 * p.Dex;
                 }
 
                 else p.SendMessage("You must have atleast 1,500 eoc to do this.");

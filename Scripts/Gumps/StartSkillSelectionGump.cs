@@ -27,7 +27,7 @@ namespace Server.SkillSelection {
 			AddBackground( 10, 10, 325, (205 + (SkillGroup.Groups.Length * 20) + ((selected == null ? 0 : selected.Skills.Length) * 20)), 9250 );
 			AddLabel( 115, 20, 1152, "Starting Skills" );
 
-			AddHtml( 27, 45, 290, 105, String.Format( "On this menu, you can apply some \'free\' skill points to the skills of your choosing. "
+			AddHtml( 27, 45, 290, 105, String.Format( "On this menu, you can apply starting skill points to the skills of your choosing. "
 									+ "The first value following the skill name is the skill\'s current base value. The second value is its "
 									+ "overall maximum value. You can continually increase any given skill up to its maximum value or until you "
 									+ "use all available skill points.<BR>Your <U>total</U> cap for all skills combined is {0}, and once you "
@@ -124,7 +124,7 @@ namespace Server.SkillSelection {
 												sk.Base = sk.Cap;
 											} else if( GetRemainingPoints() <= 0.0 ) {
 												_from.SendMessage( "You do not have enough points remaining. Try lowering another skill first." );
-											} else if( sk.Base >= 90.0 ) {
+											} else if( sk.Base >= 75.0 ) {
 												_from.SendMessage( "That skill is at its maximum value." );
 											} else {
 												sk.Base += 5.0;
@@ -146,13 +146,13 @@ namespace Server.SkillSelection {
 												sk.Base = sk.Cap;
 											} else if( GetRemainingPoints() <= 0.0 ) {
 												_from.SendMessage( "You do not have enough points remaining. Try lowering another skill cap first." );
-											} else if( sk.Base >= 90.0 ) {
+											} else if( sk.Base >= 75.0 ) {
 												_from.SendMessage( "That skill is at its maximum value." );
 											} else {
 												if( GetRemainingPoints() < (sk.Cap - sk.Base) )
 													sk.Base = GetRemainingPoints();
 												else
-													sk.Base = 90.0;
+													sk.Base = 75.0;
 											}
 
 											break;
@@ -195,7 +195,7 @@ namespace Server.SkillSelection {
 		}
 
 		private double GetRemainingPoints() {
-			double pointsLeft = 500;
+			double pointsLeft = 225;
 
 			for( int i = 0; i < _from.Skills.Length; i++ ) {
 				if( !IsRaceBonus( _from, _from.Skills[i] ) )

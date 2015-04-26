@@ -1361,12 +1361,12 @@ namespace Server.Items
             if((!m_AosAttributes.IsEmpty || !m_AosArmorAttributes.IsEmpty))
                 list.Add("Runic");
 
-            else DisplayProperties(list);
+            DisplayProperties(list);
         }
 
         public void DisplayProperties(ObjectPropertyList list)
         {
-            if(false)
+            if(Identified)
             {
                 if(m_Quality == ArmorQuality.Exceptional)
                     list.Add(1060636); //exceptional

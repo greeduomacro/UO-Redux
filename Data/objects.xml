@@ -22,17 +22,11 @@
 					<object type="Server.Items.MediumStoneTableSouthAddon" gfx="1" />
 				</category>
 				<category title="Misc">
-					<object type="Server.Items.AlchemistTableEastAddon" gfx="11731" />
-					<object type="Server.Items.AlchemistTableSouthAddon" gfx="11732" />
 					<object type="Server.Items.AnchorE" gfx="5367" />
 					<object type="Server.Items.AnchorS" gfx="5369" />
+					<object type="Server.Items.AngelStatueAddon" gfx="1" />
 					<object type="Server.Items.AnkhBannerEastAddon" gfx="1" />
 					<object type="Server.Items.AnkhBannerSouthAddon" gfx="1" />
-					<object type="Server.Items.ArcaneBookshelfEastAddon" gfx="1" />
-					<object type="Server.Items.ArcaneBookshelfSouthAddon" gfx="1" />
-					<object type="Server.Items.ArcaneCircleAddon" gfx="1" />
-					<object type="Server.Items.ArcanistStatueEastAddon" gfx="11534" />
-					<object type="Server.Items.ArcanistStatueSouthAddon" gfx="11535" />
 					<object type="Server.Items.AxeStump" gfx="3670" />
 					<object type="Server.Items.BallistaEastAddon" gfx="1" />
 					<object type="Server.Items.BallistaSouthAddon" gfx="1" />
@@ -49,8 +43,7 @@
 					<object type="Server.Items.DisplayCaseSouth" gfx="1" />
 					<object type="Server.Items.DresserEastAddon" gfx="1" />
 					<object type="Server.Items.DresserSouthAddon" gfx="1" />
-					<object type="Server.Items.ElvenForgeAddon" gfx="11736" />
-					<object type="Server.Items.ElvenStoveEastAddon" gfx="11739" />
+					<object type="Server.Items.DwarvenStatueAddon" gfx="1" />
 					<object type="Server.Items.ElvenStoveSouthAddon" gfx="11740" />
 					<object type="Server.Items.FireColumnAddon" gfx="1" />
 					<object type="Server.Items.GiantWeb1" gfx="1" />
@@ -59,6 +52,8 @@
 					<object type="Server.Items.GiantWeb4" gfx="1" />
 					<object type="Server.Items.GiantWeb5" gfx="1" />
 					<object type="Server.Items.GiantWeb6" gfx="1" />
+					<object type="Server.Items.GrayBrickFireplaceEastAddon" gfx="1" />
+					<object type="Server.Items.GrayBrickFireplaceSouthAddon" gfx="1" />
 					<object type="Server.Items.GruesomeE" gfx="1055" />
 					<object type="Server.Items.GruesomeS" gfx="1064" />
 					<object type="Server.Items.HammockEast" gfx="1" />
@@ -66,14 +61,16 @@
 					<object type="Server.Items.HangingSkeletonE" gfx="6657" />
 					<object type="Server.Items.HangingSkeletonS" gfx="6658" />
 					<object type="Server.Items.JackOLantern" gfx="1" />
+					<object type="Server.Items.KnightSarcophogusSAddon" gfx="1" />
 					<object type="Server.Items.LargePedestalAddon" gfx="4643" />
-					<object type="Tykari.Items.LighthouseAddon" gfx="1" />
+					<object type="Server.Items.LighthouseAddon" gfx="1" />
 					<object type="Server.Items.LightWoodTableEast" gfx="1" />
 					<object type="Server.Items.LightWoodTableSouth" gfx="1" />
 					<object type="Server.Items.LogTableEast" gfx="1" />
 					<object type="Server.Items.LogTableSouth" gfx="1" />
 					<object type="Server.Items.MarbleTableSouth" gfx="1" />
 					<object type="Server.Items.MiniHouseAddon" gfx="8900" />
+					<object type="Server.Items.OpenKnightSarcophogusSAddon" gfx="1" />
 					<object type="Server.Items.OrecartEastAddon" gfx="1" />
 					<object type="Server.Items.PedestalAddon" gfx="7978" />
 					<object type="Server.Items.PianoAddon" gfx="1" />
@@ -86,15 +83,28 @@
 					<object type="Server.Items.RuinedBookCaseE" gfx="3093" />
 					<object type="Server.Items.RuinedBookCaseS" gfx="3092" />
 					<object type="Server.Items.Saddle" gfx="3896" />
+					<object type="Khazman.TravelBySea.SailBoatEastWest" gfx="1" />
+					<object type="Khazman.TravelBySea.SailBoatEastWest2" gfx="1" />
+					<object type="Khazman.TravelBySea.SailBoatNorthSouth" gfx="1" />
+					<object type="Khazman.TravelBySea.SailBoatNorthSouth2" gfx="1" />
+					<object type="Khazman.TravelBySea.SailBoatSouthNorth" gfx="1" />
+					<object type="Khazman.TravelBySea.SailBoatSouthNorth2" gfx="1" />
+					<object type="Khazman.TravelBySea.SailBoatWestEast" gfx="1" />
+					<object type="Khazman.TravelBySea.SailBoatWestEast2" gfx="1" />
+					<object type="Server.Items.SandstoneFireplaceEastAddon" gfx="1" />
+					<object type="Server.Items.SandstoneFireplaceSouthAddon" gfx="1" />
 					<object type="Server.Items.SandstoneFountainAddon" gfx="1" />
 					<object type="Server.Items.SandstoneOvenEastAddon" gfx="1" />
 					<object type="Server.Items.SandstoneOvenSouthAddon" gfx="1" />
+					<object type="Server.Items.SeerStatueAddon" gfx="1" />
 					<object type="Server.Items.SerpentPillarAddon" gfx="1" />
 					<object type="Server.Items.ShrineOfWisdomAddon" gfx="1" hue="1150" />
 					<object type="Server.Items.SkullPileAddon" gfx="1" />
 					<object type="Server.Items.SmallTreasurePileAddon" gfx="1" />
 					<object type="Server.Items.SquirrelStatueEastAddon" gfx="11536" />
 					<object type="Server.Items.SquirrelStatueSouthAddon" gfx="11537" />
+					<object type="Server.Items.StoneFireplaceEastAddon" gfx="1" />
+					<object type="Server.Items.StoneFireplaceSouthAddon" gfx="1" />
 					<object type="Server.Items.StoneFountainAddon" gfx="1" />
 					<object type="Server.Items.Telescope" gfx="1" />
 					<object type="Server.Items.TentAddon" gfx="1" />
@@ -107,7 +117,8 @@
 					<object type="Server.Items.WaterVatEast" gfx="1" />
 					<object type="Server.Items.WaterVatSouth" gfx="1" />
 					<object type="Server.Items.WellAddon" gfx="1" />
-					<object type="Tykari.Items.WoodPileAddon" gfx="1" />
+					<object type="Server.Items.WomanStatueAddon" gfx="1" />
+					<object type="Server.Items.WoodPileAddon" gfx="1" />
 					<object type="Server.Items.YewTreeAddon" gfx="1" />
 				</category>
 				<category title="Smithing">
@@ -156,17 +167,11 @@
 					<object type="Server.Items.MediumStoneTableSouthDeed" gfx="5360" />
 				</category>
 				<category title="Misc">
-					<object type="Server.Items.AlchemistTableEastDeed" gfx="5360" />
-					<object type="Server.Items.AlchemistTableSouthDeed" gfx="5360" />
 					<object type="Server.Items.AnchorEDeed" gfx="5360" />
 					<object type="Server.Items.AnchorSDeed" gfx="5360" />
+					<object type="Server.Items.AngelStatueAddonDeed" gfx="5360" />
 					<object type="Server.Items.AnkhBannerEastAddonDeed" gfx="5360" />
 					<object type="Server.Items.AnkhBannerSouthAddonDeed" gfx="5360" />
-					<object type="Server.Items.ArcaneBookshelfEastDeed" gfx="5360" />
-					<object type="Server.Items.ArcaneBookshelfSouthDeed" gfx="5360" />
-					<object type="Server.Items.ArcaneCircleDeed" gfx="5360" />
-					<object type="Server.Items.ArcanistStatueEastDeed" gfx="5360" />
-					<object type="Server.Items.ArcanistStatueSouthDeed" gfx="5360" />
 					<object type="Server.Items.AxeStumpDeed" gfx="5360" />
 					<object type="Server.Items.BallistaEastAddonDeed" gfx="5360" />
 					<object type="Server.Items.BallistaSouthAddonDeed" gfx="5360" />
@@ -187,10 +192,11 @@
 					<object type="Server.Items.DisplayCaseSouthDeed" gfx="5360" />
 					<object type="Server.Items.DresserEastDeed" gfx="5360" />
 					<object type="Server.Items.DresserSouthDeed" gfx="5360" />
-					<object type="Server.Items.ElvenForgeDeed" gfx="5360" />
-					<object type="Server.Items.ElvenStoveEastDeed" gfx="5360" />
+					<object type="Server.Items.DwarvenStatueAddonDeed" gfx="5360" />
 					<object type="Server.Items.ElvenStoveSouthDeed" gfx="5360" />
 					<object type="Server.Items.GrayBrickFireplaceDeed" gfx="5360" />
+					<object type="Server.Items.GrayBrickFireplaceEastDeed" gfx="5360" />
+					<object type="Server.Items.GrayBrickFireplaceSouthDeed" gfx="5360" />
 					<object type="Server.Items.GruesomeEDeed" gfx="5360" />
 					<object type="Server.Items.GruesomeSDeed" gfx="5360" />
 					<object type="Server.Items.HammockEastDeed" gfx="5360" />
@@ -198,14 +204,16 @@
 					<object type="Server.Items.HangingSkeletonEDeed" gfx="5360" />
 					<object type="Server.Items.HangingSkeletonSDeed" gfx="5360" />
 					<object type="Server.Items.HearthOfHomeFireDeed" gfx="5360" />
+					<object type="Server.Items.KnightSarcophogusSAddonDeed" gfx="5360" />
 					<object type="Server.Items.LargePedestalAddonDeed" gfx="5360" />
-					<object type="Tykari.Items.LighthouseAddonDeed" gfx="5360" />
+					<object type="Server.Items.LighthouseAddonDeed" gfx="5360" />
 					<object type="Server.Items.LightWoodTableEastDeed" gfx="5360" />
 					<object type="Server.Items.LightWoodTableSouthDeed" gfx="5360" />
 					<object type="Server.Items.LogTableEastDeed" gfx="5360" />
 					<object type="Server.Items.LogTableSouthDeed" gfx="5360" />
 					<object type="Server.Items.MarbleTableSouthDeed" gfx="5360" />
 					<object type="Server.Items.MiniHouseDeed" gfx="5360" />
+					<object type="Server.Items.OpenKnightSarcophogusSAddonDeed" gfx="5360" />
 					<object type="Server.Items.OrecartEastDeed" gfx="5360" />
 					<object type="Server.Items.PedestalAddonDeed" gfx="5360" />
 					<object type="Server.Items.PianoAddonDeed" gfx="5360" />
@@ -214,19 +222,23 @@
 					<object type="Server.Items.RuinedBookCaseEDeed" gfx="5360" />
 					<object type="Server.Items.RuinedBookCaseSDeed" gfx="5360" />
 					<object type="Server.Items.SaddleDeed" gfx="5360" />
-					<object type="Server.Items.SandstoneFireplaceDeed" gfx="5360" />
+					<object type="Server.Items.SandstoneFireplaceEastDeed" gfx="5360" />
+					<object type="Server.Items.SandstoneFireplaceSouthDeed" gfx="5360" />
 					<object type="Server.Items.SandstoneOvenEastAddonDeed" gfx="5360" />
 					<object type="Server.Items.SandstoneOvenSouthAddonDeed" gfx="5360" />
+					<object type="Server.Items.SeerStatueAddonDeed" gfx="5360" />
 					<object type="Server.Items.SmallTreasurePileAddonDeed" gfx="5360" />
 					<object type="Server.Items.SquirrelStatueEastDeed" gfx="5360" />
 					<object type="Server.Items.SquirrelStatueSouthDeed" gfx="5360" />
-					<object type="Server.Items.StoneFireplaceDeed" gfx="5360" />
+					<object type="Server.Items.StoneFireplaceEastDeed" gfx="5360" />
+					<object type="Server.Items.StoneFireplaceSouthDeed" gfx="5360" />
 					<object type="Server.Items.ThinBrickChimneyEastAddonDeed" gfx="5360" />
 					<object type="Server.Items.ThinBrickChimneySouthAddonDeed" gfx="5360" />
 					<object type="Server.Items.WarriorStatueEastDeed" gfx="5360" />
 					<object type="Server.Items.WarriorStatueSouthDeed" gfx="5360" />
 					<object type="Server.Items.WaterTroughEastDeed" gfx="5360" />
 					<object type="Server.Items.WaterTroughSouthDeed" gfx="5360" />
+					<object type="Server.Items.WomanStatueAddonDeed" gfx="5360" />
 					<object type="Server.Items.YewTreeAddonDeed" gfx="5360" />
 				</category>
 				<category title="Smithing">
@@ -257,12 +269,12 @@
 		</category>
 		<category title="Boats">
 			<category title="Constructed">
-				<object type="Server.Multis.LargeBoat" gfx="1" />
-				<object type="Server.Multis.LargeDragonBoat" gfx="1" />
-				<object type="Server.Multis.MediumBoat" gfx="1" />
-				<object type="Server.Multis.MediumDragonBoat" gfx="1" />
-				<object type="Server.Multis.SmallBoat" gfx="1" />
-				<object type="Server.Multis.SmallDragonBoat" gfx="1" />
+				<object type="Server.Multis.LargeBoat" gfx="16" />
+				<object type="Server.Multis.LargeDragonBoat" gfx="20" />
+				<object type="Server.Multis.MediumBoat" gfx="8" />
+				<object type="Server.Multis.MediumDragonBoat" gfx="12" />
+				<object type="Server.Multis.SmallBoat" gfx="0" />
+				<object type="Server.Multis.SmallDragonBoat" gfx="4" />
 			</category>
 			<category title="Deeds">
 				<object type="Server.Multis.LargeBoatDeed" gfx="5362" />
@@ -275,8 +287,8 @@
 		</category>
 		<category title="Bods &amp; Rewards">
 			<category title="Smithing">
-				<object type="Server.Items.ColoredAnvil" gfx="4015" hue="2425" />
-				<object type="Server.Items.GargoylesPickaxe" gfx="3718" hue="2419" />
+				<object type="Server.Items.ColoredAnvil" gfx="4015" hue="2418" />
+				<object type="Server.Items.GargoylesPickaxe" gfx="3717" hue="2419" />
 				<object type="Server.Engines.BulkOrders.LargeSmithBOD" gfx="8792" hue="1102" />
 				<object type="Server.Items.PowderOfTemperament" gfx="4102" hue="2419" />
 				<object type="Server.Items.ProspectorsTool" gfx="4020" />
@@ -322,17 +334,17 @@
 			<object type="Server.Engines.BulkOrders.BulkOrderBook" gfx="8793" />
 		</category>
 		<category title="Books">
-			<object type="Server.Items.ArmsAndWeaponsPrimer" gfx="4080" />
+			<object type="Server.Items.ArmsAndWeaponsPrimer" gfx="4079" />
 			<object type="Server.Items.BeltranGuideBook" gfx="4079" />
 			<object type="Server.Items.BirdsBritanniaBook" gfx="4079" />
-			<object type="Server.Items.BirdsOfBritannia" gfx="4080" />
+			<object type="Server.Items.BirdsOfBritannia" gfx="4079" />
 			<object type="Server.Items.BlackthornWelcomeBook" gfx="4081" hue="2203" />
 			<object type="Server.Items.BlueBook" gfx="4082" />
 			<object type="Server.Items.BoldStranger" gfx="4079" />
-			<object type="Server.Items.BritannianFlora" gfx="4080" />
+			<object type="Server.Items.BritannianFlora" gfx="4079" />
 			<object type="Server.Items.BritannianFloraBook" gfx="4079" />
 			<object type="Server.Items.BrownBook" gfx="4079" />
-			<object type="Server.Items.BurningOfTrinsic" gfx="4079" />
+			<object type="Server.Items.BurningOfTrinsic" gfx="4080" />
 			<object type="Server.Items.CallToAnarchy" gfx="4080" />
 			<object type="Server.Items.ChildrenTalesVol2" gfx="4080" />
 			<object type="Server.Items.DeceitDungeonHorrosBook" gfx="4079" />
@@ -340,26 +352,27 @@
 			<object type="Server.Items.DimensionalTravel" gfx="4079" />
 			<object type="Server.Items.DimensionalTravelBook" gfx="4079" />
 			<object type="Server.Items.DiversityLandBook" gfx="4079" />
-			<object type="Server.Items.DiversityOfOurLand" gfx="4080" />
+			<object type="Server.Items.DiversityOfOurLand" gfx="4079" />
 			<object type="Server.Items.DrakovsJournal" gfx="4082" />
 			<object type="Server.Items.EthicalHedonism" gfx="4079" />
 			<object type="Server.Items.EthicalHedonismBook" gfx="4079" />
 			<object type="Server.Items.FropozJournal" gfx="4081" />
 			<object type="Server.Items.GerthlandBook" gfx="4081" />
-			<object type="Server.Items.GrammarOfOrcish" gfx="4079" />
+			<object type="Server.Items.GrammarOfOrcish" gfx="4080" />
 			<object type="Server.Items.GrammerOrcischBook" gfx="4079" />
-			<object type="Server.Items.GrimmochJournal1" gfx="4081" />
+			<object type="Server.Items.GrimmochJournal1" gfx="4082" />
 			<object type="Server.Items.GrimmochJournal11" gfx="4082" />
-			<object type="Server.Items.GrimmochJournal14" gfx="4081" />
-			<object type="Server.Items.GrimmochJournal17" gfx="4082" />
+			<object type="Server.Items.GrimmochJournal14" gfx="4082" />
+			<object type="Server.Items.GrimmochJournal17" gfx="4081" />
 			<object type="Server.Items.GrimmochJournal2" gfx="4082" />
-			<object type="Server.Items.GrimmochJournal23" gfx="4082" />
+			<object type="Server.Items.GrimmochJournal23" gfx="4081" />
 			<object type="Server.Items.GrimmochJournal3" gfx="4082" />
 			<object type="Server.Items.GrimmochJournal6" gfx="4081" />
 			<object type="Server.Items.GrimmochJournal7" gfx="4081" />
-			<object type="Server.Items.GuideToGuilds" gfx="4080" />
+			<object type="Server.Items.GuideToGuilds" gfx="4079" />
 			<object type="Server.Items.JournalDiscoveryDay11and13Tomb" gfx="4081" />
 			<object type="Server.Items.JournalDiscoveryDay14and15Tomb" gfx="4081" />
+			<object type="Server.Items.JournalDiscoveryDay15and16Tomb" gfx="4081" />
 			<object type="Server.Items.JournalDiscoveryDay17and19Tomb" gfx="4081" />
 			<object type="Server.Items.JournalDiscoveryDay19and21Tomb" gfx="4081" />
 			<object type="Server.Items.JournalDiscoveryDay1Tomb" gfx="4081" />
@@ -379,7 +392,7 @@
 			<object type="Server.Items.JournalGrimmochDrummelDay2" gfx="4079" />
 			<object type="Server.Items.JournalGrimmochDrummelDay6" gfx="4079" />
 			<object type="Server.Items.KaburJournal" gfx="4081" />
-			<object type="Server.Items.LifeOfATravellingMinstrel" gfx="4080" />
+			<object type="Server.Items.LifeOfATravellingMinstrel" gfx="4079" />
 			<object type="Server.Items.LoversLamentBook" gfx="4081" />
 			<object type="Server.Items.LysanderDay11and13Book" gfx="4082" />
 			<object type="Server.Items.LysanderDay1Book" gfx="4082" />
@@ -389,13 +402,14 @@
 			<object type="Server.Items.LysanderDay8and10Book" gfx="4082" />
 			<object type="Server.Items.LysanderNotebook1" gfx="4081" />
 			<object type="Server.Items.LysanderNotebook11" gfx="4081" />
-			<object type="Server.Items.LysanderNotebook2" gfx="4082" />
-			<object type="Server.Items.LysanderNotebook3" gfx="4082" />
+			<object type="Server.Items.LysanderNotebook2" gfx="4081" />
+			<object type="Server.Items.LysanderNotebook3" gfx="4081" />
 			<object type="Server.Items.LysanderNotebook7" gfx="4081" />
 			<object type="Server.Items.LysanderNotebook8" gfx="4081" />
 			<object type="Server.Items.MajorTradeAssociation" gfx="4080" />
 			<object type="Server.Items.MyStory" gfx="4079" />
 			<object type="Server.Items.MyStoryBook" gfx="4079" />
+			<object type="Server.Items.NewAquariumBook" gfx="4082" />
 			<object type="Server.Items.PhonemesOrcishTongueBook" gfx="4079" />
 			<object type="Server.Items.PoliticalCallBook" gfx="4079" />
 			<object type="Server.Items.PrimerArmsBook" gfx="4079" />
@@ -409,29 +423,29 @@
 			<object type="Server.Items.RhanBook2" gfx="4081" />
 			<object type="Server.Items.RhanBook3" gfx="4081" />
 			<object type="Server.Items.RhanBook4" gfx="4081" />
-			<object type="Tykari.Items.Scroll" gfx="5357" />
+			<object type="Server.Items.Scroll" gfx="5357" />
 			<object type="Server.Items.SongOfSamlethe" gfx="4080" />
 			<object type="Server.Items.SongOfSamletheBook" gfx="4079" />
-			<object type="Server.Items.TaleOfThreeTribes" gfx="4079" />
-			<object type="Server.Items.TalesOfVesperVol1" gfx="4079" />
+			<object type="Server.Items.TaleOfThreeTribes" gfx="4080" />
+			<object type="Server.Items.TalesOfVesperVol1" gfx="4080" />
 			<object type="Server.Items.TaleTribesBook" gfx="4079" />
 			<object type="Server.Items.TalkingToWisps" gfx="4079" />
 			<object type="Server.Items.TalkingWispsBook" gfx="4079" />
-			<object type="Server.Items.TamingDragons" gfx="4079" />
+			<object type="Server.Items.TamingDragons" gfx="4080" />
 			<object type="Server.Items.TamingDragonsBook" gfx="4079" />
 			<object type="Server.Items.TanBook" gfx="4080" />
-			<object type="Server.Items.TavarasJournal1" gfx="4081" />
+			<object type="Server.Items.TavarasJournal1" gfx="4082" />
 			<object type="Server.Items.TavarasJournal11" gfx="4081" />
 			<object type="Server.Items.TavarasJournal14" gfx="4081" />
 			<object type="Server.Items.TavarasJournal16" gfx="4081" />
-			<object type="Server.Items.TavarasJournal16b" gfx="4081" />
+			<object type="Server.Items.TavarasJournal16b" gfx="4082" />
 			<object type="Server.Items.TavarasJournal17" gfx="4081" />
-			<object type="Server.Items.TavarasJournal19" gfx="4082" />
+			<object type="Server.Items.TavarasJournal19" gfx="4081" />
 			<object type="Server.Items.TavarasJournal2" gfx="4081" />
-			<object type="Server.Items.TavarasJournal3" gfx="4081" />
-			<object type="Server.Items.TavarasJournal6" gfx="4081" />
+			<object type="Server.Items.TavarasJournal3" gfx="4082" />
+			<object type="Server.Items.TavarasJournal6" gfx="4082" />
 			<object type="Server.Items.TavarasJournal7" gfx="4082" />
-			<object type="Server.Items.TavarasJournal8" gfx="4081" />
+			<object type="Server.Items.TavarasJournal8" gfx="4082" />
 			<object type="Server.Items.TavarasJournal9" gfx="4081" />
 			<object type="Server.Items.TheBoldStangerBook" gfx="4079" />
 			<object type="Server.Items.TheBurningOfTrinsicBook" gfx="4079" />
@@ -442,16 +456,18 @@
 			<object type="Server.Items.TheWildGirlBook" gfx="4079" />
 			<object type="Server.Items.TranslatedGargoyleJournal" gfx="4082" />
 			<object type="Server.Items.TreatiseAlchemyBook" gfx="4079" />
-			<object type="Server.Items.TreatiseOnAlchemy" gfx="4079" />
+			<object type="Server.Items.TreatiseOnAlchemy" gfx="4080" />
 			<object type="Server.Items.VirtueBook" gfx="4079" />
-			<object type="Server.Items.WildGirlOfTheForest" gfx="4079" />
+			<object type="Server.Items.WildGirlOfTheForest" gfx="4080" />
 		</category>
 		<category title="Camps">
-			<object type="Server.Multis.BankerCamp" gfx="1" />
-			<object type="Server.Multis.HealerCamp" gfx="1" />
-			<object type="Server.Multis.MageCamp" gfx="1" />
-			<object type="Server.Multis.OrcCamp" gfx="1" />
-			<object type="Server.Multis.RatCamp" gfx="1" />
+			<object type="Server.Multis.BankerCamp" gfx="502" />
+			<object type="Server.Multis.BrigandCamp" gfx="4334" />
+			<object type="Server.Multis.HealerCamp" gfx="500" />
+			<object type="Server.Multis.LizardmenCamp" gfx="4334" />
+			<object type="Server.Multis.MageCamp" gfx="501" />
+			<object type="Server.Multis.OrcCamp" gfx="4334" />
+			<object type="Server.Multis.RatCamp" gfx="4334" />
 		</category>
 		<category title="Cartography">
 			<object type="Server.Items.BlankMap" gfx="5356" />
@@ -460,6 +476,7 @@
 			<object type="Server.Items.LocalMap" gfx="5356" />
 			<object type="Server.Items.MapItem" gfx="5356" />
 			<object type="Server.Items.SeaChart" gfx="5356" />
+			<object type="Server.Items.SimpleMap" gfx="5356" />
 			<object type="Server.Misc.WeatherMap" gfx="5356" />
 			<object type="Server.Items.WorldMap" gfx="5356" />
 		</category>
@@ -502,7 +519,9 @@
 				<object type="Server.Items.BagOfHolding" gfx="3702" />
 				<object type="Server.Items.Barrel" gfx="3703" />
 				<object type="Server.Items.Basket" gfx="2448" />
+				<object type="Server.Items.Bucket" gfx="5344" />
 				<object type="Server.Items.CherryArmoire" gfx="10333" />
+				<object type="Server.Items.ClosedBarrel" gfx="4014" />
 				<object type="Server.Items.Drawer" gfx="2604" />
 				<object type="Server.Items.ElegantArmoire" gfx="10329" />
 				<object type="Server.Items.EmptyBookcase" gfx="2717" />
@@ -517,14 +536,17 @@
 				<object type="Server.Items.FillableWoodenBox" gfx="2474" />
 				<object type="Server.Items.FillableWoodenChest" gfx="3651" />
 				<object type="Server.Items.FinishedWoodenChest" gfx="10259" />
+				<object type="Server.Items.FishBowl" gfx="9244" hue="1150" />
+				<object type="Server.Items.FruitTub" gfx="11642" />
 				<object type="Server.Items.FullBookcase" gfx="2711" />
-				<object type="Server.Items.GiftBox" gfx="9003" hue="225" />
+				<object type="Server.Items.GiftBox" gfx="9002" hue="526" />
 				<object type="Server.Items.GildedWoodenChest" gfx="10255" />
 				<object type="Server.Items.Keg" gfx="3711" />
 				<object type="Server.Items.LargeBagBall" gfx="8791" />
 				<object type="Server.Items.LargeCrate" gfx="3645" />
 				<object type="Server.Items.LibraryBookcase" gfx="2711" />
-				<object type="Server.Items.MageCorpse" gfx="8198" hue="1002" />
+				<object type="Server.Multis.LockableBarrel" gfx="3703" />
+				<object type="Server.Items.MageCorpse" gfx="8198" hue="1037" />
 				<object type="Server.Items.MapleArmoire" gfx="10331" />
 				<object type="Server.Items.MarkContainer" gfx="3705" />
 				<object type="Server.Items.MediumCrate" gfx="3647" />
@@ -536,23 +558,31 @@
 				<object type="Server.Items.OrnateWoodenChest" gfx="10253" />
 				<object type="Server.Items.PicnicBasket" gfx="3706" />
 				<object type="Server.Items.PlainWoodenChest" gfx="10251" />
+				<object type="Server.Items.PlayerQuestBoard" gfx="7774" hue="100" />
 				<object type="Server.Items.Pouch" gfx="3705" />
-				<object type="Tykari.Items.Quiver" gfx="11010" />
-				<object type="Server.Items.RangerCorpse" gfx="8198" hue="1040" />
+				<object type="Server.Items.QuestHolder" gfx="3643" hue="500" />
+				<object type="Server.Items.Quiver" gfx="11010" />
+				<object type="Server.Items.RangerCorpse" gfx="8198" hue="1024" />
+				<object type="Server.Items.RearScabbard" gfx="15816" />
 				<object type="Server.Items.RedArmoire" gfx="10327" />
-				<object type="Tykari.Items.SecureWoodenChest" gfx="3650" />
+				<object type="Server.Items.SecureWoodenChest" gfx="3650" />
 				<object type="Server.Items.SeedBox" gfx="3649" hue="271" />
 				<object type="Server.Items.ShortCabinet" gfx="10263" />
+				<object type="Server.Items.SideScabbard" gfx="15810" />
 				<object type="Server.Items.SmallBagBall" gfx="8790" />
 				<object type="Server.Items.SmallCrate" gfx="2473" />
 				<object type="Server.Items.StrongBackpack" gfx="3701" />
+				<object type="Server.Items.SupplyBarrel" gfx="11485" />
 				<object type="Server.Items.TallCabinet" gfx="10261" />
-				<object type="Tykari.Items.TrashBag" gfx="3702" hue="1154" />
+				<object type="Server.Items.TrashBag" gfx="3702" hue="1154" />
 				<object type="Server.Items.TrashBarrel" gfx="3703" hue="946" />
+				<object type="Server.Items.Tub" gfx="3715" />
+				<object type="Server.Items.WaterBarrel" gfx="3703" />
 				<object type="Server.Items.WoodenBox" gfx="2474" />
 				<object type="Server.Items.WoodenChest" gfx="3651" />
 				<object type="Server.Items.WoodenFootLocker" gfx="10257" />
 				<object type="Server.Items.WoodenTreasureChest" gfx="3651" />
+				<object type="Server.Items.XmlQuestBook" gfx="8793" hue="100" />
 			</category>
 			<category title="Decoration">
 				<category title="Paintings &amp; Portraits">
@@ -577,7 +607,7 @@
 					<object type="Server.Items.DecorativeShield8" gfx="5498" />
 					<object type="Server.Items.DecorativeShield9" gfx="5500" />
 					<object type="Server.Items.DecorativeShieldSword1North" gfx="5506" />
-					<object type="Server.Items.DecorativeShieldSword1West" gfx="5685" />
+					<object type="Server.Items.DecorativeShieldSword1West" gfx="5684" />
 					<object type="Server.Items.DecorativeShieldSword2North" gfx="5508" />
 					<object type="Server.Items.DecorativeShieldSword2West" gfx="5687" />
 				</category>
@@ -596,9 +626,9 @@
 				</category>
 				<category title="Weapons">
 					<object type="Server.Items.DecorativeAxeNorth" gfx="5473" />
-					<object type="Server.Items.DecorativeAxeWest" gfx="5474" />
-					<object type="Server.Items.DecorativeBowNorth" gfx="5468" />
-					<object type="Server.Items.DecorativeBowWest" gfx="5471" />
+					<object type="Server.Items.DecorativeAxeWest" gfx="5475" />
+					<object type="Server.Items.DecorativeBowNorth" gfx="5469" />
+					<object type="Server.Items.DecorativeBowWest" gfx="5470" />
 					<object type="Server.Items.DecorativeDAxeNorth" gfx="5481" />
 					<object type="Server.Items.DecorativeDAxeWest" gfx="5482" />
 					<object type="Server.Items.DecorativeSwordNorth" gfx="5477" />
@@ -611,26 +641,26 @@
 			</category>
 			<category title="Floors">
 				<object type="Server.Items.BlueSlateFloorCenter" gfx="1179" />
-				<object type="Server.Items.BricksFloor1" gfx="1250" />
-				<object type="Server.Items.BricksFloor2" gfx="1335" />
-				<object type="Server.Items.CaveFloorCenter" gfx="1339" />
+				<object type="Server.Items.BricksFloor1" gfx="1253" />
+				<object type="Server.Items.BricksFloor2" gfx="1337" />
+				<object type="Server.Items.CaveFloorCenter" gfx="1340" />
 				<object type="Server.Items.CaveFloorEast" gfx="1350" />
-				<object type="Server.Items.CaveFloorNorth" gfx="1359" />
-				<object type="Server.Items.CaveFloorSouth" gfx="1347" />
-				<object type="Server.Items.CaveFloorWest" gfx="1354" />
+				<object type="Server.Items.CaveFloorNorth" gfx="1357" />
+				<object type="Server.Items.CaveFloorSouth" gfx="1346" />
+				<object type="Server.Items.CaveFloorWest" gfx="1356" />
 				<object type="Server.Items.CobblestonesFloor" gfx="1304" />
-				<object type="Server.Items.DarkSandstoneFloorN" gfx="1328" />
-				<object type="Server.Items.DarkSandstoneFloorW" gfx="1331" />
-				<object type="Server.Items.GreenMarbleFloor" gfx="1296" />
+				<object type="Server.Items.DarkSandstoneFloorN" gfx="1327" />
+				<object type="Server.Items.DarkSandstoneFloorW" gfx="1334" />
+				<object type="Server.Items.GreenMarbleFloor" gfx="1295" />
 				<object type="Server.Items.GreyFlagstones" gfx="1278" />
 				<object type="Server.Items.GreyMarbleFloor" gfx="1298" />
 				<object type="Server.Items.GreySlateFloor" gfx="1180" />
-				<object type="Server.Items.MarbleFloor" gfx="1294" />
-				<object type="Server.Items.MarblePavers" gfx="1176" />
-				<object type="Server.Items.SandFlagstones" gfx="1281" />
-				<object type="Server.Items.SandstoneFloorN" gfx="1317" />
-				<object type="Server.Items.SandstoneFloorW" gfx="1323" />
-				<object type="Server.Items.StonePaversDark" gfx="1313" />
+				<object type="Server.Items.MarbleFloor" gfx="1293" />
+				<object type="Server.Items.MarblePavers" gfx="1174" />
+				<object type="Server.Items.SandFlagstones" gfx="1282" />
+				<object type="Server.Items.SandstoneFloorN" gfx="1319" />
+				<object type="Server.Items.SandstoneFloorW" gfx="1321" />
+				<object type="Server.Items.StonePaversDark" gfx="1316" />
 				<object type="Server.Items.StonePaversLight" gfx="1307" />
 				<object type="Server.Items.StonePaversMedium" gfx="1309" />
 			</category>
@@ -695,10 +725,10 @@
 				<object type="Server.Items.Pitcher" gfx="4086" />
 			</category>
 			<category title="Needs cooking">
-				<object type="Server.Items.BrightlyColoredEggs" gfx="2485" hue="18" />
+				<object type="Server.Items.BrightlyColoredEggs" gfx="2485" hue="68" />
 				<object type="Server.Items.CakeMix" gfx="4159" />
 				<object type="Server.Items.CookieMix" gfx="4159" />
-				<object type="Server.Items.EasterEggs" gfx="2485" hue="23" />
+				<object type="Server.Items.EasterEggs" gfx="2485" hue="43" />
 				<object type="Server.Items.Eggs" gfx="2485" />
 				<object type="Server.Items.RawBird" gfx="2489" />
 				<object type="Server.Items.RawChickenLeg" gfx="5639" />
@@ -723,7 +753,7 @@
 				<object type="Server.Items.BreadLoaf" gfx="4155" />
 				<object type="Server.Items.Cabbage" gfx="3195" />
 				<object type="Server.Items.Cake" gfx="2537" />
-				<object type="Server.Items.Canteloupe" gfx="3194" />
+				<object type="Server.Items.Cantaloupe" gfx="3194" />
 				<object type="Server.Items.Carrot" gfx="3192" />
 				<object type="Server.Items.CheesePizza" gfx="4160" />
 				<object type="Server.Items.CheeseSlice" gfx="2428" />
@@ -776,6 +806,7 @@
 				<object type="Server.Items.SmallWatermelon" gfx="3165" />
 				<object type="Server.Items.SplitCoconut" gfx="5925" />
 				<object type="Server.Items.Squash" gfx="3186" />
+				<object type="Server.Items.Tomato" gfx="2512" />
 				<object type="Server.Items.Turnip" gfx="3386" />
 				<object type="Server.Items.Watermelon" gfx="3164" />
 				<object type="Server.Items.WoodenBowlOfCarrots" gfx="5625" />
@@ -807,23 +838,13 @@
 			<object type="Server.Items.CurvedFlask" gfx="6194" />
 			<object type="Server.Items.EmptyCurvedFlaskE" gfx="6197" />
 			<object type="Server.Items.EmptyCurvedFlaskW" gfx="6194" />
-			<object type="Server.Items.EmptyJar" gfx="4101" />
-			<object type="Server.Items.EmptyJars2" gfx="3652" />
-			<object type="Server.Items.EmptyJars3" gfx="3654" />
-			<object type="Server.Items.EmptyJars4" gfx="3655" />
 			<object type="Server.Items.EmptyRibbedFlask" gfx="6202" />
 			<object type="Server.Items.EmptyVial" gfx="3620" />
 			<object type="Server.Items.EmptyVialsWRack" gfx="6235" />
-			<object type="Server.Items.FullJar" gfx="4102" />
-			<object type="Server.Items.FullJars2" gfx="3656" />
-			<object type="Server.Items.FullJars3" gfx="3658" />
-			<object type="Server.Items.FullJars4" gfx="3659" />
 			<object type="Server.Items.FullVialsWRack" gfx="6237" />
 			<object type="Server.Items.GreenBeaker" gfx="6193" />
 			<object type="Server.Items.GreenBottle" gfx="3835" />
 			<object type="Server.Items.GreenCurvedFlask" gfx="6199" />
-			<object type="Server.Items.HalfEmptyJar" gfx="4103" />
-			<object type="Server.Items.HalfEmptyJars2" gfx="3660" />
 			<object type="Server.Items.Hourglass" gfx="6160" />
 			<object type="Server.Items.HourglassAni" gfx="6161" />
 			<object type="Server.Items.LargeEmptyFlask" gfx="6205" />
@@ -851,7 +872,6 @@
 			<object type="Server.Items.TinyRedBottle" gfx="3844" />
 			<object type="Server.Items.TinyYellowBottle" gfx="3843" />
 			<object type="Server.Items.VioletRibbedFlask" gfx="6201" />
-			<object type="Server.Items.VioletStemmedBottle" gfx="3840" />
 			<object type="Server.Items.YellowBeaker" gfx="6190" />
 		</category>
 		<category title="Hair" />
@@ -955,24 +975,7 @@
 				<object type="Server.Items.NightSightPotion" gfx="3846" />
 			</category>
 			<category title="Scrolls">
-				<category title="Necromancy">
-					<object type="Server.Items.AnimateDeadScroll" gfx="8800" />
-					<object type="Server.Items.BloodOathScroll" gfx="8801" />
-					<object type="Server.Items.CorpseSkinScroll" gfx="8802" />
-					<object type="Server.Items.CurseWeaponScroll" gfx="8803" />
-					<object type="Server.Items.EvilOmenScroll" gfx="8804" />
-					<object type="Server.Items.HorrificBeastScroll" gfx="8805" />
-					<object type="Server.Items.LichFormScroll" gfx="8806" />
-					<object type="Server.Items.MindRotScroll" gfx="8807" />
-					<object type="Server.Items.PainSpikeScroll" gfx="8808" />
-					<object type="Server.Items.PoisonStrikeScroll" gfx="8809" />
-					<object type="Server.Items.StrangleScroll" gfx="8810" />
-					<object type="Server.Items.SummonFamiliarScroll" gfx="8811" />
-					<object type="Server.Items.VampiricEmbraceScroll" gfx="8812" />
-					<object type="Server.Items.VengefulSpiritScroll" gfx="8813" />
-					<object type="Server.Items.WitherScroll" gfx="8814" />
-					<object type="Server.Items.WraithFormScroll" gfx="8815" />
-				</category>
+				<category title="Necromancy" />
 				<category title="Standard">
 					<category title="Circle #1">
 						<object type="Server.Items.ClumsyScroll" gfx="7982" />
@@ -1057,11 +1060,8 @@
 				</category>
 				<object type="Server.Items.BlankScroll" gfx="3827" />
 			</category>
-			<object type="Server.Spells.Divine.DivineTome" gfx="8786" hue="1001" />
 			<object type="Server.Items.FullSpellBook" gfx="3834" />
-			<object type="Server.Items.NecromancerSpellbook" gfx="8787" />
 			<object type="Server.Items.Spellbook" gfx="3834" />
-			<object type="Server.Items.SpellweavingBook" gfx="11600" hue="2210" />
 		</category>
 		<category title="Pots &amp; Plants">
 			<object type="Server.Items.LargeEmptyPot" gfx="4551" />
@@ -1080,13 +1080,11 @@
 		</category>
 		<category title="Resources">
 			<category title="Bags">
-				<object type="Server.Items.BagOfAllReagents" gfx="3702" />
 				<object type="Server.Items.BagOfingots" gfx="3702" />
-				<object type="Server.Items.BagOfNecroReagents" gfx="3702" />
 				<object type="Server.Items.BagOfReagents" gfx="3702" />
 			</category>
 			<category title="Fish">
-				<object type="Server.Items.BigFish" gfx="2508" hue="2119" />
+				<object type="Server.Items.BigFish" gfx="2508" hue="1420" />
 				<object type="Server.Items.Fish" gfx="2509" />
 				<object type="Server.Items.PeculiarFish" gfx="3542" hue="66" />
 				<object type="Server.Items.PrizedFish" gfx="3542" hue="51" />
@@ -1124,22 +1122,16 @@
 			<category title="Ore">
 				<object type="Server.Items.AgapiteOre" gfx="6585" hue="2425" />
 				<object type="Server.Items.BronzeOre" gfx="6585" hue="2418" />
-				<object type="Server.Items.CopperOre" gfx="6585" hue="2413" />
+				<object type="Server.Items.CopperOre" gfx="6586" hue="2413" />
 				<object type="Server.Items.DullCopperOre" gfx="6585" hue="2419" />
 				<object type="Server.Items.GoldOre" gfx="6585" hue="2213" />
 				<object type="Server.Items.IronOre" gfx="6585" />
 				<object type="Server.Items.ShadowIronOre" gfx="6585" hue="2406" />
-				<object type="Server.Items.ValoriteOre" gfx="6585" hue="2219" />
+				<object type="Server.Items.ValoriteOre" gfx="6583" hue="2219" />
 				<object type="Server.Items.VeriteOre" gfx="6585" hue="2207" />
 			</category>
 			<category title="Reagents">
-				<category title="Necromancy">
-					<object type="Server.Items.BatWing" gfx="3960" />
-					<object type="Server.Items.DaemonBlood" gfx="3965" />
-					<object type="Server.Items.GraveDust" gfx="3983" />
-					<object type="Server.Items.NoxCrystal" gfx="3982" />
-					<object type="Server.Items.PigIron" gfx="3978" />
-				</category>
+				<category title="Necromancy" />
 				<category title="Standard">
 					<object type="Server.Items.BlackPearl" gfx="3962" />
 					<object type="Server.Items.Bloodmoss" gfx="3963" />
@@ -1187,6 +1179,7 @@
 					<object type="Server.Items.LightYarn" gfx="3614" />
 					<object type="Server.Items.LightYarnUnraveled" gfx="3615" />
 					<object type="Server.Items.SpoolOfThread" gfx="4000" />
+					<object type="Server.Items.TaintedWool" gfx="3576" />
 					<object type="Server.Items.Wool" gfx="3576" />
 				</category>
 				<object type="Server.Items.Bone" gfx="3966" />
@@ -1194,13 +1187,7 @@
 			<category title="Wood">
 				<object type="Server.Items.AshBoard" gfx="7127" hue="1191" />
 				<object type="Server.Items.AshLog" gfx="7133" hue="1191" />
-				<object type="Server.Items.BloodwoodBoard" gfx="7127" hue="1194" />
-				<object type="Server.Items.BloodwoodLog" gfx="7133" hue="1194" />
 				<object type="Server.Items.Board" gfx="7127" />
-				<object type="Server.Items.FrostwoodBoard" gfx="7127" hue="1151" />
-				<object type="Server.Items.FrostwoodLog" gfx="7133" hue="1151" />
-				<object type="Server.Items.HeartwoodBoard" gfx="7127" hue="1193" />
-				<object type="Server.Items.HeartwoodLog" gfx="7133" hue="1193" />
 				<object type="Server.Items.Log" gfx="7133" />
 				<object type="Server.Items.OakBoard" gfx="7127" hue="2010" />
 				<object type="Server.Items.OakLog" gfx="7133" hue="2010" />
@@ -1229,6 +1216,7 @@
 				<object type="Server.Items.Hammer" gfx="4138" />
 				<object type="Server.Items.Inshave" gfx="4326" />
 				<object type="Server.Items.JointingPlane" gfx="4144" />
+				<object type="Server.Items.LocksmithTools" gfx="7866" />
 				<object type="Server.Items.MalletAndChisel" gfx="4787" />
 				<object type="Server.Items.MapmakersPen" gfx="4031" />
 				<object type="Server.Items.MortarPestle" gfx="3739" />
@@ -1243,6 +1231,7 @@
 				<object type="Server.Items.SledgeHammer" gfx="4021" />
 				<object type="Server.Items.SmithHammer" gfx="5091" />
 				<object type="Server.Items.SmoothingPlane" gfx="4146" />
+				<object type="Server.Items.TinkersTools" gfx="7868" />
 				<object type="Server.Items.TinkerTools" gfx="7864" />
 				<object type="Server.Items.Tongs" gfx="4027" />
 			</category>
@@ -1262,18 +1251,26 @@
 			<object type="Server.Items.StoneFaceTrapNoDamage" gfx="4348" />
 		</category>
 		<category title="Uncategorized">
+			<object type="Server.Items.AlbinoCourtesanFish" gfx="15108" />
+			<object type="Server.Items.AlbinoFrog" gfx="15117" hue="1150" />
+			<object type="Server.Items.AncientScroll" gfx="8015" hue="1305" />
 			<object type="Server.Items.AnkhNorth" gfx="4" />
 			<object type="Server.Items.AnkhWest" gfx="3" />
 			<object type="Server.Items.Anvil" gfx="4015" />
-			<object type="Tykari.CropSystem.AppleTreeSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.AppleTreeSeed" gfx="3881" hue="1506" />
+			<object type="Server.Items.AquariumEastDeed" gfx="5360" />
+			<object type="Server.Items.AquariumFishNet" gfx="3528" hue="576" />
+			<object type="Server.Items.AquariumFood" gfx="3836" />
+			<object type="Server.Items.AquariumMessage" gfx="2463" />
+			<object type="Server.Items.AquariumNorthDeed" gfx="5360" />
 			<object type="Server.Items.ArcaneGem" gfx="7847" />
 			<object type="Server.Items.ArcheryButte" gfx="4106" />
 			<object type="Server.Items.ArmorDyeTub" gfx="4011" />
-			<object type="Server.Items.BagOfSending" gfx="3702" hue="2203" />
+			<object type="Server.Items.BagOfSending" gfx="3702" hue="2221" />
 			<object type="Server.Items.BallOfSummoning" gfx="3630" />
 			<object type="Server.Items.BallotBox" gfx="2472" />
 			<object type="Server.Items.BambooScreen" gfx="9424" />
-			<object type="Tykari.CropSystem.BananaTreeSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.BananaTreeSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.Bandage" gfx="3617" />
 			<object type="Server.Items.BankChest" gfx="3648" />
 			<object type="Server.Items.BarkeepContract" gfx="5360" />
@@ -1282,52 +1279,64 @@
 			<object type="Server.Items.Bedroll" gfx="2647" />
 			<object type="Server.Items.Beeswax" gfx="5154" />
 			<object type="Server.Items.BigElvenChair" gfx="11755" />
-			<object type="Tykari.Items.BindingCrystal" gfx="7961" hue="1156" />
+			<object type="Server.Items.BindingCrystal" gfx="7961" hue="1156" />
 			<object type="Server.Items.BlackDyeTub" gfx="4011" hue="1" />
+			<object type="Server.Items.BladeBlessing" gfx="5357" hue="1155" />
 			<object type="Server.Items.BlazeDyeTub" gfx="4011" hue="1161" />
+			<object type="Server.Items.BlessingOfKhopesh" gfx="3639" />
 			<object type="Server.Items.Blocker" gfx="8612" />
-			<object type="Server.Items.Blood" gfx="5701" />
+			<object type="Server.Items.Blood" gfx="4655" />
 			<object type="Server.Items.BloodBasin" gfx="3619" />
 			<object type="Server.Items.BlueSnowflake" gfx="9006" />
 			<object type="Server.Items.Bola" gfx="9900" />
 			<object type="Server.Items.BolaBall" gfx="3699" hue="2220" />
 			<object type="Server.Items.BonePile" gfx="6922" />
 			<object type="Server.Items.BoneShards" gfx="6937" />
-			<object type="Tykari.Items.BoneThrone" gfx="10841" />
+			<object type="Server.Items.BoneThrone" gfx="10841" />
 			<object type="Server.Items.BookDyeTub" gfx="4011" />
+			<object type="Server.Language.BookOfLanguage" gfx="4030" />
 			<object type="Server.Items.Bottle" gfx="3854" />
 			<object type="Server.Items.BowlFlour" gfx="2590" />
 			<object type="Server.Items.Brain" gfx="7408" />
+			<object type="Aberration.RuneScribing.BrandingIron" gfx="4024" />
+			<object type="Server.Items.BrineShrimp" gfx="15121" />
+			<object type="Server.Items.BritainCrownFish" gfx="15103" />
 			<object type="Server.Items.BroadcastCrystal" gfx="7888" />
-			<object type="Server.Items.Bucket" gfx="5344" />
 			<object type="Server.Items.BulletinBoard" gfx="7774" />
 			<object type="Server.Items.BustEast" gfx="4810" />
 			<object type="Server.Items.BustSouth" gfx="4811" />
-			<object type="Tykari.CropSystem.CabbageSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.CabbageSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.CannonBall" gfx="3699" />
-			<object type="Tykari.CropSystem.CanteloupeSeed" gfx="3881" hue="1506" />
-			<object type="Tykari.CropSystem.CarrotSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.CantaloupeSeed" gfx="3881" hue="1506" />
+			<object type="Server.Items.CaptainBlackheartsFishingPole" gfx="3520" />
+			<object type="Server.Engines.Crops.CarrotSeed" gfx="3881" hue="1506" />
 			<object type="Arya.Chess.ChessControl" gfx="3796" hue="1285" />
 			<object type="Server.Items.ChiselsNorth" gfx="4134" />
 			<object type="Server.Items.ChiselsWest" gfx="4135" />
 			<object type="Server.Items.ClockworkAssembly" gfx="7848" hue="1102" />
-			<object type="Tykari.CropSystem.CoconutPalmTreeSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.CoconutPalmTreeSeed" gfx="3881" hue="1506" />
+			<object type="Server.Items.CombinationLock" gfx="7103" />
 			<object type="Server.Items.CommodityDeed" gfx="5360" hue="71" />
+			<object type="Server.Items.ConditionTeleporter" gfx="7107" />
 			<object type="Server.Items.ConfirmationMoongate" gfx="3948" />
 			<object type="Server.Items.ContractOfEmployment" gfx="5360" />
-			<object type="Tykari.CropSystem.CornSeed" gfx="3881" hue="1506" />
-			<object type="Tykari.CropSystem.CottonSeed" gfx="3881" hue="1506" />
+			<object type="Server.Currency.Copper" gfx="3824" hue="2413" />
+			<object type="Server.Items.Coral" gfx="15099" />
+			<object type="Server.Engines.Crops.CornSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.CottonSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.CreatureController" gfx="7961" hue="2129" />
 			<object type="Server.Items.CrystalBall" gfx="3630" />
+			<object type="Server.Items.DaemonBait" gfx="7408" hue="1157" />
+			<object type="Server.Items.DaemonBlood" gfx="3628" />
 			<object type="Server.Items.DarkFur1" gfx="4600" />
 			<object type="Server.Items.DarkFur2" gfx="4601" />
 			<object type="Server.Items.DarkSource" gfx="5702" />
 			<object type="Server.Items.DartBoard" gfx="7727" />
-			<object type="Tykari.CropSystem.DatePalmTreeSeed" gfx="3881" hue="1506" />
-			<object type="Server.Items.DecoItem" gfx="7441" />
-			<object type="Tykari.Items.DecoratedStandingArmor" gfx="5384" />
-			<object type="Tykari.Items.DecorativeGoldShield" gfx="5484" />
-			<object type="Tykari.Items.DecorativeSilverShield" gfx="5486" />
+			<object type="Server.Engines.Crops.DatePalmTreeSeed" gfx="3881" hue="1506" />
+			<object type="Server.Items.DecoItem" gfx="7408" />
+			<object type="Server.Items.DecoratedStandingArmor" gfx="5384" />
+			<object type="Server.Items.DecorativeGoldShield" gfx="5484" />
+			<object type="Server.Items.DecorativeSilverShield" gfx="5486" />
 			<object type="Server.Items.DecoTarotDeck" gfx="4779" />
 			<object type="Server.Items.DirtyFrypan" gfx="2526" />
 			<object type="Server.Items.DirtyKettle" gfx="2524" />
@@ -1340,11 +1349,11 @@
 			<object type="Server.Items.DisappearingRaiseSwitch" gfx="4239" />
 			<object type="Server.Items.DisguiseKit" gfx="3589" />
 			<object type="Server.Items.Dismounter" gfx="7107" />
-			<object type="Tykari.Traps.DoorArrowTrapInstaller" gfx="7867" />
-			<object type="Tykari.Traps.DoorDartTrapInstaller" gfx="7867" />
-			<object type="Tykari.Traps.DoorExplosionTrapInstaller" gfx="7867" />
-			<object type="Tykari.Traps.DoorGuillotineTrapInstaller" gfx="7867" />
-			<object type="Tykari.Traps.DoorPoisonTrapInstaller" gfx="7867" />
+			<object type="Server.Traps.DoorArrowTrapInstaller" gfx="7867" />
+			<object type="Server.Traps.DoorDartTrapInstaller" gfx="7867" />
+			<object type="Server.Traps.DoorExplosionTrapInstaller" gfx="7867" />
+			<object type="Server.Traps.DoorGuillotineTrapInstaller" gfx="7867" />
+			<object type="Server.Traps.DoorPoisonTrapInstaller" gfx="7867" />
 			<object type="Server.Items.DoubleClickTeleporter" gfx="7107" />
 			<object type="Server.Items.Dough" gfx="4157" />
 			<object type="Server.Items.DoughBowl" gfx="4323" />
@@ -1353,6 +1362,7 @@
 			<object type="Server.Items.DriedOnions" gfx="3136" />
 			<object type="Server.Items.Dyes" gfx="4009" />
 			<object type="Server.Items.DyeTub" gfx="4011" />
+			<object type="Aberration.RuneScribing.EaselAndBrush" gfx="4033" />
 			<object type="Server.Items.EffectController" gfx="7026" />
 			<object type="Server.Items.Eggshells" gfx="2484" />
 			<object type="Server.Items.ElegantLowTable" gfx="10265" />
@@ -1362,60 +1372,78 @@
 			<object type="Server.Items.EmptyWoodenBowl" gfx="5624" />
 			<object type="Server.Items.EmptyWoodenTub" gfx="5637" />
 			<object type="Server.Items.FabledFishingNet" gfx="3530" hue="1153" />
+			<object type="Ulmeta.Factions.FactionDecor" gfx="1801" />
+			<object type="Ulmeta.Factions.FactionTrapKit" gfx="7867" />
 			<object type="Server.Items.FancyWindChimes" gfx="10291" />
+			<object type="Server.Items.FandancerFish" gfx="15106" />
 			<object type="Server.Items.FarmableCabbage" gfx="3254" />
 			<object type="Server.Items.FarmableCarrot" gfx="3190" />
-			<object type="Server.Items.FarmableCotton" gfx="3154" />
-			<object type="Server.Items.FarmableFlax" gfx="6809" />
+			<object type="Server.Items.FarmableCotton" gfx="3155" />
+			<object type="Server.Items.FarmableFlax" gfx="6810" />
 			<object type="Server.Items.FarmableLettuce" gfx="3254" />
 			<object type="Server.Items.FarmableOnion" gfx="3183" />
-			<object type="Server.Items.FarmablePumpkin" gfx="3168" />
-			<object type="Server.Items.FarmableTurnip" gfx="3170" />
-			<object type="Server.Items.FarmableWheat" gfx="3158" />
+			<object type="Server.Items.FarmablePumpkin" gfx="3167" />
+			<object type="Server.Items.FarmableTurnip" gfx="3171" />
+			<object type="Server.Items.FarmableWheat" gfx="3159" />
 			<object type="Server.Items.FertileDirt" gfx="3969" />
 			<object type="Server.Items.FireHorn" gfx="4039" hue="1126" />
+			<object type="Server.Items.FishBones" gfx="15116" />
 			<object type="Server.Items.FishingPole" gfx="3520" />
 			<object type="Server.Items.FishingWeight" gfx="3532" />
-			<object type="Tykari.Items.FlatOrnateTable" gfx="11751" />
-			<object type="Tykari.CropSystem.FlaxSeed" gfx="3881" hue="1506" />
+			<object type="Server.Items.FlatOrnateTable" gfx="11751" />
+			<object type="Server.Engines.Crops.FlaxSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.FlintAndSteel" gfx="10233" hue="942" />
 			<object type="Server.Items.FloorPillow" gfx="5033" />
-			<object type="Tykari.Transport.FlyingCarpet" gfx="4248" />
 			<object type="Server.Items.Forge" gfx="4017" />
 			<object type="Server.Items.ForgedMetal" gfx="4024" />
 			<object type="Server.Items.Fork" gfx="2548" />
 			<object type="Server.Items.ForkLeft" gfx="2548" />
 			<object type="Server.Items.ForkRight" gfx="2549" />
-			<object type="Tykari.Items.FruitBowl" gfx="11599" />
+			<object type="Server.Items.FruitBowl" gfx="11599" />
 			<object type="Server.Items.Frypan" gfx="2431" />
+			<object type="Server.Items.FullMoonFish" gfx="15125" />
 			<object type="Server.Items.FurnitureDyeTub" gfx="4011" />
+			<object type="Server.Items.GarlicCrop" gfx="6370" />
+			<object type="Server.Items.GarlicCrop+GarlicRootCrop" gfx="6371" />
+			<object type="Aberration.RuneScribing.GemTippedChisel" gfx="4787" />
+			<object type="Server.Items.GinsengCrop" gfx="6378" />
+			<object type="Server.Items.GinsengCrop+GinsengRootCrop" gfx="6380" />
 			<object type="Server.Items.GlassblowingBook" gfx="4084" />
 			<object type="Server.Items.GlassBottle" gfx="3627" />
 			<object type="Server.Items.Globe" gfx="4167" />
-			<object type="Server.Items.Gold" gfx="3821" />
-			<object type="Tykari.CropSystem.GourdSeed" gfx="3881" hue="1506" />
+			<object type="Server.Currency.Gold" gfx="3824" hue="2213" />
+			<object type="Server.Items.GoldenBroadtail" gfx="15107" />
+			<object type="Server.Engines.Crops.GourdSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.GreenDriedFlowers" gfx="3134" />
 			<object type="Server.Items.GreenThorns" gfx="3906" hue="66" />
 			<object type="Server.Items.GuildDeed" gfx="5360" />
+			<object type="Server.Items.GuildstoneDeed" gfx="5360" />
 			<object type="Server.Items.GuildTeleporter" gfx="6249" />
 			<object type="Server.Items.Guillotine" gfx="4656" />
 			<object type="Server.Items.HairDye" gfx="3839" />
 			<object type="Server.Items.HairRestylingDeed" gfx="5360" />
-			<object type="Tykari.Items.HangingChainmailTunic" gfx="5053" />
-			<object type="Tykari.Items.HangingRingmailTunic" gfx="5095" />
+			<object type="Server.Items.HangingChainmailTunic" gfx="5053" />
+			<object type="Server.Items.HangingRingmailTunic" gfx="5095" />
 			<object type="Server.Items.Head" gfx="7584" />
-			<object type="HitchingPost" gfx="5352" />
-			<object type="HitchingRope" gfx="7840" />
+			<object type="Server.Games.Hearts.HeartsDeck" gfx="4779" />
+			<object type="Server.Items.HitchingPost" gfx="5352" />
+			<object type="Server.Items.HitchingRope" gfx="7840" />
+			<object type="Server.Games.Holdem.HoldemDeck" gfx="4779" />
 			<object type="Server.Items.HolidayTreeDeed" gfx="5360" hue="1160" />
-			<object type="Tykari.CropSystem.HoneydewMelonSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.HoneydewMelonSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.HorseShoes" gfx="4022" />
-			<object type="Tykari.Items.Inkwell" gfx="11617" />
+			<object type="Server.Items.Inkwell" gfx="11617" />
+			<object type="Server.Items.IntelligenceOfThePatriarch" gfx="3639" hue="1154" />
 			<object type="Server.Items.InteriorDecorator" gfx="4033" />
+			<object type="Server.Items.IslandStatue" gfx="15119" />
 			<object type="Server.Items.JarHoney" gfx="2540" />
+			<object type="Server.Items.Jellyfish" gfx="15118" />
 			<object type="Server.Items.Kettle" gfx="2541" />
 			<object type="Server.Items.Key" gfx="4112" />
 			<object type="Server.Items.KeyRing" gfx="4113" />
 			<object type="Server.Items.KeywordTeleporter" gfx="7107" />
+			<object type="Server.Items.KhoMarkGem" gfx="3699" />
+			<object type="Server.Items.KillerFrog" gfx="15117" />
 			<object type="Server.Items.Kindling" gfx="3553" />
 			<object type="Server.Items.Knife" gfx="2550" />
 			<object type="Server.Items.KnifeLeft" gfx="2550" />
@@ -1423,38 +1451,49 @@
 			<object type="Server.Items.Knitting" gfx="3574" />
 			<object type="Server.Items.LargeForgeEast" gfx="6522" />
 			<object type="Server.Items.LargeForgeWest" gfx="6554" />
-			<object type="Tykari.Items.LargeWashBasin" gfx="11531" />
-			<object type="Tykari.Items.LeatherBelt" gfx="10128" />
+			<object type="Server.Items.LargeWashBasin" gfx="11531" />
+			<object type="Server.Items.LeatherBelt" gfx="10128" />
 			<object type="Server.Items.LeatherDyeTub" gfx="4011" />
 			<object type="Server.Items.LeftArm" gfx="7585" />
 			<object type="Server.Items.LeftLeg" gfx="7587" />
-			<object type="Tykari.CropSystem.LemonTreeSeed" gfx="3881" hue="1506" />
-			<object type="Tykari.CropSystem.LettuceSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.LemonTreeSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.LettuceSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.LightFur1" gfx="4602" />
 			<object type="Server.Items.LightFur2" gfx="4603" />
 			<object type="Server.Items.LightSource" gfx="5703" />
-			<object type="Tykari.CropSystem.LimeTreeSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.LimeTreeSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.Lockpick" gfx="5372" />
-			<object type="Server.Items.LOSBlocker" gfx="8601" />
+			<object type="Server.Items.LongClawCrab" gfx="15100" hue="1319" />
+			<object type="Server.Items.LOSBlocker" gfx="8610" />
+			<object type="Server.Items.MakotoCourtesanFish" gfx="15101" />
+			<object type="Server.Items.MandrakeCrop" gfx="6367" />
+			<object type="Server.Items.MandrakeCrop+MandrakeRootCrop" gfx="6366" />
 			<object type="Server.Items.MasonryBook" gfx="4030" />
 			<object type="Server.Items.MeltedWax" gfx="4650" hue="2101" />
 			<object type="Server.Items.MessageInABottle" gfx="2463" />
+			<object type="Server.Items.MinocBlueFish" gfx="15102" />
 			<object type="Server.Items.ModelBoat" gfx="5363" />
 			<object type="Server.Items.MonsterStatuette" gfx="8410" />
 			<object type="Server.Items.Moongate" gfx="3948" />
 			<object type="Server.Items.MoveSpawner" gfx="7026" />
-			<object type="Tykari.Items.NameChangeDeed" gfx="5359" />
+			<object type="Server.Items.NameChangeDeed" gfx="5360" />
+			<object type="Server.Surnames.NameRegistry" gfx="4029" />
+			<object type="Server.Surnames.NameRegistryScroll" gfx="5360" />
+			<object type="Server.Items.NightshadeCrop" gfx="6374" />
+			<object type="Server.Items.NujelmHoneyFish" gfx="15110" />
 			<object type="Server.Items.Obelisk" gfx="4484" />
 			<object type="Server.Items.OilCloth" gfx="5981" hue="2001" />
-			<object type="Tykari.Items.OilFlask" gfx="7192" />
-			<object type="Tykari.CropSystem.OnionSeed" gfx="3881" hue="1506" />
+			<object type="Server.Items.OilFlask" gfx="7192" />
+			<object type="Server.Engines.Crops.OnionSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.OrangePetals" gfx="4129" hue="43" />
+			<object type="Server.Items.OriginalQuestNote" gfx="5358" />
 			<object type="Server.Items.OrnateElvenChair" gfx="11747" />
-			<object type="Tykari.CropSystem.PeachTreeSeed" gfx="3881" hue="1506" />
-			<object type="Tykari.CropSystem.PearTreeSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.PeachTreeSeed" gfx="3881" hue="1506" />
+			<object type="Server.Items.PearlOyster" gfx="7955" hue="943" />
+			<object type="Server.Engines.Crops.PearTreeSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.PenAndInk" gfx="4031" />
-			<object type="Server.Items.PersonalBlessDeed" gfx="5360" />
 			<object type="Server.Items.PianoKeys" gfx="4006" />
+			<object type="Server.Items.PigifyOther" gfx="3639" hue="1157" />
 			<object type="Server.Items.PlainLowTable" gfx="10266" />
 			<object type="Server.Engines.Plants.PlantBowl" gfx="5629" />
 			<object type="Server.Engines.Plants.PlantItem" gfx="5634" />
@@ -1462,66 +1501,95 @@
 			<object type="Server.Items.PlayerBBEast" gfx="8978" />
 			<object type="Server.Items.PlayerBBSouth" gfx="8977" />
 			<object type="Server.Items.PoolOfAcid" gfx="4650" hue="63" />
-			<object type="Tykari.Items.PortingCrystal" gfx="7961" hue="205" />
-			<object type="Tykari.CropSystem.PotatoSeed" gfx="3881" hue="1506" />
+			<object type="Server.Items.PortingCrystal" gfx="7961" hue="205" />
+			<object type="Server.Engines.Crops.PotatoSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.PotionKeg" gfx="6464" />
 			<object type="Server.Items.PowderOfTranslocation" gfx="9912" />
 			<object type="Server.Items.PowerCrystal" gfx="7964" />
+			<object type="Server.Mobiles.ProximitySpawner" gfx="7955" />
 			<object type="Server.Items.PublicMoongate" gfx="3948" />
-			<object type="Server.Commands.Puke" gfx="3899" hue="1367" />
-			<object type="Tykari.CropSystem.PumpkinSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.PumpkinSeed" gfx="3881" hue="1506" />
+			<object type="Server.Items.PurpleFrog" gfx="15117" hue="1274" />
+			<object type="Server.Items.QuestLeadersBoard" gfx="7774" />
+			<object type="Server.Engines.XmlSpawner2.QuestLeadersStone" gfx="3796" />
+			<object type="Server.Items.QuestNote" gfx="5358" />
+			<object type="Server.Items.QuestRewardStone" gfx="3796" />
+			<object type="Server.Items.RaceScroll" gfx="8015" hue="1206" />
 			<object type="Server.Items.RaiseSwitch" gfx="4243" />
 			<object type="Server.Items.RangerGreenDyeTub" gfx="4011" hue="1155" />
 			<object type="Server.Items.RecallRune" gfx="7956" />
 			<object type="Server.Items.ReceiverCrystal" gfx="7888" />
+			<object type="Server.Items.RedDartFish" gfx="15104" />
 			<object type="Server.Items.RedLeaves" gfx="7813" hue="33" />
 			<object type="Server.Items.RedPoinsettia" gfx="9008" />
 			<object type="Server.Items.RegionControl" gfx="5609" />
 			<object type="Server.Items.RepairDeed" gfx="5360" hue="444" />
-			<object type="Server.Items.RibCage" gfx="6935" />
+			<object type="Server.Items.RespawnBell" gfx="7186" hue="1165" />
+			<object type="Server.Items.RibCage" gfx="6936" />
 			<object type="Server.Items.RightArm" gfx="7586" />
 			<object type="Server.Items.RightLeg" gfx="7588" />
 			<object type="Server.Items.RockPile" gfx="4967" />
 			<object type="Server.Items.Rose" gfx="6377" />
-			<object type="Tykari.CropSystem.RoseBud" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.RoseBud" gfx="3881" hue="1506" />
 			<object type="Server.Items.RoseOfTrinsic" gfx="9037" />
 			<object type="Server.Items.RoseOfTrinsicPetal" gfx="4129" hue="14" />
 			<object type="Server.Items.RottenHeart" gfx="3985" hue="996" />
-			<object type="Tykari.Items.RoundedOrnateTable" gfx="11745" />
+			<object type="Server.Items.RoundedOrnateTable" gfx="11745" />
 			<object type="Server.Items.RoundPillow" gfx="5031" />
 			<object type="Server.Items.Runebook" gfx="8901" hue="1121" />
 			<object type="Server.Items.RunebookDyeTub" gfx="4011" />
 			<object type="Server.Items.SackFlour" gfx="4153" />
+			<object type="Khazman.TravelBySea.SailingMembershipCard" gfx="5360" hue="1154" />
+			<object type="Khazman.TravelBySea.SailTimerCheck" gfx="5364" />
 			<object type="Server.Items.SandMiningBook" gfx="4084" />
 			<object type="Server.Items.Scales" gfx="6226" />
 			<object type="Server.Items.Scissors" gfx="3999" />
+			<object type="Server.Items.SeaHorseFish" gfx="15120" />
 			<object type="Server.Engines.Plants.Seed" gfx="3535" />
 			<object type="Server.Items.SerpentPillar" gfx="9023" />
 			<object type="Server.Items.Sextant" gfx="4184" />
 			<object type="Server.Items.SheafOfHay" gfx="3894" />
+			<object type="Server.Items.Shell" gfx="15122" />
 			<object type="Server.Items.ShojiScreen" gfx="9419" />
-			<object type="Tykari.Items.SiegeMachine" gfx="1997" />
+			<object type="Server.Items.Shrimp" gfx="15124" />
+			<object type="Server.Items.SiegeMachine" gfx="1997" />
+			<object type="Ulmeta.Factions.Sigillum" gfx="6249" />
+			<object type="Knives.TownHouses.SignHammer" gfx="5091" />
+			<object type="Server.Currency.Silver" gfx="3824" />
 			<object type="Server.Items.Silverware" gfx="2493" />
+			<object type="Server.Items.SimpleLever" gfx="4236" />
+			<object type="Server.Items.SimpleNote" gfx="5358" />
+			<object type="Server.Items.SimpleSwitch" gfx="4239" />
+			<object type="Server.Items.SimpleTileTrap" gfx="7107" />
+			<object type="Server.Items.SingleUseSwitch" gfx="4239" />
+			<object type="Server.Items.SkillScroll" gfx="5357" hue="1302" />
 			<object type="Server.Items.SkillTeleporter" gfx="7107" />
-			<object type="Tykari.Items.SkullKey" gfx="4112" />
+			<object type="Server.Items.SkullKey" gfx="4112" />
+			<object type="Server.Items.SmallMouthSuckerFin" gfx="15105" />
+			<object type="Server.Transport.SmallRedCarpetRoll" gfx="2647" />
+			<object type="Server.Transport.SmallRoyalBlueCarpetRoll" gfx="2647" />
 			<object type="Server.Items.SmallTowerSculpture" gfx="9242" />
 			<object type="Server.Items.SmallUrn" gfx="9244" />
+			<object type="Server.Items.SmokeBomb" gfx="10248" />
 			<object type="Server.Items.SOS" gfx="5357" />
+			<object type="Server.Items.SoulStone" gfx="7962" hue="2421" />
 			<object type="Server.Mobiles.Spawner" gfx="7955" />
 			<object type="Server.Items.SpecialBeardDye" gfx="3622" />
 			<object type="Server.Items.SpecialDyeTub" gfx="4011" />
 			<object type="Server.Items.SpecialFishingNet" gfx="3530" hue="2208" />
 			<object type="Server.Items.SpecialHairDye" gfx="3622" />
-			<object type="Tykari.Items.SpellBand" gfx="4234" hue="1109" />
-			<object type="Tykari.Items.SpidersEgg" gfx="4313" />
+			<object type="Server.Items.SpeckledCrab" gfx="15100" />
+			<object type="Server.Items.SpiderSac" gfx="4313" />
 			<object type="Server.Items.Spine" gfx="6939" />
+			<object type="Server.Items.SpinedScratcherFish" gfx="15109" />
 			<object type="Server.Items.Spoon" gfx="2552" />
 			<object type="Server.Items.SpoonLeft" gfx="2552" />
 			<object type="Server.Items.SpoonRight" gfx="2553" />
+			<object type="Server.Items.SpottedBuccaneer" gfx="15113" />
 			<object type="Server.Items.Spyglass" gfx="5365" />
-			<object type="Tykari.CropSystem.SquashSeed" gfx="3881" hue="1506" />
-			<object type="Tykari.Items.StandingArmor" gfx="5394" />
-			<object type="Tykari.PlayercastStatues.StatueDeed" gfx="5357" />
+			<object type="Server.Engines.Crops.SquashSeed" gfx="3881" hue="1506" />
+			<object type="Server.Items.StandingArmor" gfx="5394" />
+			<object type="Server.PlayercastStatues.StatueDeed" gfx="5357" />
 			<object type="Server.Items.StatueEast2" gfx="4644" />
 			<object type="Server.Items.StatuePegasus2" gfx="4648" />
 			<object type="Server.Items.StatueSouth2" gfx="4647" />
@@ -1529,35 +1597,51 @@
 			<object type="Server.Items.StatuetteDyeTub" gfx="4011" />
 			<object type="Server.Items.StatueWest" gfx="4646" />
 			<object type="Server.Items.StoneMiningBook" gfx="4030" />
+			<object type="Server.Items.StrippedFlakeFish" gfx="15114" />
+			<object type="Server.Items.StrippedSosarianSwill" gfx="15114" />
+			<object type="Server.Items.SummonShip" gfx="5362" />
 			<object type="Server.Items.SwarmOfFlies" gfx="2331" hue="1" />
 			<object type="Server.Items.SweetDough" gfx="4157" hue="150" />
-			<object type="Tykari.Items.SwordRack" gfx="5477" />
+			<object type="Server.Items.SwordRack" gfx="5477" />
 			<object type="Server.Items.TapestryOfSosaria" gfx="9038" />
 			<object type="Server.Items.TarotDeck" gfx="4779" />
 			<object type="Server.Items.TasslePillow" gfx="5035" />
 			<object type="Server.Items.TaxidermyKit" gfx="7866" />
 			<object type="Server.Items.Teleporter" gfx="7107" />
 			<object type="Server.Items.ThrowingDagger" gfx="3922" />
+			<object type="Server.Items.TimedLever" gfx="4236" />
+			<object type="Server.Items.TimedSwitch" gfx="4239" />
+			<object type="Server.Items.TimedSwitchableItem" gfx="4239" />
+			<object type="Server.Items.TimeoutGoal" gfx="6178" hue="1154" />
+			<object type="Server.Items.TimeoutTeleporter" gfx="7107" />
+			<object type="Server.Items.TjnarsScythe" gfx="6249" />
+			<object type="Server.Engines.Crops.TomatoSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.Torso" gfx="7583" />
+			<object type="Knives.TownHouses.TownHouseSign" gfx="3083" />
+			<object type="Server.Items.ToyBoat" gfx="5364" />
 			<object type="Server.Items.TrainingDummy" gfx="4212" />
+			<object type="Server.Items.TravelTent" gfx="2648" />
 			<object type="Server.Items.TribalBerry" gfx="2512" hue="6" />
 			<object type="Server.Items.TribalPaint" gfx="2540" hue="2101" />
 			<object type="Server.Items.TrueWhiteDyeTub" gfx="4011" hue="1150" />
-			<object type="Tykari.CropSystem.TurnipSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.TurnipSeed" gfx="3881" hue="1506" />
+			<object type="Server.Items.UnfinishedBarrel" gfx="7861" />
 			<object type="Server.Items.UnholyBone" gfx="3966" hue="1175" />
+			<object type="Server.Items.VacationWafer" gfx="2419" />
 			<object type="Server.Items.VendorRentalContract" gfx="5360" hue="1650" />
-			<object type="Server.Items.Vines" gfx="3307" />
-			<object type="Tykari.Items.WallFountain" gfx="10944" />
-			<object type="Tykari.Items.WallMap" gfx="11636" />
-			<object type="Tykari.Items.WardTeleporter" gfx="7107" />
-			<object type="Tykari.Items.WardTile" gfx="1309" />
-			<object type="Server.Items.WaterBucket" gfx="4090" />
-			<object type="Tykari.CropSystem.WatermelonSeed" gfx="3881" hue="1506" />
+			<object type="Server.Items.VesperReefTiger" gfx="15112" />
+			<object type="Server.Items.Vines" gfx="3311" />
+			<object type="Server.Items.WaitTeleporter" gfx="7107" />
+			<object type="Server.Items.WallFountain" gfx="10944" />
+			<object type="Server.Items.WallMap" gfx="11636" />
+			<object type="Server.Items.WardTeleporter" gfx="7107" />
+			<object type="Server.Items.WardTile" gfx="1309" />
+			<object type="Server.Engines.Crops.WatermelonSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.WayPoint" gfx="7956" hue="1176" />
 			<object type="Server.Items.WeaponDyeTub" gfx="4011" />
-			<object type="Tykari.Items.WeaponRack" gfx="5481" />
+			<object type="Server.Items.WeaponRack" gfx="5481" />
 			<object type="Server.Items.WellBucket" gfx="4090" />
-			<object type="Tykari.CropSystem.WheatSeed" gfx="3881" hue="1506" />
+			<object type="Server.Engines.Crops.WheatSeed" gfx="3881" hue="1506" />
 			<object type="Server.Items.WheatSheaf" gfx="7869" />
 			<object type="Server.Items.WhisperingRoseDeed" gfx="5360" hue="38" />
 			<object type="Server.Items.WhiteDriedFlowers" gfx="3132" />
@@ -1565,13 +1649,31 @@
 			<object type="Server.Items.WhiteSnowflake" gfx="9007" />
 			<object type="Server.Items.WindChimes" gfx="10290" />
 			<object type="Server.Items.WoodenBowl" gfx="5624" />
-			<object type="Server.Items.WreathAddon" gfx="9004" hue="609" />
-			<object type="Server.Items.WreathDeed" gfx="5360" hue="600" />
+			<object type="Server.Items.WrathOfFray" gfx="5358" />
+			<object type="Server.Items.WreathAddon" gfx="9004" hue="375" />
+			<object type="Server.Items.WreathDeed" gfx="5360" hue="888" />
+			<object type="Server.Items.XmlLatch" gfx="7103" />
+			<object type="Server.Items.XmlQuestMaker" gfx="3796" />
+			<object type="Server.Mobiles.XmlSpawner" gfx="7964" />
+			<object type="Server.Items.YellowFinBluebelly" gfx="15111" />
 			<object type="Server.Items.ZoogiFungus" gfx="9911" />
 		</category>
 		<category title="Wearables">
 			<category title="Armor">
-				<category title="Artifacts" />
+				<category title="Artifacts">
+					<object type="Server.Items.ArmorOfFortune" gfx="5083" hue="1281" />
+					<object type="Server.Items.GauntletsOfNobility" gfx="5099" hue="1278" />
+					<object type="Server.Items.HelmOfInsight" gfx="5138" hue="1364" />
+					<object type="Server.Items.HolyKnightsBreastplate" gfx="5141" hue="1150" />
+					<object type="Server.Items.InquisitorsResolution" gfx="5140" hue="1266" />
+					<object type="Server.Items.JackalsCollar" gfx="5139" hue="1745" />
+					<object type="Server.Items.LeggingsOfBane" gfx="5054" hue="1269" />
+					<object type="Server.Items.MidnightBracers" gfx="5198" hue="1109" />
+					<object type="Server.Items.OrnateCrownOfTheHarrower" gfx="5201" hue="1270" />
+					<object type="Server.Items.ShadowDancerLeggings" gfx="5074" hue="1109" />
+					<object type="Server.Items.TunicOfFire" gfx="5055" hue="1359" />
+					<object type="Server.Items.VoiceOfTheFallenKing" gfx="5063" hue="1901" />
+				</category>
 				<category title="Bone">
 					<object type="Server.Items.BoneArms" gfx="5198" />
 					<object type="Server.Items.BoneChest" gfx="5199" />
@@ -1641,7 +1743,10 @@
 					<object type="Server.Items.RingmailLegs" gfx="5104" />
 				</category>
 				<category title="Shields">
-					<category title="Artifacts" />
+					<category title="Artifacts">
+						<object type="Server.Items.Aegis" gfx="7030" hue="1150" />
+						<object type="Server.Items.ArcaneShield" gfx="7032" hue="1366" />
+					</category>
 					<object type="Server.Items.BronzeShield" gfx="7026" />
 					<object type="Server.Items.Buckler" gfx="7027" />
 					<object type="Server.Items.ChaosShield" gfx="7107" />
@@ -1662,19 +1767,6 @@
 					<object type="Server.Items.StuddedLegs" gfx="5082" />
 				</category>
 				<object type="Server.Items.Circlet" gfx="11118" />
-				<object type="Server.Items.FemaleElvenPlateChest" gfx="11117" />
-				<object type="Server.Items.FemaleLeafChest" gfx="12235" />
-				<object type="Server.Items.GemmedCirclet" gfx="11120" />
-				<object type="Server.Items.HideChest" gfx="11124" />
-				<object type="Server.Items.HideFemaleChest" gfx="11129" />
-				<object type="Server.Items.HideGloves" gfx="11125" />
-				<object type="Server.Items.HideGorget" gfx="11126" />
-				<object type="Server.Items.HidePants" gfx="11128" />
-				<object type="Server.Items.HidePauldrons" gfx="11127" />
-				<object type="Server.Items.RavenHelm" gfx="11121" />
-				<object type="Server.Items.RoyalCirclet" gfx="11119" />
-				<object type="Server.Items.VultureHelm" gfx="11122" />
-				<object type="Server.Items.WingedHelm" gfx="11123" />
 			</category>
 			<category title="Clothing">
 				<category title="Cloaks">
@@ -1686,16 +1778,21 @@
 					<object type="Server.Items.BearMask" gfx="5445" />
 					<object type="Server.Items.Bonnet" gfx="5913" />
 					<object type="Server.Items.Cap" gfx="5909" />
+					<object type="Server.Items.CraftysFishingHat" gfx="5907" />
 					<object type="Server.Items.DeerMask" gfx="5447" />
+					<object type="Server.Items.DivineCountenance" gfx="5449" hue="1154" />
 					<object type="Server.Items.FeatheredHat" gfx="5914" />
 					<object type="Server.Items.FloppyHat" gfx="5907" />
 					<object type="Server.Items.FlowerGarland" gfx="8966" />
+					<object type="Server.Items.HatOfTheMagi" gfx="5912" hue="1153" />
 					<object type="Server.Items.HornedTribalMask" gfx="5449" />
+					<object type="Server.Items.HuntersHeaddress" gfx="5447" hue="1428" />
 					<object type="Server.Items.JesterHat" gfx="5916" />
 					<object type="Server.Items.MagicWizardsHat" gfx="5912" />
 					<object type="Server.Items.OrcishKinMask" gfx="5147" hue="2212" />
-					<object type="Server.Items.SavageMask" gfx="5451" hue="2107" />
+					<object type="Server.Items.SavageMask" gfx="5451" hue="2105" />
 					<object type="Server.Items.SkullCap" gfx="5444" />
+					<object type="Server.Items.SpiritOfTheTotem" gfx="5445" hue="1109" />
 					<object type="Server.Items.StrawHat" gfx="5911" />
 					<object type="Server.Items.TallStrawHat" gfx="5910" />
 					<object type="Server.Items.TribalMask" gfx="5451" />
@@ -1705,6 +1802,7 @@
 				</category>
 				<category title="Misc">
 					<object type="Server.Items.BodySash" gfx="5441" />
+					<object type="Server.Items.CrimsonCincture" gfx="5435" hue="1157" />
 					<object type="Server.Items.Doublet" gfx="8059" />
 					<object type="Server.Items.FormalShirt" gfx="8976" />
 					<object type="Server.Items.FullApron" gfx="5437" />
@@ -1724,7 +1822,6 @@
 				<category title="Robes">
 					<object type="Server.Items.FancyDress" gfx="7936" />
 					<object type="Server.Items.GildedDress" gfx="8974" />
-					<object type="Tykari.Items.HoodedRobe" gfx="7939" />
 					<object type="Server.Items.PlainDress" gfx="7937" />
 					<object type="Server.Items.Robe" gfx="7939" />
 				</category>
@@ -1735,20 +1832,29 @@
 				<category title="Shoes">
 					<object type="Server.Items.Boots" gfx="5899" />
 					<object type="Server.Items.FurBoots" gfx="8967" />
+					<object type="Server.Items.LeatherBoots" gfx="16368" />
 					<object type="Server.Items.Sandals" gfx="5901" />
 					<object type="Server.Items.Shoes" gfx="5903" />
 					<object type="Server.Items.ThighBoots" gfx="5905" />
+					<object type="Server.Items.WaterloggedBoots" gfx="5905" />
 				</category>
 			</category>
 			<category title="Jewelry">
-				<category title="Artifacts" />
+				<category title="Artifacts">
+					<object type="Server.Items.BraceletOfHealth" gfx="4230" hue="33" />
+					<object type="Server.Items.OrnamentOfTheMagician" gfx="4230" hue="1364" />
+					<object type="Server.Items.RingOfTheElements" gfx="4234" hue="1257" />
+					<object type="Server.Items.RingOfTheVile" gfx="4234" hue="1271" />
+				</category>
 				<object type="Server.Items.BraceletOfBinding" gfx="4230" hue="1161" />
 				<object type="Server.Items.GoldBeadNecklace" gfx="4233" />
 				<object type="Server.Items.GoldBracelet" gfx="4230" />
 				<object type="Server.Items.GoldEarrings" gfx="4231" />
 				<object type="Server.Items.GoldNecklace" gfx="4232" />
 				<object type="Server.Items.GoldRing" gfx="4234" />
+				<object type="Server.Items.IzkarksRing" gfx="4234" hue="1409" />
 				<object type="Server.Items.Necklace" gfx="4229" />
+				<object type="Server.Items.RingOfResurrection" gfx="7945" />
 				<object type="Server.Items.SilverBeadNecklace" gfx="7941" />
 				<object type="Server.Items.SilverBracelet" gfx="7942" />
 				<object type="Server.Items.SilverEarrings" gfx="7943" />
@@ -1757,7 +1863,22 @@
 			</category>
 			<category title="Suits" />
 			<category title="Weapons">
-				<category title="Artifacts" />
+				<category title="Artifacts">
+					<object type="Server.Items.AxeOfTheHeavens" gfx="3915" hue="1237" />
+					<object type="Server.Items.BladeOfInsanity" gfx="5119" hue="1901" />
+					<object type="Server.Items.BladeOfTheRighteous" gfx="3937" hue="1150" />
+					<object type="Server.Items.BoneCrusher" gfx="5126" hue="1548" />
+					<object type="Server.Items.BreathOfTheDead" gfx="9915" hue="1109" />
+					<object type="Server.Items.Frostbringer" gfx="5042" hue="1266" />
+					<object type="Server.Items.LegacyOfTheDreadLord" gfx="3917" hue="1654" />
+					<object type="Server.Items.SerpentsFang" gfx="5120" hue="1160" />
+					<object type="Server.Items.StaffOfTheMagi" gfx="3568" hue="1153" />
+					<object type="Server.Items.TheBeserkersMaul" gfx="5179" hue="33" />
+					<object type="Server.Items.TheDragonSlayer" gfx="9920" hue="1328" />
+					<object type="Server.Items.TheTaskmaster" gfx="5125" hue="1272" />
+					<object type="Server.Items.TitansHammer" gfx="5177" hue="1154" />
+					<object type="Server.Items.ZyronicClaw" gfx="3909" hue="1157" />
+				</category>
 				<category title="Axes">
 					<object type="Server.Items.Axe" gfx="3913" />
 					<object type="Server.Items.BattleAxe" gfx="3911" />
@@ -1769,6 +1890,7 @@
 					<object type="Server.Items.Pickaxe" gfx="3718" />
 					<object type="Server.Items.TwoHandedAxe" gfx="5187" />
 					<object type="Server.Items.WarAxe" gfx="5040" />
+					<object type="Server.Items.YewAxe" gfx="3907" hue="2419" />
 				</category>
 				<category title="Bashing">
 					<object type="Server.Items.Club" gfx="5044" />
@@ -1787,6 +1909,7 @@
 					<object type="Server.Items.ButcherKnife" gfx="5110" />
 					<object type="Server.Items.Cleaver" gfx="3779" />
 					<object type="Server.Items.Dagger" gfx="3922" />
+					<object type="Server.Items.DaggerOfTheRift" gfx="3922" hue="1342" />
 					<object type="Server.Items.ElvenSpellblade" gfx="11552" />
 					<object type="Server.Items.Leafblade" gfx="11554" />
 					<object type="Server.Items.SkinningKnife" gfx="3780" />
@@ -1805,9 +1928,10 @@
 					<object type="Server.Items.HeavyCrossbow" gfx="5117" />
 					<object type="Server.Items.JukaBow" gfx="5042" />
 					<object type="Server.Items.MagicalShortbow" gfx="11563" />
-					<object type="Tykari.Items.PracticeBow" gfx="5042" />
-					<object type="Tykari.Items.PracticeXBow" gfx="3920" />
+					<object type="Server.Items.PracticeBow" gfx="5042" />
+					<object type="Server.Items.PracticeXBow" gfx="3920" />
 					<object type="Server.Items.RepeatingCrossbow" gfx="9923" />
+					<object type="Server.Items.TheDryadBow" gfx="5041" hue="1167" />
 				</category>
 				<category title="Spears">
 					<object type="Server.Items.BladedStaff" gfx="9917" />
@@ -1845,24 +1969,24 @@
 					<object type="Server.Items.VikingSword" gfx="5049" />
 				</category>
 				<category title="Wands">
-					<object type="Server.Items.ClumsyWand" gfx="3571" />
-					<object type="Server.Items.FeebleWand" gfx="3571" />
-					<object type="Server.Items.FireballWand" gfx="3572" />
-					<object type="Server.Items.GreaterHealWand" gfx="3573" />
+					<object type="Server.Items.ClumsyWand" gfx="3573" />
+					<object type="Server.Items.FeebleWand" gfx="3570" />
+					<object type="Server.Items.FireballWand" gfx="3570" />
+					<object type="Server.Items.GreaterHealWand" gfx="3570" />
 					<object type="Server.Items.HarmWand" gfx="3572" />
-					<object type="Server.Items.HealWand" gfx="3572" />
-					<object type="Server.Items.IDWand" gfx="3571" />
-					<object type="Server.Items.LightningWand" gfx="3570" />
-					<object type="Server.Items.MagicArrowWand" gfx="3573" />
-					<object type="Server.Items.ManaDrainWand" gfx="3571" />
-					<object type="Server.Items.WeaknessWand" gfx="3573" />
+					<object type="Server.Items.HealWand" gfx="3573" />
+					<object type="Server.Items.IDWand" gfx="3570" />
+					<object type="Server.Items.LightningWand" gfx="3573" />
+					<object type="Server.Items.MagicArrowWand" gfx="3571" />
+					<object type="Server.Items.ManaDrainWand" gfx="3572" />
+					<object type="Server.Items.WeaknessWand" gfx="3570" />
 				</category>
-				<object type="Tykari.Items.PracticeBattleaxe" gfx="3911" />
-				<object type="Tykari.Items.PracticeBroadsword" gfx="3934" />
-				<object type="Tykari.Items.PracticeDagger" gfx="3922" />
-				<object type="Tykari.Items.PracticeMace" gfx="3932" />
-				<object type="Tykari.Items.PracticeMaul" gfx="5179" />
-				<object type="Tykari.Items.PracticeSpear" gfx="3938" />
+				<object type="Server.Items.PracticeBattleaxe" gfx="3911" />
+				<object type="Server.Items.PracticeBroadsword" gfx="3934" />
+				<object type="Server.Items.PracticeDagger" gfx="3922" />
+				<object type="Server.Items.PracticeMace" gfx="3932" />
+				<object type="Server.Items.PracticeMaul" gfx="5179" />
+				<object type="Server.Items.PracticeSpear" gfx="3938" />
 			</category>
 		</category>
 	</category>
@@ -1871,12 +1995,12 @@
 		<category title="Creatures">
 			<category title="Animals">
 				<category title="Birds &amp; Fowl">
-					<object type="Server.Mobiles.Bird" gfx="8474" hue="2106" />
+					<object type="Server.Mobiles.Bird" gfx="8474" hue="2130" />
 					<object type="Server.Mobiles.Chicken" gfx="8401" />
 					<object type="Server.Mobiles.Eagle" gfx="8477" />
 				</category>
 				<category title="Bovines">
-					<object type="Server.Mobiles.Bull" gfx="8431" />
+					<object type="Server.Mobiles.Bull" gfx="8431" hue="2305" />
 					<object type="Server.Mobiles.Cow" gfx="8431" />
 				</category>
 				<category title="Bruins">
@@ -1887,7 +2011,7 @@
 				</category>
 				<category title="Canines">
 					<object type="Server.Mobiles.DireWolf" gfx="9680" />
-					<object type="Server.Mobiles.Dog" gfx="9608" hue="2301" />
+					<object type="Server.Mobiles.Dog" gfx="9608" hue="2314" />
 					<object type="Server.Mobiles.GreyWolf" gfx="9681" />
 					<object type="Server.Mobiles.HellHound" gfx="9622" />
 					<object type="Server.Mobiles.TimberWolf" gfx="9683" />
@@ -1898,15 +2022,15 @@
 					<object type="Server.Mobiles.Hind" gfx="8404" />
 				</category>
 				<category title="Felines">
-					<object type="Server.Mobiles.Cat" gfx="8475" hue="2310" />
+					<object type="Server.Mobiles.Cat" gfx="8475" hue="2308" />
 					<object type="Server.Mobiles.Cougar" gfx="9603" />
-					<object type="Server.Mobiles.HellCat" gfx="8475" hue="1625" />
+					<object type="Server.Mobiles.HellCat" gfx="8475" hue="1652" />
 					<object type="Server.Mobiles.Panther" gfx="9653" hue="2305" />
 					<object type="Server.Mobiles.PredatorHellCat" gfx="9623" />
 					<object type="Server.Mobiles.SnowLeopard" gfx="9635" />
 				</category>
 				<category title="Frogs &amp; Toads">
-					<object type="Server.Mobiles.BullFrog" gfx="8496" hue="1452" />
+					<object type="Server.Mobiles.BullFrog" gfx="8496" hue="1443" />
 					<object type="Server.Mobiles.GiantToad" gfx="9612" />
 				</category>
 				<category title="Lizards">
@@ -1919,29 +2043,29 @@
 				</category>
 				<category title="Mounts">
 					<category title="War Horses" />
-					<object type="Server.Mobiles.Alimarchus" gfx="9630" hue="1058" />
+					<object type="Server.Mobiles.Alimarchus" gfx="9630" hue="842" />
 					<object type="Server.Mobiles.Beetle" gfx="9743" />
-					<object type="Tykari.Mobiles.BoneBeetle" gfx="9743" hue="942" />
+					<object type="Server.Mobiles.BoneBeetle" gfx="9743" hue="942" />
 					<object type="Server.Mobiles.DesertOstard" gfx="9650" />
-					<object type="Server.Mobiles.FireBeetle" gfx="10268" hue="1161" />
+					<object type="Server.Mobiles.FemaleOstard" gfx="9652" hue="2209" />
 					<object type="Server.Mobiles.FireSteed" gfx="8689" />
-					<object type="Server.Mobiles.ForestOstard" gfx="9652" hue="2213" />
-					<object type="Server.Mobiles.FrenziedOstard" gfx="9651" hue="1105" />
+					<object type="Server.Mobiles.ForestWyrm" gfx="9753" hue="2129" />
 					<object type="Server.Mobiles.HellSteed" gfx="9751" />
-					<object type="Server.Mobiles.Horse" gfx="9625" />
+					<object type="Server.Mobiles.Horse" gfx="9626" />
 					<object type="Server.Mobiles.Kirin" gfx="9632" />
+					<object type="Server.Mobiles.MaleOstard" gfx="9651" hue="1144" />
 					<object type="Server.Mobiles.Nightmare" gfx="9628" />
 					<object type="Server.Mobiles.RidableLlama" gfx="8438" />
 					<object type="Server.Mobiles.Ridgeback" gfx="9749" />
 					<object type="Server.Mobiles.SavageRidgeback" gfx="9749" />
 					<object type="Server.Mobiles.ScaledSwampDragon" gfx="9753" />
-					<object type="Server.Mobiles.SeaHorse" gfx="9658" />
+					<object type="Server.Mobiles.SeaHorse" gfx="9658" hue="2220" />
 					<object type="Server.Mobiles.SilverSteed" gfx="9629" />
 					<object type="Server.Mobiles.SkeletalMount" gfx="9751" />
-					<object type="Server.Mobiles.SwampDragon" gfx="9753" hue="2129" />
 					<object type="Server.Mobiles.TravelersHorse" gfx="9625" />
 					<object type="Server.Mobiles.Unicorn" gfx="9678" />
-					<object type="Tykari.Mobiles.Vezhinea" gfx="10090" />
+					<object type="Server.Mobiles.Vezhinea" gfx="10090" />
+					<object type="Ulmeta.Factions.Guards.WarHorse" gfx="9630" />
 				</category>
 				<category title="Porcines">
 					<object type="Server.Mobiles.Boar" gfx="8449" />
@@ -1950,7 +2074,7 @@
 				<category title="Rodents">
 					<object type="Server.Mobiles.GiantRat" gfx="8400" />
 					<object type="Server.Mobiles.JackRabbit" gfx="8485" hue="443" />
-					<object type="Server.Mobiles.Rabbit" gfx="8485" hue="2303" />
+					<object type="Server.Mobiles.Rabbit" gfx="8485" />
 					<object type="Server.Mobiles.Rat" gfx="8483" />
 					<object type="Server.Mobiles.Sewerrat" gfx="8483" />
 				</category>
@@ -2040,18 +2164,17 @@
 				</category>
 				<category title="Humans">
 					<object type="Server.Mobiles.Betrayer" gfx="9721" />
-					<object type="Server.Mobiles.Brigand" gfx="8455" hue="1021" />
+					<object type="Server.Mobiles.Brigand" gfx="8454" hue="1038" />
 					<object type="Server.Mobiles.EvilMage" gfx="9610" />
 					<object type="Server.Mobiles.EvilMageLord" gfx="9611" />
-					<object type="Server.Mobiles.Executioner" gfx="8455" hue="1018" />
-					<object type="Server.Mobiles.Guardian" gfx="8455" hue="1022" />
+					<object type="Server.Mobiles.Executioner" gfx="8454" hue="1038" />
 				</category>
 				<category title="Lizards">
-					<object type="Server.Mobiles.LavaLizard" gfx="8497" hue="1634" />
+					<object type="Server.Mobiles.LavaLizard" gfx="8497" hue="1625" />
 					<object type="Server.Mobiles.Lizardman" gfx="8414" />
 				</category>
 				<category title="Mongbats, Imps, &amp; Headless Ones">
-					<object type="Server.Mobiles.HeadlessOne" gfx="9621" hue="1027" />
+					<object type="Server.Mobiles.HeadlessOne" gfx="9621" hue="1058" />
 					<object type="Server.Mobiles.Imp" gfx="9631" />
 					<object type="Server.Mobiles.Mongbat" gfx="9638" />
 					<object type="Server.Mobiles.StrongMongbat" gfx="9638" />
@@ -2086,10 +2209,10 @@
 					<object type="Server.Mobiles.Bogling" gfx="9735" />
 					<object type="Server.Mobiles.BogThing" gfx="9736" />
 					<object type="Server.Mobiles.FrostOoze" gfx="8424" />
-					<object type="Server.Mobiles.Jwilson" gfx="8424" hue="2210" />
+					<object type="Server.Mobiles.Jwilson" gfx="8424" hue="2204" />
 					<object type="Server.Mobiles.PlagueBeast" gfx="9747" />
-					<object type="Server.Mobiles.PlagueSpawn" gfx="8424" hue="18" />
-					<object type="Server.Mobiles.Slime" gfx="8424" hue="2213" />
+					<object type="Server.Mobiles.PlagueSpawn" gfx="8424" hue="20" />
+					<object type="Server.Mobiles.Slime" gfx="8424" hue="2223" />
 				</category>
 				<category title="Plants">
 					<object type="Server.Mobiles.Corpser" gfx="9602" />
@@ -2104,13 +2227,13 @@
 					<object type="Server.Mobiles.RatmanMage" gfx="9655" />
 				</category>
 				<category title="Serpents">
-					<object type="Server.Mobiles.GiantSerpent" gfx="9663" hue="2002" />
+					<object type="Server.Mobiles.GiantSerpent" gfx="9663" hue="2007" />
 					<object type="Server.Mobiles.IceSerpent" gfx="9664" />
 					<object type="Server.Mobiles.IceSnake" gfx="9666" hue="1152" />
 					<object type="Server.Mobiles.LavaSerpent" gfx="9665" />
-					<object type="Server.Mobiles.LavaSnake" gfx="9666" hue="1652" />
+					<object type="Server.Mobiles.LavaSnake" gfx="9666" hue="1634" />
 					<object type="Server.Mobiles.SilverSerpent" gfx="9666" />
-					<object type="Server.Mobiles.Snake" gfx="9666" hue="2015" />
+					<object type="Server.Mobiles.Snake" gfx="9666" hue="2018" />
 				</category>
 				<category title="Spiders">
 					<object type="Server.Mobiles.DreadSpider" gfx="9668" />
@@ -2124,85 +2247,86 @@
 					<object type="Server.Mobiles.TerathanWarrior" gfx="9676" />
 				</category>
 				<category title="Uncategorized">
-					<object type="Tykari.Mobiles.AbyssalSlug" gfx="1" />
-					<object type="Server.Mobiles.Actor" gfx="8455" hue="1047" />
+					<object type="Server.Mobiles.AbyssalSlug" gfx="1" />
+					<object type="Server.Mobiles.AcidElemental" gfx="9686" />
+					<object type="Server.Mobiles.Actor" gfx="8454" hue="1007" />
 					<object type="Server.Mobiles.ArcaneDaemon" gfx="9733" />
-					<object type="Server.Mobiles.Artist" gfx="8455" hue="1038" />
-					<object type="Tykari.Mobiles.BlackDragon" gfx="8406" hue="1175" />
+					<object type="Server.Mobiles.Artist" gfx="8454" hue="1008" />
+					<object type="Server.Mobiles.BlackDragon" gfx="8406" hue="1175" />
 					<object type="Server.Mobiles.BlackGateDaemon" gfx="9605" />
-					<object type="Tykari.Mobiles.Chaimera" gfx="10094" />
-					<object type="Server.Mobiles.Commoner" gfx="8455" hue="1037" />
+					<object type="Server.Barter.BlacksmithBarterVendor" gfx="8454" hue="1043" />
+					<object type="Server.Mobiles.Chaimera" gfx="10094" />
+					<object type="Server.Mobiles.Commoner" gfx="8454" hue="1034" />
 					<object type="Server.Mobiles.Crane" gfx="10084" />
-					<object type="Server.Mobiles.CrazyMage" gfx="8454" hue="1039" />
-					<object type="Server.Mobiles.Cursed" gfx="8454" hue="1433" />
+					<object type="Server.Mobiles.CrazyMage" gfx="8454" hue="1054" />
+					<object type="Server.Mobiles.Cursed" gfx="8454" hue="1432" />
 					<object type="Server.Mobiles.DarkWisp" gfx="8448" />
-					<object type="Tykari.Mobiles.DartGameNPC" gfx="8454" hue="1036" />
-					<object type="Tykari.Mobiles.DesertWolf" gfx="9683" hue="546" />
-					<object type="Tykari.Mobiles.Dharyop" gfx="9757" hue="1146" />
-					<object type="Tykari.Mobiles.DharyopBruiser" gfx="9721" hue="2219" />
-					<object type="Tykari.Mobiles.DharyopWizard" gfx="9733" hue="1130" />
+					<object type="Server.Mobiles.DartGameNPC" gfx="8454" hue="1047" />
+					<object type="Server.Mobiles.DesertWolf" gfx="9683" hue="546" />
+					<object type="Server.Mobiles.Dharyop" gfx="9757" hue="1146" />
+					<object type="Server.Mobiles.DharyopBruiser" gfx="9721" hue="2219" />
+					<object type="Server.Mobiles.DharyopWizard" gfx="9733" hue="1130" />
 					<object type="Server.Mobiles.Doppleganger" gfx="9741" />
 					<object type="Server.Mobiles.Drider" gfx="9673" hue="1109" />
-					<object type="Tykari.Mobiles.Drow" gfx="8455" hue="1175" />
+					<object type="Server.Mobiles.Drow" gfx="8454" hue="1175" />
 					<object type="Server.Mobiles.Efreet" gfx="9616" />
 					<object type="Server.Mobiles.ElderGazer" gfx="9615" />
 					<object type="Server.Mobiles.ElderImp" gfx="9631" hue="1160" />
-					<object type="Tykari.Mobiles.Eryon" gfx="10088" />
+					<object type="Server.Mobiles.Eryon" gfx="10088" />
+					<object type="Server.Mobiles.EssenceVendor" gfx="9609" />
 					<object type="Server.Mobiles.Exodus" gfx="9604" />
 					<object type="Server.Mobiles.ExodusMinionLord" gfx="9739" />
-					<object type="Tykari.Mobiles.FireWyrm" gfx="8406" />
-					<object type="Tykari.Mobiles.FrostSerpent" gfx="9663" hue="1150" />
+					<object type="Server.Mobiles.FireWyrm" gfx="8406" />
+					<object type="Server.Mobiles.FrostSerpent" gfx="9663" hue="1150" />
 					<object type="Server.Mobiles.Gaman" gfx="10088" />
-					<object type="Server.Mobiles.Gambler" gfx="8455" hue="1038" />
-					<object type="Tykari.Mobiles.Gasaron" gfx="10096" />
+					<object type="Server.Mobiles.Gambler" gfx="8455" hue="1009" />
+					<object type="Server.Mobiles.Gasaron" gfx="10096" />
 					<object type="Server.Mobiles.Gazer" gfx="9615" />
 					<object type="Server.Mobiles.GazerLarva" gfx="9754" />
-					<object type="Tykari.Mobiles.GhoulLord" gfx="9671" />
+					<object type="Server.Mobiles.GhoulLord" gfx="9671" />
 					<object type="Server.Mobiles.GiantBlackWidow" gfx="9667" />
 					<object type="Server.Mobiles.GiantIceWorm" gfx="9664" />
-					<object type="Tykari.Mobiles.GiantQuadrapede" gfx="10085" />
-					<object type="Tykari.Mobiles.GoldDragon" gfx="8406" hue="248" />
+					<object type="Server.Mobiles.GiantQuadrapede" gfx="10085" />
 					<object type="Server.Mobiles.Golem" gfx="9744" />
 					<object type="Server.Mobiles.GolemController" gfx="8454" hue="1109" />
-					<object type="Tykari.Mobiles.GreenDiamondDragon" gfx="8406" hue="2985" />
-					<object type="Server.Mobiles.Gypsy" gfx="8454" hue="1020" />
-					<object type="Server.Mobiles.HarborMaster" gfx="8455" hue="1051" />
-					<object type="Tykari.Mobiles.Hijnoral" gfx="9604" hue="2987" />
-					<object type="Tykari.Mobiles.Impala" gfx="8404" />
-					<object type="Tykari.Mobiles.IronDragon" gfx="8406" hue="945" />
+					<object type="Server.Mobiles.GreenDiamondDragon" gfx="8406" hue="2985" />
+					<object type="Server.Mobiles.Guardsman" gfx="8455" hue="1055" />
+					<object type="Server.Mobiles.Gypsy" gfx="8455" hue="1032" />
+					<object type="Server.Mobiles.Hijnoral" gfx="9604" hue="1549" />
+					<object type="Server.Mobiles.Impala" gfx="8404" />
+					<object type="Server.Mobiles.IronDragon" gfx="8406" hue="945" />
 					<object type="Server.Mobiles.IronGolem" gfx="9744" />
 					<object type="Server.Mobiles.Juggernaut" gfx="9746" />
-					<object type="Tykari.Mobiles.JumpingSpider" gfx="9670" />
-					<object type="Tykari.Mobiles.KamikazeWizard" gfx="8454" hue="1018" />
+					<object type="Server.Mobiles.JumpingSpider" gfx="9670" />
+					<object type="Server.Mobiles.KamikazeWizard" gfx="8454" hue="1008" />
+					<object type="Server.Mobiles.Khamari" gfx="10090" hue="2105" />
 					<object type="Server.Mobiles.Kraken" gfx="9634" />
-					<object type="Server.Mobiles.Leviathan" gfx="9634" hue="1153" />
 					<object type="Server.Mobiles.LHordeD" gfx="9745" />
 					<object type="Server.Mobiles.MHordeD" gfx="9745" />
-					<object type="Tykari.Mobiles.MilitiaWarrior" gfx="8454" hue="1043" />
-					<object type="Tykari.Mobiles.Mojarr" gfx="10093" />
+					<object type="Server.Mobiles.MilitiaWarrior" gfx="8454" hue="1028" />
+					<object type="Server.Mobiles.Mojarr" gfx="10093" />
 					<object type="Server.Mobiles.Moloch" gfx="9742" />
 					<object type="Server.Mobiles.MotherWolf" gfx="9681" />
-					<object type="Tykari.Mobiles.Nindroran" gfx="10090" hue="2012" />
 					<object type="Server.Mobiles.OgreMagi" gfx="9724" hue="657" />
-					<object type="Tykari.Mobiles.PatriarchWyrm" gfx="8406" hue="2213" />
+					<object type="Server.Mobiles.PatriarchWyrm" gfx="8406" hue="2213" />
 					<object type="Server.Mobiles.Phoenix" gfx="8477" hue="1652" />
 					<object type="Server.Mobiles.PHordeD" gfx="1" />
-					<object type="Tykari.Mobiles.PlantDemon" gfx="9748" hue="2101" />
-					<object type="Tykari.Mobiles.Polevan" gfx="9621" hue="738" />
+					<object type="Server.Mobiles.PlantDemon" gfx="9748" hue="2101" />
+					<object type="Server.Mobiles.Polevan" gfx="9621" hue="738" />
 					<object type="Server.Mobiles.RestlessSoul" gfx="8454" hue="1107" />
-					<object type="Tykari.Mobiles.RuinedWizard" gfx="1" />
-					<object type="Tykari.Mobiles.RuneBeetle" gfx="10095" />
+					<object type="Server.Mobiles.RuinedWizard" gfx="1" />
+					<object type="Server.Mobiles.RuneBeetle" gfx="10095" />
 					<object type="Server.Mobiles.Savage" gfx="8455" />
 					<object type="Server.Mobiles.SavageRider" gfx="8455" />
-					<object type="Server.Mobiles.SavageShaman" gfx="8454" />
+					<object type="Server.Mobiles.SavageShaman" gfx="8455" />
 					<object type="Server.Mobiles.Scorpion" gfx="9657" />
-					<object type="Server.Mobiles.Sculptor" gfx="8454" hue="1032" />
-					<object type="Tykari.Mobiles.SeaCow" gfx="8431" hue="1160" />
-					<object type="Server.Mobiles.SeaSprite" gfx="9687" hue="2990" />
+					<object type="Server.Mobiles.Sculptor" gfx="8454" hue="1040" />
+					<object type="Server.Mobiles.SeaCow" gfx="8431" hue="1160" />
+					<object type="Server.Mobiles.SeaSprite" gfx="9687" hue="1334" />
 					<object type="Server.Mobiles.ShadowFiend" gfx="9631" />
 					<object type="Server.Mobiles.ShadowWisp" gfx="8448" />
-					<object type="Tykari.Mobiles.SilverbackGorilla" gfx="9618" />
-					<object type="Tykari.Mobiles.SilverDragon" gfx="8406" hue="1153" />
+					<object type="Server.Mobiles.SilverbackGorilla" gfx="9618" />
+					<object type="Server.Mobiles.SilverDragon" gfx="8406" hue="1153" />
 					<object type="Server.Mobiles.SpectralArmour" gfx="1" hue="38" />
 					<object type="Server.Mobiles.Sphynx" gfx="9752" />
 					<object type="Server.Mobiles.Succubus" gfx="1" />
@@ -2211,21 +2335,22 @@
 					<object type="Server.Mobiles.SummonedEarthElemental" gfx="8407" />
 					<object type="Server.Mobiles.SummonedFireElemental" gfx="9689" />
 					<object type="Server.Mobiles.SummonedWaterElemental" gfx="9693" />
-					<object type="Server.Mobiles.SwampTree" gfx="8442" hue="1160" />
 					<object type="Server.Mobiles.Swarm" gfx="9754" />
-					<object type="Tykari.Mobiles.Syxffin" gfx="9775" hue="828" />
+					<object type="Server.Mobiles.Syxffin" gfx="9775" hue="828" />
+					<object type="Server.Mobiles.TalkingDrake" gfx="8406" />
 					<object type="Server.Mobiles.TamableHordeMinion" gfx="9745" />
-					<object type="Tykari.Mobiles.Tollok" gfx="10097" hue="743" />
-					<object type="Tykari.Mobiles.TormentedSlug" gfx="1" hue="2224" />
-					<object type="Server.Mobiles.TropicalBird" gfx="8474" hue="2110" />
-					<object type="Tykari.Mobiles.Vampire" gfx="8454" />
-					<object type="Tykari.Mobiles.VampireLord" gfx="8454" />
+					<object type="Server.Mobiles.Tollok" gfx="10097" hue="743" />
+					<object type="Server.Mobiles.TormentedSlug" gfx="1" hue="2209" />
+					<object type="Server.Mobiles.TropicalBird" gfx="8474" hue="2113" />
+					<object type="Server.Mobiles.Vampire" gfx="8454" />
+					<object type="Server.Mobiles.VampireLord" gfx="8455" />
 					<object type="Server.Mobiles.VorpalBunny" gfx="8485" hue="1152" />
 					<object type="Server.Mobiles.WhiteStag" gfx="8404" hue="1150" />
-					<object type="Tykari.Mobiles.WildBoar" gfx="8449" hue="1105" />
-					<object type="Tykari.Mobiles.Wilderat" gfx="9767" />
+					<object type="Server.Mobiles.WildBoar" gfx="8449" hue="1105" />
+					<object type="Server.Mobiles.Wilderat" gfx="9767" />
 					<object type="Server.Mobiles.WolfPup" gfx="9608" />
 					<object type="Server.Mobiles.Woodspirit" gfx="8477" hue="1155" />
+					<object type="Server.Mobiles.XmlQuestNPC" gfx="8455" hue="1020" />
 				</category>
 				<category title="Undead">
 					<category title="Ghosts">
@@ -2266,109 +2391,112 @@
 				<object type="Server.Mobiles.Wisp" gfx="8448" />
 			</category>
 			<category title="Marine">
-				<object type="Server.Mobiles.DeepSeaSerpent" gfx="8443" hue="2209" />
+				<object type="Server.Mobiles.DeepSeaSerpent" gfx="8443" hue="2208" />
 				<object type="Server.Mobiles.Dolphin" gfx="8433" />
 				<object type="Server.Mobiles.SeaSerpent" gfx="8443" hue="1335" />
 			</category>
 		</category>
 		<category title="Dummies" />
 		<category title="Escortables">
-			<object type="Server.Mobiles.BaseEscortable" gfx="8455" hue="1003" />
-			<object type="Server.Mobiles.BrideGroom" gfx="8455" hue="1041" />
-			<object type="Server.Mobiles.EscortableMage" gfx="8454" hue="1005" />
-			<object type="Server.Mobiles.Merchant" gfx="8455" hue="1003" />
-			<object type="Server.Mobiles.Messenger" gfx="8454" hue="1027" />
-			<object type="Server.Mobiles.Noble" gfx="8455" hue="1045" />
-			<object type="Server.Mobiles.Peasant" gfx="8454" hue="1032" />
-			<object type="Server.Mobiles.SeekerOfAdventure" gfx="8455" hue="1027" />
+			<object type="Server.Mobiles.BaseEscortable" gfx="8455" hue="1037" />
+			<object type="Server.Mobiles.BrideGroom" gfx="8455" hue="1016" />
+			<object type="Server.Mobiles.EscortableMage" gfx="8454" hue="1021" />
+			<object type="Server.Mobiles.Merchant" gfx="8455" hue="1019" />
+			<object type="Server.Mobiles.Messenger" gfx="8454" hue="1014" />
+			<object type="Server.Mobiles.Noble" gfx="8454" hue="1016" />
+			<object type="Server.Mobiles.Peasant" gfx="8454" hue="1016" />
+			<object type="Server.Mobiles.SeekerOfAdventure" gfx="8455" hue="1005" />
 		</category>
-		<category title="Guards">
-			<object type="Server.Mobiles.ArcherGuard" gfx="8455" hue="1038" />
-			<object type="Server.Mobiles.WarriorGuard" gfx="8454" hue="1051" />
-		</category>
+		<category title="Guards" />
 		<category title="Healers">
-			<object type="Server.Mobiles.EvilHealer" gfx="8454" hue="1046" />
-			<object type="Server.Mobiles.EvilWanderingHealer" gfx="8454" hue="1051" />
-			<object type="Server.Mobiles.FortuneTeller" gfx="8455" hue="1042" />
-			<object type="Server.Mobiles.Healer" gfx="8454" hue="1026" />
-			<object type="Server.Mobiles.PricedHealer" gfx="8454" hue="1049" />
-			<object type="Server.Mobiles.WanderingHealer" gfx="8454" hue="1052" />
+			<object type="Server.Mobiles.EvilHealer" gfx="8454" hue="1018" />
+			<object type="Server.Mobiles.EvilWanderingHealer" gfx="8454" hue="1038" />
+			<object type="Server.Mobiles.FortuneTeller" gfx="8455" hue="1052" />
+			<object type="Server.Mobiles.Healer" gfx="8454" hue="1033" />
+			<object type="Server.Mobiles.PricedHealer" gfx="8455" hue="1052" />
+			<object type="Server.Mobiles.WanderingHealer" gfx="8454" hue="1005" />
 		</category>
 		<category title="Uncategorized">
-			<object type="Server.Mobiles.TownCrier" gfx="8454" hue="1007" />
+			<object type="Server.Mobiles.TownCrier" gfx="8455" hue="1052" />
 		</category>
 		<category title="Vendors">
 			<category title="Guildmasters">
-				<object type="Server.Mobiles.BardGuildmaster" gfx="8455" hue="1046" />
-				<object type="Server.Mobiles.BlacksmithGuildmaster" gfx="8454" hue="1021" />
-				<object type="Server.Mobiles.FisherGuildmaster" gfx="8454" hue="1042" />
-				<object type="Server.Mobiles.HealerGuildmaster" gfx="8454" hue="1039" />
-				<object type="Server.Mobiles.MageGuildmaster" gfx="8455" hue="1048" />
-				<object type="Server.Mobiles.MerchantGuildmaster" gfx="8454" hue="1057" />
-				<object type="Server.Mobiles.MinerGuildmaster" gfx="8455" hue="1010" />
-				<object type="Server.Mobiles.RangerGuildmaster" gfx="8454" hue="1037" />
-				<object type="Server.Mobiles.TailorGuildmaster" gfx="8454" hue="1048" />
-				<object type="Server.Mobiles.ThiefGuildmaster" gfx="8454" hue="1030" />
-				<object type="Server.Mobiles.TinkerGuildmaster" gfx="8454" hue="1011" />
-				<object type="Server.Mobiles.WarriorGuildmaster" gfx="8454" hue="1038" />
+				<object type="Server.Mobiles.BardGuildmaster" gfx="8454" hue="1012" />
+				<object type="Server.Mobiles.BlacksmithGuildmaster" gfx="8454" hue="1032" />
+				<object type="Server.Mobiles.FisherGuildmaster" gfx="8455" hue="1009" />
+				<object type="Server.Mobiles.HealerGuildmaster" gfx="8454" hue="1025" />
+				<object type="Server.Mobiles.MageGuildmaster" gfx="8454" hue="1041" />
+				<object type="Server.Mobiles.MerchantGuildmaster" gfx="8454" hue="1014" />
+				<object type="Server.Mobiles.MinerGuildmaster" gfx="8454" hue="1031" />
+				<object type="Server.Mobiles.RangerGuildmaster" gfx="8455" hue="1052" />
+				<object type="Server.Mobiles.TailorGuildmaster" gfx="8454" hue="1014" />
+				<object type="Server.Mobiles.ThiefGuildmaster" gfx="8455" hue="1020" />
+				<object type="Server.Mobiles.TinkerGuildmaster" gfx="8455" hue="1041" />
+				<object type="Server.Mobiles.WarriorGuildmaster" gfx="8454" hue="1054" />
 			</category>
-			<object type="Server.Mobiles.Alchemist" gfx="8455" hue="1003" />
-			<object type="Server.Mobiles.AnimalTrainer" gfx="8454" hue="1051" />
-			<object type="Server.Mobiles.Architect" gfx="8454" hue="1010" />
-			<object type="Server.Mobiles.Armorer" gfx="8455" hue="1026" />
-			<object type="Server.Mobiles.Baker" gfx="8454" hue="1033" />
-			<object type="Server.Mobiles.Banker" gfx="8454" hue="1038" />
-			<object type="Server.Mobiles.Bard" gfx="8455" hue="1017" />
-			<object type="Server.Mobiles.Barkeeper" gfx="8454" hue="1013" />
-			<object type="Server.Mobiles.Beekeeper" gfx="8454" hue="1004" />
-			<object type="Server.Mobiles.Blacksmith" gfx="8454" hue="1017" />
-			<object type="Server.Mobiles.Bowyer" gfx="8454" hue="1027" />
-			<object type="Server.Mobiles.Butcher" gfx="8454" hue="1007" />
-			<object type="Server.Mobiles.Carpenter" gfx="8454" hue="1048" />
-			<object type="Server.Mobiles.Cobbler" gfx="8455" hue="1003" />
-			<object type="Server.Mobiles.Cook" gfx="8455" hue="1007" />
-			<object type="Server.Mobiles.CustomHairstylist" gfx="8455" hue="1022" />
-			<object type="Server.Mobiles.Farmer" gfx="8454" hue="1022" />
-			<object type="Server.Mobiles.Fisherman" gfx="8455" hue="1050" />
-			<object type="Server.Mobiles.Furtrader" gfx="8455" hue="1036" />
-			<object type="Server.Mobiles.Glassblower" gfx="8454" hue="1044" />
-			<object type="Server.Mobiles.GolemCrafter" gfx="8454" hue="1002" />
+			<object type="Server.Mobiles.Alchemist" gfx="8455" hue="1037" />
+			<object type="Server.Mobiles.AnimalTrainer" gfx="8455" hue="1038" />
+			<object type="Server.Mobiles.Architect" gfx="8454" hue="1012" />
+			<object type="Server.Mobiles.Armorer" gfx="8454" hue="1042" />
+			<object type="Ulmeta.Factions.Vendors.ArmsDealer" gfx="8455" hue="1021" />
+			<object type="Server.Mobiles.Baker" gfx="8454" hue="1030" />
+			<object type="Server.Mobiles.Banker" gfx="8454" hue="1045" />
+			<object type="Server.Mobiles.Bard" gfx="8455" hue="1008" />
+			<object type="Server.Mobiles.Barkeeper" gfx="8455" hue="1030" />
+			<object type="Server.Mobiles.Beekeeper" gfx="8454" hue="1041" />
+			<object type="Server.Mobiles.Blacksmith" gfx="8455" hue="1011" />
+			<object type="Server.Mobiles.Bowyer" gfx="8454" hue="1018" />
+			<object type="Server.Mobiles.Butcher" gfx="8455" hue="1027" />
+			<object type="Server.Mobiles.Carpenter" gfx="8455" hue="1011" />
+			<object type="Server.Mobiles.Cobbler" gfx="8455" hue="1025" />
+			<object type="Server.Mobiles.Cook" gfx="8455" hue="1034" />
+			<object type="Server.Mobiles.CustomHairstylist" gfx="8454" hue="1029" />
+			<object type="Ulmeta.Factions.Vendors.Engineer" gfx="8455" hue="1038" />
+			<object type="Ulmeta.Factions.Vendors.FactionMerchant" gfx="8454" hue="1009" />
+			<object type="Server.Mobiles.Farmer" gfx="8455" hue="1058" />
+			<object type="Khazman.TravelBySea.FerryCaptain" gfx="8455" hue="1057" />
+			<object type="Server.Mobiles.Fisherman" gfx="8455" hue="1038" />
+			<object type="Server.Mobiles.Furtrader" gfx="8455" hue="1013" />
+			<object type="Server.Mobiles.Glassblower" gfx="8454" hue="1042" />
+			<object type="Server.Mobiles.GolemCrafter" gfx="8454" hue="1040" />
 			<object type="Server.Mobiles.GypsyAnimalTrainer" gfx="8455" hue="1058" />
-			<object type="Server.Mobiles.GypsyBanker" gfx="8454" hue="1035" />
-			<object type="Server.Mobiles.GypsyMaiden" gfx="8455" hue="1052" />
-			<object type="Server.Mobiles.HairStylist" gfx="8454" hue="1025" />
-			<object type="Server.Mobiles.Herbalist" gfx="8454" hue="1033" />
-			<object type="Server.Mobiles.HolyMage" gfx="8454" hue="1006" />
-			<object type="Tykari.Mobiles.Hunter" gfx="8454" hue="1014" />
-			<object type="Server.Mobiles.InnKeeper" gfx="8455" hue="1026" />
-			<object type="Server.Mobiles.IronWorker" gfx="8455" hue="1037" />
-			<object type="Server.Mobiles.Jeweler" gfx="8455" hue="1037" />
-			<object type="Server.Mobiles.KeeperOfChivalry" gfx="8455" hue="1056" />
+			<object type="Server.Mobiles.GypsyBanker" gfx="8455" hue="1005" />
+			<object type="Server.Mobiles.GypsyMaiden" gfx="8455" hue="1026" />
+			<object type="Server.Mobiles.HairStylist" gfx="8454" hue="1029" />
+			<object type="Server.Mobiles.Herbalist" gfx="8454" hue="1022" />
+			<object type="Server.Mobiles.HolyMage" gfx="8454" hue="1031" />
+			<object type="Ulmeta.Factions.Vendors.HorseBreeder" gfx="8455" hue="1030" />
+			<object type="Server.Mobiles.Hunter" gfx="8454" hue="1021" />
+			<object type="Server.Mobiles.InnKeeper" gfx="8455" hue="1036" />
+			<object type="Server.Mobiles.IronWorker" gfx="8455" hue="1004" />
+			<object type="Server.Mobiles.Jeweler" gfx="8455" hue="1035" />
 			<object type="Server.Mobiles.LeatherWorker" gfx="8454" hue="1012" />
-			<object type="Server.Mobiles.Mage" gfx="8455" hue="1003" />
-			<object type="Server.Mobiles.Mapmaker" gfx="8455" hue="1019" />
-			<object type="Server.Mobiles.Miller" gfx="8454" hue="1029" />
-			<object type="Server.Mobiles.Miner" gfx="8454" hue="1009" />
-			<object type="Server.Mobiles.Minter" gfx="8455" hue="1003" />
-			<object type="Server.Mobiles.Necromancer" gfx="8455" hue="1018" />
-			<object type="Server.Mobiles.Provisioner" gfx="8454" hue="1054" />
-			<object type="Server.Mobiles.Rancher" gfx="8454" hue="1018" />
-			<object type="Server.Mobiles.Ranger" gfx="8455" hue="1050" />
-			<object type="Server.Mobiles.RealEstateBroker" gfx="8455" hue="1017" />
-			<object type="Server.Mobiles.Scribe" gfx="8455" hue="1042" />
-			<object type="Server.Mobiles.Shipwright" gfx="8454" hue="1035" />
-			<object type="Server.Mobiles.StoneCrafter" gfx="8454" hue="1051" />
-			<object type="Server.Mobiles.Tailor" gfx="8455" hue="1042" />
-			<object type="Server.Mobiles.Tanner" gfx="8455" hue="1055" />
-			<object type="Server.Mobiles.TavernKeeper" gfx="8454" hue="1054" />
-			<object type="Server.Mobiles.Thief" gfx="8455" hue="1057" />
-			<object type="Server.Mobiles.Tinker" gfx="8454" hue="1041" />
-			<object type="Server.Mobiles.Vagabond" gfx="8455" hue="1023" />
-			<object type="Server.Mobiles.VarietyDealer" gfx="8455" hue="1040" />
-			<object type="Server.Mobiles.Veterinarian" gfx="8455" hue="1035" />
-			<object type="Server.Mobiles.Waiter" gfx="8455" hue="1036" />
-			<object type="Server.Mobiles.Weaponsmith" gfx="8455" hue="1014" />
-			<object type="Server.Mobiles.Weaver" gfx="8454" hue="1048" />
+			<object type="Server.Mobiles.Mage" gfx="8454" hue="1041" />
+			<object type="Server.Mobiles.Mapmaker" gfx="8454" hue="1047" />
+			<object type="Server.Mobiles.Miller" gfx="8455" hue="1024" />
+			<object type="Server.Mobiles.Miner" gfx="8455" hue="1036" />
+			<object type="Server.Mobiles.Minter" gfx="8455" hue="1037" />
+			<object type="Ulmeta.Factions.Vendors.Outfitter" gfx="8454" hue="1017" />
+			<object type="Server.Mobiles.Provisioner" gfx="8454" hue="1027" />
+			<object type="Server.Mobiles.Rancher" gfx="8454" hue="1013" />
+			<object type="Server.Mobiles.Ranger" gfx="8454" hue="1048" />
+			<object type="Server.Mobiles.RealEstateBroker" gfx="8455" hue="1034" />
+			<object type="Server.Mobiles.RunicDealer" gfx="8454" hue="1051" />
+			<object type="Server.Mobiles.Scribe" gfx="8454" hue="1048" />
+			<object type="Server.Mobiles.Shipwright" gfx="8454" hue="1019" />
+			<object type="Server.Mobiles.StoneCrafter" gfx="8454" hue="1034" />
+			<object type="Server.Mobiles.Tailor" gfx="8454" hue="1037" />
+			<object type="Server.Mobiles.TalkingJeweler" gfx="8455" hue="1020" />
+			<object type="Server.Mobiles.Tanner" gfx="8455" hue="1025" />
+			<object type="Server.Mobiles.TavernKeeper" gfx="8454" hue="1002" />
+			<object type="Server.Mobiles.Thief" gfx="8455" hue="1020" />
+			<object type="Server.Mobiles.Tinker" gfx="8454" hue="1043" />
+			<object type="Server.Mobiles.Vagabond" gfx="8455" hue="1044" />
+			<object type="Server.Mobiles.VarietyDealer" gfx="8455" hue="1038" />
+			<object type="Server.Mobiles.Veterinarian" gfx="8455" hue="1036" />
+			<object type="Server.Mobiles.Waiter" gfx="8454" hue="1024" />
+			<object type="Server.Mobiles.Weaponsmith" gfx="8455" hue="1018" />
+			<object type="Server.Mobiles.Weaver" gfx="8454" hue="1056" />
 		</category>
 	</category>
 </category>

@@ -38,10 +38,10 @@ namespace Server.Misc
 		 * firewalls) or specific IP adddresses you can do so by modifying the file SocketOptions.cs found in this directory.
 		 */
 
-        public static readonly string Address = "";
-		public static readonly string ServerName = "UORedux";
+        public static readonly string Address = "73.148.82.201";
+		public static readonly string ServerName = "Redux";
 
-        public static readonly bool AutoDetect = true;
+        public static readonly bool AutoDetect = false;
 
 		public static void Initialize()
 		{

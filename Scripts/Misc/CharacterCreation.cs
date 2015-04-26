@@ -421,14 +421,14 @@ namespace Server.Misc
             newChar.Hue = Utility.ClipSkinHue(args.Hue & 0x3FFF) | 0x8000;
             newChar.Hunger = 20;
             newChar.Thirst = 20;
-            newChar.SkillsCap = 7000;
-            newChar.StatCap = 225;
+            newChar.SkillsCap = 8000;
+            newChar.StatCap = 250;
             newChar.Name = args.Name;
-            newChar.RawInt = 75;
-            newChar.RawDex = 75;
-            newChar.RawStr = 75;
+            newChar.RawInt = 25;
+            newChar.RawDex = 25;
+            newChar.RawStr = 25;
 
-            ((Player)newChar).EoC += 20000;
+            ((Player)newChar).EoC += 10000;
             ((Player)newChar).Race = Race.Human;
 
             newChar.CantWalk = false;
@@ -441,7 +441,7 @@ namespace Server.Misc
             AddBackpack(newChar);
 
             newChar.AddToBackpack(new Silver(100));
-            newChar.AddToBackpack(new Copper(500));
+            newChar.AddToBackpack(new Copper(1000));
 
             newChar.AddToBackpack(new SkillScroll());
 
@@ -467,15 +467,14 @@ namespace Server.Misc
 
             FillBankbox(newChar);
 
-            CityInfo ci = args.City;
-            newChar.MoveToWorld(ci.Location, ci.Map);
+            newChar.MoveToWorld(new Point3D(1495,1623,20), Map.Felucca);
 
-            ((Player)newChar).RespawnLocation = ci.Location;
-            ((Player)newChar).RespawnMap = ci.Map;
+            ((Player)newChar).RespawnLocation = (new Point3D(1495,1623,20));
+            ((Player)newChar).RespawnMap = Map.Felucca;
 
             Console.WriteLine("Login: {0}: New character being created (account={1})", args.State, args.Account.Username);
             Console.WriteLine(" - Character: {0} (serial={1})", newChar.Name, newChar.Serial);
-            Console.WriteLine(" - Started: {0} {1} in {2}", ci.City, ci.Location, ci.Map.ToString());
+            Console.WriteLine(" - Started: {0} {1}");
 
             new WelcomeTimer(newChar).Start();
         }
@@ -677,7 +676,7 @@ namespace Server.Misc
 
         private static void AddShirt(Mobile m, int shirtHue)
         {
-            int hue = Utility.ClipDyedHue(shirtHue & 0x3FFF);
+            int hue = Utility.RandomBirdHue();
 
             switch(Utility.Random(3))
             {
@@ -689,7 +688,7 @@ namespace Server.Misc
 
         private static void AddPants(Mobile m, int pantsHue)
         {
-            int hue = Utility.ClipDyedHue(pantsHue & 0x3FFF);
+            int hue = Utility.RandomBirdHue();
 
             if(m.Female)
                 EquipItem(new Skirt(hue), true);
@@ -699,7 +698,7 @@ namespace Server.Misc
 
         private static void AddShoes(Mobile m)
         {
-            EquipItem(new Shoes(Utility.RandomYellowHue()), true);
+            EquipItem(new Shoes(Utility.RandomBirdHue()), true);
         }
         #endregion
     }

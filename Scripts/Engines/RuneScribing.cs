@@ -335,7 +335,7 @@ namespace Aberration.RuneScribing
         {
             beheld = item; from = m;
             tool = rt;
-            imbuePoints = (int)((m.Skills.Inscribe.Value / 5) - 8);
+            imbuePoints = (int)((m.Skills.Inscribe.Value / 5) - 12);
 
             this.Closable = true;
             this.Disposable = true;
