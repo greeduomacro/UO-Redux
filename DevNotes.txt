@@ -470,6 +470,18 @@ Increasing stats via EOC now costs 100 * statvalue
 Players now start in Britain.
 Increasing skills via eoc now costs skillbase * 10.
 
+0.3.2
+Fixed minor errors on the Character Overview.
+Low health no longer increases stamina regen.
+Low stamina no longer increases stamina regen.
+Character starting shoes now spawn with a Utility.RandomNeutralHue()
+Imported runuo's names.xml to /Data
+Imported runuo's signs.cfg to /Data
+Imported runuo's Decorations to /Data
+Increased res-kill protection time.
+Modified Running stamina loss formula.
+Assimilated Nerun's Distro for world-spawning
+
 
 TODO:
 

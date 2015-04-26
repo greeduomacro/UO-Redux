@@ -474,7 +474,6 @@ namespace Server.Misc
 
             Console.WriteLine("Login: {0}: New character being created (account={1})", args.State, args.Account.Username);
             Console.WriteLine(" - Character: {0} (serial={1})", newChar.Name, newChar.Serial);
-            Console.WriteLine(" - Started: {0} {1}");
 
             new WelcomeTimer(newChar).Start();
         }
@@ -698,7 +697,7 @@ namespace Server.Misc
 
         private static void AddShoes(Mobile m)
         {
-            EquipItem(new Shoes(Utility.RandomBirdHue()), true);
+            EquipItem(new Shoes(Utility.RandomNeutralHue()), true);
         }
         #endregion
     }

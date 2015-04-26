@@ -1136,7 +1136,6 @@
     <Compile Include="Items\Misc\BulletinBoards.cs" />
     <Compile Include="Items\Misc\Cannon.cs" />
     <Compile Include="Items\Misc\CannonBall.cs" />
-    <Compile Include="Items\Misc\Class1.cs" />
     <Compile Include="Items\Misc\Clocks.cs" />
     <Compile Include="Items\Misc\ClosedBarrel.cs" />
     <Compile Include="Items\Misc\CommunicationCrystals.cs" />

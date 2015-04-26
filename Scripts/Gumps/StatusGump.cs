@@ -63,7 +63,7 @@ namespace Server.Gumps
 
             sender.Mobile.CloseGump(typeof(StatusGump));
 
-            if (info.ButtonID == (int)Buttons.invalid)
+            if (info.ButtonID != (int)Buttons.invalid)
                 ((Player)sender.Mobile).SendGump
                     (new StatusGump(((Player)sender.Mobile)));
 
@@ -84,7 +84,7 @@ namespace Server.Gumps
                     p.EoC -= 100 * p.Str;
                 }
 
-                else p.SendMessage("You must have atleast 1,500 eoc to do this.");
+                else p.SendMessage("You must have atleast {0} E.o.C to do this.", 100 * p.Str);
             }
 
             if (info.ButtonID == (int)Buttons.dexButton)
@@ -102,7 +102,7 @@ namespace Server.Gumps
                     p.EoC -= 100 * p.Dex;
                 }
 
-                else p.SendMessage("You must have atleast 1,500 eoc to do this.");
+                else p.SendMessage("You must have atleast {0} E.o.C to do this.", 100 * p.Dex);
             }
 
             if (info.ButtonID == (int)Buttons.intButton)
@@ -117,10 +117,10 @@ namespace Server.Gumps
                 if (p.EoC >= 100 * p.Int)
                 {
                     p.Int++;
-                    p.EoC -= 100 * p.Dex;
+                    p.EoC -= 100 * p.Int;
                 }
 
-                else p.SendMessage("You must have atleast 1,500 eoc to do this.");
+                else p.SendMessage("You must have atleast {0} E.o.C to do this.", 100 * p.Int);
             }
 
             if (info.ButtonID == (int)Buttons.koBtn)

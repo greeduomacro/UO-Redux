@@ -182,7 +182,7 @@ namespace Server.Mobiles
             Mobile from;
 
             public KOProtectionTimer(Mobile m)
-                : base(TimeSpan.FromSeconds(Utility.RandomMinMax(13, 15)))
+                : base(TimeSpan.FromSeconds(Utility.RandomMinMax(20, 25)))
             {
                 Priority = TimerPriority.OneSecond;
                 from = m;
@@ -846,7 +846,7 @@ namespace Server.Mobiles
 
                 BaseMount mount = this.Mount as BaseMount;
                 double mountCapacity = (double)(mount.Str * 3.865);
-                stamLost += ((double)((TotalWeight * 0.8333) / mountCapacity));
+                stamLost += ((double)((TotalWeight * 0.8333) / mountCapacity) + 0.50);
 
                 if (mount.IsInjured)
                     return false;
@@ -902,7 +902,7 @@ namespace Server.Mobiles
                 else htRatio += 10.0;
 
 
-                stamLost += (weightRatio + htRatio) * 0.8333;
+                stamLost += (weightRatio + htRatio) * 0.8333 + 0.25;
 
                 if (FindItemOnLayer(Layer.Pants) != null)
                     stamLost += FindItemOnLayer(Layer.Pants).Weight * 0.08;

@@ -118,12 +118,6 @@ namespace Server.Misc
 
             if( from.Player )
             {
-                if (from.Stam < from.StamMax * 0.15)
-                    points += 8;
-
-                if (from.Stam < from.StamMax * 0.25)
-                    points += 8;
-
                 bool running = ((Player)from).isRunning && from.Mounted == false;
 
                 if (((Player)from).lastMove < DateTime.Now)
@@ -169,13 +163,13 @@ namespace Server.Misc
                     points += hungerRegen;
                 }
 
-                if (from.Hits != 0 && from.HitsMax != 0)
-                {
-                    double hitsratio = (int)((from.HitsMax / from.Hits) / 3);
+                //if (from.Hits != 0 && from.HitsMax != 0)
+                //{
+                //    double hitsratio = (int)((from.HitsMax / from.Hits) / 3);
 
-                    if (hitsratio >= 1.0)
-                        points = (int)(points * hitsratio);
-                }
+                //    if (hitsratio >= 1.0)
+                //        points = (int)(points * hitsratio);
+                //}
             }
 
             if(!(from is Player))

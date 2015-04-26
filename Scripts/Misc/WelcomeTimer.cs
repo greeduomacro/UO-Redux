@@ -15,9 +15,9 @@ namespace Server.Misc
 
 		private static string[] m_Messages = new string[]
 				{
-                    "Welcome to Ultima Online : Redux.",
+                    "Welcome to Ultima Online: Redux.",
                     "If you find yourself in need of assistance, please use the 'help' button on your character's papperdoll.",
-                    "Thank you for chosing UO Aberration, we hope you enjoy your stay."
+                    "Thank you for chosing UO:Redux, we hope you enjoy your stay."
 				};
 
 		public WelcomeTimer( Mobile m ) : this( m, m_Messages.Length )

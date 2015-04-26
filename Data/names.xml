@@ -1,5 +1,16 @@
-<?xml version="1.0" encoding="utf-8" ?> 
+ï»¿<?xml version="1.0" encoding="utf-8" ?> 
 <names>
+	<namelist type="tokuno male">
+		Dosyaku, Warimoto, Ogino, Soutatsu, Wajida, Batsu, Hikoza, Adai, Ukita, Sanesue,
+		Chihu, Akiosa, Riku, Kongou, Numata, Kirzahn, Gakudai, Nakai, Ukita, Ashimaru,
+		Fuha, Gakudai, Numata, Waricika, Chihu, Sanesue, Yose, Shinsirou, Yasuke, Akisuke,
+		Naozumi, Numatta, Kichizo, Nasuno, Akaba, Arikoto, Kengi, Magosuke
+	</namelist>
+	<namelist type="tokuno female">
+		Ahara, Yume, Ayane, Yuki, Wakae, Akala, Ikuha, Wayu, Haru, Zannia, Shino, Agate,
+		Akashi, Niji, Yochika, Toyoka, Wayo, Iroha, Nakai, Ayatsumi, Wayu, Yumiha, Enji,
+		Aasin, Akela, Chiwa, Suni, Wakumi, Ruri, Tama
+	</namelist>
 	<namelist type="bird">
 		a wren, a swallow, a warbler, a nuthatch, a chickadee, a thrush, 
 		a nightingale, a starling, a skylark, a finch, a crossbill, a sparrow, a towhee, 
@@ -332,7 +343,7 @@
 		Delaney, Delbin, Delia, Delicia, Delilia, Della, Delphina, Dembe, Demi, 
 		Demitria, Dena, Denby, Denice, Deva, Devaki, Deval, Devi, Devin, Devnet, Devon, 
 		Diamanta, Diane, Dianthe, Diedre, Diella, Dillian, Dilly, Dilys, Dinah, Dionne, 
-		Disa, Dita, Diti, Dixie, Dodie, Dolores, Dominique, Dona, Donata, Donielle, 
+		Disa, Dita, diti, Dixie, Dodie, Dolores, Dominique, Dona, Donata, Donielle, 
 		Donner, Dooriya, Dophina, Dora, Doreen, Dorinda, Doris, Dorithy, Dory, Drew, 
 		Drina, Drucilla, Dulcie, Dulcinea, Dusty, Dyan, Dyani, Dymphna, Dyna, Eartha, 
 		Easter, Ebony, Echo, Edana, Edie, Edith, Edlyn, Edna, Edolie, Edria, Edwina, 
@@ -631,55 +642,13 @@
 		Yero, Yervant, York, Yusuf, Yves, Zachariah, Zachary, Zackery, Zaid, Zaide, 
 		Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zenon, Zion, Ziven, Zorn
 	</namelist>
-	<namelist type="ElfMale">
-		Legaranduil, Méndil, Febrimbor, Calámir, Thrombor, Eowebring, Elvang, Isar,
-		Rél, Eláldor, Góril, Celyng, Elvand, Eärebrin, Tinilmaldur, Cadrieriand,
-		Fithrawyn, Eäruldur, Sebrilith, Hóng 
+	<namelist type="female elf brigand">
+		Bergeni, Callylili, Elaniana, Hanalea, Jerliai, Kaitha, Mesanial, Oquila, Sylievo,
+		Uliala, Vimaly, Yeldemi
 	</namelist>
-	<namelist type="ElfFemale">
-		Lómólith, Vorficlya, Isebrilia, Néndra, Anodia, Hodith, Galirith, Selith,
-		Culith, Galaclya, Hebrithien, Nithiel, Pothiel, Celebriclya, Eäraralia,
-		Elvuclya, Glaraclya, Néndra, Gaviel, Lómadrielia
-	</namelist>
-	<namelist type="DrowMale">
-		Legaranduil, Méndil, Febrimbor, Calámir, Thrombor, Eowebring, Elvang, Isar,
-		Rél, Eláldor, Góril, Celyng, Elvand, Eärebrin, Tinilmaldur, Cadrieriand,
-		Fithrawyn, Eäruldur, Sebrilith, Hóng 
-	</namelist>
-	<namelist type="DrowFemale">
-		Lómólith, Vorficlya, Isebrilia, Néndra, Anodia, Hodith, Galirith, Selith,
-		Culith, Galaclya, Hebrithien, Nithiel, Pothiel, Celebriclya, Eäraralia,
-		Elvuclya, Glaraclya, Néndra, Gaviel, Lómadrielia
-	</namelist>
-	<namelist type="BacktrolMale">
-		A'ler, Brontus, Carl, D'mere, Echta, Lan'ro, Be'rathis, Hat'usta, Tai, Ered'i, Ker'peln, Rilato,
-		Quacer, Nob, Zivmorm, Kiz, Nowel'm, Oloid, Arden, Irue'ln, Ayrerao, Ninceon, Lorm,
-		Fer'ane, Wilert, Ramc'avt, Niq'ias, Od'fordii, Azic'kt, Tugin
-	</namelist>
-	<namelist type="dwarf">
-		Bela Rockseeker, Datfo Enemykiller, Dirtaf Fiendhunter, Eari Edgesmith, Gakog Fiendender,
-		Iaca Bloodblade, Ldof Hillsmiter, Lrur Marblefighter, Rel Rockspirit, Rrih Greatender,
-		Tora Goblinender, Aemi Armorforger, Airo Wyrmslayer, Gov Hammersmasher, Hrirr Darkaxe,
-		Kahoho Witchcutter, Rhoh Deathbattler, Rorar Godsender, Selda Redtracker, Seya Keyhelm,
-		Uaba Grandtracker, Dnoch Graysword, Ielu Ghoulbreaker, Noho Earthtracker, Rur Goodhunter,
-		Tage Bladebullion, Tahek Bloodnugget, Tfarf Lightcarver, Datfo Hillsmiter, Rel Hammersmasher,
-		Kohoho Fiendender, Ldof Goldnugget, Bela Bloodblade, Rorar Edgesmith, Noho Fiendender,
-		Iaca Rockseeker, Tahek Bladebullion
-	</namelist>
-	<namelist type="dragonkin">
-		Arith, Abrasax, Akhekhu, Amhuluk, Alklha, Arassas, Asakku, Aseka-moke, Baau, Baxia, Bidorth, Bergstutzen,
-		Cader Idris, Clioth, Cernunnos, Chalchiuhtlicue, Concochobar, Coatlecue, Cynpropsi, Dhaki Attlon, Degei, Derketo, Dejohlill,
-		Froach, Gaasyendietha, Ganj, Gandarewa, Goryshche, Grafvolluth, Gwiber, Honoyeta, Hresvelger, Iemish,
-		Ihuaivula, Illyuankas, Itzpapalotlona, Jormunggad, Julluntrun, Kissare, Kolwisina, Kurattoln, Ladon, 
-		Llanrhaedir, Mestor, Msikyppol, Ndengi, Nehebkau, Nijdugg, Ninkinakao, Rustam, Ssanylith, Stiki, Svaollnym, Tugarin,
-		Ystradgynlais, Yorimosyl, Zahhak, Zennyo, Zitny Smij, Zuzeca
-	</namelist>
-	<namelist type="minotaur_male">
-		Beliminorgath, Cinmac, Dastrun, Edder, Galdar, Ganthirogani, Hecariverani, Kryis, Tosher, Zurgas, Athak,
-		Bregan, Entragath, Kaziganthi, Lagrangli, Mascun, Orilg, Sumarr, Teskos, Zhakan, Gadj, Otmin, Sargas, Sargonnas
-	</namelist>
-	<namelist type="minotaur_female">
-		Ayasha, Calina, Fliara, Helati, Keeli, Kyri, Mogara, Sekra, Tariki, Telia, Sarga, Sargonna, Zurgaa, Eddati,
-		Bregasa, Lagra
+	<namelist type="male elf brigand">
+		Castoriel, Celebrindal, Chathmiru, Davlien, Gerrath, Jerraintho, Lewys, Misran, 
+		Nandrien, Olonal, Peorilien, Regornolas, Rylvarn, Silnaliel, Talendeor, Uomo,
+		Verlolas
 	</namelist>
 </names>
