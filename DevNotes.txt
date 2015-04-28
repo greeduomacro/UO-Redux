@@ -457,7 +457,7 @@ Players now start with 25 in each stat.
 Reduced the amount of EOC players start with by 10,000
 Reduced the rate at which skills gain.
 Starting skill scrolls now only provide 225 points
-Overall skillcap increased to 800
+Overall skillcap decreased to 800
 Starting skill scrolls skill level limitation reduced to 75.
 Overall stat cap increased to 250.
 Server name changed to "Redux"
@@ -482,9 +482,21 @@ Increased res-kill protection time.
 Modified Running stamina loss formula.
 Assimilated Nerun's Distro for world-spawning
 
+0.3.2a
+Removed current Nerun's Distro
+Reduced starting skill limit to 50.0
+Added SignParser.cs from RunUO
+Uncommented [SignGen command
+
+0.3.2b
+Reduced amount bandages heal by 50%
+Bandages now require one free hand to use.
+Medic perk now allows bandages to be used with no free hands.
+Added most recent version of Nerun's Distro
 
 TODO:
 
+Dragons should eat gems.
 !Weight overloading broken
 Need item insurance.
 Investigate Dragoon's Longarm perk.

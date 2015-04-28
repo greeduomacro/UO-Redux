@@ -15,7 +15,8 @@ namespace Server
 
 		private static IPEndPoint[] m_ListenerEndPoints = new IPEndPoint[]
 			{
-				new IPEndPoint( IPAddress.Any, 2600 )
+				new IPEndPoint( IPAddress.Any, 2600 ),
+                new IPEndPoint( IPAddress.Any, 2599 )
 			};
 
 		public static void Initialize()

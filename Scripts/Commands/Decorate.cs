@@ -1044,69 +1044,77 @@ namespace Server.Commands
 
 		private static string[] m_EmptyParams = new string[0];
 
-		public static DecorationList Read( StreamReader ip )
-		{
-			string line;
+        public static DecorationList Read(StreamReader ip)
+        {
+            DecorationList list = new DecorationList();
 
-			while ( (line = ip.ReadLine()) != null )
-			{
-				line = line.Trim();
+            try
+            {
+                string line;
 
-				if ( line.Length > 0 && !line.StartsWith( "#" ) )
-					break;
-			}
+                while ((line = ip.ReadLine()) != null)
+                {
+                    line = line.Trim();
 
-			if ( string.IsNullOrEmpty( line ) )
-				return null;
+                    if (line.Length > 0 && !line.StartsWith("#"))
+                        break;
+                }
 
-			DecorationList list = new DecorationList();
+                if (string.IsNullOrEmpty(line))
+                    return null;
 
-			int indexOf = line.IndexOf( ' ' );
+                int indexOf = line.IndexOf(' ');
 
-			list.m_Type = ScriptCompiler.FindTypeByName( line.Substring( 0, indexOf++ ), true );
+                list.m_Type = ScriptCompiler.FindTypeByName(line.Substring(0, indexOf++), true);
 
-			if ( list.m_Type == null )
-				throw new ArgumentException( String.Format( "Type not found for header: '{0}'", line ) );
+                //if (list.m_Type == null)
+                //    throw new ArgumentException(String.Format("Type not found for header: '{0}'", line));
 
-			line = line.Substring( indexOf );
-			indexOf = line.IndexOf( '(' );
-			if ( indexOf >= 0 )
-			{
-				list.m_ItemID = Utility.ToInt32( line.Substring( 0, indexOf - 1 ) );
+                line = line.Substring(indexOf);
+                indexOf = line.IndexOf('(');
+                if (indexOf >= 0)
+                {
+                    list.m_ItemID = Utility.ToInt32(line.Substring(0, indexOf - 1));
 
-				string parms = line.Substring( ++indexOf );
+                    string parms = line.Substring(++indexOf);
 
-				if ( line.EndsWith( ")" ) )
-					parms = parms.Substring( 0, parms.Length - 1 );
+                    if (line.EndsWith(")"))
+                        parms = parms.Substring(0, parms.Length - 1);
 
-				list.m_Params = parms.Split( ';' );
+                    list.m_Params = parms.Split(';');
 
-				for ( int i = 0; i < list.m_Params.Length; ++i )
-					list.m_Params[i] = list.m_Params[i].Trim();
-			}
-			else
-			{
-				list.m_ItemID = Utility.ToInt32( line );
-				list.m_Params = m_EmptyParams;
-			}
+                    for (int i = 0; i < list.m_Params.Length; ++i)
+                        list.m_Params[i] = list.m_Params[i].Trim();
+                }
+                else
+                {
+                    list.m_ItemID = Utility.ToInt32(line);
+                    list.m_Params = m_EmptyParams;
+                }
 
-			list.m_Entries = new ArrayList();
+                list.m_Entries = new ArrayList();
 
-			while ( (line = ip.ReadLine()) != null )
-			{
-				line = line.Trim();
+                while ((line = ip.ReadLine()) != null)
+                {
+                    line = line.Trim();
 
-				if ( line.Length == 0 )
-					break;
+                    if (line.Length == 0)
+                        break;
 
-				if ( line.StartsWith( "#" ) )
-					continue;
+                    if (line.StartsWith("#"))
+                        continue;
 
-				list.m_Entries.Add( new DecorationEntry( line ) );
-			}
+                    list.m_Entries.Add(new DecorationEntry(line));
+                }
+            }
 
-			return list;
-		}
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + "\n");
+            }
+
+            return list;
+        }
 	}
 
 	public class DecorationEntry

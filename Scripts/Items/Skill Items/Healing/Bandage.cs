@@ -70,7 +70,7 @@ namespace Server.Items
                     Item handOne = from.FindItemOnLayer(Layer.OneHanded);
                     Item handTwo = from.FindItemOnLayer(Layer.TwoHanded);
 
-                    if( handOne == null && handTwo == null )
+                    if( handOne == null || handTwo == null )
                     {
                         canUse = true;
                     }
@@ -433,7 +433,7 @@ namespace Server.Items
                 {
                     healerNumber = 500969; // You finish applying the bandages.
 
-                    double toHeal = (((anatomy + healing) * 0.10) + Utility.RandomMinMax(0,4));
+                    double toHeal = (((anatomy + healing) * 0.05) + Utility.RandomMinMax(0,4));
 
                     if (m_Healer is Player)
                     {
@@ -548,7 +548,7 @@ namespace Server.Items
                     {
                         if( dex >= 100 )
                             seconds = 3.0 + resDelay;
-                        else if( dex >= 40 )
+                        else if( dex >= 75 )
                             seconds = 4.0 + resDelay;
                         else
                             seconds = 5.0 + resDelay;

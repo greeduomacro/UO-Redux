@@ -27,35 +27,35 @@ namespace Server.Commands
 			CommandSystem.Register( "GumpRemoveRegion", AccessLevel.Administrator, new CommandEventHandler( OptionsGumps5_OnCommand ) );
 		}
 
-		[Usage( "[GumpSaveRegion" )]
+		[Usage( "GumpSaveRegion" )]
 		[Description( "Gump to Save inside Region" )] 
 		private static void OptionsGumps1_OnCommand( CommandEventArgs e )
 		{ 
 			e.Mobile.SendGump( new GumpSaveRegion( e ) );
 		}
 
-		[Usage( "[GumpSaveCoordinate" )]
+		[Usage( "GumpSaveCoordinate" )]
 		[Description( "Gump to save by coordinates" )] 
 		private static void OptionsGumps2_OnCommand( CommandEventArgs e )
 		{ 
 			e.Mobile.SendGump( new GumpSaveCoordinate( e ) );
 		}
 
-		[Usage( "[GumpRemoveID" )]
+		[Usage( "GumpRemoveID" )]
 		[Description( "Gump to remove by ID" )] 
 		private static void OptionsGumps3_OnCommand( CommandEventArgs e )
 		{ 
 			e.Mobile.SendGump( new GumpRemoveID( e ) );
 		}
 
-		[Usage( "[GumpRemoveCoordinate" )]
+		[Usage( "GumpRemoveCoordinate" )]
 		[Description( "Gump to remove by coordinates" )] 
 		private static void OptionsGumps4_OnCommand( CommandEventArgs e )
 		{ 
 			e.Mobile.SendGump( new GumpRemoveCoordinate( e ) );
 		}
 
-		[Usage( "[GumpRemoveRegion" )]
+		[Usage( "GumpRemoveRegion" )]
 		[Description( "Gump to remove inside region" )] 
 		private static void OptionsGumps5_OnCommand( CommandEventArgs e )
 		{ 

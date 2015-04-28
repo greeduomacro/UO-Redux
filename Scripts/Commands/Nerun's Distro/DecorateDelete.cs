@@ -8,6 +8,8 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using Server;
+//using Server.Engines.Quests.Haven;
+//using Server.Engines.Quests.Necro;
 using Server.Items;
 
 namespace Server.Commands
@@ -476,7 +478,7 @@ namespace Server.Commands
                 //    }
                 //}
 
-				if ( m_ItemID > 0 )
+			    if ( m_ItemID > 0 )
 				{
 					List<AddonComponent> comps = ((BaseAddon)item).Components;
 

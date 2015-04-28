@@ -5175,7 +5175,8 @@ namespace Server.Mobiles
             }
             else if(PlayerRangeSensitive && m_AI != null)
             {
-                m_AI.Deactivate();
+                if(CurrentWayPoint == null)
+                    m_AI.Deactivate();
             }
 
             base.OnSectorDeactivate();

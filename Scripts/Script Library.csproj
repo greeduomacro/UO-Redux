@@ -148,6 +148,28 @@
     <Compile Include="Commands\Kill Commands\ImplodeCommand.cs" />
     <Compile Include="Commands\ListenToAlliance.cs" />
     <Compile Include="Commands\ListenToGuild.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\ClearAll.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\CreateWorld.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\DecorateCommands.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\DecorateDelete.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\Library.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\PremiumSpawnerGumps.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\PremiumSpawnerMainGump.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\PSCount.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\Recover.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\RunUOSpawnerExporter.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\Signalise.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\SpawnEditor.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\SpawnGen.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\SpawnMaps.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\SpawnMapsUOML.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\SpawnsOverseerCommand.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\StairAddon\AddStairsGump.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\StairAddon\StairAddon.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\StaticExport.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\TeleporterMaker.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\UnloadMaps.cs" />
+    <Compile Include="Commands\Nerun%27s Distro\UnloadMapsUOML.cs" />
     <Compile Include="Commands\Particle.cs" />
     <Compile Include="Commands\PetEmoteCommand.cs" />
     <Compile Include="Commands\ProjectGen.cs" />
@@ -156,6 +178,7 @@
     <Compile Include="Commands\SayCommand.cs" />
     <Compile Include="Commands\SeasonCommand.cs" />
     <Compile Include="Commands\SendTo.cs" />
+    <Compile Include="Commands\SignParser.cs" />
     <Compile Include="Commands\Skills.cs" />
     <Compile Include="Commands\SkillsMenu.cs" />
     <Compile Include="Commands\VisibilityList.cs" />
@@ -383,6 +406,9 @@
     <Compile Include="Engines\Player Market\OrderManagementGump.cs" />
     <Compile Include="Engines\Player Market\PersonalMarketGump.cs" />
     <Compile Include="Engines\PlayerFactions.cs" />
+    <Compile Include="Engines\Premium Spawner\PremiumSpawner.cs" />
+    <Compile Include="Engines\Premium Spawner\PremiumSpawnerGump.cs" />
+    <Compile Include="Engines\Premium Spawner\SpawnsOverseer.cs" />
     <Compile Include="Engines\Random Encounters\Commands.cs" />
     <Compile Include="Engines\Random Encounters\Definitions.cs" />
     <Compile Include="Engines\Random Encounters\EncounterEngine.cs" />
@@ -2444,7 +2470,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Engines\Perks\perk.gump" />
-    <None Include="Engines\RuneScribing.rar" />
     <None Include="Engines\Searches\compile.bat" />
     <None Include="Engines\Searches\gensearch.py" />
     <None Include="Engines\Searches\genspiral.py" />

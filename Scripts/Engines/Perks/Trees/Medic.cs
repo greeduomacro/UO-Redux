@@ -19,7 +19,7 @@ namespace Server.Perks
         {
             get
             {
-                return (Level >= PerkLevel.Fifth && BasePotion.HasFreeHand(Player));
+                return (Level >= PerkLevel.Fifth);
             }
         }
 
