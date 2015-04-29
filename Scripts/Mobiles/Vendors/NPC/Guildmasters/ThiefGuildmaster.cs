@@ -85,7 +85,7 @@ namespace Server.Mobiles
 			base.OnSpeech( e );
 		}
 
-		public override bool OnCopperGiven( Mobile from, Copper dropped )
+		public override bool OnCopperGiven( Mobile from, Gold dropped )
 		{
 			if( from is PlayerMobile && dropped.Amount == 700 )
 			{

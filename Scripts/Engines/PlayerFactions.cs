@@ -1019,7 +1019,7 @@ namespace Ulmeta.Factions
                     {
                         int credits = (int)((victim.iState.Kills * 25) / 2) + Utility.RandomMinMax(2, 10);
 
-                        Gold gold = new Gold(credits);
+                        Valorite gold = new Valorite(credits);
                         killer.AddToBackpack(gold);
                         killer.iState.totalCredits += credits;
 
@@ -1867,7 +1867,7 @@ namespace Ulmeta.Factions
                 PlayerMobile caller = sender.Mobile as PlayerMobile;
                 Container c = caller.FindBankNoCreate();
 
-                if (!(c.ConsumeTotal(typeof(Gold), FactionDefinition.FactionCost)
+                if (!(c.ConsumeTotal(typeof(Valorite), FactionDefinition.FactionCost)
                     || caller.AccessLevel > AccessLevel.Player))
                 {
                     string cost = FactionDefinition.FactionCost.ToString("N0");
@@ -4742,7 +4742,7 @@ namespace Ulmeta.Factions.Vendors
             cont = buyer.Backpack;
             if (!bought && cont != null)
             {
-                if (cont.ConsumeTotal(typeof(Gold), totalCost))
+                if (cont.ConsumeTotal(typeof(Valorite), totalCost))
                     bought = true;
                 else if (totalCost < 2000)
                     SayTo(buyer, 500192); // Begging thy pardon, but thou canst not afford that.
@@ -4751,7 +4751,7 @@ namespace Ulmeta.Factions.Vendors
             if (!bought && totalCost >= 2000)
             {
                 cont = buyer.FindBankNoCreate();
-                if (cont != null && cont.ConsumeTotal(typeof(Gold), totalCost))
+                if (cont != null && cont.ConsumeTotal(typeof(Valorite), totalCost))
                 {
                     bought = true;
                     fromBank = true;
@@ -5707,7 +5707,7 @@ namespace Ulmeta.Factions.Vendors
             {
                 Container bank = from.FindBankNoCreate();
 
-                if (bank != null && bank.ConsumeTotal(typeof(Gold), 30))
+                if (bank != null && bank.ConsumeTotal(typeof(Valorite), 30))
                 {
                     pet.ControlTarget = null;
                     pet.ControlOrder = OrderType.Stay;

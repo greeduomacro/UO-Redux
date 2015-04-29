@@ -1786,13 +1786,13 @@ namespace Server.Mobiles
 
         public virtual bool CheckCopper(Mobile from, Item dropped)
         {
-            if(dropped is Copper)
-                return OnCopperGiven(from, (Copper)dropped);
+            if(dropped is Gold)
+                return OnCopperGiven(from, (Gold)dropped);
 
             return false;
         }
 
-        public virtual bool OnCopperGiven(Mobile from, Copper dropped)
+        public virtual bool OnCopperGiven(Mobile from, Gold dropped)
         {
             if(CheckTeachingMatch(from))
             {
@@ -1875,7 +1875,7 @@ namespace Server.Mobiles
         private static Type[] m_Gold = new Type[]
 		{
 			// white wyrms eat gold..
-			typeof( Gold )
+			typeof( Valorite )
 		};
 
         public virtual bool CheckFoodPreference(Item f)
@@ -1917,7 +1917,7 @@ namespace Server.Mobiles
 
         public virtual bool CheckFeed(Mobile from, Item dropped)
         {
-            if(!IsDeadPet && Controlled && (ControlMaster == from || IsPetFriend(from)) && (dropped is Food || dropped is Gold || dropped is CookableFood || dropped is Head || dropped is LeftArm || dropped is LeftLeg || dropped is Torso || dropped is RightArm || dropped is RightLeg))
+            if(!IsDeadPet && Controlled && (ControlMaster == from || IsPetFriend(from)) && (dropped is Food || dropped is Valorite || dropped is CookableFood || dropped is Head || dropped is LeftArm || dropped is LeftLeg || dropped is Torso || dropped is RightArm || dropped is RightLeg))
             {
                 Item f = dropped;
 
@@ -1931,7 +1931,7 @@ namespace Server.Mobiles
 
                         int stamGain;
 
-                        if(f is Gold)
+                        if(f is Valorite)
                             stamGain = amount - 50;
                         else
                             stamGain = (amount * 15) - 50;

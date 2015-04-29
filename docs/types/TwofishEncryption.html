@@ -1,0 +1,17 @@
+<html>
+   <head>
+      <title>RunUO Documentation - Class Overview - TwofishEncryption</title>
+   </head>
+   <body bgcolor="white" style="font-family: Courier New" text="#000000" link="#000000" vlink="#000000" alink="#808080">
+      <h4><a href="../namespaces/Server.Customs.Encryption.html">Back to Server.Customs.Encryption</a></h4>
+      <h2>TwofishEncryption : <!-- DBG-1 --><a href="TwofishBase.html">TwofishBase</a>, <!-- DBG-2.1 --><font color="blue">ICryptoTransform</font>, <!-- DBG-2.1 --><font color="blue">IDisposable</font></h2>
+      (<font color="blue">ctor</font>) TwofishEncryption( <font color="blue">int</font> keyLen, <font color="blue">ref</font> <font color="blue">byte</font>[] key, <font color="blue">ref</font> <font color="blue">byte</font>[] iv, CipherMode cMode, <!-- DBG-0 --><a href="EncryptionDirection.html">EncryptionDirection</a> direction )<br>
+      <font color="blue">bool</font> CanReuseTransform( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> CanTransformMultipleBlocks( <font color="blue">get</font>; )<br>
+      <font color="blue">int</font> InputBlockSize( <font color="blue">get</font>; )<br>
+      <font color="blue">int</font> OutputBlockSize( <font color="blue">get</font>; )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Dispose()<br>
+      <font color="blue">virtual</font> <font color="blue">int</font> TransformBlock( <font color="blue">byte</font>[] inputBuffer, <font color="blue">int</font> inputOffset, <font color="blue">int</font> inputCount, <font color="blue">byte</font>[] outputBuffer, <font color="blue">int</font> outputOffset )<br>
+      <font color="blue">virtual</font> <font color="blue">byte</font>[] TransformFinalBlock( <font color="blue">byte</font>[] inputBuffer, <font color="blue">int</font> inputOffset, <font color="blue">int</font> inputCount )<br>
+   </body>
+</html>

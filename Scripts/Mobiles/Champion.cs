@@ -253,7 +253,7 @@ namespace Server.Mobiles
 				if ( !canFit )
 					return;
 
-				Gold g = new Gold( 10, 20 );
+				Valorite g = new Valorite( 10, 20 );
 				
 				g.MoveToWorld( new Point3D( m_X, m_Y, z ), m_Map );
 

@@ -39,7 +39,7 @@ namespace Server.Mobiles
 
             if( bank != null )
             {
-                gold = bank.FindItemsByType(typeof(Gold));
+                gold = bank.FindItemsByType(typeof(Valorite));
                 checks = bank.FindItemsByType(typeof(BankCheck));
 
                 for( int i = 0; i < gold.Length; ++i )
@@ -110,7 +110,7 @@ namespace Server.Mobiles
                 Item item;
                 if( amount < 5000 )
                 {
-                    item = new Gold(amount);
+                    item = new Valorite(amount);
                     amount = 0;
                 }
                 else if( amount <= 1000000 )
@@ -157,7 +157,7 @@ namespace Server.Mobiles
 
                 if( amountLeft < 5000 )
                 {
-                    item = new Gold(amountLeft);
+                    item = new Valorite(amountLeft);
                     amountGiven = amountLeft;
                 }
                 else if( amountLeft <= 1000000 )
@@ -193,7 +193,7 @@ namespace Server.Mobiles
 
                 if( amount < 5000 )
                 {
-                    item = new Gold(amount);
+                    item = new Valorite(amount);
                     amount = 0;
                 }
                 else if( amount <= 1000000 )
@@ -432,7 +432,7 @@ namespace Server.Mobiles
 
                         if( newAmts[0] > 0 )
                         {
-                            Copper copper = new Copper(newAmts[0]);
+                            Gold copper = new Gold(newAmts[0]);
 
                             box.AddItem(copper);
                             copper.Location = ccLoc;
@@ -440,7 +440,7 @@ namespace Server.Mobiles
 
                         if( newAmts[1] > 0 )
                         {
-                            Silver silver = new Silver(newAmts[1]);
+                            Verite silver = new Verite(newAmts[1]);
 
                             box.DropItem(silver);
                             silver.Location = scLoc;
@@ -448,7 +448,7 @@ namespace Server.Mobiles
 
                         if( newAmts[2] > 0 )
                         {
-                            Gold gold = new Gold(newAmts[2]);
+                            Valorite gold = new Valorite(newAmts[2]);
 
                             box.DropItem(gold);
                             gold.Location = gcLoc;

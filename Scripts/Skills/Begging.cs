@@ -122,7 +122,7 @@ namespace Server.SkillHandlers
                     }
                     else if( m_From.CheckTargetSkill(SkillName.Begging, m_Target, 0.0, 100.0) )
                     {
-                        int toConsume = theirPack.GetAmount(typeof(Gold)) / 10;
+                        int toConsume = theirPack.GetAmount(typeof(Valorite)) / 10;
                         int max = 10 + (m_From.Fame / 2500);
 
                         if( max > 14 )
@@ -135,7 +135,7 @@ namespace Server.SkillHandlers
 
                         if( toConsume > 0 )
                         {
-                            int consumed = theirPack.ConsumeUpTo(typeof(Gold), toConsume);
+                            int consumed = theirPack.ConsumeUpTo(typeof(Valorite), toConsume);
 
                             if( consumed > 0 )
                             {

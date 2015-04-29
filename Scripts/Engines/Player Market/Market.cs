@@ -202,9 +202,9 @@ namespace Server.Market
                 if( cont != null )
                 {
                     int[] coins = Curr.Compress(entry.Cost, 0, 0);
-                    cont.DropItem(new Gold(coins[2]));
-                    cont.DropItem(new Silver(coins[1]));
-                    cont.DropItem(new Copper(coins[0]));
+                    cont.DropItem(new Valorite(coins[2]));
+                    cont.DropItem(new Verite(coins[1]));
+                    cont.DropItem(new Gold(coins[0]));
                 }
                 else
                 {

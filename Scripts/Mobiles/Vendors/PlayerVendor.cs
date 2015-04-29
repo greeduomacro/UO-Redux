@@ -875,7 +875,7 @@ namespace Server.Mobiles
 				return false;
 			}
 
-			if( item is Gold )
+			if( item is Valorite )
 			{
 				if( BaseHouse.NewVendorSystem )
 				{

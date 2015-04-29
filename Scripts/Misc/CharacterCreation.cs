@@ -440,8 +440,8 @@ namespace Server.Misc
 
             AddBackpack(newChar);
 
-            newChar.AddToBackpack(new Silver(100));
-            newChar.AddToBackpack(new Copper(1000));
+            newChar.AddToBackpack(new Verite(100));
+            newChar.AddToBackpack(new Gold(1000));
 
             newChar.AddToBackpack(new SkillScroll());
 

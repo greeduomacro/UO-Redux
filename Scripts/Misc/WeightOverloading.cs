@@ -50,7 +50,6 @@ namespace Server.Misc
 
         public static int GetMaxWeight( Mobile m )
         {
-
             return m.MaxWeight;
         }
 
@@ -118,7 +117,7 @@ namespace Server.Misc
             if( !m.Player || !m.Alive || m.AccessLevel > AccessLevel.Player )
                 return false;
 
-            return ((Mobile.BodyWeight + m.TotalWeight) > (GetMaxWeight(m) + OverloadAllowance));
+            return m.TotalWeight > (GetMaxWeight(m) + OverloadAllowance);
         }
     }
 }

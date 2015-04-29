@@ -1,0 +1,72 @@
+<html>
+   <head>
+      <title>RunUO Documentation - Class Overview - RegionControl</title>
+   </head>
+   <body bgcolor="white" style="font-family: Courier New" text="#000000" link="#000000" vlink="#000000" alink="#808080">
+      <h4><a href="../namespaces/Server.Items.html">Back to Server.Items</a></h4>
+      <h2>RegionControl : <!-- DBG-1 --><a href="Item.html">Item</a>, <!-- DBG-2.2 --><a href="IHued.html">IHued</a>, <!-- DBG-2.1 --><font color="blue">IComparable</font>&lt;<a href="Item.html">Item</a>&gt;, <!-- DBG-2.2 --><a href="ISerializable.html">ISerializable</a>, <!-- DBG-2.2 --><a href="ISpawnable.html">ISpawnable</a>, <!-- DBG-2.2 --><a href="IEntity.html">IEntity</a>, <!-- DBG-2.2 --><a href="IPoint3D.html">IPoint3D</a>, <!-- DBG-2.2 --><a href="IPoint2D.html">IPoint2D</a>, <!-- DBG-2.1 --><font color="blue">IComparable</font>, <!-- DBG-2.1 --><font color="blue">IComparable</font>&lt;<a href="IEntity.html">IEntity</a>&gt;</h2>
+      (<font color="blue">static</font>) <font color="blue">List</font>&lt;<a href="RegionControl.html">RegionControl</a>&gt; AllControls( <font color="blue">get</font>; )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> GetRegistryNumber( <!-- DBG-0 --><a href="ISpell.html">ISpell</a> s )<br>
+      (<font color="blue">static</font>) BitArray ReadBitArray( <!-- DBG-0 --><a href="GenericReader.html">GenericReader</a> reader )<br>
+      (<font color="blue">static</font>) <font color="blue">List</font>&lt;<a href="Rectangle2D.html">Rectangle2D</a>&gt; ReadRect2DArray( <!-- DBG-0 --><a href="GenericReader.html">GenericReader</a> reader )<br>
+      (<font color="blue">static</font>) <!-- DBG-0 --><a href="Rectangle3D.html">Rectangle3D</a>[] ReadRect3DArray( <!-- DBG-0 --><a href="GenericReader.html">GenericReader</a> reader )<br>
+      (<font color="blue">static</font>) <font color="blue">void</font> WriteBitArray( <!-- DBG-0 --><a href="GenericWriter.html">GenericWriter</a> writer, BitArray ba )<br>
+      (<font color="blue">static</font>) <font color="blue">void</font> WriteRect3DArray( <!-- DBG-0 --><a href="GenericWriter.html">GenericWriter</a> writer, <!-- DBG-0 --><a href="Rectangle3D.html">Rectangle3D</a>[] ary )<br>
+      (<font color="blue">ctor</font>) RegionControl()<br>
+      (<font color="blue">ctor</font>) RegionControl( <!-- DBG-0 --><a href="Serial.html">Serial</a> serial )<br>
+      (<font color="blue">ctor</font>) RegionControl( <!-- DBG-0 --><a href="Rectangle2D.html">Rectangle2D</a>[] rects )<br>
+      (<font color="blue">ctor</font>) RegionControl( <!-- DBG-0 --><a href="Rectangle3D.html">Rectangle3D</a> rect )<br>
+      (<font color="blue">ctor</font>) RegionControl( <!-- DBG-0 --><a href="Rectangle2D.html">Rectangle2D</a> rect )<br>
+      (<font color="blue">ctor</font>) RegionControl( <!-- DBG-0 --><a href="Rectangle3D.html">Rectangle3D</a>[] rects )<br>
+      <font color="blue">bool</font> Active( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> AllowBenefitNPC( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> AllowBenefitPlayer( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> AllowHarmNPC( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> AllowHarmPlayer( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> AllowHousing( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> AllowSpawn( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> CanBeDamaged( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> CanEnter( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> CanHeal( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> CanLootNPCCorpse( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> CanLootOwnCorpse( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> CanLootPlayerCorpse( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> CanMountEthereal( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> CanRessurect( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> CanUsePotions( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> CanUseStuckMenu( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="AccessLevel.html">AccessLevel</a> EditAccessLevel( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="RegionFlag.html">RegionFlag</a> Flags( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> IsGuarded( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> ItemDecay( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">int</font> LightLevel( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">int</font> MaxZ( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">int</font> MinZ( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="MusicName.html">MusicName</a> Music( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      TimeSpan PlayerLogoutDelay( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="CustomRegion.html">CustomRegion</a> Region( <font color="blue">get</font>; )<br>
+      <!-- DBG-0 --><a href="Rectangle3D.html">Rectangle3D</a>[] RegionArea( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> RegionName( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">int</font> RegionPriority( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      BitArray RestrictedSkills( <font color="blue">get</font>; )<br>
+      BitArray RestrictedSpells( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> ShowEnterMessage( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> ShowExitMessage( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">void</font> ChooseArea( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m )<br>
+      <font color="blue">void</font> CustomRegion_Callback( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <!-- DBG-0 --><a href="Map.html">Map</a> map, <!-- DBG-0 --><a href="Point3D.html">Point3D</a> start, <!-- DBG-0 --><a href="Point3D.html">Point3D</a> end, <font color="blue">object</font> state )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Deserialize( <!-- DBG-0 --><a href="GenericReader.html">GenericReader</a> reader )<br>
+      <font color="blue">void</font> DoChooseArea( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <!-- DBG-0 --><a href="Map.html">Map</a> map, <!-- DBG-0 --><a href="Point3D.html">Point3D</a> start, <!-- DBG-0 --><a href="Point3D.html">Point3D</a> end, <font color="blue">object</font> control )<br>
+      <font color="blue">string</font> FindNewName( <font color="blue">string</font> oldName )<br>
+      <font color="blue">bool</font> GetFlag( <!-- DBG-0 --><a href="RegionFlag.html">RegionFlag</a> flag )<br>
+      <font color="blue">bool</font> IsRestrictedSkill( <font color="blue">int</font> skill )<br>
+      <font color="blue">bool</font> IsRestrictedSpell( <!-- DBG-0 --><a href="ISpell.html">ISpell</a> s )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnDelete()<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnDoubleClick( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnMapChange()<br>
+      <font color="blue">bool</font> RegionNameTaken( <font color="blue">string</font> testName )<br>
+      <font color="blue">void</font> RemoveArea( <font color="blue">int</font> index, <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Serialize( <!-- DBG-0 --><a href="GenericWriter.html">GenericWriter</a> writer )<br>
+      <font color="blue">void</font> SetFlag( <!-- DBG-0 --><a href="RegionFlag.html">RegionFlag</a> flag, <font color="blue">bool</font> value )<br>
+      <font color="blue">void</font> UpdateRegion()<br>
+   </body>
+</html>

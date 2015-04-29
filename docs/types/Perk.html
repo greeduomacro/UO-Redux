@@ -1,0 +1,32 @@
+<html>
+   <head>
+      <title>RunUO Documentation - Class Overview - Perk</title>
+   </head>
+   <body bgcolor="white" style="font-family: Courier New" text="#000000" link="#000000" vlink="#000000" alink="#808080">
+      <h4><a href="../namespaces/Server.Perks.html">Back to Server.Perks</a></h4>
+      <h2>Perk</h2>
+<h4>Derived Types: <!-- DBG-3 --><a href="Acrobat.html">Acrobat</a>, <!-- DBG-3 --><a href="Adventurer.html">Adventurer</a>, <!-- DBG-3 --><a href="Arcanite.html">Arcanite</a>, <!-- DBG-3 --><a href="Beastmaster.html">Beastmaster</a>, <!-- DBG-3 --><a href="Craftsman.html">Craftsman</a>, <!-- DBG-3 --><a href="Dragoon.html">Dragoon</a>, <!-- DBG-3 --><a href="Empty.html">Empty</a>, <!-- DBG-3 --><a href="Legionnaire.html">Legionnaire</a>, <!-- DBG-3 --><a href="Marksman.html">Marksman</a>, <!-- DBG-3 --><a href="Medic.html">Medic</a>, <!-- DBG-3 --><a href="Merchant.html">Merchant</a>, <!-- DBG-3 --><a href="Monk.html">Monk</a>, <!-- DBG-3 --><a href="Pugilist.html">Pugilist</a>, <!-- DBG-3 --><a href="Rogue.html">Rogue</a>, <!-- DBG-3 --><a href="Scout.html">Scout</a>, <!-- DBG-3 --><a href="Summoner.html">Summoner</a>, <!-- DBG-3 --><a href="Warlock.html">Warlock</a></h4>
+      (<font color="blue">static</font>) <font color="blue">List</font>&lt;<a href="Perk.html">Perk</a>&gt; AllPerks( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      (<font color="blue">static</font>) <font color="blue">Dictionary</font>&lt;<a href="Player.html">Player</a>,<font color="blue">Tuple`2</font>&gt; PerkTable( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      (<font color="blue">static</font>) <font color="blue">void</font> Configure()<br>
+      (<font color="blue">static</font>) <!-- DBG-0 --><a href="Perk.html">Perk</a> Get( <!-- DBG-0 --><a href="Player.html">Player</a> player, <!-- DBG-0 --><a href="Perk.html">Perk</a> perk )<br>
+      (<font color="blue">static</font>) T GetByType( <!-- DBG-0 --><a href="Player.html">Player</a> player )<br>
+      (<font color="blue">static</font>) ConstructorInfo GetPerkCtor( <font color="blue">string</font> typeName )<br>
+      (<font color="blue">static</font>) <font color="blue">Tuple</font>&lt;<a href="Perk.html">Perk</a>,<a href="Perk.html">Perk</a>&gt; GetPerks( <!-- DBG-0 --><a href="Player.html">Player</a> player )<br>
+      (<font color="blue">static</font>) <font color="blue">bool</font> HasFreeSlot( <!-- DBG-0 --><a href="Player.html">Player</a> player )<br>
+      (<font color="blue">static</font>) <font color="blue">bool</font> HasPerk( <!-- DBG-0 --><a href="Player.html">Player</a> player, <!-- DBG-0 --><a href="Perk.html">Perk</a> perk )<br>
+      (<font color="blue">static</font>) <font color="blue">void</font> OnWorldLoad()<br>
+      (<font color="blue">static</font>) <font color="blue">void</font> OnWorldSave( <!-- DBG-0 --><a href="WorldSaveEventArgs.html">WorldSaveEventArgs</a> args )<br>
+      (<font color="blue">static</font>) <font color="blue">void</font> Remove( <!-- DBG-0 --><a href="Player.html">Player</a> player, <!-- DBG-0 --><a href="PerkPosition.html">PerkPosition</a> position )<br>
+      (<font color="blue">static</font>) <font color="blue">bool</font> Set( <!-- DBG-0 --><a href="Player.html">Player</a> player, <!-- DBG-0 --><a href="Perk.html">Perk</a> perk, <!-- DBG-0 --><a href="PerkPosition.html">PerkPosition</a> position, <font color="blue">bool</font> overwriteExisting )<br>
+      (<font color="blue">ctor</font>) Perk( <!-- DBG-0 --><a href="GenericReader.html">GenericReader</a> reader )<br>
+      (<font color="blue">ctor</font>) Perk( <!-- DBG-0 --><a href="Player.html">Player</a> player )<br>
+      <font color="blue">string</font> Description( <font color="blue">get</font>; )<br>
+      <font color="blue">int</font> GumpID( <font color="blue">get</font>; )<br>
+      <font color="blue">string</font> Label( <font color="blue">get</font>; )<br>
+      <!-- DBG-0 --><a href="LabelEntryList.html">LabelEntryList</a> LabelEntries( <font color="blue">get</font>; )<br>
+      <!-- DBG-0 --><a href="PerkLevel.html">PerkLevel</a> Level( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="Player.html">Player</a> Player( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Serialize( <!-- DBG-0 --><a href="GenericWriter.html">GenericWriter</a> writer )<br>
+   </body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+   <head>
+      <title>RunUO Documentation - Class Overview - TwofishBase</title>
+   </head>
+   <body bgcolor="white" style="font-family: Courier New" text="#000000" link="#000000" vlink="#000000" alink="#808080">
+      <h4><a href="../namespaces/Server.Customs.Encryption.html">Back to Server.Customs.Encryption</a></h4>
+      <h2>TwofishBase</h2>
+<h4>Derived Types: <!-- DBG-3 --><a href="TwofishEncryption.html">TwofishEncryption</a></h4>
+<h4>Nested Types: <!-- DBG-4 --><a href="EncryptionDirection.html">EncryptionDirection</a></h4>
+      (<font color="blue">static</font>) <font color="blue">byte</font> b0( <font color="blue">uint</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">byte</font> b1( <font color="blue">uint</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">byte</font> b2( <font color="blue">uint</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">byte</font> b3( <font color="blue">uint</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">uint</font> f32( <font color="blue">uint</font> x, <font color="blue">ref</font> <font color="blue">uint</font>[] k32, <font color="blue">int</font> keyLen )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> LFSR1( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> LFSR2( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M00( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M01( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M02( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M03( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M10( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M11( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M12( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M13( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M20( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M21( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M22( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M23( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M30( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M31( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M32( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> M33( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> Mul_1( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> Mul_X( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> Mul_Y( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> Mx_1( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> Mx_X( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">int</font> Mx_Y( <font color="blue">int</font> x )<br>
+      (<font color="blue">static</font>) <font color="blue">uint</font> ROL( <font color="blue">uint</font> x, <font color="blue">int</font> n )<br>
+      (<font color="blue">static</font>) <font color="blue">uint</font> ROR( <font color="blue">uint</font> x, <font color="blue">int</font> n )<br>
+      (<font color="blue">static</font>) <font color="blue">uint</font> RS_MDS_Encode( <font color="blue">uint</font> k0, <font color="blue">uint</font> k1 )<br>
+      (<font color="blue">static</font>) <font color="blue">void</font> RS_rem( <font color="blue">ref</font> <font color="blue">uint</font> x )<br>
+      (<font color="blue">ctor</font>) TwofishBase()<br>
+      <font color="blue">void</font> blockDecrypt( <font color="blue">ref</font> <font color="blue">uint</font>[] x )<br>
+      <font color="blue">void</font> blockEncrypt( <font color="blue">ref</font> <font color="blue">uint</font>[] x )<br>
+      <font color="blue">bool</font> reKey( <font color="blue">int</font> keyLen, <font color="blue">ref</font> <font color="blue">uint</font>[] key32 )<br>
+   </body>
+</html>

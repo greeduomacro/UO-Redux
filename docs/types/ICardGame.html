@@ -1,0 +1,21 @@
+<html>
+   <head>
+      <title>RunUO Documentation - Class Overview - ICardGame</title>
+   </head>
+   <body bgcolor="white" style="font-family: Courier New" text="#000000" link="#000000" vlink="#000000" alink="#808080">
+      <h4><a href="../namespaces/Server.Games.html">Back to Server.Games</a></h4>
+      <h2>ICardGame</h2>
+<h4>Derived Types: <!-- DBG-3 --><a href="BaseCardGame.html">BaseCardGame</a>, <!-- DBG-3 --><a href="HeartsGame.html">HeartsGame</a>, <!-- DBG-3 --><a href="HoldemGame.html">HoldemGame</a></h4>
+      <!-- DBG-0 --><a href="ICardGameItem.html">ICardGameItem</a> GameItem( <font color="blue">get</font>; )<br>
+      <font color="blue">byte</font> HandSize( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> Initialized( <font color="blue">get</font>; )<br>
+      <font color="blue">byte</font> MaxPlayers( <font color="blue">get</font>; )<br>
+      <font color="blue">Dictionary</font>&lt;<a href="Mobile.html">Mobile</a>,<a href="PokerHand.html">PokerHand</a>&gt; Players( <font color="blue">get</font>; )<br>
+      TimeSpan PlayerWaitTimeout( <font color="blue">get</font>; )<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> AddPlayer( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m, <font color="blue">byte</font> numCards )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> DealFirstRound()<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Initialize()<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> IsPlaying( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m )<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> RemovePlayer( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m )<br>
+   </body>
+</html>

@@ -494,6 +494,21 @@ Bandages now require one free hand to use.
 Medic perk now allows bandages to be used with no free hands.
 Added most recent version of Nerun's Distro
 
+0.3.3
+Ingots now weight 0.1 stones, as per OSI
+Added exception handling to DecorateList.Read from nerun's distro.
+Converted currency system to new metal types.
+Fixed starting skill scroll's max values.
+Decreased the amount of time spent knocked out.
+Players now regain consciousness with 90% stamina.
+Reduced time spent invulnerable after K.O to 3-5 seconds.
+
+0.3.3a
+Peasant females now spawn with random colored dresses.
+Mobiles now move to the next point in series when a waypoint is blocked.
+
+
+
 TODO:
 
 Dragons should eat gems.

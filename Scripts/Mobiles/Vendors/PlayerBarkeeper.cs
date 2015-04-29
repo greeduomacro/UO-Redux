@@ -322,9 +322,9 @@ namespace Server.Mobiles
 
 		public override bool CheckCopper( Mobile from, Item dropped )
 		{
-			if ( dropped is Gold )
+			if ( dropped is Valorite )
 			{
-				Gold g = (Gold)dropped;
+				Valorite g = (Valorite)dropped;
 
 				if ( g.Amount > 50 )
 				{

@@ -36,7 +36,7 @@ namespace Server.Items
 				else
 					from.SendMessage( "You destroy the bone pile." );
 
-				Silver silver = new Silver( 5, 25 );
+				Verite silver = new Verite( 5, 25 );
 
 				silver.MoveToWorld( GetWorldLocation(), Map );
 

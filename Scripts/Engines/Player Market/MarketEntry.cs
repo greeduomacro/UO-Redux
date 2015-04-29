@@ -33,11 +33,11 @@ namespace Server.Market
 			_tableId = -1;
 		}
 
-		public void ChangeCost( int newCopper, int newSilver, int newGold )
+		public void ChangeCost( int newGold, int newVerite, int newValorite )
 		{
-			Cost = newCopper;
-			Cost += Currency.CurrencySystem.ConvertTo( CurrencyType.Silver, CurrencyType.Copper, newSilver );
-			Cost += Currency.CurrencySystem.ConvertTo( CurrencyType.Gold, CurrencyType.Copper, newGold );
+			Cost = newGold;
+			Cost += Currency.CurrencySystem.ConvertTo( CurrencyType.Verite, CurrencyType.Gold, newVerite );
+			Cost += Currency.CurrencySystem.ConvertTo( CurrencyType.Valorite, CurrencyType.Gold, newValorite );
 		}
 
 		public void SetSellItem( IEntity entity )

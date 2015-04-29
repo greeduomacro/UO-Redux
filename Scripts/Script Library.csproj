@@ -1173,9 +1173,9 @@
     <Compile Include="Items\Misc\Corpses\RangerCorpse.cs" />
     <Compile Include="Items\Misc\CreatureController.cs" />
     <Compile Include="Items\Misc\Currency\BaseCoin.cs" />
-    <Compile Include="Items\Misc\Currency\Copper.cs" />
     <Compile Include="Items\Misc\Currency\Gold.cs" />
-    <Compile Include="Items\Misc\Currency\Silver.cs" />
+    <Compile Include="Items\Misc\Currency\Valorite.cs" />
+    <Compile Include="Items\Misc\Currency\Verite.cs" />
     <Compile Include="Items\Misc\DaemonBlood.cs" />
     <Compile Include="Items\Misc\Dismounter.cs" />
     <Compile Include="Items\Misc\DoubleClickTeleporter.cs" />

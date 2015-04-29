@@ -1273,25 +1273,25 @@ namespace Server.Mobiles
 
                 while( gold > 60000 )
                 {
-                    seller.AddToBackpack(new Gold(gold));
+                    seller.AddToBackpack(new Valorite(gold));
                     gold -= 60000;
                 }
 
                 while( silver > 60000 )
                 {
-                    seller.AddToBackpack(new Silver(silver));
+                    seller.AddToBackpack(new Verite(silver));
                     silver -= 60000;
                 }
 
                 while( copper > 60000 )
                 {
-                    seller.AddToBackpack(new Copper(copper));
+                    seller.AddToBackpack(new Gold(copper));
                     copper -= 60000;
                 }
 
-                if( gold > 0 ) seller.AddToBackpack(new Gold(gold));
-                if( silver > 0 ) seller.AddToBackpack(new Silver(silver));
-                if( copper > 0 ) seller.AddToBackpack(new Copper(copper));
+                if( gold > 0 ) seller.AddToBackpack(new Valorite(gold));
+                if( silver > 0 ) seller.AddToBackpack(new Verite(silver));
+                if( copper > 0 ) seller.AddToBackpack(new Gold(copper));
 
                 //while( GiveGold > 60000 )
                 //{

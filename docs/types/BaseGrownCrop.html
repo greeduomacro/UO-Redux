@@ -1,0 +1,23 @@
+<html>
+   <head>
+      <title>RunUO Documentation - Class Overview - BaseGrownCrop</title>
+   </head>
+   <body bgcolor="white" style="font-family: Courier New" text="#000000" link="#000000" vlink="#000000" alink="#808080">
+      <h4><a href="../namespaces/Server.Engines.Crops.html">Back to Server.Engines.Crops</a></h4>
+      <h2>BaseGrownCrop : <!-- DBG-1 --><a href="BaseCrop.html">BaseCrop</a>, <!-- DBG-2.2 --><a href="IHued.html">IHued</a>, <!-- DBG-2.1 --><font color="blue">IComparable</font>&lt;<a href="Item.html">Item</a>&gt;, <!-- DBG-2.2 --><a href="ISerializable.html">ISerializable</a>, <!-- DBG-2.2 --><a href="ISpawnable.html">ISpawnable</a>, <!-- DBG-2.2 --><a href="IEntity.html">IEntity</a>, <!-- DBG-2.2 --><a href="IPoint3D.html">IPoint3D</a>, <!-- DBG-2.2 --><a href="IPoint2D.html">IPoint2D</a>, <!-- DBG-2.1 --><font color="blue">IComparable</font>, <!-- DBG-2.1 --><font color="blue">IComparable</font>&lt;<a href="IEntity.html">IEntity</a>&gt;</h2>
+<h4>Derived Types: <!-- DBG-3 --><a href="BaseTreeSapling.html">BaseTreeSapling</a>, <!-- DBG-3 --><a href="CabbageCrop.html">CabbageCrop</a>, <!-- DBG-3 --><a href="CantaloupeCrop.html">CantaloupeCrop</a>, <!-- DBG-3 --><a href="CarrotCrop.html">CarrotCrop</a>, <!-- DBG-3 --><a href="CornCrop.html">CornCrop</a>, <!-- DBG-3 --><a href="CottonCrop.html">CottonCrop</a>, <!-- DBG-3 --><a href="FlaxCrop.html">FlaxCrop</a>, <!-- DBG-3 --><a href="GourdCrop.html">GourdCrop</a>, <!-- DBG-3 --><a href="HarvestableTree.html">HarvestableTree</a>, <!-- DBG-3 --><a href="HoneydewMelonCrop.html">HoneydewMelonCrop</a>, <!-- DBG-3 --><a href="LettuceCrop.html">LettuceCrop</a>, <!-- DBG-3 --><a href="OnionCrop.html">OnionCrop</a>, <!-- DBG-3 --><a href="PotatoCrop.html">PotatoCrop</a>, <!-- DBG-3 --><a href="PumpkinCrop.html">PumpkinCrop</a>, <!-- DBG-3 --><a href="RosePlant.html">RosePlant</a>, <!-- DBG-3 --><a href="SquashCrop.html">SquashCrop</a>, <!-- DBG-3 --><a href="TomatoCrop.html">TomatoCrop</a>, <!-- DBG-3 --><a href="TurnipCrop.html">TurnipCrop</a>, <!-- DBG-3 --><a href="WatermelonCrop.html">WatermelonCrop</a>, <!-- DBG-3 --><a href="WheatCrop.html">WheatCrop</a></h4>
+      (<font color="blue">ctor</font>) BaseGrownCrop( <!-- DBG-0 --><a href="Serial.html">Serial</a> serial )<br>
+      (<font color="blue">ctor</font>) BaseGrownCrop( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> sower, <font color="blue">int</font> itemID )<br>
+      <font color="blue">int</font> AnimationFrame( <font color="blue">get</font>; )<br>
+      Type CropType( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="Mobile.html">Mobile</a> Sower( <font color="blue">get</font>; )<br>
+      <font color="blue">int</font> StandardYield( <font color="blue">get</font>; )<br>
+      <font color="blue">virtual</font> <font color="blue">int</font> CalculateYield( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m )<br>
+      <font color="blue">virtual</font> <!-- DBG-0 --><a href="Item.html">Item</a> CreateCrop( <font color="blue">int</font> amount )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Deserialize( <!-- DBG-0 --><a href="GenericReader.html">GenericReader</a> reader )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnDoubleClick( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnDoubleClick( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <font color="blue">bool</font> createWeedsAndDelete )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnHarvest( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Serialize( <!-- DBG-0 --><a href="GenericWriter.html">GenericWriter</a> writer )<br>
+   </body>
+</html>

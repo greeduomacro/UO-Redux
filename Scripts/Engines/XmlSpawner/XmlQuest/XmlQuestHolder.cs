@@ -750,7 +750,7 @@ namespace Server.Items
                 foreach(Item i in ((Container)target).Items)
                 {
                     // make sure gold amount is consistent with totalgold
-                    if(i is Gold)
+                    if(i is Valorite)
                     {
                         UpdateTotal(i, TotalType.Gold, i.Amount);
                     }

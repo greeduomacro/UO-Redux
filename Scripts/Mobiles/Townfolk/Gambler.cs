@@ -235,7 +235,7 @@ namespace Server.Mobiles
 
 		public bool paydealer( Mobile from, int quantity )
 		{
-			return from.Backpack.ConsumeTotal( typeof( Copper ), quantity );
+			return from.Backpack.ConsumeTotal( typeof( Gold ), quantity );
 		}
 
 		public string CardSuit( int card )
@@ -1131,7 +1131,7 @@ namespace Server.Mobiles
 		}
 
 
-		public override bool OnCopperGiven( Mobile from, Copper dropped )
+		public override bool OnCopperGiven( Mobile from, Gold dropped )
 		{
 			string message = "Are you trying to bribe me to win?";
 			this.Say( message );

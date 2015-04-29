@@ -17,7 +17,7 @@ namespace Server.Items
 
 		public override double DefaultWeight
 		{
-			get { return 5; }
+			get { return 0.1; }
 		}
 		
 		int ICommodity.DescriptionNumber { get { return LabelNumber; } }

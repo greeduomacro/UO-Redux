@@ -65,7 +65,7 @@ namespace Server.Gumps
 				int totalGold = 0;
 
 				if ( from.Backpack != null )
-					totalGold += from.Backpack.GetAmount( typeof( Gold ) );
+					totalGold += from.Backpack.GetAmount( typeof( Valorite ) );
 				
 				totalGold += Banker.GetBalance( from );
 
@@ -82,7 +82,7 @@ namespace Server.Gumps
 					int leftPrice = m_VI.Price;
 
 					if ( from.Backpack != null )
-						leftPrice -= from.Backpack.ConsumeUpTo( typeof( Gold ), leftPrice );
+						leftPrice -= from.Backpack.ConsumeUpTo( typeof( Valorite ), leftPrice );
 
 					if ( leftPrice > 0 )
 						Banker.Withdraw( from, leftPrice );

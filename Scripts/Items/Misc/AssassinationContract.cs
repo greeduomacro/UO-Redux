@@ -141,11 +141,11 @@ namespace Server.Items
 
                             int toAdd = m_AContract.m_Copper;
 
-							Copper copper;
+							Gold copper;
 
 							while ( toAdd > 10)
 							{
-								copper = new Copper( 10 );
+								copper = new Gold( 10 );
 
 								if ( box.TryDropItem( m_AContract.m_Issuer, copper, false ) )
 								{
@@ -165,7 +165,7 @@ namespace Server.Items
 
 							if ( toAdd > 0 )
 							{
-								copper = new Copper( toAdd );
+								copper = new Gold( toAdd );
 
 								if ( box.TryDropItem( m_AContract.m_Issuer, copper, false ) )
 								{
@@ -232,11 +232,11 @@ namespace Server.Items
 
 							int toAdd = m_AContract.m_Copper;
 
-							Copper copper;
+							Gold copper;
 
 							while ( toAdd > 60000 )
 							{
-								copper = new Copper( 60000 );
+								copper = new Gold( 60000 );
 
 								if ( box.TryDropItem( m_AContract.m_Issuer, copper, false ) )
 								{
@@ -256,7 +256,7 @@ namespace Server.Items
 
 							if ( toAdd > 0 )
 							{
-								copper = new Copper( toAdd );
+								copper = new Gold( toAdd );
 
 								if ( box.TryDropItem( m_AContract.m_Issuer, copper, false ) )
 								{
@@ -549,11 +549,11 @@ namespace Server.Items
 
 					int toAdd = m_Copper;
 
-					Copper copper;
+					Gold copper;
 
 					while ( toAdd > 60000 )
 					{
-						copper = new Copper( 60000 );
+						copper = new Gold( 60000 );
 
 						if ( box.TryDropItem( m_Issuer, copper, false ) )
 						{
@@ -573,7 +573,7 @@ namespace Server.Items
 
 					if ( toAdd > 0 )
 					{
-						copper = new Copper( toAdd );
+						copper = new Gold( toAdd );
 
 						if ( box.TryDropItem( m_Issuer, copper, false ) )
 						{
