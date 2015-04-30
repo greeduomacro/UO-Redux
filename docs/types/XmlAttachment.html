@@ -1,0 +1,66 @@
+<html>
+   <head>
+      <title>RunUO Documentation - Class Overview - XmlAttachment</title>
+   </head>
+   <body bgcolor="white" style="font-family: Courier New" text="#000000" link="#000000" vlink="#000000" alink="#808080">
+      <h4><a href="../namespaces/Server.Engines.XmlSpawner2.html">Back to Server.Engines.XmlSpawner2</a></h4>
+      <h2>XmlAttachment : <!-- DBG-2.2 --><a href="IXmlAttachment.html">IXmlAttachment</a></h2>
+<h4>Derived Types: <!-- DBG-3 --><a href="TemporaryQuestObject.html">TemporaryQuestObject</a>, <!-- DBG-3 --><a href="XmlAddFame.html">XmlAddFame</a>, <!-- DBG-3 --><a href="XmlAddKarma.html">XmlAddKarma</a>, <!-- DBG-3 --><a href="XmlAddTithing.html">XmlAddTithing</a>, <!-- DBG-3 --><a href="XmlAddVirtue.html">XmlAddVirtue</a>, <!-- DBG-3 --><a href="XmlData.html">XmlData</a>, <!-- DBG-3 --><a href="XmlDate.html">XmlDate</a>, <!-- DBG-3 --><a href="XmlDeathAction.html">XmlDeathAction</a>, <!-- DBG-3 --><a href="XmlDex.html">XmlDex</a>, <!-- DBG-3 --><a href="XmlDialog.html">XmlDialog</a>, <!-- DBG-3 --><a href="XmlEnemyMastery.html">XmlEnemyMastery</a>, <!-- DBG-3 --><a href="XmlFire.html">XmlFire</a>, <!-- DBG-3 --><a href="XmlFreeze.html">XmlFreeze</a>, <!-- DBG-3 --><a href="XmlHue.html">XmlHue</a>, <!-- DBG-3 --><a href="XmlInt.html">XmlInt</a>, <!-- DBG-3 --><a href="XmlLifeDrain.html">XmlLifeDrain</a>, <!-- DBG-3 --><a href="XmlLightning.html">XmlLightning</a>, <!-- DBG-3 --><a href="XmlLocalVariable.html">XmlLocalVariable</a>, <!-- DBG-3 --><a href="XmlMagicWord.html">XmlMagicWord</a>, <!-- DBG-3 --><a href="XmlManaDrain.html">XmlManaDrain</a>, <!-- DBG-3 --><a href="XmlMessage.html">XmlMessage</a>, <!-- DBG-3 --><a href="XmlMinionStrike.html">XmlMinionStrike</a>, <!-- DBG-3 --><a href="XmlMorph.html">XmlMorph</a>, <!-- DBG-3 --><a href="XmlQuestAttachment.html">XmlQuestAttachment</a>, <!-- DBG-3 --><a href="XmlQuestPoints.html">XmlQuestPoints</a>, <!-- DBG-3 --><a href="XmlSaveItem.html">XmlSaveItem</a>, <!-- DBG-3 --><a href="XmlSkill.html">XmlSkill</a>, <!-- DBG-3 --><a href="XmlSound.html">XmlSound</a>, <!-- DBG-3 --><a href="XmlStamDrain.html">XmlStamDrain</a>, <!-- DBG-3 --><a href="XmlStr.html">XmlStr</a>, <!-- DBG-3 --><a href="XmlUse.html">XmlUse</a>, <!-- DBG-3 --><a href="XmlValue.html">XmlValue</a>, <!-- DBG-3 --><a href="XmlWeaponAbility.html">XmlWeaponAbility</a></h4>
+<h4>Nested Types: <!-- DBG-4 --><a href="AttachmentTimer.html">AttachmentTimer</a></h4>
+      (<font color="blue">static</font>) <font color="blue">void</font> Initialize()<br>
+      (<font color="blue">ctor</font>) XmlAttachment()<br>
+      (<font color="blue">ctor</font>) XmlAttachment( <!-- DBG-0 --><a href="ASerial.html">ASerial</a> serial )<br>
+      <font color="blue">object</font> Attached( <font color="blue">get</font>; )<br>
+      <font color="blue">string</font> AttachedBy( <font color="blue">get</font>; )<br>
+      <font color="blue">object</font> AttachedTo( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> CanActivateEquipped( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> CanActivateInBackpack( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> CanActivateInWorld( <font color="blue">get</font>; )<br>
+      DateTime CreationTime( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> Deleted( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> DoDelete( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      TimeSpan Expiration( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      DateTime ExpirationEnd( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> HandlesOnKill( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> HandlesOnKilled( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> HandlesOnMovement( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> HandlesOnSpeech( <font color="blue">get</font>; )<br>
+      <font color="blue">string</font> Name( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">object</font> OwnedBy( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">object</font> Owner( <font color="blue">get</font>; )<br>
+      <!-- DBG-0 --><a href="ASerial.html">ASerial</a> Serial( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">int</font> SerialValue( <font color="blue">get</font>; )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> AddProperties( <!-- DBG-0 --><a href="ObjectPropertyList.html">ObjectPropertyList</a> list )<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> BlockDefaultOnUse( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <font color="blue">object</font> target )<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> CanEquip( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Delete()<br>
+      <font color="blue">void</font> DeleteItemCallback( <font color="blue">object</font> state )<br>
+      <font color="blue">void</font> DeleteMobileCallback( <font color="blue">object</font> state )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Deserialize( <!-- DBG-0 --><a href="GenericReader.html">GenericReader</a> reader )<br>
+      <font color="blue">virtual</font> <font color="blue">string</font> DisplayedProperties( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from )<br>
+      <font color="blue">void</font> DoTimer( TimeSpan delay )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> InvalidateParentProperties()<br>
+      <font color="blue">virtual</font> <font color="blue">int</font> OnArmorHit( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> attacker, <!-- DBG-0 --><a href="Mobile.html">Mobile</a> defender, <!-- DBG-0 --><a href="Item.html">Item</a> armor, <!-- DBG-0 --><a href="BaseWeapon.html">BaseWeapon</a> weapon, <font color="blue">int</font> damageGiven )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnAttach()<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnBeforeKill( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> killed, <!-- DBG-0 --><a href="Mobile.html">Mobile</a> killer )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnBeforeKilled( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> killed, <!-- DBG-0 --><a href="Mobile.html">Mobile</a> killer )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnDelete()<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> OnDragLift( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <!-- DBG-0 --><a href="Item.html">Item</a> item )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnEquip( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from )<br>
+      <font color="blue">virtual</font> <font color="blue">string</font> OnIdentify( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnKill( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> killed, <!-- DBG-0 --><a href="Mobile.html">Mobile</a> killer )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnKilled( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> killed, <!-- DBG-0 --><a href="Mobile.html">Mobile</a> killer )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnMovement( <!-- DBG-0 --><a href="MovementEventArgs.html">MovementEventArgs</a> args )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnReattach()<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnRemoved( <font color="blue">object</font> parent )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnSpeech( <!-- DBG-0 --><a href="SpeechEventArgs.html">SpeechEventArgs</a> args )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnTrigger( <font color="blue">object</font> activator, <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnUse( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnUser( <font color="blue">object</font> target )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnWeaponHit( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> attacker, <!-- DBG-0 --><a href="Mobile.html">Mobile</a> defender, <!-- DBG-0 --><a href="BaseWeapon.html">BaseWeapon</a> weapon, <font color="blue">int</font> damageGiven )<br>
+      <font color="blue">void</font> SafeItemDelete( <!-- DBG-0 --><a href="Item.html">Item</a> item )<br>
+      <font color="blue">void</font> SafeMobileDelete( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> mob )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Serialize( <!-- DBG-0 --><a href="GenericWriter.html">GenericWriter</a> writer )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> SetAttachedBy( <font color="blue">string</font> name )<br>
+   </body>
+</html>

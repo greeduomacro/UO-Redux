@@ -1,0 +1,22 @@
+<html>
+   <head>
+      <title>RunUO Documentation - Class Overview - BaseCardGame</title>
+   </head>
+   <body bgcolor="white" style="font-family: Courier New" text="#000000" link="#000000" vlink="#000000" alink="#808080">
+      <h4><a href="../namespaces/Server.Games.html">Back to Server.Games</a></h4>
+      <h2>BaseCardGame : <!-- DBG-2.2 --><a href="ICardGame.html">ICardGame</a></h2>
+<h4>Derived Types: <!-- DBG-3 --><a href="HeartsGame.html">HeartsGame</a>, <!-- DBG-3 --><a href="HoldemGame.html">HoldemGame</a></h4>
+      (<font color="blue">ctor</font>) BaseCardGame( <!-- DBG-0 --><a href="ICardGameItem.html">ICardGameItem</a> gameItem, <font color="blue">byte</font> maxPlayers, TimeSpan playerTimeout )<br>
+      <!-- DBG-0 --><a href="ICardGameItem.html">ICardGameItem</a> GameItem( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">byte</font> HandSize( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> Initialized( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">byte</font> MaxPlayers( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">Dictionary</font>&lt;<a href="Mobile.html">Mobile</a>,<a href="PokerHand.html">PokerHand</a>&gt; Players( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      TimeSpan PlayerWaitTimeout( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> AddPlayer( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m, <font color="blue">byte</font> numCards )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> DealFirstRound()<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Initialize()<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> IsPlaying( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m )<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> RemovePlayer( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m )<br>
+   </body>
+</html>

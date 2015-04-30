@@ -17,7 +17,7 @@ namespace Server.Mobiles
 		public BlackDragon()
 			: base( AIType.AI_Mage, FightMode.Weakest, 12, 1, 0.2, 0.4 )
 		{
-			Name = NameList.RandomName( "dragonkin" ) + ",";
+			Name = NameList.RandomName("ancient lich") + ",";
 			Title = "the black dragon";
 			Hue = Utility.RandomList( 1175, 1109 );
 			BodyValue = 12;

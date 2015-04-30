@@ -1,0 +1,43 @@
+<html>
+   <head>
+      <title>RunUO Documentation - Class Overview - ChessGame</title>
+   </head>
+   <body bgcolor="white" style="font-family: Courier New" text="#000000" link="#000000" vlink="#000000" alink="#808080">
+      <h4><a href="../namespaces/Arya.Chess.html">Back to Arya.Chess</a></h4>
+      <h2>ChessGame</h2>
+      (<font color="blue">ctor</font>) ChessGame( <!-- DBG-0 --><a href="ChessControl.html">ChessControl</a> parent, <!-- DBG-0 --><a href="Mobile.html">Mobile</a> owner, <!-- DBG-0 --><a href="Rectangle2D.html">Rectangle2D</a> bounds, <font color="blue">int</font> z )<br>
+      <font color="blue">bool</font> AllowGame( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> AllowSpectators( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> AllowTarget( <font color="blue">get</font>; )<br>
+      <font color="blue">int</font> AttackEffect( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> BoltOnDeath( <font color="blue">get</font>; )<br>
+      <font color="blue">int</font> CaptureEffect( <font color="blue">get</font>; )<br>
+      <!-- DBG-0 --><a href="Mobile.html">Mobile</a> Guest( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="BoardOrientation.html">BoardOrientation</a> Orientation( <font color="blue">get</font>; )<br>
+      <!-- DBG-0 --><a href="Mobile.html">Mobile</a> Owner( <font color="blue">get</font>; )<br>
+      <!-- DBG-0 --><a href="ChessRegion.html">ChessRegion</a> Region( <font color="blue">get</font>; )<br>
+      <font color="blue">void</font> AcceptGame( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> guest )<br>
+      <font color="blue">void</font> CancelGameStart( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from )<br>
+      <font color="blue">void</font> ChooseOpponent( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <font color="blue">object</font> targeted )<br>
+      <font color="blue">void</font> Cleanup()<br>
+      <font color="blue">void</font> EndGame( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> winner )<br>
+      <!-- DBG-0 --><a href="ChessColor.html">ChessColor</a> GetColor( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m )<br>
+      <font color="blue">void</font> GiveWinnerBook( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> to )<br>
+      <font color="blue">bool</font> IsPlayer( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m )<br>
+      <font color="blue">void</font> NotifyGameOver( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m )<br>
+      <font color="blue">void</font> OnMoveOver( <!-- DBG-0 --><a href="Move.html">Move</a> move, <font color="blue">string</font> whiteMsg, <font color="blue">string</font> blackMsg )<br>
+      <font color="blue">void</font> OnMoveTimeout()<br>
+      <font color="blue">void</font> OnPawnPromoted( <!-- DBG-0 --><a href="PawnPromotion.html">PawnPromotion</a> type )<br>
+      <font color="blue">void</font> OnPickPieceTarget( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <font color="blue">object</font> targeted )<br>
+      <font color="blue">void</font> OnPieceMove( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <font color="blue">object</font> targeted )<br>
+      <font color="blue">void</font> OnPlayerDisconnected( <!-- DBG-0 --><a href="DisconnectedEventArgs.html">DisconnectedEventArgs</a> e )<br>
+      <font color="blue">void</font> OnPlayerLogin( <!-- DBG-0 --><a href="LoginEventArgs.html">LoginEventArgs</a> e )<br>
+      <font color="blue">void</font> ParentCleanup()<br>
+      <font color="blue">void</font> SendAllGumps( <font color="blue">string</font> whiteMsg, <font color="blue">string</font> blackMsg )<br>
+      <font color="blue">void</font> SendMoveTarget( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m )<br>
+      <font color="blue">void</font> SetChessSet( <!-- DBG-0 --><a href="ChessSet.html">ChessSet</a> chessset )<br>
+      <font color="blue">void</font> SetHues( <font color="blue">int</font> white, <font color="blue">int</font> black, <font color="blue">int</font> whiteMinor, <font color="blue">int</font> blackMinor )<br>
+      <font color="blue">void</font> SetMinorHueOverride( <font color="blue">bool</font> doOverride )<br>
+      <font color="blue">void</font> SetOrientation( <!-- DBG-0 --><a href="BoardOrientation.html">BoardOrientation</a> orientation )<br>
+   </body>
+</html>

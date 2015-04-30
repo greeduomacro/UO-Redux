@@ -119,7 +119,7 @@ namespace Khazman.TravelBySea
 					}
 				case 1:
 					{
-						if( pack.ConsumeTotal( typeof( Copper ), m_Cost ) )
+						if( pack.ConsumeTotal( typeof( Gold ), m_Cost ) )
 						{
 							if( from.Map != m_SailMap )
 								travelTime += 30;

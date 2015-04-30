@@ -85,7 +85,7 @@ namespace Server.Mobiles
 			base.OnSpeech( e );
 		}
 
-		public override bool OnCopperGiven( Mobile from, Copper dropped )
+		public override bool OnGoldGiven( Mobile from, Gold dropped )
 		{
 			if( from is PlayerMobile && dropped.Amount == 700 )
 			{
@@ -100,7 +100,7 @@ namespace Server.Mobiles
 				}
 			}
 
-			return base.OnCopperGiven( from, dropped );
+			return base.OnGoldGiven( from, dropped );
 		}
 
 		public ThiefGuildmaster( Serial serial )

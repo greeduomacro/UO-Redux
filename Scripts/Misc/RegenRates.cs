@@ -120,9 +120,6 @@ namespace Server.Misc
             {
                 bool running = ((Player)from).isRunning && from.Mounted == false;
 
-                if (((Player)from).lastMove < DateTime.Now)
-                    running = false;
-
                 if (running)
                     points -= 32;
 

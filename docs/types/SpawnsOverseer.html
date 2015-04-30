@@ -1,0 +1,31 @@
+<html>
+   <head>
+      <title>RunUO Documentation - Class Overview - SpawnsOverseer</title>
+   </head>
+   <body bgcolor="white" style="font-family: Courier New" text="#000000" link="#000000" vlink="#000000" alink="#808080">
+      <h4><a href="../namespaces/Server.Items.html">Back to Server.Items</a></h4>
+      <h2>SpawnsOverseer : <!-- DBG-1 --><a href="Item.html">Item</a>, <!-- DBG-2.2 --><a href="IHued.html">IHued</a>, <!-- DBG-2.1 --><font color="blue">IComparable</font>&lt;<a href="Item.html">Item</a>&gt;, <!-- DBG-2.2 --><a href="ISerializable.html">ISerializable</a>, <!-- DBG-2.2 --><a href="ISpawnable.html">ISpawnable</a>, <!-- DBG-2.2 --><a href="IEntity.html">IEntity</a>, <!-- DBG-2.2 --><a href="IPoint3D.html">IPoint3D</a>, <!-- DBG-2.2 --><a href="IPoint2D.html">IPoint2D</a>, <!-- DBG-2.1 --><font color="blue">IComparable</font>, <!-- DBG-2.1 --><font color="blue">IComparable</font>&lt;<a href="IEntity.html">IEntity</a>&gt;</h2>
+<h4>Nested Types: <!-- DBG-4 --><a href="CheckTimer.html">CheckTimer</a></h4>
+      (<font color="blue">ctor</font>) SpawnsOverseer()<br>
+      (<font color="blue">ctor</font>) SpawnsOverseer( <font color="blue">int</font> startrange )<br>
+      (<font color="blue">ctor</font>) SpawnsOverseer( <!-- DBG-0 --><a href="Serial.html">Serial</a> serial )<br>
+      (<font color="blue">ctor</font>) SpawnsOverseer( <font color="blue">int</font> startrange, <font color="blue">int</font> startIRD, <font color="blue">int</font> startORD, <font color="blue">int</font> startOverseeing )<br>
+      TimeSpan CurrentDelay( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> Enable( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">int</font> InRangeDelay( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      TimeSpan NextDelay( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">int</font> OutRangeDelay( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">int</font> Overseeing( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">int</font> Range( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">void</font> Begin()<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Deserialize( <!-- DBG-0 --><a href="GenericReader.html">GenericReader</a> reader )<br>
+      <font color="blue">void</font> DoTimer()<br>
+      <font color="blue">void</font> DoTimer( TimeSpan delay )<br>
+      <font color="blue">void</font> End()<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> GetProperties( <!-- DBG-0 --><a href="ObjectPropertyList.html">ObjectPropertyList</a> list )<br>
+      <font color="blue">void</font> InitSeer( <font color="blue">int</font> startrange, <font color="blue">int</font> startIRD, <font color="blue">int</font> startORD, <font color="blue">int</font> startOverseeing )<br>
+      <font color="blue">void</font> OnTickDoThis()<br>
+      <font color="blue">void</font> Restart()<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Serialize( <!-- DBG-0 --><a href="GenericWriter.html">GenericWriter</a> writer )<br>
+   </body>
+</html>

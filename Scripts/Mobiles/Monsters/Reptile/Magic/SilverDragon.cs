@@ -11,7 +11,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public SilverDragon() : base( AIType.AI_Mage, FightMode.Aggressor, 10, 1, 0.175, 0.3 )
 		{
-			Name = NameList.RandomName( "dragonkin" ) + ",";
+			Name = NameList.RandomName("ancient lich") + ",";
 			Title = "the silver dragon";
 			BodyValue = Utility.RandomList( 12, 49, 59, 60, 61 );
 			BaseSoundID = 0x16A;

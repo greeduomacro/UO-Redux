@@ -1,0 +1,23 @@
+<html>
+   <head>
+      <title>RunUO Documentation - Class Overview - BaseDoorTrap</title>
+   </head>
+   <body bgcolor="white" style="font-family: Courier New" text="#000000" link="#000000" vlink="#000000" alink="#808080">
+      <h4><a href="../namespaces/Server.Traps.html">Back to Server.Traps</a></h4>
+      <h2>BaseDoorTrap</h2>
+<h4>Derived Types: <!-- DBG-3 --><a href="DoorArrowTrap.html">DoorArrowTrap</a>, <!-- DBG-3 --><a href="DoorDartTrap.html">DoorDartTrap</a>, <!-- DBG-3 --><a href="DoorExplosionTrap.html">DoorExplosionTrap</a>, <!-- DBG-3 --><a href="DoorGuillotineTrap.html">DoorGuillotineTrap</a>, <!-- DBG-3 --><a href="DoorPoisonTrap.html">DoorPoisonTrap</a></h4>
+      (<font color="blue">static</font>) <!-- DBG-0 --><a href="BaseDoorTrap.html">BaseDoorTrap</a> CreateTrapByType( <!-- DBG-0 --><a href="DoorTrapType.html">DoorTrapType</a> type, <!-- DBG-0 --><a href="Mobile.html">Mobile</a> owner, <font color="blue">int</font> uses )<br>
+      (<font color="blue">ctor</font>) BaseDoorTrap( <!-- DBG-0 --><a href="GenericReader.html">GenericReader</a> reader )<br>
+      (<font color="blue">ctor</font>) BaseDoorTrap( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> owner, <!-- DBG-0 --><a href="DoorTrapType.html">DoorTrapType</a> type, <font color="blue">bool</font> refillable, <font color="blue">int</font> uses )<br>
+      <font color="blue">bool</font> Active( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="BaseDoor.html">BaseDoor</a> Door( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="Mobile.html">Mobile</a> Owner( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> Refillable( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="DoorTrapType.html">DoorTrapType</a> TrapType( <font color="blue">get</font>; )<br>
+      <font color="blue">int</font> Uses( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> ExecuteTrap( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Recharge( <font color="blue">int</font> amount )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Serialize( <!-- DBG-0 --><a href="GenericWriter.html">GenericWriter</a> writer )<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> Trigger( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from )<br>
+   </body>
+</html>

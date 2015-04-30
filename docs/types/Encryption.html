@@ -1,0 +1,17 @@
+<html>
+   <head>
+      <title>RunUO Documentation - Class Overview - Encryption</title>
+   </head>
+   <body bgcolor="white" style="font-family: Courier New" text="#000000" link="#000000" vlink="#000000" alink="#808080">
+      <h4><a href="../namespaces/Server.Customs.Encryption.html">Back to Server.Customs.Encryption</a></h4>
+      <h2>Encryption : <!-- DBG-2.2 --><a href="IPacketEncoder.html">IPacketEncoder</a></h2>
+      (<font color="blue">static</font>) <font color="blue">void</font> EventSink_ClientVersionReceived( <!-- DBG-0 --><a href="ClientVersionReceivedArgs.html">ClientVersionReceivedArgs</a> e )<br>
+      (<font color="blue">static</font>) <font color="blue">void</font> HookedPlayServer( <!-- DBG-0 --><a href="NetState.html">NetState</a> state, <!-- DBG-0 --><a href="PacketReader.html">PacketReader</a> pvSrc )<br>
+      (<font color="blue">static</font>) <font color="blue">void</font> Initialize()<br>
+      (<font color="blue">static</font>) <font color="blue">void</font> NetStateCreated( <!-- DBG-0 --><a href="NetState.html">NetState</a> state )<br>
+      (<font color="blue">ctor</font>) Encryption()<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> DecodeIncomingPacket( <!-- DBG-0 --><a href="NetState.html">NetState</a> from, <font color="blue">ref</font> <font color="blue">byte</font>[] buffer, <font color="blue">ref</font> <font color="blue">int</font> length )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> EncodeOutgoingPacket( <!-- DBG-0 --><a href="NetState.html">NetState</a> to, <font color="blue">ref</font> <font color="blue">byte</font>[] buffer, <font color="blue">ref</font> <font color="blue">int</font> length )<br>
+      <font color="blue">void</font> RejectNoEncryption( <!-- DBG-0 --><a href="NetState.html">NetState</a> ns )<br>
+   </body>
+</html>

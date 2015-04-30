@@ -3357,7 +3357,7 @@ Resistances can be negatives. Easiest method for handling this correctly is, if 
 
             m_Stream.Write((int)m.TotalGold);
             m_Stream.Write((short)(Core.AOS ? m.PhysicalResistance : (int)(m.ArmorRating + 0.5)));
-            m_Stream.Write((short)(Mobile.BodyWeight + m.TotalWeight));
+            m_Stream.Write((short)(m.TotalWeight));
 
             if(type >= 5)
             {
@@ -3490,7 +3490,7 @@ Resistances can be negatives. Easiest method for handling this correctly is, if 
 
                 m_Stream.Write((int)beheld.TotalGold);
                 m_Stream.Write((short)(Core.AOS ? beheld.PhysicalResistance : (int)(beheld.ArmorRating + 0.5)));
-                m_Stream.Write((short)(Mobile.BodyWeight + beheld.TotalWeight));
+                m_Stream.Write((short)(beheld.TotalWeight));
 
                 if(type >= 5)
                 {

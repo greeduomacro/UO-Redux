@@ -64,7 +64,7 @@ namespace Knives.TownHouses
 				return;
 			}
 
-			m.BankBox.DropItem( new Copper( Price ) );
+			m.BankBox.DropItem( new Gold( Price ) );
 			m.SendMessage( "You have received a {0} gold deposit from your town house.", Price );
 		}
 
@@ -166,7 +166,7 @@ namespace Knives.TownHouses
 			if ( Free )
 				return;
 
-			c_RentalMaster.BankBox.DropItem( new Copper( Price ) );
+			c_RentalMaster.BankBox.DropItem( new Gold( Price ) );
 			c_RentalMaster.SendMessage( "The bank has transfered your rent from {0}.", c_RentalClient.Name );
 		}
 

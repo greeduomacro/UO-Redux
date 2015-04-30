@@ -10,16 +10,16 @@ namespace Server.Currency
     public enum CurrencyType
     {
         Unknown = -1,
-        Copper = 0,
-        Silver = 1,
-        Gold = 2
+        Gold = 0,
+        Verite = 1,
+        Valorite = 2
     }
 
     public static class CurrencySystem
     {
-        public static readonly Type typeofCopper = typeof(Copper);
-        public static readonly Type typeofSilver = typeof(Silver);
-        public static readonly Type typeofGold = typeof(Gold);
+        public static readonly Type typeofCopper = typeof(Gold);
+        public static readonly Type typeofSilver = typeof(Verite);
+        public static readonly Type typeofGold = typeof(Valorite);
         public static readonly Type[] AllCurrencies = new Type[] { typeofCopper, typeofSilver, typeofGold };
 
         private static readonly string savePath = "Saves/Currency";
@@ -125,21 +125,21 @@ namespace Server.Currency
         //    return new int[3] { (int)Math.Round(cc), (int)cs, (int)cg };
         //}
 
-        public static int[] Compress(int copper, int silver, int gold)
+        public static int[] Compress(int gold, int verite, int valorite)
         {
             int[] res = new int[3] { 0, 0, 0 };
             double cg, cs, cc;
-            long totalCopper = copper;
+            long totalGold = gold;
 
-            if (silver > 0)
-                totalCopper += (int)(silver / conversionTable[(int)CurrencyType.Silver, (int)CurrencyType.Copper]);
+            if (verite > 0)
+                totalGold += (int)(verite / conversionTable[(int)CurrencyType.Verite, (int)CurrencyType.Gold]);
 
             if (gold > 0)
-                totalCopper += (int)(gold / conversionTable[(int)CurrencyType.Gold, (int)CurrencyType.Copper]);
+                totalGold += (int)(valorite / conversionTable[(int)CurrencyType.Valorite, (int)CurrencyType.Gold]);
 
-            cg = (totalCopper / conversionTable[(int)CurrencyType.Copper, (int)CurrencyType.Gold]); //get total gold by converting all available copper to gold (same as ConvertTo() but using doubles)
-            cs = ((cg - Math.Floor(cg)) * conversionTable[(int)CurrencyType.Silver, (int)CurrencyType.Gold]); //convert remainder of gold conversion to as much silver as possible (silver <- gold in table)
-            cc = ((cs - Math.Floor(cs)) * conversionTable[(int)CurrencyType.Copper, (int)CurrencyType.Silver]); //convert remainder of silver conversion to copper (copper <- silver in table)
+            cg = (totalGold / conversionTable[(int)CurrencyType.Gold, (int)CurrencyType.Valorite]); //get total gold by converting all available copper to gold (same as ConvertTo() but using doubles)
+            cs = ((cg - Math.Floor(cg)) * conversionTable[(int)CurrencyType.Verite, (int)CurrencyType.Valorite]); //convert remainder of gold conversion to as much silver as possible (silver <- gold in table)
+            cc = ((cs - Math.Floor(cs)) * conversionTable[(int)CurrencyType.Gold, (int)CurrencyType.Verite]); //convert remainder of silver conversion to copper (copper <- silver in table)
 
             return new int[3] { (int)Math.Round(cc), (int)cs, (int)cg };
         }
@@ -170,11 +170,11 @@ namespace Server.Currency
         public static CurrencyType FindType( Type itemType )
         {
             if( itemType == typeofCopper )
-                return CurrencyType.Copper;
-            if( itemType == typeofSilver )
-                return CurrencyType.Silver;
-            if( itemType == typeofGold )
                 return CurrencyType.Gold;
+            if( itemType == typeofSilver )
+                return CurrencyType.Verite;
+            if( itemType == typeofGold )
+                return CurrencyType.Valorite;
 
             return CurrencyType.Unknown;
         }
@@ -204,7 +204,7 @@ namespace Server.Currency
 
             //calculate monies as copper total
             for( int i = 0; i < coins.Length; i++ )
-                availableCopper += ConvertTo(FindType(coins[i].GetType()), CurrencyType.Copper, coins[i].Amount);
+                availableCopper += ConvertTo(FindType(coins[i].GetType()), CurrencyType.Gold, coins[i].Amount);
 
             //if we have enough to pay...
             if( availableCopper >= amount )
@@ -237,9 +237,9 @@ namespace Server.Currency
         {
             if( targetContainer != null )
             {
-                if( coinArray[2] > 0 ) targetContainer.DropItem(new Gold(coinArray[2]));
-                if( coinArray[1] > 0 ) targetContainer.DropItem(new Silver(coinArray[1]));
-                if( coinArray[0] > 0 ) targetContainer.DropItem(new Copper(coinArray[0]));
+                if( coinArray[2] > 0 ) targetContainer.DropItem(new Valorite(coinArray[2]));
+                if( coinArray[1] > 0 ) targetContainer.DropItem(new Verite(coinArray[1]));
+                if( coinArray[0] > 0 ) targetContainer.DropItem(new Gold(coinArray[0]));
             }
         }
         #endregion

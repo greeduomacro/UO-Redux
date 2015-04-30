@@ -11,7 +11,6 @@ namespace Server.Mobiles
 		public Peasant()
 		{
 			Title = "the peasant";
-
 		}
 
 		public override bool CanTeach{ get{ return true; } }
@@ -34,7 +33,7 @@ namespace Server.Mobiles
 		public override void InitOutfit()
 		{
 			if ( Female )
-				AddItem( new PlainDress() );
+                AddItem( new PlainDress( GetRandomHue() ));
 			else
 				AddItem( new Shirt( GetRandomHue() ) );
 

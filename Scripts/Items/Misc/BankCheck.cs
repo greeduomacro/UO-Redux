@@ -94,11 +94,11 @@ namespace Server.Items
 
 				int toAdd = m_Worth;
 
-				Copper copper;
+				Gold copper;
 
 				while ( toAdd > 60000 )
 				{
-					copper = new Copper( 60000 );
+					copper = new Gold( 60000 );
 
 					if ( box.TryDropItem( from, copper, false ) )
 					{
@@ -118,7 +118,7 @@ namespace Server.Items
 
 				if ( toAdd > 0 )
 				{
-					copper = new Copper( toAdd );
+					copper = new Gold( toAdd );
 
 					if ( box.TryDropItem( from, copper, false ) )
 					{

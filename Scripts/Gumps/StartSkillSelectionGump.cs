@@ -124,7 +124,7 @@ namespace Server.SkillSelection {
 												sk.Base = sk.Cap;
 											} else if( GetRemainingPoints() <= 0.0 ) {
 												_from.SendMessage( "You do not have enough points remaining. Try lowering another skill first." );
-											} else if( sk.Base >= 75.0 ) {
+											} else if( sk.Base >= 50.0 ) {
 												_from.SendMessage( "That skill is at its maximum value." );
 											} else {
 												sk.Base += 5.0;
@@ -146,7 +146,7 @@ namespace Server.SkillSelection {
 												sk.Base = sk.Cap;
 											} else if( GetRemainingPoints() <= 0.0 ) {
 												_from.SendMessage( "You do not have enough points remaining. Try lowering another skill cap first." );
-											} else if( sk.Base >= 75.0 ) {
+											} else if( sk.Base >= 50.0 ) {
 												_from.SendMessage( "That skill is at its maximum value." );
 											} else {
 												if( GetRemainingPoints() < (sk.Cap - sk.Base) )

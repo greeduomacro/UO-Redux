@@ -302,7 +302,7 @@ namespace Server.Mobiles
                 if(cont == null)
                     cont = escorter.BankBox;
 
-                Copper cc = new Copper(90, 180);
+                Gold cc = new Gold(90, 180);
 
                 if(!cont.TryDropItem(escorter, cc, false))
                     cc.MoveToWorld(escorter.Location, escorter.Map);

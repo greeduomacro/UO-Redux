@@ -104,7 +104,7 @@ namespace Server.Mobiles
             base.OnSpeech(e);
         }
 
-        public override bool OnCopperGiven( Mobile from, Copper dropped )
+        public override bool OnGoldGiven( Mobile from, Gold dropped )
         {
             if( from is PlayerMobile && dropped.Amount == JoinCost )
             {
@@ -137,7 +137,7 @@ namespace Server.Mobiles
                 return false;
             }
 
-            return base.OnCopperGiven(from, dropped);
+            return base.OnGoldGiven(from, dropped);
         }
 
         public BaseGuildmaster( string title )

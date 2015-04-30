@@ -182,7 +182,7 @@ namespace Server.Mobiles
             Mobile from;
 
             public KOProtectionTimer(Mobile m)
-                : base(TimeSpan.FromSeconds(Utility.RandomMinMax(20, 25)))
+                : base(TimeSpan.FromSeconds(Utility.RandomMinMax(3, 5)))
             {
                 Priority = TimerPriority.OneSecond;
                 from = m;
@@ -207,7 +207,7 @@ namespace Server.Mobiles
             KOCount++;
             CantWalk = true;
 
-            double koTime = KOCount * 5;
+            double koTime = KOCount * 2;
 
             SendGump(new KOGump(this, TimeSpan.FromSeconds(koTime)));
         }
@@ -480,7 +480,7 @@ namespace Server.Mobiles
             }
         }
 
-        public override int MaxWeight { get { return (int)((2.165 * this.Str) + 1); } }
+        public override int MaxWeight { get { return 40 + (int)(3.5 * this.Str); } }
 
         public Player()
             : base()
@@ -730,7 +730,7 @@ namespace Server.Mobiles
             Body = Female ? 0x191 : 0x190;
 
             Hits = (int)(HitsMax * 0.33);
-            Stam = (int)(StamMax * 0.33);
+            Stam = (int)(StamMax * 0.90);
             Mana = (int)(ManaMax * 0.33);
 
             if( Fame > 0 )

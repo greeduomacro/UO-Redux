@@ -69,7 +69,7 @@ namespace Server.Engines.BulkOrders
 							}
 							else
 							{
-								if ((pack != null && pack.ConsumeTotal( typeof( Gold ), price )) || Banker.Withdraw( m_From, price ) )
+								if ((pack != null && pack.ConsumeTotal( typeof( Valorite ), price )) || Banker.Withdraw( m_From, price ) )
 								{
 									m_Book.Entries.Remove( m_Object );
 									m_Book.InvalidateProperties();

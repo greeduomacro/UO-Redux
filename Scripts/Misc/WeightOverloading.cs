@@ -50,8 +50,10 @@ namespace Server.Misc
 
         public static int GetMaxWeight( Mobile m )
         {
+            if (m is Player)
+                return ((Player)m).MaxWeight;
 
-            return m.MaxWeight;
+            else return m.MaxWeight;
         }
 
         public static void EventSink_Movement(MovementEventArgs e)
@@ -65,7 +67,7 @@ namespace Server.Misc
                     return;
 
                 int maxWeight = GetMaxWeight(from) + OverloadAllowance;
-                int overWeight = (Mobile.BodyWeight + from.TotalWeight) - maxWeight;
+                int overWeight = from.TotalWeight - maxWeight;
 
                 if (overWeight > 0)
                 {
@@ -118,7 +120,7 @@ namespace Server.Misc
             if( !m.Player || !m.Alive || m.AccessLevel > AccessLevel.Player )
                 return false;
 
-            return ((Mobile.BodyWeight + m.TotalWeight) > (GetMaxWeight(m) + OverloadAllowance));
+            return m.TotalWeight > (GetMaxWeight(m) + OverloadAllowance);
         }
     }
 }

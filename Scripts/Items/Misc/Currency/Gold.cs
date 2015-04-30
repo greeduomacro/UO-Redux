@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Server;
 
 namespace Server.Currency
@@ -23,9 +23,9 @@ namespace Server.Currency
 		public Gold( int amount )
 			: base( 3824 )
 		{
-            Hue = 2213;
 			Amount = amount;
-            Name = "gold coins";
+			Hue = 2213;
+            Name = "gold";
 		}
 
 		public Gold( Serial serial )

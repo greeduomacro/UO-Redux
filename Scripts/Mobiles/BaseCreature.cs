@@ -1784,15 +1784,15 @@ namespace Server.Mobiles
             return (Body.IsHuman && Region.IsPartOf(typeof(Regions.GuardedRegion)));
         }
 
-        public virtual bool CheckCopper(Mobile from, Item dropped)
+        public virtual bool CheckGold(Mobile from, Item dropped)
         {
-            if(dropped is Copper)
-                return OnCopperGiven(from, (Copper)dropped);
+            if(dropped is Gold)
+                return OnGoldGiven(from, (Gold)dropped);
 
             return false;
         }
 
-        public virtual bool OnCopperGiven(Mobile from, Copper dropped)
+        public virtual bool OnGoldGiven(Mobile from, Gold dropped)
         {
             if(CheckTeachingMatch(from))
             {
@@ -1875,7 +1875,7 @@ namespace Server.Mobiles
         private static Type[] m_Gold = new Type[]
 		{
 			// white wyrms eat gold..
-			typeof( Gold )
+			typeof( Valorite )
 		};
 
         public virtual bool CheckFoodPreference(Item f)
@@ -1917,7 +1917,7 @@ namespace Server.Mobiles
 
         public virtual bool CheckFeed(Mobile from, Item dropped)
         {
-            if(!IsDeadPet && Controlled && (ControlMaster == from || IsPetFriend(from)) && (dropped is Food || dropped is Gold || dropped is CookableFood || dropped is Head || dropped is LeftArm || dropped is LeftLeg || dropped is Torso || dropped is RightArm || dropped is RightLeg))
+            if(!IsDeadPet && Controlled && (ControlMaster == from || IsPetFriend(from)) && (dropped is Food || dropped is Valorite || dropped is CookableFood || dropped is Head || dropped is LeftArm || dropped is LeftLeg || dropped is Torso || dropped is RightArm || dropped is RightLeg))
             {
                 Item f = dropped;
 
@@ -1931,7 +1931,7 @@ namespace Server.Mobiles
 
                         int stamGain;
 
-                        if(f is Gold)
+                        if(f is Valorite)
                             stamGain = amount - 50;
                         else
                             stamGain = (amount * 15) - 50;
@@ -2041,7 +2041,7 @@ namespace Server.Mobiles
         {
             if(CheckFeed(from, dropped))
                 return true;
-            else if(CheckCopper(from, dropped))
+            else if(CheckGold(from, dropped))
                 return true;
 
             return base.OnDragDrop(from, dropped);
@@ -2944,7 +2944,7 @@ namespace Server.Mobiles
                         else
                         {
                             // I will teach thee all I know, if paid the amount in full.  The price is:
-                            Say(1019077, AffixType.Append, String.Format(" {0} copper", pointsToLearn), "");
+                            Say(1019077, AffixType.Append, String.Format(" {0} gold", pointsToLearn), "");
                             Say(1043108); // For less I shall teach thee less.
 
                             m_Teaching = skill;

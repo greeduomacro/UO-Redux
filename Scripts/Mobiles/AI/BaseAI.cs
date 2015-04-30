@@ -847,31 +847,37 @@ namespace Server.Mobiles
             {
                 m_Mobile.DebugSay("Praise the shepherd!");
             }
+
+            if (m_Mobile.Combatant != null && !m_Mobile.Combatant.Deleted 
+                && m_Mobile.Combatant.Alive && !m_Mobile.Combatant.IsDeadBondedPet)
+            {
+                m_Mobile.Direction = m_Mobile.GetDirectionTo(m_Mobile.Combatant);
+            }
+
             else if( m_Mobile.CurrentWayPoint != null )
             {
                 WayPoint point = m_Mobile.CurrentWayPoint;
-                if( (point.X != m_Mobile.Location.X || point.Y != m_Mobile.Location.Y) && point.Map == m_Mobile.Map && point.Parent == null && !point.Deleted )
+                if( (point.X != m_Mobile.Location.X || point.Y != m_Mobile.Location.Y) 
+                    && point.Map == m_Mobile.Map && point.Parent == null && !point.Deleted )
                 {
                     m_Mobile.DebugSay("I will move towards my waypoint.");
                     DoMove(m_Mobile.GetDirectionTo(m_Mobile.CurrentWayPoint));
                 }
+
                 else if( OnAtWayPoint() )
                 {
                     m_Mobile.DebugSay("I will go to the next waypoint");
                     m_Mobile.CurrentWayPoint = point.NextPoint;
+
                     if( point.NextPoint != null && point.NextPoint.Deleted )
                         m_Mobile.CurrentWayPoint = point.NextPoint = point.NextPoint.NextPoint;
                 }
             }
+
             else if( CheckMove() )
             {
                 if( !m_Mobile.CheckIdle() )
                     WalkRandomInHome(2, 2, 1);
-            }
-
-            if( m_Mobile.Combatant != null && !m_Mobile.Combatant.Deleted && m_Mobile.Combatant.Alive && !m_Mobile.Combatant.IsDeadBondedPet )
-            {
-                m_Mobile.Direction = m_Mobile.GetDirectionTo(m_Mobile.Combatant);
             }
 
             return true;
@@ -2005,7 +2011,9 @@ namespace Server.Mobiles
                     m_Mobile.DebugSay("My movement was blocked, I will try to clear some obstacles.");
 
                     //waypoint improvements
-                    if( m_Mobile.CurrentWayPoint != null && m_Mobile.Combatant == null && attempts++ >= 5 )
+                    attempts++;
+
+                    if( m_Mobile.CurrentWayPoint != null && m_Mobile.Combatant == null && attempts > 4)
                     {
                         m_Mobile.MoveToWorld(new Point3D(m_Mobile.CurrentWayPoint.Location), m_Mobile.Map);
 
@@ -2038,8 +2046,16 @@ namespace Server.Mobiles
                                 if( !door.Locked || !door.UseLocks() )
                                     m_Obstacles.Enqueue(door);
 
-                                if( !canDestroyObstacles )
-                                    break;
+                                if (!canDestroyObstacles)
+                                {
+                                    if (m_Mobile.CurrentWayPoint != null && m_Mobile.CurrentWayPoint.NextPoint != null)
+                                    {
+                                        m_Mobile.CurrentWayPoint = m_Mobile.CurrentWayPoint.NextPoint;
+
+                                        m_Mobile.DebugSay("I will move towards my waypoint.");
+                                        DoMove(m_Mobile.GetDirectionTo(m_Mobile.CurrentWayPoint));
+                                    }
+                                }
                             }
                             else if( canDestroyObstacles && item.Movable && item.ItemData.Impassable && (item.Z + item.ItemData.Height) > m_Mobile.Z && (m_Mobile.Z + 16) > item.Z )
                             {

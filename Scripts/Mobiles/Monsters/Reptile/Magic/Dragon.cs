@@ -10,7 +10,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public Dragon () : base( AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4 )
 		{
-			Name = NameList.RandomName( "dragonkin" ) + ",";
+			Name = NameList.RandomName("ancient lich") + ",";
 			Title = "the dragon";
 			Body = Utility.RandomList( 12, 59 );
 			BaseSoundID = 362;
@@ -41,6 +41,10 @@ namespace Server.Mobiles
 			Karma = -750;
 
 			VirtualArmor = 60;
+
+            Tamable = true;
+            ControlSlots = 4;
+            MinTameSkill = 119.1;
 		}
 
 		public override void GenerateLoot()
@@ -51,14 +55,13 @@ namespace Server.Mobiles
 
         public override bool CanAngerOnTame { get { return true; } }
 		public override bool HasBreath{ get{ return true; } } // fire breath enabled
-		public override bool AutoDispel{ get{ return true; } }
 		public override int TreasureMapLevel{ get{ return 4; } }
 		public override int Meat{ get{ return 19; } }
 		public override int Hides{ get{ return 20; } }
 		public override HideType HideType{ get{ return HideType.Barbed; } }
 		public override int Scales{ get{ return 7; } }
 		public override ScaleType ScaleType{ get{ return ( Body == 12 ? ScaleType.Yellow : ScaleType.Red ); } }
-		public override FoodType FavoriteFood{ get{ return FoodType.Meat; } }
+		public override FoodType FavoriteFood{ get{ return FoodType.Gold; } }
 
 		public Dragon( Serial serial ) : base( serial )
 		{

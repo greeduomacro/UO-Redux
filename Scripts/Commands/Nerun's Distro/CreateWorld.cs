@@ -24,7 +24,7 @@ namespace Server.Commands
 
 		[Usage( "CreateWorld" )]
 		[Description( "Generates world decorations, doors, signs and moongates with a menu." )]
-		private static void Create_OnCommand( CommandEventArgs e )
+		public static void Create_OnCommand( CommandEventArgs e )
 		{
 			e.Mobile.SendGump( new CreateWorldGump( e ) );
 		}

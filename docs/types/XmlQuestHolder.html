@@ -1,0 +1,101 @@
+<html>
+   <head>
+      <title>RunUO Documentation - Class Overview - XmlQuestHolder</title>
+   </head>
+   <body bgcolor="white" style="font-family: Courier New" text="#000000" link="#000000" vlink="#000000" alink="#808080">
+      <h4><a href="../namespaces/Server.Items.html">Back to Server.Items</a></h4>
+      <h2>XmlQuestHolder : <!-- DBG-1 --><a href="Container.html">Container</a>, <!-- DBG-2.2 --><a href="IHued.html">IHued</a>, <!-- DBG-2.1 --><font color="blue">IComparable</font>&lt;<a href="Item.html">Item</a>&gt;, <!-- DBG-2.2 --><a href="ISerializable.html">ISerializable</a>, <!-- DBG-2.2 --><a href="ISpawnable.html">ISpawnable</a>, <!-- DBG-2.2 --><a href="IEntity.html">IEntity</a>, <!-- DBG-2.2 --><a href="IPoint3D.html">IPoint3D</a>, <!-- DBG-2.2 --><a href="IPoint2D.html">IPoint2D</a>, <!-- DBG-2.1 --><font color="blue">IComparable</font>, <!-- DBG-2.1 --><font color="blue">IComparable</font>&lt;<a href="IEntity.html">IEntity</a>&gt;, <!-- DBG-2.2 --><a href="IXmlQuest.html">IXmlQuest</a></h2>
+<h4>Derived Types: <!-- DBG-3 --><a href="QuestHolder.html">QuestHolder</a></h4>
+      (<font color="blue">static</font>) <font color="blue">void</font> Initialize()<br>
+      (<font color="blue">ctor</font>) XmlQuestHolder()<br>
+      (<font color="blue">ctor</font>) XmlQuestHolder( <font color="blue">int</font> itemID )<br>
+      (<font color="blue">ctor</font>) XmlQuestHolder( <!-- DBG-0 --><a href="Serial.html">Serial</a> serial )<br>
+      <font color="blue">string</font> AddJournalEntry( <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> AlreadyDone( <font color="blue">get</font>; )<br>
+      <font color="blue">string</font> AttachmentString( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> AutoReward( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> CanSeeReward( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> Completed1( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> Completed2( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> Completed3( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> Completed4( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> Completed5( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> ConfigFile( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="PlayerMobile.html">PlayerMobile</a> Creator( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> Description1( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> Description2( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> Description3( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> Description4( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> Description5( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">int</font> Difficulty( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> EchoAddJournalEntry( <font color="blue">set</font>; )<br>
+      <font color="blue">double</font> Expiration( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> ExpirationString( <font color="blue">get</font>; )<br>
+      TimeSpan ExpiresIn( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> HandlesOnSkillUse( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> IsCompleted( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> IsExpired( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> IsValid( <font color="blue">get</font>; )<br>
+      ArrayList Journal( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> LoadConfig( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> Name( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      TimeSpan NextRepeatable( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> NoteString( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> NotifyAddJournalEntry( <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> Objective1( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> Objective2( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> Objective3( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> Objective4( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> Objective5( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="PlayerMobile.html">PlayerMobile</a> Owner( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="Container.html">Container</a> Pack( <font color="blue">get</font>; )<br>
+      <font color="blue">bool</font> PartyEnabled( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">int</font> PartyRange( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> PlayerMade( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">bool</font> Repeatable( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="Container.html">Container</a> ReturnContainer( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="XmlAttachment.html">XmlAttachment</a> RewardAttachment( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <!-- DBG-0 --><a href="Item.html">Item</a> RewardItem( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> RewardString( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> State1( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> State2( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> State3( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> State4( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> State5( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> Status( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      DateTime TimeCreated( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">string</font> TitleString( <font color="blue">get</font>; <font color="blue">set</font>; )<br>
+      <font color="blue">void</font> AttachToCallback( <font color="blue">object</font> state )<br>
+      <font color="blue">void</font> CalculateWeight( <!-- DBG-0 --><a href="Item.html">Item</a> target )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> CheckAutoReward()<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> CheckHold( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m, <!-- DBG-0 --><a href="Item.html">Item</a> item, <font color="blue">bool</font> message, <font color="blue">bool</font> checkItems, <font color="blue">int</font> plusItems, <font color="blue">int</font> plusWeight )<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> CheckItemUse( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <!-- DBG-0 --><a href="Item.html">Item</a> item )<br>
+      <font color="blue">void</font> CheckOwnerFlag()<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> CheckRewardItem()<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> CheckTarget( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <!-- DBG-0 --><a href="Target.html">Target</a> targ, <font color="blue">object</font> targeted )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Deserialize( <!-- DBG-0 --><a href="GenericReader.html">GenericReader</a> reader )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> DisplayTo( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> to )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> GetProperties( <!-- DBG-0 --><a href="ObjectPropertyList.html">ObjectPropertyList</a> list )<br>
+      <font color="blue">void</font> HideRewards()<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Invalidate()<br>
+      <font color="blue">void</font> LoadXmlConfig( <font color="blue">string</font> filename )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnAdded( <!-- DBG-0 --><a href="IEntity.html">IEntity</a> target )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnDelete()<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnDoubleClick( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from )<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> OnDragDrop( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <!-- DBG-0 --><a href="Item.html">Item</a> dropped )<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> OnDragDropInto( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <!-- DBG-0 --><a href="Item.html">Item</a> item, <!-- DBG-0 --><a href="Point3D.html">Point3D</a> p )<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> OnDroppedToWorld( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <!-- DBG-0 --><a href="Point3D.html">Point3D</a> point )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnItemLifted( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <!-- DBG-0 --><a href="Item.html">Item</a> item )<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> OnSkillUse( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> m, <!-- DBG-0 --><a href="Skill.html">Skill</a> skill, <font color="blue">bool</font> success )<br>
+      <font color="blue">void</font> PackItem( <!-- DBG-0 --><a href="Item.html">Item</a> item )<br>
+      <font color="blue">void</font> PackItemsMovable( <!-- DBG-0 --><a href="Container.html">Container</a> pack, <font color="blue">bool</font> canmove )<br>
+      <font color="blue">void</font> QuestCompletionAttachment()<br>
+      <font color="blue">void</font> RestoreRewardAttachment()<br>
+      <font color="blue">void</font> ReturnReward()<br>
+      <font color="blue">virtual</font> <font color="blue">void</font> Serialize( <!-- DBG-0 --><a href="GenericWriter.html">GenericWriter</a> writer )<br>
+      <font color="blue">virtual</font> <font color="blue">bool</font> TryDropItem( <!-- DBG-0 --><a href="Mobile.html">Mobile</a> from, <!-- DBG-0 --><a href="Item.html">Item</a> dropped, <font color="blue">bool</font> sendFullMessage )<br>
+      <font color="blue">void</font> UnHideRewards()<br>
+      <font color="blue">void</font> UpdateWeight()<br>
+      <font color="blue">void</font> VerboseAddJournalEntry( <font color="blue">string</font> entrystring, <font color="blue">bool</font> notify, <font color="blue">bool</font> echo )<br>
+   </body>
+</html>

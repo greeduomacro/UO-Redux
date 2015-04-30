@@ -108,10 +108,10 @@ namespace Server.Mobiles
 			// Get all of the gold on the hireling and add up the total amount
 			if( this.Backpack != null )
 			{
-				Item[] AllGold = this.Backpack.FindItemsByType( typeof( Gold ), true );
+				Item[] AllGold = this.Backpack.FindItemsByType( typeof( Valorite ), true );
 				if( AllGold != null )
 				{
-					foreach( Gold g in AllGold )
+					foreach( Valorite g in AllGold )
 						this.m_GoldOnDeath += g.Amount;
 				}
 			}
@@ -168,7 +168,7 @@ namespace Server.Mobiles
 		#endregion
 
 		#region [ AddHire ]
-		public virtual bool AddHire( Mobile m, Gold pay )
+		public virtual bool AddHire( Mobile m, Valorite pay )
 		{
 			Mobile owner = GetOwner();
 
@@ -215,9 +215,9 @@ namespace Server.Mobiles
 				if( Controlled == false )
 				{
 					// Is the item the payment in gold
-					if( item is Gold )
+					if( item is Valorite )
 					{
-						Gold payment = (Gold)item;
+						Valorite payment = (Valorite)item;
 
 						// Is the payment in gold sufficient
 						if( payment.Amount >= m_PayRate )

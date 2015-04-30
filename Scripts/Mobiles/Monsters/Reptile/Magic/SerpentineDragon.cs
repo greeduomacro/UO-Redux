@@ -10,7 +10,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public SerpentineDragon() : base( AIType.AI_Mage, FightMode.Aggressor, 10, 1, 0.2, 0.4 )
 		{
-			Name = NameList.RandomName( "dragonkin" ) + ",";
+			Name = NameList.RandomName("ancient lich") + ",";
 			Title = "the serpentine dragon";
 			Body = 103;
 			BaseSoundID = 362;

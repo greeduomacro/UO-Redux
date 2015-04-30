@@ -494,9 +494,40 @@ Bandages now require one free hand to use.
 Medic perk now allows bandages to be used with no free hands.
 Added most recent version of Nerun's Distro
 
+0.3.3
+Ingots now weight 0.1 stones, as per OSI
+Added exception handling to DecorateList.Read from nerun's distro.
+Converted currency system to new metal types.
+Fixed starting skill scroll's max values.
+Decreased the amount of time spent knocked out.
+Players now regain consciousness with 90% stamina.
+Reduced time spent invulnerable after K.O to 3-5 seconds.
+
+0.3.3a
+Peasant females now spawn with random colored dresses.
+Mobiles now move to the next point in series when a waypoint is blocked.
+
+0.3.4
+Guard weapons no longer spawn hued.
+Reverted CheckCopper/OnCopperDrop to gold.
+Vendors no longer say "copper" onteach.
+Reverted recall/mark back to runuo standards.
+
+0.3.5
+Added ferrets and cu sidhes as tamables.
+Dragons are now tamable and eat gold.
+Modified Felucca's ruleset.
+Cannon balls now weigh 10 stones.
+Replaced copper references in assassination contracts.
+Removed pointless constructors from skill selection scrolls.
+Fixed dragon's names.
+Packets no longer send a player's body weight.
+WeightOverloading.GetMaxWeight no longer returns Mobile.MaxWeight
+Fixed player stam regen while running.
+
+
 TODO:
 
-Dragons should eat gems.
 !Weight overloading broken
 Need item insurance.
 Investigate Dragoon's Longarm perk.

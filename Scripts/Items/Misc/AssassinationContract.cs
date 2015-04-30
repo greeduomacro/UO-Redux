@@ -141,20 +141,20 @@ namespace Server.Items
 
                             int toAdd = m_AContract.m_Copper;
 
-							Copper copper;
+							Gold gold;
 
 							while ( toAdd > 10)
 							{
-								copper = new Copper( 10 );
+								gold = new Gold( 10 );
 
-								if ( box.TryDropItem( m_AContract.m_Issuer, copper, false ) )
+								if ( box.TryDropItem( m_AContract.m_Issuer, gold, false ) )
 								{
 									toAdd -= 10;
 									deposited += 10;
 								}
 								else
 								{
-									copper.Delete();
+									gold.Delete();
 
 									m_AContract.m_Issuer.AddToBackpack( new BankCheck( toAdd ) );
 									toAdd = 0;
@@ -165,15 +165,15 @@ namespace Server.Items
 
 							if ( toAdd > 0 )
 							{
-								copper = new Copper( toAdd );
+								gold = new Gold( toAdd );
 
-								if ( box.TryDropItem( m_AContract.m_Issuer, copper, false ) )
+								if ( box.TryDropItem( m_AContract.m_Issuer, gold, false ) )
 								{
 									deposited += toAdd;
 								}
 								else
 								{
-									copper.Delete();
+									gold.Delete();
 
 									m_AContract.m_Issuer.AddToBackpack( new BankCheck( toAdd ) );
 								}
@@ -232,11 +232,11 @@ namespace Server.Items
 
 							int toAdd = m_AContract.m_Copper;
 
-							Copper copper;
+							Gold copper;
 
 							while ( toAdd > 60000 )
 							{
-								copper = new Copper( 60000 );
+								copper = new Gold( 60000 );
 
 								if ( box.TryDropItem( m_AContract.m_Issuer, copper, false ) )
 								{
@@ -256,7 +256,7 @@ namespace Server.Items
 
 							if ( toAdd > 0 )
 							{
-								copper = new Copper( toAdd );
+								copper = new Gold( toAdd );
 
 								if ( box.TryDropItem( m_AContract.m_Issuer, copper, false ) )
 								{
@@ -441,7 +441,7 @@ namespace Server.Items
 			private Mobile m_Owner ;
 			private string m_Target;	
 			private int	   m_Expiration;
-			private int	   m_Copper;
+			private int	   m_Gold;
 
 			public CreateAContractGump( Mobile issuer, Mobile owner ) : base(0, 0)
 			{
@@ -494,10 +494,10 @@ namespace Server.Items
 								from.SendGump( new CreateAContractGump( m_Issuer, m_Owner ) );
 								return;
 							}
-							m_Copper = Convert.ToInt32(info.GetTextEntry( 5 ).Text, 10);
-                            if (!Banker.Withdraw(from, m_Copper))
+							m_Gold = Convert.ToInt32(info.GetTextEntry( 5 ).Text, 10);
+                            if (!Banker.Withdraw(from, m_Gold))
 							{
-                                from.SendMessage("You cannot afford a reward of {0}!", m_Copper);
+                                from.SendMessage("You cannot afford a reward of {0}!", m_Gold);
 								from.SendGump( new CreateAContractGump( m_Issuer, m_Owner ) );
 								return;
 							}
@@ -506,8 +506,8 @@ namespace Server.Items
 							x.m_Owner = m_Owner;
 							x.m_Issuer = m_Issuer;
 							x.m_Target = m_Target;
-                            x.m_Copper = m_Copper;
-						m_Owner.SendGump( new ConfirmAContractGump( m_Issuer, m_Owner, x, m_Target, m_Copper, m_Expiration ) );
+                            x.m_Copper = m_Gold;
+						m_Owner.SendGump( new ConfirmAContractGump( m_Issuer, m_Owner, x, m_Target, m_Gold, m_Expiration ) );
 						}
 						else
 						{
@@ -549,11 +549,11 @@ namespace Server.Items
 
 					int toAdd = m_Copper;
 
-					Copper copper;
+					Gold copper;
 
 					while ( toAdd > 60000 )
 					{
-						copper = new Copper( 60000 );
+						copper = new Gold( 60000 );
 
 						if ( box.TryDropItem( m_Issuer, copper, false ) )
 						{
@@ -573,7 +573,7 @@ namespace Server.Items
 
 					if ( toAdd > 0 )
 					{
-						copper = new Copper( toAdd );
+						copper = new Gold( toAdd );
 
 						if ( box.TryDropItem( m_Issuer, copper, false ) )
 						{
