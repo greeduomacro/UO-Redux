@@ -480,7 +480,7 @@ namespace Server.Mobiles
             }
         }
 
-        public override int MaxWeight { get { return (int)((2.165 * this.Str) + 1); } }
+        public override int MaxWeight { get { return 40 + (int)(3.5 * this.Str); } }
 
         public Player()
             : base()

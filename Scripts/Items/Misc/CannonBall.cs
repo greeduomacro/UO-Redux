@@ -11,7 +11,7 @@ namespace Server.Items
 			: base( 0xE73 )
 		{
 			Name = "a cannon ball";
-			Weight = 20.0;
+			Weight = 10.0;
 		}
 
 		public CannonBall( Serial serial )

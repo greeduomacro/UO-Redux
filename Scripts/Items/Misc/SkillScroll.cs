@@ -10,12 +10,7 @@ namespace Server.Items
 	public class SkillScroll : Item
 	{
 		[Constructable]
-		public SkillScroll() : this( 1 )
-		{
-		}
-
-		[Constructable]
-		public SkillScroll( int amount ) : base( 5357 )
+		public SkillScroll() : base( 5357 )
 		{
 			Name = "a mysterious scroll";
 			Hue = 1302;

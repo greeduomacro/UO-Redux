@@ -320,7 +320,7 @@ namespace Server.Mobiles
 			}
 		}
 
-		public override bool CheckCopper( Mobile from, Item dropped )
+		public override bool CheckGold( Mobile from, Item dropped )
 		{
 			if ( dropped is Valorite )
 			{

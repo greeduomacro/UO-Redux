@@ -44,22 +44,12 @@ namespace Server.Items
 
             Consume();
 
-            if (from.StatCap >= from.RawStatTotal + 15)
+            if (from.StatCap >= from.RawStatTotal + 5)
             {
                 if (from.RawStr + 5 < 125)
                     from.RawStr += 5;
 
                 else from.RawStr = 125;
-
-                if (from.RawInt + 5 < 125)
-                    from.RawInt += 5;
-
-                else from.RawInt = 125;
-
-                if (from.RawDex + 5 < 125)
-                    from.RawDex += 5;
-
-                else from.RawDex = 125;
             }
 		}
 

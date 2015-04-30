@@ -4100,7 +4100,6 @@ namespace Ulmeta.Factions.Guards
                         AddItem(new LeatherArms());
 
                         Bow bow = new Bow();
-                        bow.Hue = Faction.primaryHue;
                         bow.Quality = WeaponQuality.Exceptional;
 
                         AddItem(bow);
@@ -4124,7 +4123,6 @@ namespace Ulmeta.Factions.Guards
 
                         weapon.Quality = WeaponQuality.Exceptional;
                         weapon.Resource = CraftResource.Gold;                       
-                        weapon.Hue = Faction.primaryHue;
 
                         weapon.Speed += (Core.AOS ? 5 : -1);
 
@@ -4178,7 +4176,6 @@ namespace Ulmeta.Factions.Guards
                         weapon.Quality = WeaponQuality.Exceptional;
                         weapon.Resource = CraftResource.Gold;
                         weapon.Layer = Layer.OneHanded;
-                        weapon.Hue = Faction.primaryHue;
 
                         AddItem(weapon);
 
@@ -4195,9 +4192,7 @@ namespace Ulmeta.Factions.Guards
                         AddItem(new Robe(Faction.primaryHue));
 
                         GnarledStaff staff = new GnarledStaff();
-                        staff.Attributes.SpellChanneling = 1;
                         staff.Attributes.SpellDamage = Utility.RandomMinMax(4, 8);
-                        staff.Hue = Faction.secondaryHue;
 
                         AddItem(staff);
                     }

@@ -1784,15 +1784,15 @@ namespace Server.Mobiles
             return (Body.IsHuman && Region.IsPartOf(typeof(Regions.GuardedRegion)));
         }
 
-        public virtual bool CheckCopper(Mobile from, Item dropped)
+        public virtual bool CheckGold(Mobile from, Item dropped)
         {
             if(dropped is Gold)
-                return OnCopperGiven(from, (Gold)dropped);
+                return OnGoldGiven(from, (Gold)dropped);
 
             return false;
         }
 
-        public virtual bool OnCopperGiven(Mobile from, Gold dropped)
+        public virtual bool OnGoldGiven(Mobile from, Gold dropped)
         {
             if(CheckTeachingMatch(from))
             {
@@ -2041,7 +2041,7 @@ namespace Server.Mobiles
         {
             if(CheckFeed(from, dropped))
                 return true;
-            else if(CheckCopper(from, dropped))
+            else if(CheckGold(from, dropped))
                 return true;
 
             return base.OnDragDrop(from, dropped);
@@ -2944,7 +2944,7 @@ namespace Server.Mobiles
                         else
                         {
                             // I will teach thee all I know, if paid the amount in full.  The price is:
-                            Say(1019077, AffixType.Append, String.Format(" {0} copper", pointsToLearn), "");
+                            Say(1019077, AffixType.Append, String.Format(" {0} gold", pointsToLearn), "");
                             Say(1043108); // For less I shall teach thee less.
 
                             m_Teaching = skill;

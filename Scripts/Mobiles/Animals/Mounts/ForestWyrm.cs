@@ -88,7 +88,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public ForestWyrm( string name ) : base( name, 0x31A, 0x3EBD, AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4 )
 		{
-            Name = NameList.RandomName( "dragonkin" ) + ",";
+            Name = NameList.RandomName("ancient lich") + ",";
 			Title = "the forest wyrm";
 
             Hue = Utility.RandomSlimeHue() | 0x8000;

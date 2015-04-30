@@ -11,12 +11,6 @@ namespace Server.Items
     {
         [Constructable]
         public RaceScroll()
-            : this(1)
-        {
-        }
-
-        [Constructable]
-        public RaceScroll(int amount)
             : base(0x1F4F)
         {
             Name = "a mysterious scroll";

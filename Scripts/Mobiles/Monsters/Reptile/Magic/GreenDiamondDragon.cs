@@ -11,7 +11,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public GreenDiamondDragon() : base( AIType.AI_Mage, FightMode.Aggressor, 10, 1, 0.2, 0.4 )
 		{
-			Name = NameList.RandomName( "dragonkin" ) + ",";
+			Name = NameList.RandomName("ancient lich") + ",";
 			Title = "the green diamond dragon";
 			BodyValue = Utility.RandomList( 0xC, 0x3C );
 			Hue = 2985;

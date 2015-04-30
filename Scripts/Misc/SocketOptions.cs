@@ -16,7 +16,7 @@ namespace Server
 		private static IPEndPoint[] m_ListenerEndPoints = new IPEndPoint[]
 			{
 				new IPEndPoint( IPAddress.Any, 2600 ),
-                new IPEndPoint( IPAddress.Any, 2599 )
+                new IPEndPoint( IPAddress.Any, Utility.RandomMinMax(2591,2599)) // Faster Testing On Same Machine
 			};
 
 		public static void Initialize()

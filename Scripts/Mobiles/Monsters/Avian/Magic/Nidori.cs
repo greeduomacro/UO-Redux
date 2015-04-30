@@ -5,14 +5,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-	[CorpseName( "a Khamari corpse" )]
-	public class Khamari : BaseCreature
+	[CorpseName( "a large avian corpse" )]
+	public class Nidori : BaseCreature
 	{
 		[Constructable]
-		public Khamari()
+		public Nidori()
 			: base( AIType.AI_Mage, FightMode.Aggressor, 10, 1, 0.2, 0.4 )
 		{
-			Name = "a nindroran";
+			Name = "a nidori";
 			BodyValue = 243;
 			BaseSoundID = 402;
 
@@ -93,7 +93,7 @@ namespace Server.Mobiles
 			AddLoot( LootPack.Gems, Utility.RandomMinMax( 4, 7 ) );
 		}
 
-		public Khamari( Serial serial )
+		public Nidori( Serial serial )
 			: base( serial )
 		{
 		}

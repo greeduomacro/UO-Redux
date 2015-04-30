@@ -11,7 +11,6 @@ namespace Server.Mobiles
 		public Peasant()
 		{
 			Title = "the peasant";
-
 		}
 
 		public override bool CanTeach{ get{ return true; } }

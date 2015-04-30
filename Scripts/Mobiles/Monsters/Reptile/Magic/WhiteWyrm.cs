@@ -11,7 +11,7 @@ namespace Server.Mobiles
 		public WhiteWyrm()
 			: base( AIType.AI_Mage, FightMode.Aggressor, 10, 1, 0.2, 0.4 )
 		{
-			Name = NameList.RandomName( "dragonkin" ) + ",";
+            Name = NameList.RandomName("ancient lich") +",";
 			Title = "the white wyrm";
 			Body = 49;
 			BaseSoundID = 362;
@@ -49,6 +49,10 @@ namespace Server.Mobiles
 				BodyValue = 59;
 				Hue = 1153;
 			}
+
+            Tamable = true;
+            ControlSlots = 4;
+            MinTameSkill = 119.1;
 		}
 
 		public override void GenerateLoot()
@@ -64,7 +68,7 @@ namespace Server.Mobiles
 		public override HideType HideType { get { return HideType.Barbed; } }
 		public override int Scales { get { return 9; } }
 		public override ScaleType ScaleType { get { return ScaleType.White; } }
-		public override FoodType FavoriteFood { get { return FoodType.Meat | FoodType.Gold; } }
+		public override FoodType FavoriteFood { get { return FoodType.Gold; } }
 		public override bool CanAngerOnTame { get { return true; } }
 
 		public WhiteWyrm( Serial serial )

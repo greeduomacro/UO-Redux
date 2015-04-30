@@ -1821,6 +1821,7 @@
     <Compile Include="Mobiles\Animals\Birds\Chicken.cs" />
     <Compile Include="Mobiles\Animals\Birds\Crane.cs" />
     <Compile Include="Mobiles\Animals\Birds\Eagle.cs" />
+    <Compile Include="Mobiles\Animals\Canines\CuSidhe.cs" />
     <Compile Include="Mobiles\Animals\Canines\DireWolf.cs" />
     <Compile Include="Mobiles\Animals\Canines\GreyWolf.cs" />
     <Compile Include="Mobiles\Animals\Canines\Timberwolf.cs" />
@@ -1877,6 +1878,7 @@
     <Compile Include="Mobiles\Animals\Reptiles\LavaSnake.cs" />
     <Compile Include="Mobiles\Animals\Reptiles\SilverSerpent.cs" />
     <Compile Include="Mobiles\Animals\Reptiles\Snake.cs" />
+    <Compile Include="Mobiles\Animals\Rodents\Ferret.cs" />
     <Compile Include="Mobiles\Animals\Rodents\GiantRat.cs" />
     <Compile Include="Mobiles\Animals\Rodents\JackRabbit.cs" />
     <Compile Include="Mobiles\Animals\Rodents\Rabbit.cs" />
@@ -1942,7 +1944,7 @@
     <Compile Include="Mobiles\Monsters\Arachnid\Melee\JumpingSpider.cs" />
     <Compile Include="Mobiles\Monsters\Arachnid\Melee\TerathanDrone.cs" />
     <Compile Include="Mobiles\Monsters\Arachnid\Melee\TerathanWarrior.cs" />
-    <Compile Include="Mobiles\Monsters\Avian\Magic\Khamari.cs" />
+    <Compile Include="Mobiles\Monsters\Avian\Magic\Nidori.cs" />
     <Compile Include="Mobiles\Monsters\Avian\Magic\Phoenix.cs" />
     <Compile Include="Mobiles\Monsters\Avian\Melee\Vezhinea.cs" />
     <Compile Include="Mobiles\Monsters\Elemental\Magic\AcidElemental.cs" />
@@ -2032,7 +2034,6 @@
     <Compile Include="Mobiles\Monsters\Humanoid\Melee\Vampire.cs" />
     <Compile Include="Mobiles\Monsters\Humanoid\Melee\Zombie.cs" />
     <Compile Include="Mobiles\Monsters\Humanoid\ToxicElemental.cs" />
-    <Compile Include="Mobiles\Monsters\Mammal\Magic\Gasaron.cs" />
     <Compile Include="Mobiles\Monsters\Mammal\Magic\Sphynx.cs" />
     <Compile Include="Mobiles\Monsters\Mammal\Melee\Alimarchus.cs" />
     <Compile Include="Mobiles\Monsters\Mammal\Melee\DesertWolf.cs" />

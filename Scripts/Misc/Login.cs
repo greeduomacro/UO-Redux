@@ -13,7 +13,8 @@ namespace Server.Misc
         private static void EventSink_Login(LoginEventArgs args)
         {
             int userCount = NetState.Instances.Count;
-            args.Mobile.SendMessage("Welcome, {0}! There {1} currently {2} user{3} online.", args.Mobile.RawName, userCount == 1 ? "is" : "are", userCount, userCount == 1 ? "" : "s");
+            args.Mobile.SendMessage("Welcome, {0}! There {1} currently {2} user{3} online.",
+                args.Mobile.RawName, userCount == 1 ? "is" : "are", userCount, userCount == 1 ? "" : "s");
 
             if(args.Mobile.BodyValue == 402 || args.Mobile.BodyValue == 403)
             {

@@ -13,7 +13,7 @@ namespace Server.Mobiles
 			Name = "an elder imp";
 			Body = 74;
 			BaseSoundID = 422;
-			Hue = 1160;
+			Hue = 1209;
 
 			SetStr( 191, 315 );
 			SetDex( 61, 80 );

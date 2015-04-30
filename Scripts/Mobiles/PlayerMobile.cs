@@ -575,7 +575,7 @@ namespace Server.Mobiles
             return max;
         }
 
-        public override int MaxWeight { get { return (int)((3.125 * this.Str) + 33); } }
+        public override int MaxWeight { get { return 40 + (int)(3.5 * this.Str); } }
 
         private int m_LastGlobalLight = -1, m_LastPersonalLight = -1;
 
@@ -958,7 +958,7 @@ namespace Server.Mobiles
             if( AccessLevel < AccessLevel.GameMaster && item.IsChildOf(this.Backpack) )
             {
                 int maxWeight = WeightOverloading.GetMaxWeight(this);
-                int curWeight = Mobile.BodyWeight + this.TotalWeight;
+                int curWeight = TotalWeight;
 
                 if( curWeight > maxWeight )
                     this.SendLocalizedMessage(1019035, true, String.Format(" : {0} / {1}", curWeight, maxWeight));

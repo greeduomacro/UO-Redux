@@ -2010,16 +2010,10 @@ namespace Server.Mobiles
                 {
                     m_Mobile.DebugSay("My movement was blocked, I will try to clear some obstacles.");
 
-                    if (m_Mobile.CurrentWayPoint != null
-                        && m_Mobile.CurrentWayPoint.NextPoint != null)
-                    {
-                        m_Mobile.CurrentWayPoint = m_Mobile.CurrentWayPoint.NextPoint;
-                        m_Mobile.DebugSay("I will move towards my waypoint.");
-                        DoMove(m_Mobile.GetDirectionTo(m_Mobile.CurrentWayPoint));
-                    }
-
                     //waypoint improvements
-                    if( m_Mobile.CurrentWayPoint != null && m_Mobile.Combatant == null && attempts++ >= 5 )
+                    attempts++;
+
+                    if( m_Mobile.CurrentWayPoint != null && m_Mobile.Combatant == null && attempts > 4)
                     {
                         m_Mobile.MoveToWorld(new Point3D(m_Mobile.CurrentWayPoint.Location), m_Mobile.Map);
 
@@ -2052,8 +2046,16 @@ namespace Server.Mobiles
                                 if( !door.Locked || !door.UseLocks() )
                                     m_Obstacles.Enqueue(door);
 
-                                if( !canDestroyObstacles )
-                                    break;
+                                if (!canDestroyObstacles)
+                                {
+                                    if (m_Mobile.CurrentWayPoint != null && m_Mobile.CurrentWayPoint.NextPoint != null)
+                                    {
+                                        m_Mobile.CurrentWayPoint = m_Mobile.CurrentWayPoint.NextPoint;
+
+                                        m_Mobile.DebugSay("I will move towards my waypoint.");
+                                        DoMove(m_Mobile.GetDirectionTo(m_Mobile.CurrentWayPoint));
+                                    }
+                                }
                             }
                             else if( canDestroyObstacles && item.Movable && item.ItemData.Impassable && (item.Z + item.ItemData.Height) > m_Mobile.Z && (m_Mobile.Z + 16) > item.Z )
                             {

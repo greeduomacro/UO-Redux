@@ -26,7 +26,7 @@ namespace Server.Mobiles
 
 			SetHits( 240, 360 );
 
-			SetDamage( 22, 24 );
+			SetDamage( 12, 14 );
 			SetDamageType( ResistanceType.Physical, 100 );
 
 			SetResistance( ResistanceType.Physical, 45, 50 );
@@ -46,7 +46,7 @@ namespace Server.Mobiles
 			VirtualArmor = 25;
 
             Tamable = true;
-            ControlSlots = 3;
+            ControlSlots = 2;
             MinTameSkill = 99.1;
 		}
 

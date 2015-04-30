@@ -1131,7 +1131,7 @@ namespace Server.Mobiles
 		}
 
 
-		public override bool OnCopperGiven( Mobile from, Gold dropped )
+		public override bool OnGoldGiven( Mobile from, Gold dropped )
 		{
 			string message = "Are you trying to bribe me to win?";
 			this.Say( message );
