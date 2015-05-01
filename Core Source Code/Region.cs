@@ -464,6 +464,27 @@ namespace Server
 			return list;
 		}
 
+        public List<Item> GetItems()
+        {
+            List<Item> list = new List<Item>();
+
+            if (m_Sectors != null)
+            {
+                for (int i = 0; i < m_Sectors.Length; i++)
+                {
+                    Sector sector = m_Sectors[i];
+
+                    foreach (Item item in sector.Items)
+                    {
+                        if(!item.Deleted && item != null)
+                            list.Add(item);
+                    }
+                }
+            }
+
+            return list;
+        }
+
 		public int GetMobileCount()
 		{
 			int count = 0;

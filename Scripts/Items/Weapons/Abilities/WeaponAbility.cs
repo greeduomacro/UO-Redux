@@ -112,7 +112,7 @@ namespace Server.Items
         {
             BaseWeapon weapon = from.Weapon as BaseWeapon;
 
-            int stamReq = (int)(weapon.Weight * 2.75);
+            int stamReq = (int)(weapon.Weight * 1.618);
 
             if (from.Stam < stamReq)
             {

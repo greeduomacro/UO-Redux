@@ -96,7 +96,8 @@ namespace Server.Perks
                             perkIcon = 21280;
 
                         AddButton((x + 30), (y + 20), perkIcon, perkIcon, GetButtonId(1, i), GumpButtonType.Reply, 0);
-                        AddButton((x + 59), (y + 49), (hasPerk ? 2361 : 2360), (hasPerk ? 2361 : 2360), GetButtonId(1, i), GumpButtonType.Reply, 0);
+                        AddButton((x + 5), (y + 49), (hasPerk ? 2361 : 2360),
+                            (hasPerk ? 2361 : 2360), GetButtonId(1, i), GumpButtonType.Reply, 0);
 
                         y += 70;
                     }

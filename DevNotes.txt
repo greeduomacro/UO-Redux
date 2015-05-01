@@ -511,7 +511,7 @@ Mobiles now move to the next point in series when a waypoint is blocked.
 Guard weapons no longer spawn hued.
 Reverted CheckCopper/OnCopperDrop to gold.
 Vendors no longer say "copper" onteach.
-Reverted recall/mark back to runuo standards.
+Reverted recall/mark back to uo standards.
 
 0.3.5
 Added ferrets and cu sidhes as tamables.
@@ -525,10 +525,25 @@ Packets no longer send a player's body weight.
 WeightOverloading.GetMaxWeight no longer returns Mobile.MaxWeight
 Fixed player stam regen while running.
 
+0.3.5a
+Reduced stamina cost for active weapon abilities based on weapon weight.
+Fixed perk overview gump - changed offset for 'active' icon.
+
+0.3.6
+Added AoS and SE Decorative Artifacts.
+Added the hooded shroud of shadows.
+Added decorative broken furniture.
+Added OSI Veteran rewards.
+Added weapon engraving tool.
+Assimilated Ethereal mounts from UOForever.
+Added OSI stealable rares.
+Base weapon now supports weapon engraving.
+Removed localized messages from weapon engraving.
+Removed faction references from soul stones.
+Removed Scroll of Alacrity references from soul stones.
+
 
 TODO:
-
-!Weight overloading broken
 Need item insurance.
 Investigate Dragoon's Longarm perk.
 Make field spells effect everyone, regardless of notoriety

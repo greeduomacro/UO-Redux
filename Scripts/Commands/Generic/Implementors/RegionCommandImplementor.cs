@@ -42,9 +42,23 @@ namespace Server.Commands.Generic
 							list.Add( mob );
 					}
 				}
+
+                else if (items)
+                {
+                    foreach (Item item in reg.GetItems())
+                    {
+                        if (!BaseCommand.IsAccessible(from, item))
+                            continue;
+
+                        if (ext.IsValid(item))
+                            list.Add(item);
+                    }
+                }
+
+
 				else
 				{
-					command.LogFailure( "This command does not support items." );
+					command.LogFailure( "Could not find item or mobile with property in region." );
 					return;
 				}
 

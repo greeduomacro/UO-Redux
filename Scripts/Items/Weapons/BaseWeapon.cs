@@ -69,6 +69,15 @@ namespace Server.Items
         private WeaponAnimation m_Animation;
         #endregion
 
+        private string m_EngravedText;
+
+        [CommandProperty(AccessLevel.GameMaster)]
+        public string EngravedText
+        {
+            get { return m_EngravedText; }
+            set { m_EngravedText = value; InvalidateProperties(); }
+        }
+
         #region Virtual Properties
         public virtual WeaponAbility PrimaryAbility { get { return null; } }
         public virtual WeaponAbility SecondaryAbility { get { return null; } }
@@ -2348,6 +2357,7 @@ namespace Server.Items
             SetSaveFlag(ref flags, SaveFlag.PlayerConstructed, m_PlayerConstructed);
             SetSaveFlag(ref flags, SaveFlag.SkillBonuses, !m_AosSkillBonuses.IsEmpty);
             SetSaveFlag(ref flags, SaveFlag.Slayer2, m_Slayer2 != SlayerName.None);
+            SetSaveFlag(ref flags, SaveFlag.EngravedText, !String.IsNullOrEmpty(m_EngravedText));
 
             writer.Write((int)flags);
 
@@ -2434,6 +2444,9 @@ namespace Server.Items
 
             if(GetSaveFlag(flags, SaveFlag.Slayer2))
                 writer.Write((int)m_Slayer2);
+
+            if (GetSaveFlag(flags, SaveFlag.EngravedText))
+                writer.Write((string)m_EngravedText);
         }
 
         [Flags]
@@ -2469,6 +2482,7 @@ namespace Server.Items
             PlayerConstructed = 0x04000000,
             SkillBonuses = 0x08000000,
             Slayer2 = 0x10000000,
+            EngravedText = 0x40000000
         }
 
         public override void Deserialize(GenericReader reader)
@@ -2659,6 +2673,9 @@ namespace Server.Items
 
                         if(GetSaveFlag(flags, SaveFlag.Slayer2))
                             m_Slayer2 = (SlayerName)reader.ReadInt();
+
+                        if (GetSaveFlag(flags, SaveFlag.EngravedText))
+                            m_EngravedText = reader.ReadString();
 
                         break;
                     }
@@ -2880,6 +2897,9 @@ namespace Server.Items
                 default: oreType = 0; break;
             }
 
+            if (!String.IsNullOrEmpty(m_EngravedText))
+                list.Add(1062613, m_EngravedText);
+
             if(oreType != 0)
                 list.Add(1053099, "#{0}\t{1}", oreType, GetNameString()); // ~1_oretype~ ~2_armortype~
             else if(Name == null)
@@ -2957,6 +2977,7 @@ namespace Server.Items
                     if (entry != null)
                         list.Add(entry.Title);
                 }
+
                 base.AddResistanceProperties(list);
 
                 int prop;

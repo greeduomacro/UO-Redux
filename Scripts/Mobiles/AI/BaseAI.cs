@@ -2013,6 +2013,15 @@ namespace Server.Mobiles
                     //waypoint improvements
                     attempts++;
 
+                    if (m_Mobile.CurrentWayPoint != null && m_Mobile.CurrentWayPoint.NextPoint != null)
+                    {
+                        m_Mobile.CurrentWayPoint = m_Mobile.CurrentWayPoint.NextPoint;
+
+                        m_Mobile.DebugSay("I will move towards my waypoint.");
+                        DoMove(m_Mobile.GetDirectionTo(m_Mobile.CurrentWayPoint));
+                    }
+
+
                     if( m_Mobile.CurrentWayPoint != null && m_Mobile.Combatant == null && attempts > 4)
                     {
                         m_Mobile.MoveToWorld(new Point3D(m_Mobile.CurrentWayPoint.Location), m_Mobile.Map);
