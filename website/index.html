@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="assets/css/site.css"/>
+</head>
+<body>
+
+<div class="navbar">
+	<div class="image-header">
+		<img class="logo-image" src="assets/images/logoImage.gif"/>
+		<img class="logo-text" src="assets/images/logoText.png"/>
+	</div>
+
+	<ul>
+		<li><a href="#home">Home</a>
+		<li><a href="#news">News</a>
+		<li><a href="#contact">Forum</a>
+		<li><a href="#about">About</a>
+	</ul>
+</div>
+
+<div id="form-container">
+	<form action="contact.php" method="post">
+		<h3>Sign Up For Beta!</h3>
+		<p id="paragraph">Pre-register for open-beta to recieve your own hooded shroud of shadows!</p>
+		<fieldset>
+			<label class="nameLabel" for="account">Account Name:</label>
+			<input id="account" name="acount"/>
+			<label class="emailLabel" for="email">E-mail Address:</label>
+			<input id="email" name="email"/>
+		</fieldset>
+		<fieldset>
+			<input class="btn" type="submit" value="Submit Request"/>
+			<input class="btn" type="reset" value="Reset Form"/>
+		</fieldset>
+	</form>
+</div>
+
+</body>
+</html>
