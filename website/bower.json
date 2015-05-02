@@ -1,0 +1,22 @@
+{
+  "name": "uo-redux.com",
+  "version": "1.0.0",
+  "authors": [
+    "Michael <mbaird@kairyt.com>"
+  ],
+  "main": "src/index.html",
+  "license": "none",
+  "homepage": "https://uo-redux.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "gulp": "~3.8.11",
+    "fontawesome": "~4.3.0"
+  }
+}
