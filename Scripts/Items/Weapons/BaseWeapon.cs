@@ -974,7 +974,7 @@ namespace Server.Items
 
             double reductionRatio = (Math.Sqrt(attacker.Str) / 75.0);
             int staminaReduction = (int)(Math.Sqrt(totalWeight * reductionRatio));
-            staminaReduction = (int)(((staminaReduction * staminaReduction) * 0.8325) + totalItems);
+            staminaReduction = (int)(((staminaReduction * staminaReduction) * 0.618) + totalItems);
 
             if(staminaReduction > attacker.Stam)
             {
@@ -1035,7 +1035,7 @@ namespace Server.Items
 
                 if(weapon != null)
                 {
-                    if(attacker.Stam < (int)(((weapon.Weight + 2) / 2) + 2))
+                    if(attacker.Stam < (int)((weapon.Weight * 0.618 + 2) / 2))
                     {
                         canSwing = false;
                         attacker.SendMessage("You do not have the stamina to swing your weapon.");
@@ -1043,7 +1043,7 @@ namespace Server.Items
                     else
                     {
                         if(QueryArmWeight(attacker))
-                            attacker.Stam -= (int)(((weapon.Weight + 2) / 2) + 2);
+                            attacker.Stam -= (int)(((weapon.Weight * 0.618 + 2) / 2));
                     }
                 }
             }
@@ -1155,7 +1155,8 @@ namespace Server.Items
                 if(chance > aosChance)
                     return defender.CheckSkill(SkillName.Parry, chance);
                 else
-                    return (aosChance > Utility.RandomDouble()); // Only skillcheck if wielding a shield & there's no effect from Bushido
+                    return (aosChance > Utility.RandomDouble()); 
+                // Only skillcheck if wielding a shield & there's no effect from Bushido
             }
 
             return false;
@@ -1174,7 +1175,8 @@ namespace Server.Items
                     defender.FixedEffect(0x37B9, 10, 16);
                     damage = 0;
 
-                    BaseShield shield = defender.FindItemOnLayer(Layer.TwoHanded) as BaseShield;
+                    BaseShield shield = defender.
+                        FindItemOnLayer(Layer.TwoHanded) as BaseShield;
 
                     if(shield != null)
                     {

@@ -428,7 +428,7 @@ namespace Server.Misc
             newChar.RawDex = 25;
             newChar.RawStr = 25;
 
-            ((Player)newChar).EoC += 10000;
+            ((Player)newChar).EoC += 20000;
             ((Player)newChar).Race = Race.Human;
 
             newChar.CantWalk = false;
@@ -440,7 +440,7 @@ namespace Server.Misc
 
             AddBackpack(newChar);
 
-            newChar.AddToBackpack(new Verite(100));
+            newChar.AddToBackpack(new Verite(50));
             newChar.AddToBackpack(new Gold(1000));
 
             newChar.AddToBackpack(new SkillScroll());
@@ -449,7 +449,8 @@ namespace Server.Misc
             {
                 newChar.Skills[i].Base = 0;
 
-                if(SkillInfo.Table[i].SkillID >= (int)SkillName.Necromancy)
+                if(SkillInfo.Table[i].SkillID >= (int)SkillName.Necromancy
+                    && SkillInfo.Table[i].SkillID != (int)SkillName.Focus)
                     newChar.Skills[i].Cap = 0;
                 else
                     newChar.Skills[i].Cap = 100;

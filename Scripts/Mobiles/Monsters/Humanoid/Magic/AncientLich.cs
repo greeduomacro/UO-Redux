@@ -1,7 +1,7 @@
 
 namespace Server.Mobiles
 {
-    [CorpseName("an ancient liche's corpse")]
+    [CorpseName("an ancient lich's corpse")]
     public class AncientLich : BaseCreature
     {
         [Constructable]

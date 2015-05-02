@@ -7,7 +7,7 @@ using Server.Network;
 
 namespace Server.SkillCapSelection {
 	public class SkillSelectionGump : Gump {
-		public const double MaxIndividualCap = 120.0;
+		public const double MaxIndividualCap = 125.0;
 
 		private Mobile _from;
 		private SkillGroup _skillsGroup;
@@ -24,7 +24,7 @@ namespace Server.SkillCapSelection {
 
 			AddPage( 0 );
 			AddBackground( 10, 10, 325, (205 + (SkillGroup.Groups.Length * 20) + ((selected == null ? 0 : selected.Skills.Length) * 20)), 9250 );
-			AddLabel( 115, 20, 1152, "Skill Cap Overview" );
+			AddLabel( 115, 20, 1152, "Skill Level Overview" );
 
 			AddHtml( 27, 45, 290, 105, String.Format( "By using Essence of Character your may increase your individual skill levels."
                                     + ""

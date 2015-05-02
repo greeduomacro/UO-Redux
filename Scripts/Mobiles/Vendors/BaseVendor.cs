@@ -643,7 +643,7 @@ namespace Server.Mobiles
                 else
                     from.Send(new DisplayBuyList(this));
 
-                from.Send(new MobileStatusExtended(from));//make sure their gold amount is sent
+                from.Send(new MobileStatusExtended(from));//make sure their valorite amount is sent
 
                 if( opls != null )
                 {
@@ -749,7 +749,8 @@ namespace Server.Mobiles
                     SayTo(from, 1045130); // That order is for some other shopkeeper.
                     return false;
                 }
-                else if( (dropped is SmallBOD && !((SmallBOD)dropped).Complete) || (dropped is LargeBOD && !((LargeBOD)dropped).Complete) )
+                else if( (dropped is SmallBOD && !((SmallBOD)dropped).Complete) 
+                    || (dropped is LargeBOD && !((LargeBOD)dropped).Complete) )
                 {
                     SayTo(from, 1045131); // You have not completed the order yet.
                     return false;
@@ -772,10 +773,10 @@ namespace Server.Mobiles
 
                 CurrencySystem.DistributeCoins(from, CurrencySystem.Compress(gold, 0, 0));
 
-                //if( gold > 1000 )
-                //    from.AddToBackpack( new BankCheck( gold ) );
-                //else if( gold > 0 )
-                //    from.AddToBackpack( new Gold( gold ) );
+                //if( valorite > 1000 )
+                //    from.AddToBackpack( new BankCheck( valorite ) );
+                //else if( valorite > 0 )
+                //    from.AddToBackpack( new Gold( valorite ) );
 
                 Titles.AwardFame(from, fame, true);
 
@@ -1003,7 +1004,7 @@ namespace Server.Mobiles
             {
                 if( cont.ConsumeTotal(currencyTypes, compressedCost) == -1 )
                     bought = true;
-                else if( CurrencySystem.Consume(cont, CurrencySystem.typeofCopper, totalCost) )
+                else if( CurrencySystem.Consume(cont, CurrencySystem.typeofGold, totalCost) )
                     bought = true;
             }
 
@@ -1016,7 +1017,7 @@ namespace Server.Mobiles
                     bought = true;
                     fromBank = true;
                 }
-                else if( CurrencySystem.Consume(cont, CurrencySystem.typeofCopper, totalCost) )
+                else if( CurrencySystem.Consume(cont, CurrencySystem.typeofGold, totalCost) )
                 {
                     bought = true;
                     fromBank = true;
@@ -1110,18 +1111,18 @@ namespace Server.Mobiles
                 if( buyer.AccessLevel >= AccessLevel.GameMaster )
                     SayTo(buyer, true, "I would not presume to charge thee anything.  Here are the goods you requested.");
                 else if( fromBank )
-                    SayTo(buyer, true, "The total of thy purchase is {0} copper, which has been withdrawn from your bank account.  My thanks for the patronage.", totalCost);
+                    SayTo(buyer, true, "The total of thy purchase is {0} gold, which has been withdrawn from your bank account.  My thanks for the patronage.", totalCost);
                 else
-                    SayTo(buyer, true, "The total of thy purchase is {0} copper.  My thanks for the patronage.", totalCost);
+                    SayTo(buyer, true, "The total of thy purchase is {0} gold.  My thanks for the patronage.", totalCost);
             }
             else
             {
                 if( buyer.AccessLevel >= AccessLevel.GameMaster )
                     SayTo(buyer, true, "I would not presume to charge thee anything.  Unfortunately, I could not sell you all the goods you requested.");
                 else if( fromBank )
-                    SayTo(buyer, true, "The total of thy purchase is {0} copper, which has been withdrawn from your bank account.  My thanks for the patronage.  Unfortunately, I could not sell you all the goods you requested.", totalCost);
+                    SayTo(buyer, true, "The total of thy purchase is {0} gold, which has been withdrawn from your bank account.  My thanks for the patronage.  Unfortunately, I could not sell you all the goods you requested.", totalCost);
                 else
-                    SayTo(buyer, true, "The total of thy purchase is {0} copper.  My thanks for the patronage.  Unfortunately, I could not sell you all the goods you requested.", totalCost);
+                    SayTo(buyer, true, "The total of thy purchase is {0} gold.  My thanks for the patronage.  Unfortunately, I could not sell you all the goods you requested.", totalCost);
             }
 
             return true;
@@ -1269,29 +1270,29 @@ namespace Server.Mobiles
             if( GiveGold > 0 )
             {
                 int[] compressedCost = CurrencySystem.Compress(GiveGold, 0, 0);
-                int gold = compressedCost[2], silver = compressedCost[1], copper = compressedCost[0];
+                int valorite = compressedCost[2], verite = compressedCost[1], gold = compressedCost[0];
+
+                while( valorite > 60000 )
+                {
+                    seller.AddToBackpack(new Valorite(valorite));
+                    valorite -= 60000;
+                }
+
+                while( verite > 60000 )
+                {
+                    seller.AddToBackpack(new Verite(verite));
+                    verite -= 60000;
+                }
 
                 while( gold > 60000 )
                 {
-                    seller.AddToBackpack(new Valorite(gold));
+                    seller.AddToBackpack(new Gold(gold));
                     gold -= 60000;
                 }
 
-                while( silver > 60000 )
-                {
-                    seller.AddToBackpack(new Verite(silver));
-                    silver -= 60000;
-                }
-
-                while( copper > 60000 )
-                {
-                    seller.AddToBackpack(new Gold(copper));
-                    copper -= 60000;
-                }
-
-                if( gold > 0 ) seller.AddToBackpack(new Valorite(gold));
-                if( silver > 0 ) seller.AddToBackpack(new Verite(silver));
-                if( copper > 0 ) seller.AddToBackpack(new Gold(copper));
+                if( valorite > 0 ) seller.AddToBackpack(new Valorite(valorite));
+                if( verite > 0 ) seller.AddToBackpack(new Verite(verite));
+                if( gold > 0 ) seller.AddToBackpack(new Gold(gold));
 
                 //while( GiveGold > 60000 )
                 //{

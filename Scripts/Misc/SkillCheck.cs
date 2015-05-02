@@ -304,7 +304,7 @@ namespace Server.Misc
                          }
                          break;
 
-                    case Race.Liche:
+                    case Race.Lich:
                          {
                              strCap = 150;
                              dexCap = 100;

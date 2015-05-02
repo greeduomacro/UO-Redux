@@ -6,7 +6,7 @@ namespace Server.Items
 {
 	public class ChaosShield : BaseShield
 	{
-		public override int BasePhysicalResistance{ get{ return 1; } }
+		public override int BasePhysicalResistance{ get{ return 4; } }
 		public override int BaseFireResistance{ get{ return 0; } }
 		public override int BaseColdResistance{ get{ return 0; } }
 		public override int BasePoisonResistance{ get{ return 0; } }

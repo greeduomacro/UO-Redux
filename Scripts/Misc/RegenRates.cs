@@ -160,6 +160,8 @@ namespace Server.Misc
                     points += hungerRegen;
                 }
 
+                if (from.Stam < 10) points += 10;
+
                 //if (from.Hits != 0 && from.HitsMax != 0)
                 //{
                 //    double hitsratio = (int)((from.HitsMax / from.Hits) / 3);

@@ -832,6 +832,8 @@ namespace Server.Items
             if( from == m_Owner || from.AccessLevel >= AccessLevel.GameMaster )
                 return false;
 
+            if (Owner is BaseCreature) return false;
+
             Party p = Party.Get(m_Owner);
 
             if( p != null && p.Contains(from) )
@@ -1074,7 +1076,8 @@ namespace Server.Items
 
                     if( from.Player )
                     {
-                        EventDispatcher.InvokeCorpseAction(new CorpseActionEventArgs((Player)from, this, CorpseActionEventArgs.CorpseAction.Opened));
+                        EventDispatcher.InvokeCorpseAction
+                            (new CorpseActionEventArgs((Player)from, this, CorpseActionEventArgs.CorpseAction.Opened));
                     }
                 }
             }

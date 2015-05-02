@@ -3454,10 +3454,10 @@ namespace Server
                     }
                     else
                     {
-                        if(Stam == StamMax)
+                        if(Stam > shoved.Stam)
                         {
                             number = shoved.m_Hidden ? 1019043 : 1019042;
-                            Stam -= 10;
+                            Stam -= (int)(StamMax * 0.1);
 
                             RevealingAction();
 

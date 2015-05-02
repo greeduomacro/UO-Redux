@@ -542,8 +542,41 @@ Removed localized messages from weapon engraving.
 Removed faction references from soul stones.
 Removed Scroll of Alacrity references from soul stones.
 
+0.3.6a
+Changed itemid of weapon engraving tools.
+Fixed focus cap on character creation.
+
+0.3.7
+Account limit now set to 3.
+Players now start with 20,000 E.o.C
+Reduced stamina cost for running on both mount and foot.
+Reduced the chance of taking damage when running barefoot.
+Increased the amount of time spent under Res-kill protection.
+Players no longer use stamina when under res-kill protection.
+Looting non-human corpses no longer produces criminal notoriety.
+Lich-types no longer produce incorrect corpse names.
+Spinning wheels now require 10 spools of thread or yarn for each bolt of cloth.
+Bankers now display proper metal types on balance query.
+Vendors no longer say copper after purchases.
+
+0.3.7a
+Getting KO'd by a guard now removes criminal notoriety.
+Reduced the amount of stamina consumed when swinging weapons based on weight.
+Players are no longer required to be at max stamina to push through other mobiles.
+Logs now produce two boards per log when processed by carpenters.
+Modified base physical resistance for all shield-types.
+
+0.3.7b
+Corrected header on skill level gump.
+Reduced the cost of knockout counts to remove.
+Players now have increased stamina regen when under 10 stamina.
+Players under weight capacity may now walk at 0 stamina.
+Scrolls now reduce mana costs by 75%
 
 TODO:
+skill scroll error on last selection.
+Stamina drop on start move
+Change town housing to use gold.
 Need item insurance.
 Investigate Dragoon's Longarm perk.
 Make field spells effect everyone, regardless of notoriety

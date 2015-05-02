@@ -89,7 +89,7 @@ namespace Server
                 {
                     Player pm = ((Player)m_Mobile);
 
-                    if ( pm.Race == Race.Terathan || pm.Race == Race.Liche )
+                    if ( pm.Race == Race.Terathan || pm.Race == Race.Lich )
                     {
                         if (m_Mobile.CurePoison(m_Mobile))
                         {

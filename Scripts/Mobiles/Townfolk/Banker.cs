@@ -301,17 +301,17 @@ namespace Server.Mobiles
 
                                 if( box != null )
                                 {
-                                    Item[] coins = box.FindItemsByType(new Type[] { CurrencySystem.typeofCopper, CurrencySystem.typeofSilver, CurrencySystem.typeofGold });
-                                    int gold = 0, silver = 0, copper = 0;
+                                    Item[] coins = box.FindItemsByType(new Type[] { CurrencySystem.typeofGold, CurrencySystem.typeofVerite, CurrencySystem.typeofValorite });
+                                    int valorite = 0, verite = 0, gold = 0;
 
                                     for( int c = 0; c < coins.Length; c++ )
                                     {
-                                        if( coins[c].GetType() == CurrencySystem.typeofCopper ) copper += coins[c].Amount;
-                                        else if( coins[c].GetType() == CurrencySystem.typeofSilver ) silver += coins[c].Amount;
-                                        else if( coins[c].GetType() == CurrencySystem.typeofGold ) gold += coins[c].Amount;
+                                        if( coins[c].GetType() == CurrencySystem.typeofGold ) gold += coins[c].Amount;
+                                        else if( coins[c].GetType() == CurrencySystem.typeofVerite ) verite += coins[c].Amount;
+                                        else if( coins[c].GetType() == CurrencySystem.typeofValorite ) valorite += coins[c].Amount;
                                     }
 
-                                    Say(String.Format("Thy current bank balance is {0} gold, {1} silver, and {2} copper.", gold, silver, copper));
+                                    Say(String.Format("Thy current bank balance is {0} valorite, {1} verite, and {2} gold.", valorite, verite, gold));
                                 }
                                 else
                                 {
@@ -409,17 +409,17 @@ namespace Server.Mobiles
                         coins.ForEach(
                             delegate( BaseCoin coin )
                             {
-                                if( coin.GetType() == CurrencySystem.typeofCopper )
+                                if( coin.GetType() == CurrencySystem.typeofGold )
                                 {
                                     cc += coin.Amount;
                                     ccLoc = coin.Location;
                                 }
-                                else if( coin.GetType() == CurrencySystem.typeofSilver )
+                                else if( coin.GetType() == CurrencySystem.typeofVerite )
                                 {
                                     sc += coin.Amount;
                                     scLoc = coin.Location;
                                 }
-                                else if( coin.GetType() == CurrencySystem.typeofGold )
+                                else if( coin.GetType() == CurrencySystem.typeofValorite )
                                 {
                                     gc += coin.Amount;
                                     gcLoc = coin.Location;
@@ -432,10 +432,10 @@ namespace Server.Mobiles
 
                         if( newAmts[0] > 0 )
                         {
-                            Gold copper = new Gold(newAmts[0]);
+                            Gold gold = new Gold(newAmts[0]);
 
-                            box.AddItem(copper);
-                            copper.Location = ccLoc;
+                            box.AddItem(gold);
+                            gold.Location = ccLoc;
                         }
 
                         if( newAmts[1] > 0 )

@@ -156,11 +156,12 @@ namespace Server.Misc
 
                 int actual = Notoriety.CanBeAttacked;
 
-                if( target.Kills >= 5 || (target.Owner is BaseCreature && (((BaseCreature)target.Owner).AlwaysMurderer)) )
+                if( target.Kills >= 5 || (target.Owner is BaseCreature 
+                    && (((BaseCreature)target.Owner).AlwaysMurderer)) )
                     actual = Notoriety.Murderer;
 
-                if( DateTime.Now >= (target.TimeOfDeath + Corpse.MonsterLootRightSacrifice) )
-                    return actual;
+                //if( DateTime.Now >= (target.TimeOfDeath + Corpse.MonsterLootRightSacrifice) )
+                //    return actual;
 
                 Party sourceParty = Party.Get(source);
 
@@ -168,16 +169,18 @@ namespace Server.Misc
 
                 for( int i = 0; i < list.Count; ++i )
                 {
-                    if( list[i] == source || (sourceParty != null && Party.Get(list[i]) == sourceParty) )
-                        return actual;
+                    if( list[i] == source || 
+                        (sourceParty != null && Party.Get(list[i]) == sourceParty) )
+                            return actual;
                 }
 
                 return Notoriety.Innocent;
             }
             else
             {
-                if( target.Kills >= 5 || (target.Owner is BaseCreature && (((BaseCreature)target.Owner).AlwaysMurderer)) )
-                    return Notoriety.Murderer;
+                if( target.Kills >= 5 || 
+                    (target.Owner is BaseCreature && (((BaseCreature)target.Owner).AlwaysMurderer)) )
+                        return Notoriety.Murderer;
 
                 if( target.Criminal )
                     return Notoriety.Criminal;

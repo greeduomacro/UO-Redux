@@ -100,17 +100,17 @@ namespace Server
 
         private static readonly LootPackItem[] Gold = new LootPackItem[]
 			{
-				new LootPackItem( CurrencySystem.typeofGold, 1 )
+				new LootPackItem( CurrencySystem.typeofValorite, 1 )
 			};
 
         private static readonly LootPackItem[] Silver = new LootPackItem[]
 			{
-				new LootPackItem( CurrencySystem.typeofSilver, 1 )
+				new LootPackItem( CurrencySystem.typeofVerite, 1 )
 			};
 
         private static readonly LootPackItem[] Copper = new LootPackItem[]
 			{
-				new LootPackItem( CurrencySystem.typeofCopper, 1 )
+				new LootPackItem( CurrencySystem.typeofGold, 1 )
 			};
 
         private static readonly LootPackItem[] Instruments = new LootPackItem[]

@@ -120,7 +120,7 @@ namespace Server.Market
                 }
                 else
                 {
-                    Type[] coinTypes = new Type[] { Curr.typeofCopper, Curr.typeofSilver, Curr.typeofGold };
+                    Type[] coinTypes = new Type[] { Curr.typeofGold, Curr.typeofVerite, Curr.typeofValorite };
                     int[] compressedCost = Curr.Compress(entry.Cost, 0, 0);
                     Container cont = buyer.FindBankNoCreate();
 

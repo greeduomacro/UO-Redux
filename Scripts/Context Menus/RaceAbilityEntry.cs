@@ -82,7 +82,7 @@ namespace Ulmeta.ContextMenus
 
                         break;
                     }
-                case Race.Liche:
+                case Race.Lich:
                     {
                         if (pm.Followers >= pm.FollowersMax)
                         {

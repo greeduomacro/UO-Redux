@@ -760,7 +760,7 @@ namespace Server.Spells
             {
                 if (m_Scroll is SpellScroll)
                 {
-                    mana = 0;
+                    mana = (int)(mana * 0.75);
                     m_Scroll.Consume();
                 }
 
