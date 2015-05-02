@@ -49,8 +49,8 @@ if(isset($_POST['email']))
 		return str_replace($bad, "", $string);
 	}
 
-	email_message .= "Name: " . sanitize_data($name) . "\n";
-	email_message .= "email: " . sanitize_data($email) . "\n";
+	$email_message .= "Name: " . sanitize_data($name) . "\n";
+	$email_message .= "email: " . sanitize_data($email) . "\n";
 
 	$headers = 'from: ' . $email_from . "\r\n" . 'Reply-To: ' . $email . "\r\n"
 		. 'X-Mailer: PHP/' . phpversion();

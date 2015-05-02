@@ -1,2 +1,11 @@
-/*.iml
-/.idea
+logs/*
+*.log
+!.gitkeep
+node_modules/
+bower_components/
+.DS_Store/
+.idea/
+src/components/
+.sass-cache/
+dist/
+uo-redux website.iml
