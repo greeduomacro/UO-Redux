@@ -70,10 +70,12 @@ namespace Server.Items
                     Item handOne = from.FindItemOnLayer(Layer.OneHanded);
                     Item handTwo = from.FindItemOnLayer(Layer.TwoHanded);
 
-                    if( handOne == null || handTwo == null )
-                    {
-                        canUse = true;
-                    }
+                    bool freeHand = handOne == null;
+                    if (!freeHand) 
+                        freeHand = handTwo == null;
+
+                    if( freeHand ) { canUse = true; }
+
                     else
                     {
                         Medic med = Perk.GetByType<Medic>((Player)from);
@@ -91,7 +93,7 @@ namespace Server.Items
                 }
                 else
                 {
-                    from.SendMessage("You need both hands free to work with bandages.");
+                    from.SendMessage("You need atleast one hand free to work with bandages.");
                 }
             }
             else
@@ -130,7 +132,7 @@ namespace Server.Items
                                 if( med != null )
                                 {
                                     consume = !med.TryRecoverBandage();
-                                    from.SendMessage("You manage to salvage some of the bandage.");
+                                        from.SendMessage("You manage to salvage some of the bandage.");
                                 }
                             }
 
@@ -140,6 +142,7 @@ namespace Server.Items
                             }
                         }
                     }
+
                     else
                     {
                         from.SendLocalizedMessage(500295); // You are too far away to do that.

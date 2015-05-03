@@ -428,7 +428,7 @@ namespace Server.Misc
             newChar.RawDex = 25;
             newChar.RawStr = 25;
 
-            ((Player)newChar).EoC += 20000;
+            ((Player)newChar).EoC += 25000;
             ((Player)newChar).Race = Race.Human;
 
             newChar.CantWalk = false;
@@ -442,6 +442,23 @@ namespace Server.Misc
 
             newChar.AddToBackpack(new Verite(50));
             newChar.AddToBackpack(new Gold(1000));
+
+            Bag bag = new Bag();
+            bag.Name = "A torn bag";
+            bag.Hue = Utility.RandomNeutralHue();
+            newChar.AddToBackpack(bag);
+
+            bag.AddItem(new ShepherdsCrook());
+            bag.AddItem(new Bandage(30));
+            bag.AddItem(new Kindling(10));
+            bag.AddItem(new Torch());
+            bag.AddItem(new Dagger());
+            bag.AddItem(new Scissors());
+            bag.AddItem(new TotalRefreshPotion());
+            bag.AddItem(new GreaterCurePotion());
+            bag.AddItem(new GreaterHealPotion());
+            bag.AddItem(new IDWand());
+            bag.AddItem(new Pitcher());
 
             newChar.AddToBackpack(new SkillScroll());
 
@@ -468,7 +485,7 @@ namespace Server.Misc
 
             FillBankbox(newChar);
 
-            newChar.MoveToWorld(new Point3D(1495,1623,20), Map.Felucca);
+            newChar.MoveToWorld(new Point3D(1495,1623,20), Map.Felucca); // The Leaping Sheep Inn
 
             ((Player)newChar).RespawnLocation = (new Point3D(1495,1623,20));
             ((Player)newChar).RespawnMap = Map.Felucca;
@@ -677,6 +694,7 @@ namespace Server.Misc
         private static void AddShirt(Mobile m, int shirtHue)
         {
             int hue = Utility.RandomBirdHue();
+            EquipItem(new Robe(hue), true);
 
             switch(Utility.Random(3))
             {

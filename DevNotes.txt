@@ -573,7 +573,28 @@ Players now have increased stamina regen when under 10 stamina.
 Players under weight capacity may now walk at 0 stamina.
 Scrolls now reduce mana costs by 75%
 
+0.3.8
+Players now gain EoC on every successful skillcheck and upon skillgain.
+Players now gain EoC upon increasing attributes through skillgain.
+Players now start with 25,000 EoC.
+Players now start with a 'a torn bag' filled with helpful items.
+Kindling now weigh 0.5 stones per pile.
+Every skillcheck now produces a small chance to reduce thirst and hunger levels.
+Reduced the chance of guaranteed skillgains based on skill level.
+Reduced the chance of bleeding when injured by running by 50%
+Reduced the amount glove and shoulder armor affects stamina when swinging.
+
+0.3.8a
+All summoned elementals now require two control slots.
+Reduced the speed at which skill use lowers hunger/thirst.
+Reduced the amount running up inclines affects stamina loss.
+Guards now check direction on-think against ordered direction.
+Liches now drop one scroll instead of two.
+Players may no longer loot guard corpses not killed by players.
+Changed description for Medic Level 5 to be more accurate.
+
 TODO:
+Statues don't serialize solidhue
 skill scroll error on last selection.
 Stamina drop on start move
 Change town housing to use gold.

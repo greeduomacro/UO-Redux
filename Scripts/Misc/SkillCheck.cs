@@ -152,7 +152,7 @@ namespace Server.Misc
             bool skillImproved = (from.Alive && ((gc >= Utility.RandomDouble() && AllowGain(from, skill, amObj))
                 || (skill.Base < 10.0 && Utility.RandomDouble() < 0.50)));
 
-            if (!skillImproved)
+            if (!skillImproved && Utility.RandomBool())
             {
                 skillImproved 
                     = ((skill.Base < 33.3 && Utility.RandomDouble()   <= 0.010)
@@ -162,8 +162,23 @@ namespace Server.Misc
                     || (skill.Base <= 125.0 && Utility.RandomDouble() <= 0.002));
             }
 
-            if(skillImproved)
-				Gain( from, skill );
+            if (skillImproved)
+            {
+                Gain(from, skill);
+                if (from is Player)
+                {
+                    ((Player)from).EoC += (int)((skill.Base * 0.618) / 2);
+
+                    if (Utility.RandomDouble() == Utility.RandomDouble())
+                        from.Hunger--;
+
+                    if (Utility.RandomDouble() == Utility.RandomDouble())
+                        from.Thirst--;
+                }
+            }
+
+            if (success && from is Player)
+                ((Player)from).EoC++;
 
 			return success;
 		}
@@ -420,6 +435,10 @@ namespace Server.Misc
 							return;
 
 						from.LastStrGain = DateTime.Now;
+
+                        if (from is Player)
+                            ((Player)from).EoC += (int)(from.Str * 1.618);
+
 						break;
 					}
 				case Stat.Dex:
@@ -428,12 +447,19 @@ namespace Server.Misc
 							return;
 
 						from.LastDexGain = DateTime.Now;
+
+                        if (from is Player)
+                            ((Player)from).EoC += (int)(from.Dex * 1.618);
+
 						break;
 					}
 				case Stat.Int:
 					{
 						if( (from.LastIntGain + delay) >= DateTime.Now )
 							return;
+
+                        if (from is Player)
+                            ((Player)from).EoC += (int)(from.Int * 1.618);
 
 						from.LastIntGain = DateTime.Now;
 						break;

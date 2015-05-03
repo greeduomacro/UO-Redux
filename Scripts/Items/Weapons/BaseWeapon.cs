@@ -952,7 +952,7 @@ namespace Server.Items
 
         bool QueryArmWeight(Mobile attacker)
         {
-            Layer[] layers = new Layer[] { Layer.Arms, Layer.Bracelet, Layer.Gloves, Layer.Ring };
+            Layer[] layers = new Layer[] { Layer.Arms, Layer.Gloves, };
 
             int totalWeight = 0;
             int totalItems = 0;
@@ -974,7 +974,7 @@ namespace Server.Items
 
             double reductionRatio = (Math.Sqrt(attacker.Str) / 75.0);
             int staminaReduction = (int)(Math.Sqrt(totalWeight * reductionRatio));
-            staminaReduction = (int)(((staminaReduction * staminaReduction) * 0.618) + totalItems);
+            staminaReduction = (int)(((staminaReduction * staminaReduction) * 0.618));
 
             if(staminaReduction > attacker.Stam)
             {
@@ -1035,7 +1035,7 @@ namespace Server.Items
 
                 if(weapon != null)
                 {
-                    if(attacker.Stam < (int)((weapon.Weight * 0.618 + 2) / 2))
+                    if(attacker.Stam < (int)((weapon.Weight * 1.618) / 2) + 2)
                     {
                         canSwing = false;
                         attacker.SendMessage("You do not have the stamina to swing your weapon.");
@@ -1043,7 +1043,7 @@ namespace Server.Items
                     else
                     {
                         if(QueryArmWeight(attacker))
-                            attacker.Stam -= (int)(((weapon.Weight * 0.618 + 2) / 2));
+                            attacker.Stam -= (int)(((weapon.Weight * 1.618) / 2) + 2);
                     }
                 }
             }

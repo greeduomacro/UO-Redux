@@ -11,6 +11,8 @@ using Server.Spells;
 using System;
 using System.Collections.Generic;
 
+using Ulmeta.Guards;
+
 namespace Server.Mobiles
 {
     #region Enums
@@ -3301,7 +3303,10 @@ namespace Server.Mobiles
             {
                 if(!guardedRegion.IsDisabled() && guardedRegion.IsGuardCandidate(m) && BeginAction(typeof(GuardedRegion)))
                 {
+
+                    if (!(this is Guard))
                     Say(1013037 + Utility.Random(16));
+
                     guardedRegion.CallGuards(this.Location);
 
                     Timer.DelayCall(TimeSpan.FromSeconds(5.0), new TimerCallback(ReleaseGuardLock));

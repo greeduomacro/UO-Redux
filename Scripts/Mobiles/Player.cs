@@ -15,7 +15,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using Ulmeta.ContextMenus;
-using Ulmeta.Factions.Guards;
+using Ulmeta.Guards;
 
 namespace Server.Mobiles
 {
@@ -914,7 +914,7 @@ namespace Server.Mobiles
                     stamLost += FindItemOnLayer(Layer.Pants).Weight * 0.08;
 
                 if (lastZ < currentZ)
-                    stamLost++;
+                    stamLost = stamLost * 1.618;
 
                 if (stamLost > 1.0)
                 {
@@ -958,7 +958,7 @@ namespace Server.Mobiles
                         this.SendMessage("You've stumbled, and your feet are bare!");
                         Damage(Utility.RandomMinMax(4, 8));
 
-                        if (Utility.RandomDouble() <= 0.15)
+                        if (Utility.RandomDouble() <= 0.15 && Utility.RandomBool())
                             BleedAttack.BeginBleed(this, this);
                     }
                 }

@@ -13,7 +13,7 @@ namespace Server.Perks
         }
 
         /// <summary>
-        /// Allows one-handed use of bandages at <code>PerkLevel.Fifth</code>
+        /// Allows full-handed use of bandages at <code>PerkLevel.Fifth</code>
         /// </summary>
         public bool CanUseBandages
         {
@@ -91,7 +91,7 @@ namespace Server.Perks
                     new LabelEntry(PerkLevel.Second, "Field Medic", "No longer do you feel the heat of battle breathing down your neck, nor the tremble of fear that comes with it."),
                     new LabelEntry(PerkLevel.Third, "Effortless", "There's not much you haven't seen and the amount of time it takes you to bandage a wound is near awe-inspiring."),
                     new LabelEntry(PerkLevel.Fourth, "Surgeon", "Having dressed untold number of wounds, the Medic mends more damage with bandages than most."),
-                    new LabelEntry(PerkLevel.Fifth, "Battle Medic", "The Medic is capable of applying bandages with one hand, leaving the other free to attack or defend.")
+                    new LabelEntry(PerkLevel.Fifth, "Battle Medic", "Having spent years in field you've mastered the art of applying bandages with only your finger-tips.")
                 });
             }
         }

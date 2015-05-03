@@ -46,16 +46,14 @@ namespace Server.Mobiles
 			else
 				AddItem( new Shoes( lowHue ) );
 
-			//if ( !Female )
-				//AddItem( new BodySash( lowHue ) );
-
-			//AddItem( new Cloak( GetRandomHue() ) );
-
-			//if ( !Female )
-				//AddItem( new Longsword() );
-
 			Utility.AssignRandomHair( this );
 		}
+
+        public override void OnThink()
+        {
+
+            base.OnThink();
+        }
 
 		public Peasant( Serial serial ) : base( serial )
 		{
