@@ -18,6 +18,16 @@ namespace Server.Items
 			Weight = 3.0;
 		}
 
+        public override void OnDoubleClick(Mobile from)
+        {
+            if (ItemID == 9860)
+                ItemID = 7939;
+
+            else ItemID = 9860;
+
+            base.OnDoubleClick(from);
+        }
+
 		public override bool Dye( Mobile from, DyeTub sender )
 		{
 			from.SendLocalizedMessage( sender.FailMessage );

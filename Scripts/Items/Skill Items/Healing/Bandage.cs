@@ -93,7 +93,7 @@ namespace Server.Items
                 }
                 else
                 {
-                    from.SendMessage("You need atleast one hand free to work with bandages.");
+                    from.SendMessage("You need atleast one hand free to apply bandages.");
                 }
             }
             else
@@ -436,7 +436,7 @@ namespace Server.Items
                 {
                     healerNumber = 500969; // You finish applying the bandages.
 
-                    double toHeal = (((anatomy + healing) * 0.05) + Utility.RandomMinMax(0,4));
+                    double toHeal = (((anatomy + healing) * 0.10) + Utility.RandomMinMax(0,4));
 
                     if (m_Healer is Player)
                     {
@@ -533,28 +533,33 @@ namespace Server.Items
 
                 if( onSelf )
                 {
-                    if( Core.AOS )
-                        seconds = 5.0 + (0.5 * ((double)(120 - dex) / 10)); // TODO: Verify algorithm
-                    else
-                        seconds = 9.4 + (0.6 * ((double)(120 - dex) / 10));
+                    //if( Core.AOS )
+                    
+                    seconds = 2.0 + (0.5 * ((double)(120 - dex) / 10));
+
+                    //else
+                    //    seconds = 9.4 + (0.6 * ((double)(120 - dex) / 10));
                 }
                 else
                 {
                     if( Core.AOS && GetPrimarySkill(patient) == SkillName.Veterinary )
                     {
                         //if ( dex >= 40 )
-                        seconds = 2.0;
+                        seconds = 1.0;
                         //else
                         //	seconds = 3.0;
                     }
+
                     else
                     {
                         if( dex >= 100 )
-                            seconds = 3.0 + resDelay;
+                            seconds = 1.0 + resDelay;
+
                         else if( dex >= 75 )
-                            seconds = 4.0 + resDelay;
+                            seconds = 2.0 + resDelay;
+
                         else
-                            seconds = 5.0 + resDelay;
+                            seconds = 3.0 + resDelay;
                     }
                 }
 

@@ -593,7 +593,61 @@ Liches now drop one scroll instead of two.
 Players may no longer loot guard corpses not killed by players.
 Changed description for Medic Level 5 to be more accurate.
 
+0.3.9
+Peasant mobiles now seek fountains/wellbuckets onthink.
+Guards now assume ordered direction onthink if not specified.
+Replaced UOForever ethereal mounts with RunUO standards due to serialization conflicts.
+Hooded shrouds may now be double clicked to lower the hood.
+Reduced the speed at which mobiles attack.
+Increased the speed at which bandages are applied.
+Increased damage healed by bandages.
+Added Ninjitsu, Bushido, Necromancy, and Chivalry to the starting skill scroll.
+Skills selected at character creation are now honored in-game.
+Reduced the amount of provided by the mysterious scroll by 100.
+Reduced the amount of EoC gained when improving skills manually.
+Added ninjitsu skill items (smoke bomb, shuriken, etc).
+Added necromancy reagents.
+Disabled Excorcism spell until further notice.
+Runebook's default index now works properly.
+Merged Spell.cs from RunUO to accomodate necromancy, chivalry, ninjitsu and bushido.
+Reintroduced ant-type mobiles.
+Added necromancer familiars.
+Removed faction references from Ninjitsu's shadow jump.
+Added squirrels and reptalons to accomodate Ninjitsu's animal form.
+Added Talismans to accomodate Ninjitsu's animal form.
+Converted Talisman's OnRemoved to OnDelete for compatability reasons.
+Updated all dragon armor pieces to RunUO standards.
+HellSteeds no longer deal chaos damage.
+Modified regen rates to accomodate for necromancer and ninjtsu transformations.
+Removed RunUO dueling references from necromancy's summon familiar.
+Added 'IsFamiliar' and 'IsAnimatedDead' from RunUO's basecreature.
+Necromancy Spells no longer reduce karma (as lower karma increases damage).
+Removed young, faction, and house raffle references in Chivalry's sacred journey spell.
+Removed Greater Dragon from Animate Dead's creature group.
+Added Samurai Empire Clothing, Weapons, Armor, Etc.
+Removed all Elf references from charactercreation.cs
+
+0.3.9a
+Removed solen quest references from ant mobiles.
+Removed all 'ConPvP' references from chivalry spells.
+Added required variables to PlayerMobile for bushido functionality.
+Added chainmail Hatsuburi.
+Replaced Base Spellbook with Runuo's.
+Added new OnRemoved/OnAdded overloads to accomodate backwards compatability with new items.
+Removed gold drop from ant workers.
+Unicorn and Ki-rin mount abilities now function properly.
+Removed OnDeath Additions from Ki-rin and Unicorn.
+Replaced Bake Kitsune disguise functionality for compatability.
+'Guardians' now ride frenzied ostards.
+Removed moonstone references from character creation.
+Modified loot to accomodate necromancy reagents and scrolls.
+
+
+
 TODO:
+Seeds can be planted anywhere.
+Houses still say copper when placed.
+Skillscrolls fail to limit to 50 on some ocassions.
 Statues don't serialize solidhue
 skill scroll error on last selection.
 Stamina drop on start move

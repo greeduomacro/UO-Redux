@@ -24,20 +24,20 @@ namespace Server.Mobiles
 		[Constructable]
 		public Beetle( string name ) : base( name, 0x317, 0x3EBC, AIType.AI_Melee, FightMode.Closest, 10, 1, 0.25, 0.5 )
 		{
-			SetStr( Utility.RandomMinMax( 200, 400 ));
-            SetDex( Utility.RandomMinMax( 100, 200 ));
-            SetInt( Utility.RandomMinMax( 40, 80 ));
+			SetStr( 300 );
+			SetDex( 100 );
+			SetInt( 500 );
 
-            SetHits(Utility.RandomMinMax(200, 400));
+			SetHits( 200 );
 
 			SetDamage( 7, 20 );
 
 			SetDamageType( ResistanceType.Physical, 100 );
 
-			SetResistance( ResistanceType.Physical, 50, 70 );
-			SetResistance( ResistanceType.Fire, 40, 60 );
-			SetResistance( ResistanceType.Cold, 50, 70 );
-			SetResistance( ResistanceType.Poison, 70, 80 );
+			SetResistance( ResistanceType.Physical, 30, 40 );
+			SetResistance( ResistanceType.Fire, 20, 30 );
+			SetResistance( ResistanceType.Cold, 20, 30 );
+			SetResistance( ResistanceType.Poison, 20, 30 );
 			SetResistance( ResistanceType.Energy, 20, 30 );
 
 			SetSkill( SkillName.MagicResist, 80.0 );

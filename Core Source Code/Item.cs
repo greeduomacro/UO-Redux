@@ -1879,7 +1879,15 @@ namespace Server
         {
         }
 
+        public virtual void OnRemoved(object parent)
+        {
+        }
+
         public virtual void OnAdded(IEntity parent)
+        {
+        }
+
+        public virtual void OnAdded(object parent)
         {
         }
 

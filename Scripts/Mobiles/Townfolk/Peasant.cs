@@ -51,7 +51,18 @@ namespace Server.Mobiles
 
         public override void OnThink()
         {
-
+            if (Utility.RandomBool() == Utility.RandomBool())
+            {
+                foreach (Item item in GetItemsInRange(12))
+                {
+                    if (item is WellBucket)
+                    {
+                        Direction = GetDirectionTo(item.Location);
+                        break;
+                    }
+                }
+            }
+            
             base.OnThink();
         }
 

@@ -29,7 +29,7 @@ namespace Server.Mobiles
 				Name = NameList.RandomName( "male" ); 
 			} 
 
-			new FemaleOstard().Rider = this; 
+			new FrenziedOstard().Rider = this; 
 
 			PlateChest chest = new PlateChest(); 
 			chest.Hue = 0x966; 

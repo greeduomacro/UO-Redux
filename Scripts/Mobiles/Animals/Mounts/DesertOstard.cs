@@ -17,7 +17,7 @@ namespace Server.Mobiles
 			BaseSoundID = 0x270;
 
 			SetStr( 94, 170 );
-			SetDex( 156, 175 );
+			SetDex( 56, 75 );
 			SetInt( 6, 10 );
 
 			SetHits( 71, 88 );

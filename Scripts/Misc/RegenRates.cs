@@ -4,6 +4,8 @@ using Server.Mobiles;
 using Server.Perks;
 using Server.Spells;
 using Server.Events;
+using Server.Spells.Necromancy;
+using Server.Spells.Ninjitsu;
 
 namespace Server.Misc
 {
@@ -43,13 +45,18 @@ namespace Server.Misc
         {
             return TransformationSpellHelper.UnderTransformation(m, type);
         }
-
+		private static bool CheckAnimal( Mobile m, Type type )
+		{
+			return AnimalForm.UnderTransformation( m, type );
+		}
         private static TimeSpan Mobile_HitsRegenRate( Mobile from )
         {
             int points = AosAttributes.GetValue(from, AosAttribute.RegenHits);
 
             if (from is BaseCreature)
             {
+			if ( from is BaseCreature && !((BaseCreature)from).IsAnimatedDead )
+				points += 4;
                 BaseCreature bc = from as BaseCreature;
                 if (bc.ControlMaster != null && bc.ControlMaster is Player)
                 {
@@ -65,6 +72,12 @@ namespace Server.Misc
 
             if (from is Player)
             {
+			if ( CheckTransform( from, typeof( HorrificBeastSpell ) ) )
+				points += 20;
+
+			if ( CheckAnimal( from, typeof( Dog ) ) || CheckAnimal( from, typeof( Cat ) ) )
+				points += from.Skills[SkillName.Ninjitsu].Fixed / 30;
+
                 if (((Player)from).Race == Race.HalfDaemon && ((Player)from).AbilityActive == true)
                 {
                     points += 16;
@@ -113,6 +126,11 @@ namespace Server.Misc
             int points = (int)(from.Skills[SkillName.Focus].Value * 0.08);
 
             int cappedPoints = AosAttributes.GetValue(from, AosAttribute.RegenStam);
+			if ( CheckTransform( from, typeof( VampiricEmbraceSpell ) ) )
+				cappedPoints += 15;
+
+			if ( CheckAnimal( from, typeof( Kirin ) ) )
+				cappedPoints += 20;
 
             points += cappedPoints;
 
@@ -273,6 +291,15 @@ namespace Server.Misc
                 double totalPoints = focusPoints + medPoints + (from.Meditating ? (medPoints > 13.0 ? 13.0 : medPoints) : 0.0);
 
                 int cappedPoints = AosAttributes.GetValue(from, AosAttribute.RegenMana);
+
+				if ( CheckTransform( from, typeof( VampiricEmbraceSpell ) ) )
+					cappedPoints += 3;
+				else if ( CheckTransform( from, typeof( LichFormSpell ) ) )
+					cappedPoints += 13;
+
+				if( Core.ML && from is PlayerMobile )
+					cappedPoints = Math.Min( cappedPoints, 18 );
+
 
                 totalPoints += cappedPoints;
 

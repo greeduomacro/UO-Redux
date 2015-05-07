@@ -6,6 +6,16 @@ namespace Server
     public class Loot
     {
         #region List definitions
+        private static Type[] m_SEWeaponTypes = new Type[]
+			{
+				typeof( Bokuto ),				typeof( Daisho ),				typeof( Kama ),
+				typeof( Lajatang ),				typeof( NoDachi ),				typeof( Nunchaku ),
+				typeof( Sai ),					typeof( Tekagi ),				typeof( Tessen ),
+				typeof( Tetsubo ),				typeof( Wakizashi )
+			};
+
+        public static Type[] SEWeaponTypes { get { return m_SEWeaponTypes; } }
+
         private static Type[] m_AosWeaponTypes = new Type[]
 			{
 				typeof( Scythe ),				typeof( BoneHarvester ),		typeof( Scepter ),
@@ -33,6 +43,13 @@ namespace Server
 
         public static Type[] WeaponTypes { get { return m_WeaponTypes; } }
 
+        private static Type[] m_SERangedWeaponTypes = new Type[]
+			{
+				typeof( Yumi )
+			};
+
+        public static Type[] SERangedWeaponTypes { get { return m_SERangedWeaponTypes; } }
+
         private static Type[] m_AosRangedWeaponTypes = new Type[]
 			{
 				typeof( CompositeBow ),			typeof( RepeatingCrossbow )
@@ -46,6 +63,22 @@ namespace Server
 			};
 
         public static Type[] RangedWeaponTypes { get { return m_RangedWeaponTypes; } }
+
+        private static Type[] m_SEArmorTypes = new Type[]
+			{
+				typeof( ChainHatsuburi ),		typeof( LeatherDo ),			typeof( LeatherHaidate ),
+				typeof( LeatherHiroSode ),		typeof( LeatherJingasa ),		typeof( LeatherMempo ),
+				typeof( LeatherNinjaHood ),		typeof( LeatherNinjaJacket ),	typeof( LeatherNinjaMitts ),
+				typeof( LeatherNinjaPants ),	typeof( LeatherSuneate ),		typeof( DecorativePlateKabuto ),
+				typeof( HeavyPlateJingasa ),	typeof( LightPlateJingasa ),	typeof( PlateBattleKabuto ),
+				typeof( PlateDo ),				typeof( PlateHaidate ),			typeof( PlateHatsuburi ),
+				typeof( PlateHiroSode ),		typeof( PlateMempo ),			typeof( PlateSuneate ),
+				typeof( SmallPlateJingasa ),	typeof( StandardPlateKabuto ),	typeof( StuddedDo ),
+				typeof( StuddedHaidate ),		typeof( StuddedHiroSode ),		typeof( StuddedMempo ),
+				typeof( StuddedSuneate )
+			};
+
+        public static Type[] SEArmorTypes { get { return m_SEArmorTypes; } }
 
         private static Type[] m_ArmorTypes = new Type[]
 			{
@@ -109,6 +142,14 @@ namespace Server
 
         public static Type[] RegTypes { get { return m_RegTypes; } }
 
+        private static Type[] m_NecroRegTypes = new Type[]
+			{
+				typeof( BatWing ),				typeof( GraveDust ),			typeof( DaemonBlood ),
+				typeof( NoxCrystal ),			typeof( PigIron )
+			};
+
+        public static Type[] NecroRegTypes { get { return m_NecroRegTypes; } }
+
         private static Type[] m_PotionTypes = new Type[]
 			{
 				typeof( AgilityPotion ),		typeof( StrengthPotion ),		typeof( RefreshPotion ),
@@ -116,6 +157,13 @@ namespace Server
 			};
 
         public static Type[] PotionTypes { get { return m_PotionTypes; } }
+
+        private static Type[] m_SEInstrumentTypes = new Type[]
+			{
+				typeof( BambooFlute )
+			};
+
+        public static Type[] SEInstrumentTypes { get { return m_SEInstrumentTypes; } }
 
         private static Type[] m_InstrumentTypes = new Type[]
 			{
@@ -136,11 +184,11 @@ namespace Server
 
         private static Type[] m_RegularScrollTypes = new Type[]
 			{
-				typeof( ClumsyScroll ),			typeof( CreateFoodScroll ),		typeof( FeeblemindScroll ),		typeof( HealScroll ),
-				typeof( MagicArrowScroll ),		typeof( NightSightScroll ),		typeof( ReactiveArmorScroll ),	typeof( WeakenScroll ),
+				typeof( ReactiveArmorScroll ),	typeof( ClumsyScroll ),			typeof( CreateFoodScroll ),		typeof( FeeblemindScroll ),
+				typeof( HealScroll ),			typeof( MagicArrowScroll ),		typeof( NightSightScroll ),		typeof( WeakenScroll ),
 				typeof( AgilityScroll ),		typeof( CunningScroll ),		typeof( CureScroll ),			typeof( HarmScroll ),
 				typeof( MagicTrapScroll ),		typeof( MagicUnTrapScroll ),	typeof( ProtectionScroll ),		typeof( StrengthScroll ),
-				typeof( SkillScroll ),			typeof( FireballScroll ),		typeof( MagicLockScroll ),		typeof( PoisonScroll ),
+				typeof( BlessScroll ),			typeof( FireballScroll ),		typeof( MagicLockScroll ),		typeof( PoisonScroll ),
 				typeof( TelekinisisScroll ),	typeof( TeleportScroll ),		typeof( UnlockScroll ),			typeof( WallOfStoneScroll ),
 				typeof( ArchCureScroll ),		typeof( ArchProtectionScroll ),	typeof( CurseScroll ),			typeof( FireFieldScroll ),
 				typeof( GreaterHealScroll ),	typeof( LightningScroll ),		typeof( ManaDrainScroll ),		typeof( RecallScroll ),
@@ -153,6 +201,23 @@ namespace Server
 				typeof( EarthquakeScroll ),		typeof( EnergyVortexScroll ),	typeof( ResurrectionScroll ),	typeof( SummonAirElementalScroll ),
 				typeof( SummonDaemonScroll ),	typeof( SummonEarthElementalScroll ),	typeof( SummonFireElementalScroll ),	typeof( SummonWaterElementalScroll )
 			};
+
+        private static Type[] m_NecromancyScrollTypes = new Type[]
+			{
+				typeof( AnimateDeadScroll ),		typeof( BloodOathScroll ),		typeof( CorpseSkinScroll ),	typeof( CurseWeaponScroll ),
+				typeof( EvilOmenScroll ),			typeof( HorrificBeastScroll ),	typeof( LichFormScroll ),	typeof( MindRotScroll ),
+				typeof( PainSpikeScroll ),			typeof( PoisonStrikeScroll ),	typeof( StrangleScroll ),	typeof( SummonFamiliarScroll ),
+				typeof( VampiricEmbraceScroll ),	typeof( VengefulSpiritScroll ),	typeof( WitherScroll ),		typeof( WraithFormScroll )
+			};
+
+        private static Type[] m_SENecromancyScrollTypes = new Type[]
+		{
+			typeof( AnimateDeadScroll ),		typeof( BloodOathScroll ),		typeof( CorpseSkinScroll ),	typeof( CurseWeaponScroll ),
+			typeof( EvilOmenScroll ),			typeof( HorrificBeastScroll ),	typeof( LichFormScroll ),	typeof( MindRotScroll ),
+			typeof( PainSpikeScroll ),			typeof( PoisonStrikeScroll ),	typeof( StrangleScroll ),	typeof( SummonFamiliarScroll ),
+			typeof( VampiricEmbraceScroll ),	typeof( VengefulSpiritScroll ),	typeof( WitherScroll ),		typeof( WraithFormScroll ),
+			typeof( ExorcismScroll )
+		};
 
         public static Type[] RegularScrollTypes { get { return m_RegularScrollTypes; } }
 
@@ -370,8 +435,16 @@ namespace Server
             return Construct(m_RegTypes);
         }
 
+        public static Item RandomNecromancyReagent()
+        {
+            return Construct(m_NecroRegTypes);
+        }
+
         public static Item RandomPossibleReagent()
         {
+            if (Core.AOS)
+                return Construct(m_RegTypes, m_NecroRegTypes);
+
             return Construct(m_RegTypes);
         }
 

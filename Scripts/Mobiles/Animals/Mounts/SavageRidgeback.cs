@@ -16,26 +16,26 @@ namespace Server.Mobiles
 		{
 			BaseSoundID = 0x3F3;
 
-			SetStr( 258, 300 );
-			SetDex( 156, 175 );
+			SetStr( 58, 100 );
+			SetDex( 56, 75 );
 			SetInt( 16, 30 );
 
-			SetHits( 241, 254 );
+			SetHits( 41, 54 );
 			SetMana( 0 );
 
-			SetDamage( 13, 15 );
+			SetDamage( 3, 5 );
 
 			SetDamageType( ResistanceType.Physical, 100 );
 
-			SetResistance( ResistanceType.Physical, 55, 60 );
-			SetResistance( ResistanceType.Fire, 30, 45 );
+			SetResistance( ResistanceType.Physical, 15, 20 );
+			SetResistance( ResistanceType.Fire, 10, 15 );
 			SetResistance( ResistanceType.Cold, 15, 20 );
-			SetResistance( ResistanceType.Poison, 40, 55 );
-			SetResistance( ResistanceType.Energy, 30, 55 );
+			SetResistance( ResistanceType.Poison, 10, 15 );
+			SetResistance( ResistanceType.Energy, 10, 15 );
 
-			SetSkill( SkillName.MagicResist, 125.3, 140.0 );
-			SetSkill( SkillName.Tactics, 89.3, 94.0 );
-			SetSkill( SkillName.Wrestling, 95.1, 95.0 );
+			SetSkill( SkillName.MagicResist, 25.3, 40.0 );
+			SetSkill( SkillName.Tactics, 29.3, 44.0 );
+			SetSkill( SkillName.Wrestling, 35.1, 45.0 );
 
 			Fame = 300;
 			Karma = 0;

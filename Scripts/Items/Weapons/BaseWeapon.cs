@@ -1077,8 +1077,7 @@ namespace Server.Items
                 if(attacker.NetState != null)
                     attacker.Send(new Swing(0, attacker, defender));
             }
-
-            return GetDelay(attacker);
+            TimeSpan delay = GetDelay(attacker); return delay;
         }
 
         #region Sounds

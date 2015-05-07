@@ -524,6 +524,9 @@ namespace Ulmeta.Guards
             if (OrderedDirection != Direction.Mask && CurrentWayPoint == null
                 && !SpellHelper.CheckCombat(this) && Home == Location && RangeHome == 0)
             {
+                if (OrderedDirection == Direction.Mask)
+                    OrderedDirection = Direction;
+
                 Direction = OrderedDirection;
             }
 

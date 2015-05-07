@@ -167,7 +167,7 @@ namespace Server.Misc
                 Gain(from, skill);
                 if (from is Player)
                 {
-                    ((Player)from).EoC += (int)((skill.Base * 0.618) / 2);
+                    ((Player)from).EoC += (int)((skill.Base * 0.618) / Math.PI);
 
                     if (Utility.RandomDouble() == Utility.RandomDouble())
                         from.Hunger--;

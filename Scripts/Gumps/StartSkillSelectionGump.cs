@@ -9,6 +9,7 @@ namespace Server.SkillSelection {
 	public class StaringSkillSelectionGump : Gump {
 		public const double MaxIndividualCap = 100.0;
 
+        private double _points = 125;
 		private Mobile _from;
 		private SkillGroup _skillsGroup;
 
@@ -79,7 +80,7 @@ namespace Server.SkillSelection {
 				y += 20;
 			}
 
-			AddLabel( 30, (y + 20), 1152, "Points Remaining: " + GetRemainingPoints().ToString( "F1" ) );
+			AddLabel( 30, (y + 20), 1152, "Points Remaining: " + GetRemainingPoints.ToString( "F1" ) );
 			AddButton( 290, (y + 20), 4023, 4025, GetButtonID( 5, 1 ), GumpButtonType.Reply, 0 );
 		}
 
@@ -119,16 +120,21 @@ namespace Server.SkillSelection {
 
 							if( sk != null ) {
 								switch( mode ) {
-									case "inc": {
-											if( IsRaceBonus( _from, sk ) ) {
-												sk.Base = sk.Cap;
-											} else if( GetRemainingPoints() <= 0.0 ) {
-												_from.SendMessage( "You do not have enough points remaining. Try lowering another skill first." );
-											} else if( sk.Base >= 50.0 ) {
-												_from.SendMessage( "That skill is at its maximum value." );
-											} else {
-												sk.Base += 5.0;
-											}
+									case "inc": 
+                                        {
+                                        if( GetRemainingPoints <= 0.0 ) 
+                                        {
+												_from.SendMessage( "You do not have enough points remaining. Try lowering another skill first." );								
+                                        }
+                                        else if (sk.Base >= 50.0)
+                                        {
+                                            _from.SendMessage("That skill is at its maximum value.");
+                                        }
+                                        else
+                                        {
+                                            sk.Base += 5.0;
+                                            _points -= 5.0;
+                                        }
 
 											break;
 										}
@@ -137,30 +143,35 @@ namespace Server.SkillSelection {
 												_from.SendMessage( "That skill is at its minimum value. It cannot be lowered further." );
 											} else {
 												sk.Base -= 5.0;
+                                                _points += 5.0;
 											}
 
 											break;
 										}
 									case "maxInc": {
-											if( IsRaceBonus( _from, sk ) ) {
-												sk.Base = sk.Cap;
-											} else if( GetRemainingPoints() <= 0.0 ) {
-												_from.SendMessage( "You do not have enough points remaining. Try lowering another skill cap first." );
-											} else if( sk.Base >= 50.0 ) {
-												_from.SendMessage( "That skill is at its maximum value." );
-											} else {
-												if( GetRemainingPoints() < (sk.Cap - sk.Base) )
-													sk.Base = GetRemainingPoints();
-												else
-													sk.Base = 50.0;
+                                            if( GetRemainingPoints <= 0.0 ) 
+                                            {										
+                                                _from.SendMessage( "You do not have enough points remaining. Try lowering another skill cap first." );
 											}
+                                            else if (sk.Base >= 50.0)
+                                            {
+                                                _from.SendMessage("That skill is at its maximum value.");
+                                            }
+                                            else
+                                            {
+                                                sk.Base = 50.0;
+                                                _points -= 50.0;
+                                            }
 
 											break;
 										}
-									case "maxDec": {
-											if( sk.Base <= 0.0 ) {
+									case "maxDec": 
+                                        {
+											if( sk.Base <= 0.0 ) 
+                                            {
 												_from.SendMessage( "That skill is at its minimum value. It cannot be lowered further." );
-											} else {
+											} else 
+                                            {
 												sk.Base = 0.0;
 											}
 
@@ -175,7 +186,7 @@ namespace Server.SkillSelection {
 						break;
 					}
 				case 5: {
-						if( GetRemainingPoints() > 0.0 )
+						if( GetRemainingPoints > 0.0 )
 							Confirm();
 						else
 							_from.CloseGump( typeof( StaringSkillSelectionGump ) );
@@ -194,32 +205,14 @@ namespace Server.SkillSelection {
 			_from.SendGump( new StaringSkillSelectionGump( _from, selection ) );
 		}
 
-		private double GetRemainingPoints() {
-			double pointsLeft = 225;
-
-			for( int i = 0; i < _from.Skills.Length; i++ ) {
-				if( !IsRaceBonus( _from, _from.Skills[i] ) )
-					pointsLeft -= _from.Skills[i].Base;
-			}
-
-			return pointsLeft;
+		private double GetRemainingPoints {
+            get { return _points; }
+            set { _points = value; }
 		}
 
 		private void Confirm() {
 			_from.CloseGump( typeof( PointsRemainingWarningGump ) );
-			_from.SendGump( new PointsRemainingWarningGump( _from, this, Convert.ToInt32( GetRemainingPoints() ) ) );
-		}
-
-		private bool IsRaceBonus( Mobile m, Skill skill ) {
-			PlayerMobile pm = m as PlayerMobile;
-
-			//if( pm == null || pm.Race <= 0 )
-				//return false;
-
-			if( pm.Skills[skill.SkillID].Cap > 100.0 )
-				return true;
-
-			return false;
+			_from.SendGump( new PointsRemainingWarningGump( _from, this, Convert.ToInt32( GetRemainingPoints ) ) );
 		}
 	}
 
@@ -280,6 +273,9 @@ namespace Server.SkillSelection {
 					SkillName.MagicResist,
 					SkillName.Meditation,
 					SkillName.SpiritSpeak,
+                    SkillName.Necromancy,
+                    SkillName.Chivalry,
+                    SkillName.Ninjitsu
 				} ),
 				new SkillGroup( "Miscellaneous", new SkillName[]
 				{
@@ -294,7 +290,7 @@ namespace Server.SkillSelection {
 					SkillName.Snooping,
 					SkillName.Veterinary
 				} ),
-				new SkillGroup( "Combat Ratings", new SkillName[]
+				new SkillGroup( "Combat Skills", new SkillName[]
 				{
 					SkillName.Archery,
 					SkillName.Fencing,
@@ -302,7 +298,8 @@ namespace Server.SkillSelection {
 					SkillName.Parry,
 					SkillName.Swords,
 					SkillName.Tactics,
-					SkillName.Wrestling
+					SkillName.Wrestling,
+                    SkillName.Bushido,
 				} ),
 				new SkillGroup( "Actions", new SkillName[]
 				{

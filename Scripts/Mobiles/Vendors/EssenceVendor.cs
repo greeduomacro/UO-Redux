@@ -80,9 +80,9 @@ namespace Server.Mobiles
             this.AddLabel(207, 176, 1310, @"Soul Stone");
             this.AddItem(116, 267, 3628);
             this.AddLabel(199, 267, 1210, @"Daemon Blood");
-            this.AddLabel(200, 102, 1000, @"10,000 E.o.C");
-            this.AddLabel(200, 191, 1000, @"10,000 E.o.C");
-            this.AddLabel(200, 282, 1000, @"10,000 E.o.C");
+            this.AddLabel(200, 102, 1000, @"100,000 E.o.C");
+            this.AddLabel(200, 191, 1000, @"100,000 E.o.C");
+            this.AddLabel(200, 282, 1000, @"100,000 E.o.C");
             this.AddButton(324, 95, 247, 248, (int)Buttons.ancientScrollBtn, GumpButtonType.Reply, 0);
             this.AddButton(323, 186, 247, 248, (int)Buttons.soulStoneBtn, GumpButtonType.Reply, 0);
             this.AddButton(321, 274, 247, 248, (int)Buttons.daemonBloodBtn, GumpButtonType.Reply, 0);
@@ -119,7 +119,7 @@ namespace Server.Mobiles
                         case (int)Buttons.ancientScrollBtn:
                             {
 
-                                p.ConsumeEoC(10000);
+                                p.ConsumeEoC(100000);
                                 p.AddToBackpack(new AncientScroll());
                                 p.SendMessage("You feel part of your life-force being drained..");
                                 break;
@@ -127,7 +127,7 @@ namespace Server.Mobiles
 
                         case (int)Buttons.daemonBloodBtn:
                             {
-                                p.ConsumeEoC(10000);
+                                p.ConsumeEoC(100000);
                                 p.AddToBackpack(new DaemonBlood());
                                 p.SendMessage("You feel part of your life-force being drained..");
                                 break;
@@ -135,7 +135,7 @@ namespace Server.Mobiles
 
                         case (int)Buttons.soulStoneBtn:
                             {
-                                p.ConsumeEoC(10000);
+                                p.ConsumeEoC(100000);
                                 p.AddToBackpack(new SoulStone());
                                 p.SendMessage("You feel part of your life-force being drained..");
                                 break;
