@@ -212,7 +212,7 @@ namespace Server.Items
 			{
 				case 3:
 				{
-                    //m_Quality = (BookQuality) reader.ReadByte();		
+                    m_Quality = (BookQuality) reader.ReadByte();		
 					goto case 2;
 				}
 				case 2:

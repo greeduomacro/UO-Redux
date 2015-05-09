@@ -39,7 +39,7 @@ namespace Server.Perks
             if( Level < PerkLevel.Third )
                 return 0;
 
-            return (seconds * 0.33);
+            return (seconds -1);
         }
 
         /// <summary>
@@ -54,11 +54,11 @@ namespace Server.Perks
         }
 
         /// <summary>
-        /// 100% chance to recover a bandage during healing at <code>PerkLevel.First</code>
+        /// 50% chance to recover a bandage during healing at <code>PerkLevel.First</code>
         /// </summary>
         public bool TryRecoverBandage()
         {
-            return (Level < PerkLevel.First);
+            return (Level < PerkLevel.First && Utility.RandomBool());
         }
 
         /// <summary>

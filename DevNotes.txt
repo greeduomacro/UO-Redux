@@ -642,14 +642,63 @@ Replaced Bake Kitsune disguise functionality for compatability.
 Removed moonstone references from character creation.
 Modified loot to accomodate necromancy reagents and scrolls.
 
+0.3.9b
+Converted player mobile references to player in character creation due to upcast. (/crash)
+Reduced the amount of EoC players start with by 5,000.
+Removed Both AOS and PreAos Fillbox methods.
+Added new parameter to skill scroll gump to account for new point basis logic.
+Players now start with 150 verite instead of 1,000 gold and 50 verite (weight).
 
+0.3.9c
+Skill scrolls no longer allow players to go into the negative.
+Skill scrolls can no longer be used to lower original starting skills.
+Necromancy, Chivalry, Bushido, and Ninjitsu are now initialized with magery spells.
+Runebook serialization corrected.
+Using bandages now increases EoC.
+Reduced the amount of lumber recieved from trees.
+Weapon engraving tools now have a maximum of 2 charges.
+Changed localized messages on weapon engraving tools.
+Regenerating hitpoints now generates small amounts of EoC.
+Water pitchers and well buckets now increase thirst by 5.
+Characters no longer start with crook's in their new-player bags.
+Returned skillgain rates to RunUO standards.
+
+0.4.0
+Players may now lower skills using EoC.
+Players may no longer exceed the overall skillcap using EoC.
+The mysterious scroll again allows players to alter skills not granted by.
+Increased the rate at which stamina regenerates when below 10.
+Increased the rate that stamina and mana regenerate by one second.
+Increased the hitpoint regen bonus granted by hunger levels.
+Reduced the bonus granted to mana regen by focus.
+Engraving tools now have a maximum of one charge.
+Engraving tools now require 100.0 arms lore to use.
+Ankhs no longer require valorite coins to tithe.
+Reduced the medic's chance to recover bandages.
+Lowered medic's bonus to damage healed with bandages.
+Level three medic now lowers heal time by one second.
+Medics now suffer a speed penalty when healing with hands full.
+Legionnaires now have a 20% chance to bash an opponent with shield on parry.
+Reduced Legionnaires dodge ability by 5%.
+Regen rates now check last move time to better determine if a player is running.
+
+0.4.1
+Mobiles are now required to be within one tile of a waypoint before moving on.
+Staff may now generate way points on the go without manually linking.
+Players may now regenerate stamina while running, but at much lower rates.
+Vendors now pay more for runic weapons, jewelry, clothing, and armor.
+Modifed resists and weights on SE armor.
+Removed all kabuto variants.
+Parry now accounts for Bushido.
+Chivalry no longer requires tithing to cast.
+Tithing now reduces mana required to cast chivalry spells.
+Ninjitsu and Bushido spells no longer check expansion.
 
 TODO:
-Seeds can be planted anywhere.
+chat button should bring up [msg gump
+Seeds need to check housing tiles as well.
 Houses still say copper when placed.
-Skillscrolls fail to limit to 50 on some ocassions.
 Statues don't serialize solidhue
-skill scroll error on last selection.
 Stamina drop on start move
 Change town housing to use gold.
 Need item insurance.
@@ -658,12 +707,9 @@ Make field spells effect everyone, regardless of notoriety
 Ore stacks improperly - incorrect Itemid
 Reevaluate the arcanite's 5th
 Plant Bowl's Cliloc
-Buckets should refill water pitchers
 Address the mysterious scroll on vendors & in craft.
 
 --
-
-Buckets should refill water pitchers
 Get rid of the random ecounters engine
 
 ---

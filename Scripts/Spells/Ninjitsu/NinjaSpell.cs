@@ -47,11 +47,11 @@ namespace Server.Spells.Ninjitsu
 			if ( !base.CheckCast() )
 				return false;
 
-			if ( !CheckExpansion( Caster ) )
-			{
-				Caster.SendLocalizedMessage( 1063456 ); // You must upgrade to Samurai Empire in order to use that ability.
-				return false;
-			}
+            //if ( !CheckExpansion( Caster ) )
+            //{
+            //    Caster.SendLocalizedMessage( 1063456 ); // You must upgrade to Samurai Empire in order to use that ability.
+            //    return false;
+            //}
 
 			if ( Caster.Skills[CastSkill].Value < RequiredSkill )
 			{

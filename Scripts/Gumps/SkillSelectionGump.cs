@@ -55,7 +55,7 @@ namespace Server.SkillCapSelection {
 							//increment btn
 							AddButton( 265, (y + 25), 2435, 2436, GetButtonID( 1, j ), GumpButtonType.Reply, 0 );
 							//decrement btn
-							//AddButton( 280, (y + 25), 2437, 2438, GetButtonID( 2, j ), GumpButtonType.Reply, 0 );
+							AddButton( 280, (y + 25), 2437, 2438, GetButtonID( 2, j ), GumpButtonType.Reply, 0 );
 
 						}
 
@@ -76,7 +76,8 @@ namespace Server.SkillCapSelection {
 			int type = buttonID % 10;
 
 			switch( type ) {
-				case 0: {
+				case 0: 
+                    {
 						if( index >= 0 && index < SkillGroup.Groups.Length ) {
 							SkillGroup newGroup = SkillGroup.Groups[index];
 
@@ -88,18 +89,17 @@ namespace Server.SkillCapSelection {
 
 						break;
 					}
+
 				case 1:
 				case 2:
 				case 3:
 				case 4: {
+
 						string mode = "inc";
 
-						if( type == 2 )
-							mode = "dec";
-						else if( type == 3 )
-							mode = "maxInc";
-						else if( type == 4 )
-							mode = "maxDec";
+						if( type == 2 ) mode = "dec";
+						else if( type == 3 ) mode = "maxInc";
+						else if( type == 4 ) mode = "maxDec";
 
 						if( _skillsGroup != null && (index >= 0 && index < _skillsGroup.Skills.Length) ) {
 							Skill sk = _from.Skills[_skillsGroup.Skills[index]];
@@ -110,7 +110,11 @@ namespace Server.SkillCapSelection {
                                 {
 									case "inc": 
                                         {
-                                            if (sk.Base >= sk.Cap)
+                                            if (_from.SkillsCap < _from.SkillsTotal + 1)
+                                                _from.SendMessage
+                                                    ("This would exceed your overall skill cap. Try lowering another skill first.");
+
+                                            else if (sk.Base >= sk.Cap)
                                                 _from.SendMessage("That skill is at its maximum level. It cannot be raised any further");
 
                                             else if (((Player)_from).EoC < sk.Base * 10)
@@ -119,6 +123,10 @@ namespace Server.SkillCapSelection {
                                             else
                                             {
                                                 sk.Base += 1.0;
+
+                                                if (sk.Base > sk.Cap)
+                                                    sk.Base = sk.Cap;
+
                                                 ((Player)_from).EoC -= (int)(sk.Base * 10);
                                             }
 											break;
@@ -127,14 +135,13 @@ namespace Server.SkillCapSelection {
 									case "dec": 
                                         {
                                             if (sk.Base <= 0.0) 
-												_from.SendMessage( "That skill is at its minimum level. It cannot be lowered further." );
+												_from.SendMessage
+                                                    ( "That skill is at its minimum level. It cannot be lowered further." );
 
                                             else 
                                             {
                                                 sk.Base -= 1.0;
-                                                ((Player)_from).EoC += (int)(sk.Base * 10);
-                                                if (sk.Base > sk.Cap)
-                                                    sk.Base = sk.Cap;
+                                                ((Player)_from).EoC -= (int)(sk.Base * 5);
 											}
 
 											break;
@@ -158,11 +165,13 @@ namespace Server.SkillCapSelection {
 			}
 		}
 
-		private int GetButtonID( int type, int index ) {
+		private int GetButtonID( int type, int index ) 
+        {
 			return (1 + (index * 10) + type);
 		}
 
-		private void Resend( SkillGroup selection ) {
+		private void Resend( SkillGroup selection ) 
+        {
 			_from.CloseGump( typeof( SkillSelectionGump ) );
 			_from.SendGump( new SkillSelectionGump( _from, selection ) );
 		}
@@ -239,11 +248,14 @@ namespace Server.SkillCapSelection {
 				} ),
 				new SkillGroup( "Magical", new SkillName[]
 				{
+                    SkillName.Chivalry,
 					SkillName.EvalInt,
 					SkillName.Magery,
 					SkillName.MagicResist,
 					SkillName.Meditation,
-					SkillName.SpiritSpeak,
+                    SkillName.Necromancy,
+                    SkillName.Ninjitsu,
+					SkillName.SpiritSpeak
 				} ),
 				new SkillGroup( "Miscellaneous", new SkillName[]
 				{
@@ -261,6 +273,7 @@ namespace Server.SkillCapSelection {
 				new SkillGroup( "Combat Ratings", new SkillName[]
 				{
 					SkillName.Archery,
+                    SkillName.Bushido,
 					SkillName.Fencing,
 					SkillName.Macing,
 					SkillName.Parry,

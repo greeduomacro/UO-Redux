@@ -960,7 +960,7 @@ namespace Server.Items
             else if( from == targ )
             {
                 if( from.Thirst < 20 )
-                    from.Thirst += 1;
+                    from.Thirst += 5;
 
                 if( ContainsAlchohol )
                 {

@@ -125,15 +125,15 @@ namespace Server.Misc
 			bool success = (chance >= Utility.RandomDouble());
 			double gc = (double)(from.Skills.Cap - from.Skills.Total) / from.Skills.Cap;
 			gc += (skill.Cap - skill.Base) / skill.Cap;
-			gc /= 1.5;
+			gc /= 2;
 
-			gc += (1.0 - chance) * (success ? 0.75 : 0.25);
+            gc += (1.0 - chance) * (success ? 0.5 : (Core.AOS ? 0.0 : 0.2));
 			gc /= 2;
 
 			gc *= skill.Info.GainFactor;
 
-			if( gc < 0.02 )
-				gc = 0.02;
+			if( gc < 0.01 )
+				gc = 0.01;
 
             if (from is BaseCreature && ((BaseCreature)from).Controlled)
             {
@@ -152,15 +152,15 @@ namespace Server.Misc
             bool skillImproved = (from.Alive && ((gc >= Utility.RandomDouble() && AllowGain(from, skill, amObj))
                 || (skill.Base < 10.0 && Utility.RandomDouble() < 0.50)));
 
-            if (!skillImproved && Utility.RandomBool())
-            {
-                skillImproved 
-                    = ((skill.Base < 33.3 && Utility.RandomDouble()   <= 0.010)
-                    || (skill.Base < 66.7 && Utility.RandomDouble()   <= 0.008) 
-                    || (skill.Base <= 91.1 && Utility.RandomDouble()  <= 0.006)
-                    || (skill.Base <= 100.0 && Utility.RandomDouble() <= 0.004)
-                    || (skill.Base <= 125.0 && Utility.RandomDouble() <= 0.002));
-            }
+            //if (!skillImproved && Utility.RandomBool())
+            //{
+            //    skillImproved 
+            //        = ((skill.Base < 33.3 && Utility.RandomDouble()   <= 0.005)
+            //        || (skill.Base < 66.7 && Utility.RandomDouble()   <= 0.004) 
+            //        || (skill.Base <= 91.1 && Utility.RandomDouble()  <= 0.003)
+            //        || (skill.Base <= 100.0 && Utility.RandomDouble() <= 0.002)
+            //        || (skill.Base <= 125.0 && Utility.RandomDouble() <= 0.001));
+            //}
 
             if (skillImproved)
             {
@@ -295,9 +295,9 @@ namespace Server.Misc
 					return false;
 			}
 
-            int strCap = 125;
-            int dexCap = 125;
-            int intCap = 125;
+            int strCap = 150;
+            int dexCap = 150;
+            int intCap = 150;
 
             if (from is Player)
             {

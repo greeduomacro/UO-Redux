@@ -813,17 +813,6 @@ namespace Server.Mobiles
             EventDispatcher.InvokePlayerKarmaChange(new PlayerKarmaChangeEventArgs(this, oldValue, Karma));
         }
 
-        /////<summary>
-        /////Overridden to stop players from running with platemale legs.
-        ///// </summary>
-        //public override TimeSpan ComputeMovementSpeed(Direction dir, bool checkTurning)
-        //{
-        //    if (FindItemOnLayer(Layer.Pants) is PlateLegs && !Mounted)
-        //        return Mobile.WalkFoot;
-
-        //    else return base.ComputeMovementSpeed(dir, checkTurning);
-        //}
-
         /// <summary>
         /// Overridden to redesign hidden movement handler
         /// Overriden to Consume Stamina when running.
@@ -836,7 +825,9 @@ namespace Server.Mobiles
 
         protected override bool OnMove(Direction d)
         {
-            lastZ = currentZ; base.OnMove(d); currentZ = Z;
+            lastZ = currentZ; 
+            base.OnMove(d); 
+            currentZ = Z;
 
             EventDispatcher.InvokePlayerMove(new PlayerMoveEventArgs(this, d));
             isRunning = ((d & Direction.Running) != 0);
@@ -849,14 +840,14 @@ namespace Server.Mobiles
                     return true;
 
                 BaseMount mount = this.Mount as BaseMount;
-                double mountCapacity = (double)(mount.Str * 4.865);
+                double mountCapacity = (double)(mount.Str * 12);
                 stamLost += ((double)((TotalWeight * 0.618) / mountCapacity));
 
                 if (mount.IsInjured)
                     return false;
 
                 if (lastZ < currentZ)
-                    stamLost++;
+                    stamLost = stamLost * 1.618;
 
                 if (stamLost > 1.0)
                 {

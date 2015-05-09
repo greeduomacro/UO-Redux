@@ -722,8 +722,50 @@ namespace Server.Mobiles
                         if( item is Container && ((Container)item).Items.Count != 0 )
                             continue;
 
-                        if( item.IsStandardLoot() && item.Movable && ssi.IsSellable(item) )
-                            table[item] = new SellItemState(item, ssi.GetSellPriceFor(item), ssi.GetNameFor(item));
+                        if (item.IsStandardLoot() && item.Movable && ssi.IsSellable(item))
+                        {
+                            int basePrice = ssi.GetSellPriceFor(item);
+                            int price = basePrice;
+
+                            if(item is BaseWeapon)
+                            {
+                                BaseWeapon weapon = item as BaseWeapon;
+                                if(!weapon.Attributes.IsEmpty 
+                                    || !weapon.WeaponAttributes.IsEmpty)
+                                {
+                                    price = (int)(basePrice * 1.618);
+                                }
+                            }
+
+                            else if (item is BaseArmor)
+                            {
+                                BaseArmor armor = item as BaseArmor;
+                                if (!armor.Attributes.IsEmpty
+                                    || !armor.ArmorAttributes.IsEmpty)
+                                {
+                                    price = (int)(basePrice * 1.618);
+                                }
+                            }
+
+                            else if (item is BaseClothing)
+                            {
+                                BaseClothing clothing = item as BaseClothing;
+                                if (!clothing.Attributes.IsEmpty
+                                    || !clothing.ClothingAttributes.IsEmpty)
+                                {
+                                    price = (int)(basePrice * 1.618);
+                                }
+                            }
+
+                            else if (item is BaseJewel)
+                            {
+                                BaseJewel jewel = item as BaseJewel;
+                                if (!jewel.Attributes.IsEmpty)
+                                    price = (int)(basePrice * 1.618);
+                            }
+
+                            table[item] = new SellItemState(item, price, ssi.GetNameFor(item));
+                        }
                     }
                 }
 

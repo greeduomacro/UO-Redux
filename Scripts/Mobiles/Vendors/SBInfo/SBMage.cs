@@ -45,6 +45,12 @@ namespace Server.Mobiles
                 Add(new GenericBuyInfo(typeof(Bloodmoss), 5, 999, 0xF7B, 0));
                 Add(new GenericBuyInfo(typeof(BlackPearl), 5, 999, 0xF7A, 0));
 
+                Add(new GenericBuyInfo(typeof(BatWing), 3, 999, 0xF78, 0));
+                Add(new GenericBuyInfo(typeof(DaemonBlood), 6, 999, 0xF7D, 0));
+                Add(new GenericBuyInfo(typeof(PigIron), 5, 999, 0xF8A, 0));
+                Add(new GenericBuyInfo(typeof(NoxCrystal), 6, 999, 0xF8E, 0));
+                Add(new GenericBuyInfo(typeof(GraveDust), 3, 999, 0xF8F, 0));
+
                 Add(new GenericBuyInfo(typeof(LesserExplosionPotion), 21, 10, 0xF0D, 0));
                 Add(new GenericBuyInfo(typeof(LesserCurePotion), 15, 10, 0xF07, 0));
                 Add(new GenericBuyInfo(typeof(LesserPoisonPotion), 15, 10, 0xF0A, 0));

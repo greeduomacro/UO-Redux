@@ -1118,6 +1118,7 @@ namespace Server.Items
             BaseShield shield = defender.FindItemOnLayer(Layer.TwoHanded) as BaseShield;
 
             double parry = defender.Skills[SkillName.Parry].Value;
+            double bushido = defender.Skills[SkillName.Bushido].Value;
 
             if(shield != null)
             {
@@ -1145,6 +1146,11 @@ namespace Server.Items
                 {
                     chance += (parry - 100) / 100;
                     aosChance += (parry - 100) / 100;
+                }
+
+                if (bushido >= 100.0)
+                {
+                    chance += 0.05;
                 }
 
                 // Low dexterity lowers the chance.

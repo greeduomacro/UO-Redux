@@ -241,6 +241,9 @@ namespace Server.Items
             bool playSound = true;
             bool checkSkills = false;
 
+            if (Healer is Player)
+                ((Player)Healer).EoC++;
+
             SkillName primarySkill = GetPrimarySkill(m_Patient);
             SkillName secondarySkill = GetSecondarySkill(m_Patient);
 
@@ -445,7 +448,7 @@ namespace Server.Items
 
                         if (med != null && med.IsDoctor())
                         {
-                            toHeal = (toHeal * 2);
+                            toHeal = (toHeal * 1.5);
                         }
                     }
 
@@ -535,31 +538,39 @@ namespace Server.Items
                 {
                     //if( Core.AOS )
                     
-                    seconds = 2.0 + (0.5 * ((double)(120 - dex) / 10));
+                    seconds = 4 + (0.5 * ((double)(120 - dex) / 10));
+
+                    Item handOne = healer.FindItemOnLayer(Layer.OneHanded);
+                    Item handTwo = healer.FindItemOnLayer(Layer.TwoHanded);
+
+                    bool freeHand = handOne == null; if (!freeHand) freeHand = handTwo == null;
+
+                    if (!freeHand) seconds++;
 
                     //else
                     //    seconds = 9.4 + (0.6 * ((double)(120 - dex) / 10));
                 }
+
                 else
                 {
                     if( Core.AOS && GetPrimarySkill(patient) == SkillName.Veterinary )
                     {
-                        //if ( dex >= 40 )
-                        seconds = 1.0;
-                        //else
-                        //	seconds = 3.0;
+                        if ( dex >= 40 )
+                        seconds = 2.0;
+                        else
+                        	seconds = 3.0;
                     }
 
                     else
                     {
                         if( dex >= 100 )
-                            seconds = 1.0 + resDelay;
-
-                        else if( dex >= 75 )
                             seconds = 2.0 + resDelay;
 
-                        else
+                        else if( dex >= 75 )
                             seconds = 3.0 + resDelay;
+
+                        else
+                            seconds = 4.0 + resDelay;
                     }
                 }
 
