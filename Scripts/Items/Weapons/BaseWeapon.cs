@@ -2027,6 +2027,7 @@ namespace Server.Items
             {
                 case WeaponQuality.Low: bonus -= 20; break;
                 case WeaponQuality.Exceptional: bonus += 20; break;
+                case WeaponQuality.Extraordinary: bonus += 40; break;
             }
 
             switch(m_DamageLevel)
@@ -2961,6 +2962,9 @@ namespace Server.Items
 
                 if (m_Quality == WeaponQuality.Exceptional)
                     list.Add(1060636); // exceptional
+
+                if (m_Quality == WeaponQuality.Extraordinary)
+                    list.Add("Extraordinary");
 
                 //if (RelicLevel > 0)
                 //    list.Add("Relic Level (" + RelicLevel + ")");

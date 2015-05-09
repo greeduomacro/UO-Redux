@@ -69,11 +69,11 @@ namespace Server
 				typeof( ChainHatsuburi ),		typeof( LeatherDo ),			typeof( LeatherHaidate ),
 				typeof( LeatherHiroSode ),		typeof( LeatherJingasa ),		typeof( LeatherMempo ),
 				typeof( LeatherNinjaHood ),		typeof( LeatherNinjaJacket ),	typeof( LeatherNinjaMitts ),
-				typeof( LeatherNinjaPants ),	typeof( LeatherSuneate ),		typeof( DecorativePlateKabuto ),
-				typeof( HeavyPlateJingasa ),	typeof( LightPlateJingasa ),	typeof( PlateBattleKabuto ),
+				typeof( LeatherNinjaPants ),	typeof( LeatherSuneate ),		/*typeof( DecorativePlateKabuto ),*/
+				typeof( HeavyPlateJingasa ),	typeof( LightPlateJingasa ),	/*typeof( PlateBattleKabuto ),*/
 				typeof( PlateDo ),				typeof( PlateHaidate ),			typeof( PlateHatsuburi ),
 				typeof( PlateHiroSode ),		typeof( PlateMempo ),			typeof( PlateSuneate ),
-				typeof( SmallPlateJingasa ),	typeof( StandardPlateKabuto ),	typeof( StuddedDo ),
+				typeof( SmallPlateJingasa ),	/*typeof( StandardPlateKabuto ),*/	typeof( StuddedDo ),
 				typeof( StuddedHaidate ),		typeof( StuddedHiroSode ),		typeof( StuddedMempo ),
 				typeof( StuddedSuneate )
 			};

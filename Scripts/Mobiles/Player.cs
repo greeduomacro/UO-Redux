@@ -479,12 +479,25 @@ namespace Server.Mobiles
                     else Thirst--;
 
                     //Idk, some days I want it, some days I don't
-                    //SendMessage("You begin to feel your exertion depleting your body.");
+                    SendMessage("You begin to feel your exertion depleting your body.");
                 }
             }
         }
 
-        public override int MaxWeight { get { return 40 + (int)(3.5 * this.Str); } }
+        public override int MaxWeight
+        {
+            get
+            {
+                Craftsman cm = Perk.GetByType<Craftsman>(this);
+
+                int x = 40;
+
+                if (cm != null && cm.WorkHorse())
+                    x += 50;
+
+                return (x + (int)(3.5 * this.Str));
+            }
+        }
 
         public Player()
             : base()

@@ -58,12 +58,12 @@ namespace Server.Items
 				if ( m_Item.Deleted )
 					return;
 
-				/*if ( targeted is Item && !((Item)targeted).IsStandardLoot() )
+				if ( targeted is Item && !((Item)targeted).IsStandardLoot() )
 				{
-					from.SendLocalizedMessage( 502440 ); // Scissors can not be used on that to produce anything.
+                    from.SendMessage("You decide against it.");
 				}
-				else */
-				if( Core.AOS && targeted == from )
+
+				else if( Core.AOS && targeted == from )
 				{
 					from.SendLocalizedMessage( 1062845 + Utility.Random( 3 ) );	//"That doesn't seem like the smartest thing to do." / "That was an encounter you don't wish to repeat." / "Ha! You missed!"
 				}

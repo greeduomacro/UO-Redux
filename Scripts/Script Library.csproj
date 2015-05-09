@@ -182,6 +182,7 @@
     <Compile Include="Commands\Skills.cs" />
     <Compile Include="Commands\SkillsMenu.cs" />
     <Compile Include="Commands\VisibilityList.cs" />
+    <Compile Include="Commands\WaypointGenerator.cs" />
     <Compile Include="Commands\Wipe.cs" />
     <Compile Include="Context Menus\AddToParty.cs" />
     <Compile Include="Context Menus\AddToSpellbookEntry.cs" />
@@ -859,12 +860,10 @@
     <Compile Include="Items\Armor\Leather\LeatherShorts.cs" />
     <Compile Include="Items\Armor\Leather\LeatherSkirt.cs" />
     <Compile Include="Items\Armor\Leather\LeatherSuneate.cs" />
-    <Compile Include="Items\Armor\Plate\DecorativePlateKabuto.cs" />
     <Compile Include="Items\Armor\Plate\FemalePlateChest.cs" />
     <Compile Include="Items\Armor\Plate\HeavyPlateJingasa.cs" />
     <Compile Include="Items\Armor\Plate\LightPlateJingasa.cs" />
     <Compile Include="Items\Armor\Plate\PlateArms.cs" />
-    <Compile Include="Items\Armor\Plate\PlateBattleKabuto.cs" />
     <Compile Include="Items\Armor\Plate\PlateChest.cs" />
     <Compile Include="Items\Armor\Plate\PlateDo.cs" />
     <Compile Include="Items\Armor\Plate\PlateGloves.cs" />
@@ -876,7 +875,6 @@
     <Compile Include="Items\Armor\Plate\PlateMempo.cs" />
     <Compile Include="Items\Armor\Plate\PlateSuneate.cs" />
     <Compile Include="Items\Armor\Plate\SmallPlateJingasa.cs" />
-    <Compile Include="Items\Armor\Plate\StandardPlateKabuto.cs" />
     <Compile Include="Items\Armor\Ranger\RangerArms.cs" />
     <Compile Include="Items\Armor\Ranger\RangerChest.cs" />
     <Compile Include="Items\Armor\Ranger\RangerGloves.cs" />
@@ -2358,7 +2356,6 @@
     <Compile Include="Mobiles\Monsters\SE\Oni.cs" />
     <Compile Include="Mobiles\Monsters\SE\RaiJu.cs" />
     <Compile Include="Mobiles\Monsters\SE\RevenantLion.cs" />
-    <Compile Include="Mobiles\Monsters\SE\Ronin.cs" />
     <Compile Include="Mobiles\Monsters\SE\RuneBeetle.cs" />
     <Compile Include="Mobiles\Monsters\SE\TsukiWolf.cs" />
     <Compile Include="Mobiles\Monsters\SE\Yamandon.cs" />

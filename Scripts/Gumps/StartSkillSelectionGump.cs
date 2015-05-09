@@ -329,7 +329,7 @@ namespace Server.SkillSelection
 					SkillName.MagicResist,
 					SkillName.Meditation,
                     SkillName.Necromancy,
-                    SkillName.Ninjitsu,
+                    //SkillName.Ninjitsu,
 					SkillName.SpiritSpeak,
 				} ),
 				new SkillGroup( "Miscellaneous", new SkillName[]
@@ -348,7 +348,7 @@ namespace Server.SkillSelection
 				new SkillGroup( "Combat Ratings", new SkillName[]
 				{
 					SkillName.Archery,
-                    SkillName.Bushido,
+                    //SkillName.Bushido,
 					SkillName.Fencing,
 					SkillName.Macing,
 					SkillName.Parry,

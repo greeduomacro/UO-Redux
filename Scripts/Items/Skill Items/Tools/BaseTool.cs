@@ -9,7 +9,8 @@ namespace Server.Items
 	{
 		Low,
 		Regular,
-		Exceptional
+		Exceptional,
+        Extraordinary
 	}
 
 	public abstract class BaseTool : Item, IUsesRemaining, ICraftable

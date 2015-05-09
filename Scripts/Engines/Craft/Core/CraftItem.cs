@@ -1,6 +1,7 @@
 using Server.Events;
 using Server.Items;
 using Server.Mobiles;
+using Server.Perks;
 using System;
 using System.Collections.Generic;
 
@@ -723,10 +724,25 @@ namespace Server.Engines.Craft
             {
                 m_ResHue = 0; m_ResAmount = 0; m_System = craftSystem;
 
+                if (from is Player)
+                {
+                    Craftsman cm = Perk.GetByType<Craftsman>(from as Player);
+
+                    if (cm != null && cm.Efficient())
+                    {
+                        for (int i = 0; i < amounts.Length; i++)
+                        {   //Reduce all resources used by one if result is greater than one.
+                            if (amounts[i] - 1 > 1)
+                                amounts[i]--;
+                        }
+                    }
+                }
+
                 if(IsQuantityType(types))
                     index = ConsumeQuantity(ourPack, types, amounts);
                 else
-                    index = ourPack.ConsumeTotalGrouped(types, amounts, true, new OnItemConsumed(OnResourceConsumed), new CheckItemGroup(CheckHueGrouping));
+                    index = ourPack.ConsumeTotalGrouped
+                        (types, amounts, true, new OnItemConsumed(OnResourceConsumed), new CheckItemGroup(CheckHueGrouping));
 
                 resHue = m_ResHue;
             }
@@ -747,7 +763,8 @@ namespace Server.Engines.Craft
                 if(IsQuantityType(types))
                     index = ConsumeQuantity(ourPack, types, amounts);
                 else
-                    index = ourPack.ConsumeTotalGrouped(types, amounts, true, new OnItemConsumed(OnResourceConsumed), new CheckItemGroup(CheckHueGrouping));
+                    index = ourPack.ConsumeTotalGrouped
+                        (types, amounts, true, new OnItemConsumed(OnResourceConsumed), new CheckItemGroup(CheckHueGrouping));
 
                 resHue = m_ResHue;
             }
@@ -866,6 +883,15 @@ namespace Server.Engines.Craft
 
             if(GetExceptionalChance(craftSystem, chance, from) > Utility.RandomDouble())
                 quality = 2;
+
+            if (from is Player)
+            {
+                Craftsman cm = Perk.GetByType<Craftsman>(from as Player);
+                if (cm != null && cm.Master() && Utility.RandomDouble() < 0.02)
+                {
+                    quality = 3;
+                }
+            }
 
             return (chance > Utility.RandomDouble());
         }
@@ -1135,6 +1161,33 @@ namespace Server.Engines.Craft
                             ((IUsesRemaining)item).UsesRemaining *= maxAmount;
                         else
                             item.Amount = maxAmount;
+                    }
+
+                    if (from is Player)
+                    {
+                        Player p = from as Player;
+                        Craftsman cm = Perk.GetByType<Craftsman>(p);
+
+                        if (cm != null && cm.Craftsmanship())
+                        {
+                            if (item is BaseArmor)
+                            {
+                                ((BaseArmor)item).MaxHitPoints += Utility.RandomMinMax(25, 30);
+                                ((BaseArmor)item).HitPoints = ((BaseWeapon)item).MaxHitPoints;
+                            }
+
+                            if (item is BaseWeapon)
+                            {
+                                ((BaseWeapon)item).MaxHitPoints += Utility.RandomMinMax(25, 30);
+                                ((BaseWeapon)item).HitPoints = ((BaseWeapon)item).MaxHitPoints;
+                            }
+
+                            if (item is BaseClothing)
+                            {
+                                ((BaseClothing)item).MaxHitPoints += Utility.RandomMinMax(25, 30);
+                                ((BaseClothing)item).HitPoints = ((BaseClothing)item).MaxHitPoints;
+                            }
+                        }                         
                     }
 
                     from.AddToBackpack(item);

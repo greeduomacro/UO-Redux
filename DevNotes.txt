@@ -688,15 +688,23 @@ Staff may now generate way points on the go without manually linking.
 Players may now regenerate stamina while running, but at much lower rates.
 Vendors now pay more for runic weapons, jewelry, clothing, and armor.
 Modifed resists and weights on SE armor.
-Removed all kabuto variants.
+Removed all kabuto variants
 Parry now accounts for Bushido.
 Chivalry no longer requires tithing to cast.
 Tithing now reduces mana required to cast chivalry spells.
-Ninjitsu and Bushido spells no longer check expansion.
+
+0.4.1a
+Seeds may no longer be planted in guarded areas.
+Planting a seed now clears a player's hands.
+Seeds now check for multis and houses.
+
+0.4.2
+Craftsman perk enabled.
+Added new quality level to weapons and armor.
+Level 5 Craftsman now have a 2% chance of crafting an extraodinary item.
 
 TODO:
 chat button should bring up [msg gump
-Seeds need to check housing tiles as well.
 Houses still say copper when placed.
 Statues don't serialize solidhue
 Stamina drop on start move
