@@ -701,7 +701,8 @@ Seeds now check for multis and houses.
 0.4.2
 Craftsman perk enabled.
 Added new quality level to weapons and armor.
-Level 5 Craftsman now have a 2% chance of crafting an extraodinary item.
+Level 5 Craftsman now have a 2% chance of crafting an extraordinary item.
+Divine fury now increases stamina by 10 + chivalry / 10.
 
 TODO:
 chat button should bring up [msg gump

@@ -2896,7 +2896,7 @@ namespace Server.Items
                 case CraftResource.SpinedLeather: oreType = 1061118; break; // spined
                 case CraftResource.HornedLeather: oreType = 1061117; break; // horned
                 case CraftResource.BarbedLeather: oreType = 1061116; break; // barbed
-                case CraftResource.RedScales: oreType = 1060814; break; // red
+                case CraftResource.RedScales: oreType = 1060814; break;     // red
                 case CraftResource.YellowScales: oreType = 1060818; break; // yellow
                 case CraftResource.BlackScales: oreType = 1060820; break; // black
                 case CraftResource.GreenScales: oreType = 1060819; break; // green
@@ -2944,7 +2944,7 @@ namespace Server.Items
         {
             base.GetProperties(list);
 
-            if((!m_AosAttributes.IsEmpty || !m_AosWeaponAttributes.IsEmpty))
+            if((!m_AosAttributes.IsEmpty || !m_AosWeaponAttributes.IsEmpty) && !PlayerConstructed)
                 list.Add("Runic");
 
             DisplayProperties(list);

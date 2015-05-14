@@ -35,7 +35,7 @@ namespace Server.Spells.Chivalry
 				Caster.FixedParticles( 0x376A, 1, 31, 9961, 1160, 0, EffectLayer.Waist );
 				Caster.FixedParticles( 0x37C4, 1, 31, 9502, 43, 2, EffectLayer.Waist );
 
-				Caster.Stam = Caster.StamMax;
+                Caster.Stam += (int)(10 + Caster.Skills.Chivalry.Value / 100);
 
 				Timer t = (Timer)m_Table[Caster];
 

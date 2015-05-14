@@ -489,7 +489,7 @@ namespace Server.Items
         {
             base.GetProperties(list);
 
-            if((!m_AosAttributes.IsEmpty || !m_AosClothingAttributes.IsEmpty))
+            if((!m_AosAttributes.IsEmpty || !m_AosClothingAttributes.IsEmpty) && !PlayerConstructed)
                 list.Add("Runic");
 
             DisplayProperties(list);
