@@ -1,0 +1,3 @@
+#!/bin/sh
+mv bower_components/pure/pure.css bower_components/pure/_pure.scss
+mv bower_components/pure/grids-responsive.css bower_components/pure/_grids-responsive.scss
