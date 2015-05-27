@@ -6,7 +6,8 @@ namespace Server.Items
 	{
 		Low,
 		Regular,
-		Exceptional
+		Exceptional,
+        Extraordinary
 	}
 
 	public enum ArmorDurabilityLevel

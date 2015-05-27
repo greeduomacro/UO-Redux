@@ -57,8 +57,8 @@ namespace Server.Engines.Harvest
 			lumber.MaxRange = 2;
 
 			// Ten logs per harvest action
-			lumber.ConsumedPerHarvest = 10;
-			lumber.ConsumedPerFeluccaHarvest = 20;
+			lumber.ConsumedPerHarvest = Utility.Random(4,6);
+            lumber.ConsumedPerFeluccaHarvest = Utility.Random(4, 6);
 
 			// The chopping effect
 			lumber.EffectActions = new int[] { 13 };

@@ -14,6 +14,9 @@ using Server.Network;
 using Server.Spells;
 using Server.Spells.Fifth;
 using Server.Spells.Seventh;
+using Server.Spells.Necromancy;
+using Server.Spells.Ninjitsu;
+using Server.Spells.Bushido;
 
 using Ulmeta.Factions;
 
@@ -113,6 +116,9 @@ namespace Server.Mobiles
         private bool m_IsStealthing; // IsStealthing should be moved to Server.Mobiles
         private bool m_IgnoreMobiles; // IgnoreMobiles should be moved to Server.Mobiles
 
+        private bool m_NinjaWepCooldown;
+        private int m_ExecutesLightningStrike;
+
         private DateTime m_LastOnline;
         private Server.Guilds.RankDefinition m_GuildRank;
 
@@ -134,6 +140,17 @@ namespace Server.Mobiles
                 m_RecentlyReported = value;
             }
         }
+		public bool NinjaWepCooldown
+		{
+			get
+			{
+				return m_NinjaWepCooldown;
+			}
+			set
+			{
+				m_NinjaWepCooldown = value;
+			}
+		}
 
         public List<Mobile> AllFollowers
         {
@@ -248,6 +265,12 @@ namespace Server.Mobiles
             get { return m_NpcGuildGameTime; }
             set { m_NpcGuildGameTime = value; }
         }
+
+		public int ExecutesLightningStrike
+		{
+			get { return m_ExecutesLightningStrike; }
+			set { m_ExecutesLightningStrike = value; }
+		}
 
         #endregion
 
@@ -555,6 +578,59 @@ namespace Server.Mobiles
             EventSink.Connected += new ConnectedEventHandler(EventSink_Connected);
             EventSink.Disconnected += new DisconnectedEventHandler(EventSink_Disconnected);
         }
+
+		private MountBlock m_MountBlock;
+
+		public BlockMountType MountBlockReason
+		{
+			get
+			{
+				return ( CheckBlock( m_MountBlock ) ) ? m_MountBlock.m_Type : BlockMountType.None;
+			}
+		}
+
+		private static bool CheckBlock( MountBlock block )
+		{
+			return ( ( block is MountBlock ) && block.m_Timer.Running );
+		}
+
+		private class MountBlock
+		{
+			public BlockMountType m_Type;
+			public Timer m_Timer;
+
+			public MountBlock( TimeSpan duration, BlockMountType type, Mobile mobile )
+			{
+				m_Type = type;
+
+				m_Timer = Timer.DelayCall( duration, new TimerStateCallback<Mobile>( RemoveBlock ), mobile );
+			}
+
+			private void RemoveBlock( Mobile mobile )
+			{
+				( mobile as PlayerMobile ).m_MountBlock = null;
+			}
+		}
+
+		public void SetMountBlock( BlockMountType type, TimeSpan duration, bool dismount )
+		{
+			if( dismount )
+			{
+				if ( this.Mount != null )
+				{
+					this.Mount.Rider = null;
+				}
+				else if( AnimalForm.UnderTransformation( this ) )
+				{
+					AnimalForm.RemoveContext(this, true);
+				}
+			}
+
+			if( ( m_MountBlock == null ) || !m_MountBlock.m_Timer.Running || ( m_MountBlock.m_Timer.Next < ( DateTime.UtcNow + duration ) ) )
+			{
+				m_MountBlock = new MountBlock( duration, type, this );
+			}
+		}
 
         /*public override void OnSkillInvalidated( Skill skill )
         {
@@ -1068,6 +1144,8 @@ namespace Server.Mobiles
 
                     if( Core.ML && strOffs > 25 && AccessLevel <= AccessLevel.Player )
                         strOffs = 25;
+					if ( AnimalForm.UnderTransformation( this, typeof( BakeKitsune ) ) || AnimalForm.UnderTransformation( this, typeof( GreyWolf ) ) )
+						strOffs += 20;
                 }
                 else
                 {
@@ -1950,12 +2028,48 @@ namespace Server.Mobiles
             SendToStaffMessage(from, String.Format(format, args));
         }
 
+		public override void Damage( int amount, Mobile from )
+		{
+			if ( Spells.Necromancy.EvilOmenSpell.TryEndEffect( this ) )
+				amount = (int)(amount * 1.25);
+
+			Mobile oath = Spells.Necromancy.BloodOathSpell.GetBloodOath( from );
+
+				/* Per EA's UO Herald Pub48 (ML):
+				 * ((resist spellsx10)/20 + 10=percentage of damage resisted)
+				 */
+
+			if ( oath == this )
+			{
+				amount = (int)(amount * 1.1);
+
+				if( amount > 35 && from is PlayerMobile )  /* capped @ 35, seems no expansion */
+				{
+					amount = 35;
+				}
+
+				if( Core.ML )
+				{
+					from.Damage( (int)(amount * ( 1 - ((( from.Skills.MagicResist.Value * .5 ) + 10) / 100 ))), this );
+				}
+				else
+				{
+					from.Damage( amount, this );
+				}
+			}
+
+			base.Damage( amount, from );
+		}
+
         #region Poison
 
         public override ApplyPoisonResult ApplyPoison( Mobile from, Poison poison )
         {
             if( !Alive )
                 return ApplyPoisonResult.Immune;
+
+			if ( Spells.Necromancy.EvilOmenSpell.TryEndEffect( this ) )
+				poison = PoisonImpl.IncreaseLevel( poison );
 
             ApplyPoisonResult result = base.ApplyPoison(from, poison);
 
@@ -2586,7 +2700,9 @@ namespace Server.Mobiles
             bool running = ((dir & Direction.Running) != 0);
             bool onHorse = (this.Mount != null);
 
-            if( onHorse )
+	    AnimalFormContext animalContext = AnimalForm.GetContext( this );
+
+	    if( onHorse || (animalContext != null && animalContext.SpeedBoost) )
                 return (running ? Mobile.RunMount : Mobile.WalkMount);
 
             return (running ? Mobile.RunFoot : Mobile.WalkFoot);
@@ -2619,6 +2735,55 @@ namespace Server.Mobiles
         }
 
         #endregion
+
+	#region Enemy of One
+		private Type m_EnemyOfOneType;
+		private bool m_WaitingForEnemy;
+
+		public Type EnemyOfOneType
+		{
+			get{ return m_EnemyOfOneType; }
+			set
+			{
+				Type oldType = m_EnemyOfOneType;
+				Type newType = value;
+
+				if ( oldType == newType )
+					return;
+
+				m_EnemyOfOneType = value;
+
+				DeltaEnemies( oldType, newType );
+			}
+		}
+
+		public bool WaitingForEnemy
+		{
+			get{ return m_WaitingForEnemy; }
+			set{ m_WaitingForEnemy = value; }
+		}
+
+		private void DeltaEnemies( Type oldType, Type newType )
+		{
+			foreach ( Mobile m in this.GetMobilesInRange( 18 ) )
+			{
+				Type t = m.GetType();
+
+				if ( t == oldType || t == newType ) {
+					NetState ns = this.NetState;
+
+					if ( ns != null ) {
+						if ( ns.StygianAbyss ) {
+							ns.Send( new MobileMoving( m, Notoriety.Compute( this, m ) ) );
+						} else {
+							ns.Send( new MobileMovingOld( m, Notoriety.Compute( this, m ) ) );
+						}
+					}
+				}
+			}
+		}
+
+		#endregion
 
         #region Hair and beard mods
         private int m_HairModID = -1, m_HairModHue;

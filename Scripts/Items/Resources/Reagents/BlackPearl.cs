@@ -6,23 +6,20 @@ namespace Server.Items
 {
 	public class BlackPearl : BaseReagent, ICommodity
 	{
-		bool ICommodity.IsDeedable { get { return true; } }
 		int ICommodity.DescriptionNumber { get { return LabelNumber; } }
+		bool ICommodity.IsDeedable { get { return true; } }
 
 		[Constructable]
-		public BlackPearl()
-			: this( 1 )
+		public BlackPearl() : this( 1 )
 		{
 		}
 
 		[Constructable]
-		public BlackPearl( int amount )
-			: base( 0xF7A, amount )
+		public BlackPearl( int amount ) : base( 0xF7A, amount )
 		{
 		}
 
-		public BlackPearl( Serial serial )
-			: base( serial )
+		public BlackPearl( Serial serial ) : base( serial )
 		{
 		}
 
@@ -30,7 +27,7 @@ namespace Server.Items
 		{
 			base.Serialize( writer );
 
-			writer.Write( (int)0 ); // version
+			writer.Write( (int) 0 ); // version
 		}
 
 		public override void Deserialize( GenericReader reader )

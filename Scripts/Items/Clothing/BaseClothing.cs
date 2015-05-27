@@ -1,5 +1,7 @@
 using Server.Engines.Craft;
+using Server.Mobiles;
 using Server.Network;
+using Server.Perks;
 using System;
 using System.Collections.Generic;
 
@@ -9,7 +11,8 @@ namespace Server.Items
     {
         Low,
         Regular,
-        Exceptional
+        Exceptional,
+        Extraordinary
     }
 
     public interface IArcaneEquip
@@ -486,7 +489,7 @@ namespace Server.Items
         {
             base.GetProperties(list);
 
-            if((!m_AosAttributes.IsEmpty || !m_AosClothingAttributes.IsEmpty))
+            if((!m_AosAttributes.IsEmpty || !m_AosClothingAttributes.IsEmpty) && !PlayerConstructed)
                 list.Add("Runic");
 
             DisplayProperties(list);
@@ -904,7 +907,16 @@ namespace Server.Items
 
                     Item res = (Item)Activator.CreateInstance(resourceType);
 
-                    ScissorHelper(from, res, m_PlayerConstructed ? (item.Resources.GetAt(0).Amount / 2) : 1);
+                    int x = m_PlayerConstructed ? (item.Resources.GetAt(0).Amount / 2) : 1;
+
+                    if (from is Player)
+                    {
+                        Craftsman cm = Perk.GetByType<Craftsman>(from as Player);
+                        if (cm != null && cm.Savvy())
+                            x += Utility.RandomMinMax(1, 2);
+                    }
+
+                    ScissorHelper(from, res, x);
 
                     res.LootType = LootType.Regular;
 

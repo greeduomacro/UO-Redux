@@ -42,7 +42,7 @@ namespace Server.Mobiles
             SetSkill(SkillName.Wrestling, 92.0);
 
             VirtualArmor = 40;
-            ControlSlots = 3;
+            ControlSlots = 2;
 
             AddItem(new LightSource());
         }

@@ -1358,7 +1358,7 @@ namespace Server.Items
         {
             base.GetProperties(list);
 
-            if((!m_AosAttributes.IsEmpty || !m_AosArmorAttributes.IsEmpty))
+            if((!m_AosAttributes.IsEmpty || !m_AosArmorAttributes.IsEmpty) && !PlayerConstructed)
                 list.Add("Runic");
 
             DisplayProperties(list);

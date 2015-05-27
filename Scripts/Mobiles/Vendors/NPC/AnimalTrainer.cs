@@ -299,7 +299,7 @@ namespace Server.Mobiles
 			{
 				Container bank = from.FindBankNoCreate();
 
-				if( bank != null && CurrencySystem.Consume( bank, CurrencySystem.typeofCopper, 30 ) )
+				if( bank != null && CurrencySystem.Consume( bank, CurrencySystem.typeofGold, 30 ) )
 				{
 					pet.ControlTarget = null;
 					pet.ControlOrder = OrderType.Stay;

@@ -170,7 +170,7 @@ namespace Server.Gumps
 				{
                     if (((Player)from).EoC >= 500000)
                     {
-                        ((Player)from).Race = Race.Liche;
+                        ((Player)from).Race = Race.Lich;
                         ((Player)from).RaceBody = 24;
                         ((Player)from).EoC -= 500000;
                         ((Player)from).StatCap = 500;

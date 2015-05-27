@@ -7,15 +7,15 @@ using Server.Targeting;
 
 namespace Server.Items
 {
-	public class DaemonBlood : Item
+	public class ConsumableDaemonBlood : Item
 	{
 		[Constructable]
-		public DaemonBlood() : this(1)
+		public ConsumableDaemonBlood() : this(1)
 		{
 		}
 
 		[Constructable]
-        public DaemonBlood(int amount)
+        public ConsumableDaemonBlood(int amount)
             : base(3628)
 		{
 			Name = "a bottle of viscous red liquid";
@@ -24,7 +24,7 @@ namespace Server.Items
             LootType = LootType.Blessed;
 		}
 
-        public DaemonBlood(Serial serial)
+        public ConsumableDaemonBlood(Serial serial)
             : base(serial)
 		{
 		}

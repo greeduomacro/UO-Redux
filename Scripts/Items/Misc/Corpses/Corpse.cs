@@ -7,6 +7,7 @@ using Server.Guilds;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Network;
+using Ulmeta.Guards;
 
 namespace Server.Items
 {
@@ -832,6 +833,9 @@ namespace Server.Items
             if( from == m_Owner || from.AccessLevel >= AccessLevel.GameMaster )
                 return false;
 
+            if (Owner is BaseCreature && !(Owner is Guard) && !(Owner.Body.IsHuman)) 
+                return false;
+
             Party p = Party.Get(m_Owner);
 
             if( p != null && p.Contains(from) )
@@ -969,6 +973,9 @@ namespace Server.Items
             if( !IsCriminalAction(from) )
                 return true;
 
+            if (Owner is Guard && !(Killer is PlayerMobile))
+                return false;
+
             Map map = this.Map;
 
             if( map == null || (map.Rules & MapRules.HarmfulRestrictions) != 0 )
@@ -1074,7 +1081,8 @@ namespace Server.Items
 
                     if( from.Player )
                     {
-                        EventDispatcher.InvokeCorpseAction(new CorpseActionEventArgs((Player)from, this, CorpseActionEventArgs.CorpseAction.Opened));
+                        EventDispatcher.InvokeCorpseAction
+                            (new CorpseActionEventArgs((Player)from, this, CorpseActionEventArgs.CorpseAction.Opened));
                     }
                 }
             }

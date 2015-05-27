@@ -952,7 +952,7 @@ namespace Server.Items
 
         bool QueryArmWeight(Mobile attacker)
         {
-            Layer[] layers = new Layer[] { Layer.Arms, Layer.Bracelet, Layer.Gloves, Layer.Ring };
+            Layer[] layers = new Layer[] { Layer.Arms, Layer.Gloves, };
 
             int totalWeight = 0;
             int totalItems = 0;
@@ -974,7 +974,7 @@ namespace Server.Items
 
             double reductionRatio = (Math.Sqrt(attacker.Str) / 75.0);
             int staminaReduction = (int)(Math.Sqrt(totalWeight * reductionRatio));
-            staminaReduction = (int)(((staminaReduction * staminaReduction) * 0.8325) + totalItems);
+            staminaReduction = (int)(((staminaReduction * staminaReduction) * 0.618));
 
             if(staminaReduction > attacker.Stam)
             {
@@ -1035,7 +1035,7 @@ namespace Server.Items
 
                 if(weapon != null)
                 {
-                    if(attacker.Stam < (int)(((weapon.Weight + 2) / 2) + 2))
+                    if(attacker.Stam < (int)((weapon.Weight * 1.618) / 2) + 2)
                     {
                         canSwing = false;
                         attacker.SendMessage("You do not have the stamina to swing your weapon.");
@@ -1043,7 +1043,7 @@ namespace Server.Items
                     else
                     {
                         if(QueryArmWeight(attacker))
-                            attacker.Stam -= (int)(((weapon.Weight + 2) / 2) + 2);
+                            attacker.Stam -= (int)(((weapon.Weight * 1.618) / 2) + 2);
                     }
                 }
             }
@@ -1077,8 +1077,7 @@ namespace Server.Items
                 if(attacker.NetState != null)
                     attacker.Send(new Swing(0, attacker, defender));
             }
-
-            return GetDelay(attacker);
+            TimeSpan delay = GetDelay(attacker); return delay;
         }
 
         #region Sounds
@@ -1119,6 +1118,7 @@ namespace Server.Items
             BaseShield shield = defender.FindItemOnLayer(Layer.TwoHanded) as BaseShield;
 
             double parry = defender.Skills[SkillName.Parry].Value;
+            double bushido = defender.Skills[SkillName.Bushido].Value;
 
             if(shield != null)
             {
@@ -1148,6 +1148,11 @@ namespace Server.Items
                     aosChance += (parry - 100) / 100;
                 }
 
+                if (bushido >= 100.0)
+                {
+                    chance += 0.05;
+                }
+
                 // Low dexterity lowers the chance.
                 if(defender.Dex < 80)
                     chance = chance * (20 + defender.Dex) / 100;
@@ -1155,7 +1160,8 @@ namespace Server.Items
                 if(chance > aosChance)
                     return defender.CheckSkill(SkillName.Parry, chance);
                 else
-                    return (aosChance > Utility.RandomDouble()); // Only skillcheck if wielding a shield & there's no effect from Bushido
+                    return (aosChance > Utility.RandomDouble()); 
+                // Only skillcheck if wielding a shield & there's no effect from Bushido
             }
 
             return false;
@@ -1174,7 +1180,8 @@ namespace Server.Items
                     defender.FixedEffect(0x37B9, 10, 16);
                     damage = 0;
 
-                    BaseShield shield = defender.FindItemOnLayer(Layer.TwoHanded) as BaseShield;
+                    BaseShield shield = defender.
+                        FindItemOnLayer(Layer.TwoHanded) as BaseShield;
 
                     if(shield != null)
                     {
@@ -2020,6 +2027,7 @@ namespace Server.Items
             {
                 case WeaponQuality.Low: bonus -= 20; break;
                 case WeaponQuality.Exceptional: bonus += 20; break;
+                case WeaponQuality.Extraordinary: bonus += 40; break;
             }
 
             switch(m_DamageLevel)
@@ -2888,7 +2896,7 @@ namespace Server.Items
                 case CraftResource.SpinedLeather: oreType = 1061118; break; // spined
                 case CraftResource.HornedLeather: oreType = 1061117; break; // horned
                 case CraftResource.BarbedLeather: oreType = 1061116; break; // barbed
-                case CraftResource.RedScales: oreType = 1060814; break; // red
+                case CraftResource.RedScales: oreType = 1060814; break;     // red
                 case CraftResource.YellowScales: oreType = 1060818; break; // yellow
                 case CraftResource.BlackScales: oreType = 1060820; break; // black
                 case CraftResource.GreenScales: oreType = 1060819; break; // green
@@ -2936,7 +2944,7 @@ namespace Server.Items
         {
             base.GetProperties(list);
 
-            if((!m_AosAttributes.IsEmpty || !m_AosWeaponAttributes.IsEmpty))
+            if((!m_AosAttributes.IsEmpty || !m_AosWeaponAttributes.IsEmpty) && !PlayerConstructed)
                 list.Add("Runic");
 
             DisplayProperties(list);
@@ -2954,6 +2962,9 @@ namespace Server.Items
 
                 if (m_Quality == WeaponQuality.Exceptional)
                     list.Add(1060636); // exceptional
+
+                if (m_Quality == WeaponQuality.Extraordinary)
+                    list.Add("Extraordinary");
 
                 //if (RelicLevel > 0)
                 //    list.Add("Relic Level (" + RelicLevel + ")");

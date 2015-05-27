@@ -229,24 +229,60 @@ namespace Server.Items
 		}
 	}
 
-	[Flipable( 0x1f01, 0x1f02 )]
-	public class PlainDress : BaseOuterTorso
+    [Flipable(0x1f01, 0x1f02)]
+    public class PlainDress : BaseOuterTorso
+    {
+        [Constructable]
+        public PlainDress()
+            : this(0)
+        {
+        }
+
+        [Constructable]
+        public PlainDress(int hue)
+            : base(0x1F01, hue)
+        {
+            Weight = 2.0;
+        }
+
+        public PlainDress(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+
+            if (Weight == 3.0)
+                Weight = 2.0;
+        }
+    }
+
+    [Flipable( 0x2799, 0x27E4 )]
+	public class Kamishimo : BaseOuterTorso
 	{
 		[Constructable]
-		public PlainDress()
-			: this( 0 )
+		public Kamishimo() : this( 0 )
 		{
 		}
 
 		[Constructable]
-		public PlainDress( int hue )
-			: base( 0x1F01, hue )
+		public Kamishimo( int hue ) : base( 0x2799, hue )
 		{
-			Weight = 2.0;
+			Weight = 3.0;
 		}
 
-		public PlainDress( Serial serial )
-			: base( serial )
+		public Kamishimo( Serial serial ) : base( serial )
 		{
 		}
 
@@ -254,7 +290,7 @@ namespace Server.Items
 		{
 			base.Serialize( writer );
 
-			writer.Write( (int)0 ); // version
+			writer.Write( (int) 0 ); // version
 		}
 
 		public override void Deserialize( GenericReader reader )
@@ -262,9 +298,109 @@ namespace Server.Items
 			base.Deserialize( reader );
 
 			int version = reader.ReadInt();
+		}
+	}
 
-			if( Weight == 3.0 )
-				Weight = 2.0;
+	[Flipable( 0x279C, 0x27E7 )]
+	public class HakamaShita : BaseOuterTorso
+	{
+		[Constructable]
+		public HakamaShita() : this( 0 )
+		{
+		}
+
+		[Constructable]
+		public HakamaShita( int hue ) : base( 0x279C, hue )
+		{
+			Weight = 3.0;
+		}
+
+		public HakamaShita( Serial serial ) : base( serial )
+		{
+		}
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	[Flipable( 0x2782, 0x27CD )]
+	public class MaleKimono : BaseOuterTorso
+	{
+		[Constructable]
+		public MaleKimono() : this( 0 )
+		{
+		}
+
+		[Constructable]
+		public MaleKimono( int hue ) : base( 0x2782, hue )
+		{
+			Weight = 3.0;
+		}
+
+		public override bool AllowFemaleWearer{ get{ return false; } }
+
+		public MaleKimono( Serial serial ) : base( serial )
+		{
+		}
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	[Flipable( 0x2783, 0x27CE )]
+	public class FemaleKimono : BaseOuterTorso
+	{
+		[Constructable]
+		public FemaleKimono() : this( 0 )
+		{
+		}
+
+		[Constructable]
+		public FemaleKimono( int hue ) : base( 0x2783, hue )
+		{
+			Weight = 3.0;
+		}
+
+		public override bool AllowMaleWearer{ get{ return false; } }
+
+		public FemaleKimono( Serial serial ) : base( serial )
+		{
+		}
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
 		}
 	}
 }

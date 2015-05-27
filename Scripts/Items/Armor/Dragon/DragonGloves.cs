@@ -28,7 +28,7 @@ namespace Server.Items
 		[Constructable]
 		public DragonGloves() : base( 0x2643 )
 		{
-			Weight = 4.0;
+			Weight = 2.0;
 		}
 
 		public DragonGloves( Serial serial ) : base( serial )

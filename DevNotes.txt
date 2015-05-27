@@ -542,20 +542,183 @@ Removed localized messages from weapon engraving.
 Removed faction references from soul stones.
 Removed Scroll of Alacrity references from soul stones.
 
+0.3.6a
+Changed itemid of weapon engraving tools.
+Fixed focus cap on character creation.
+
+0.3.7
+Account limit now set to 3.
+Players now start with 20,000 E.o.C
+Reduced stamina cost for running on both mount and foot.
+Reduced the chance of taking damage when running barefoot.
+Increased the amount of time spent under Res-kill protection.
+Players no longer use stamina when under res-kill protection.
+Looting non-human corpses no longer produces criminal notoriety.
+Lich-types no longer produce incorrect corpse names.
+Spinning wheels now require 10 spools of thread or yarn for each bolt of cloth.
+Bankers now display proper metal types on balance query.
+Vendors no longer say copper after purchases.
+
+0.3.7a
+Getting KO'd by a guard now removes criminal notoriety.
+Reduced the amount of stamina consumed when swinging weapons based on weight.
+Players are no longer required to be at max stamina to push through other mobiles.
+Logs now produce two boards per log when processed by carpenters.
+Modified base physical resistance for all shield-types.
+
+0.3.7b
+Corrected header on skill level gump.
+Reduced the cost of knockout counts to remove.
+Players now have increased stamina regen when under 10 stamina.
+Players under weight capacity may now walk at 0 stamina.
+Scrolls now reduce mana costs by 75%
+
+0.3.8
+Players now gain EoC on every successful skillcheck and upon skillgain.
+Players now gain EoC upon increasing attributes through skillgain.
+Players now start with 25,000 EoC.
+Players now start with a 'a torn bag' filled with helpful items.
+Kindling now weigh 0.5 stones per pile.
+Every skillcheck now produces a small chance to reduce thirst and hunger levels.
+Reduced the chance of guaranteed skillgains based on skill level.
+Reduced the chance of bleeding when injured by running by 50%
+Reduced the amount glove and shoulder armor affects stamina when swinging.
+
+0.3.8a
+All summoned elementals now require two control slots.
+Reduced the speed at which skill use lowers hunger/thirst.
+Reduced the amount running up inclines affects stamina loss.
+Guards now check direction on-think against ordered direction.
+Liches now drop one scroll instead of two.
+Players may no longer loot guard corpses not killed by players.
+Changed description for Medic Level 5 to be more accurate.
+
+0.3.9
+Peasant mobiles now seek fountains/wellbuckets onthink.
+Guards now assume ordered direction onthink if not specified.
+Replaced UOForever ethereal mounts with RunUO standards due to serialization conflicts.
+Hooded shrouds may now be double clicked to lower the hood.
+Reduced the speed at which mobiles attack.
+Increased the speed at which bandages are applied.
+Increased damage healed by bandages.
+Added Ninjitsu, Bushido, Necromancy, and Chivalry to the starting skill scroll.
+Skills selected at character creation are now honored in-game.
+Reduced the amount of provided by the mysterious scroll by 100.
+Reduced the amount of EoC gained when improving skills manually.
+Added ninjitsu skill items (smoke bomb, shuriken, etc).
+Added necromancy reagents.
+Disabled Excorcism spell until further notice.
+Runebook's default index now works properly.
+Merged Spell.cs from RunUO to accomodate necromancy, chivalry, ninjitsu and bushido.
+Reintroduced ant-type mobiles.
+Added necromancer familiars.
+Removed faction references from Ninjitsu's shadow jump.
+Added squirrels and reptalons to accomodate Ninjitsu's animal form.
+Added Talismans to accomodate Ninjitsu's animal form.
+Converted Talisman's OnRemoved to OnDelete for compatability reasons.
+Updated all dragon armor pieces to RunUO standards.
+HellSteeds no longer deal chaos damage.
+Modified regen rates to accomodate for necromancer and ninjtsu transformations.
+Removed RunUO dueling references from necromancy's summon familiar.
+Added 'IsFamiliar' and 'IsAnimatedDead' from RunUO's basecreature.
+Necromancy Spells no longer reduce karma (as lower karma increases damage).
+Removed young, faction, and house raffle references in Chivalry's sacred journey spell.
+Removed Greater Dragon from Animate Dead's creature group.
+Added Samurai Empire Clothing, Weapons, Armor, Etc.
+Removed all Elf references from charactercreation.cs
+
+0.3.9a
+Removed solen quest references from ant mobiles.
+Removed all 'ConPvP' references from chivalry spells.
+Added required variables to PlayerMobile for bushido functionality.
+Added chainmail Hatsuburi.
+Replaced Base Spellbook with Runuo's.
+Added new OnRemoved/OnAdded overloads to accomodate backwards compatability with new items.
+Removed gold drop from ant workers.
+Unicorn and Ki-rin mount abilities now function properly.
+Removed OnDeath Additions from Ki-rin and Unicorn.
+Replaced Bake Kitsune disguise functionality for compatability.
+'Guardians' now ride frenzied ostards.
+Removed moonstone references from character creation.
+Modified loot to accomodate necromancy reagents and scrolls.
+
+0.3.9b
+Converted player mobile references to player in character creation due to upcast. (/crash)
+Reduced the amount of EoC players start with by 5,000.
+Removed Both AOS and PreAos Fillbox methods.
+Added new parameter to skill scroll gump to account for new point basis logic.
+Players now start with 150 verite instead of 1,000 gold and 50 verite (weight).
+
+0.3.9c
+Skill scrolls no longer allow players to go into the negative.
+Skill scrolls can no longer be used to lower original starting skills.
+Necromancy, Chivalry, Bushido, and Ninjitsu are now initialized with magery spells.
+Runebook serialization corrected.
+Using bandages now increases EoC.
+Reduced the amount of lumber recieved from trees.
+Weapon engraving tools now have a maximum of 2 charges.
+Changed localized messages on weapon engraving tools.
+Regenerating hitpoints now generates small amounts of EoC.
+Water pitchers and well buckets now increase thirst by 5.
+Characters no longer start with crook's in their new-player bags.
+Returned skillgain rates to RunUO standards.
+
+0.4.0
+Players may now lower skills using EoC.
+Players may no longer exceed the overall skillcap using EoC.
+The mysterious scroll again allows players to alter skills not granted by.
+Increased the rate at which stamina regenerates when below 10.
+Increased the rate that stamina and mana regenerate by one second.
+Increased the hitpoint regen bonus granted by hunger levels.
+Reduced the bonus granted to mana regen by focus.
+Engraving tools now have a maximum of one charge.
+Engraving tools now require 100.0 arms lore to use.
+Ankhs no longer require valorite coins to tithe.
+Reduced the medic's chance to recover bandages.
+Lowered medic's bonus to damage healed with bandages.
+Level three medic now lowers heal time by one second.
+Medics now suffer a speed penalty when healing with hands full.
+Legionnaires now have a 20% chance to bash an opponent with shield on parry.
+Reduced Legionnaires dodge ability by 5%.
+Regen rates now check last move time to better determine if a player is running.
+
+0.4.1
+Mobiles are now required to be within one tile of a waypoint before moving on.
+Staff may now generate way points on the go without manually linking.
+Players may now regenerate stamina while running, but at much lower rates.
+Vendors now pay more for runic weapons, jewelry, clothing, and armor.
+Modifed resists and weights on SE armor.
+Removed all kabuto variants
+Parry now accounts for Bushido.
+Chivalry no longer requires tithing to cast.
+Tithing now reduces mana required to cast chivalry spells.
+
+0.4.1a
+Seeds may no longer be planted in guarded areas.
+Planting a seed now clears a player's hands.
+Seeds now check for multis and houses.
+
+0.4.2
+Craftsman perk enabled.
+Added new quality level to weapons and armor.
+Level 5 Craftsman now have a 2% chance of crafting an extraordinary item.
+Divine fury now increases stamina by 10 + chivalry / 10.
 
 TODO:
+chat button should bring up [msg gump
+Houses still say copper when placed.
+Statues don't serialize solidhue
+Stamina drop on start move
+Change town housing to use gold.
 Need item insurance.
 Investigate Dragoon's Longarm perk.
 Make field spells effect everyone, regardless of notoriety
 Ore stacks improperly - incorrect Itemid
 Reevaluate the arcanite's 5th
 Plant Bowl's Cliloc
-Buckets should refill water pitchers
 Address the mysterious scroll on vendors & in craft.
 
 --
-
-Buckets should refill water pitchers
 Get rid of the random ecounters engine
 
 ---

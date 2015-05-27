@@ -21,7 +21,7 @@ namespace Server.Items
 		public override int AosStrengthReq { get { return 0; } }
 		public override int AosMinDamage { get { return 1; } }
 		public override int AosMaxDamage { get { return 4; } }
-		public override int AosSpeed { get { return 50; } }
+        public override int AosSpeed { get { if (ParentEntity is PlayerMobile) return 50; else return 33; } }
 
 		public override int OldStrengthReq { get { return 0; } }
 		public override int OldMinDamage { get { return 1; } }

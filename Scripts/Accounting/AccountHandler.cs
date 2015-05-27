@@ -23,7 +23,7 @@ namespace Server.Misc
         /// </summary>
         public static readonly int ServerLimit = 4;
 
-        private static int MaxAccountsPerIP = 2;
+        private static int MaxAccountsPerIP = 3;
         private static bool AutoAccountCreation = true;
         private static bool RestrictDeletion = false;
         private static TimeSpan DeleteDelay = TimeSpan.FromDays(7.0);

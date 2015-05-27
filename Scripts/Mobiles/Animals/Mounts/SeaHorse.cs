@@ -9,7 +9,6 @@ namespace Server.Mobiles
 		[Constructable]
 		public SeaHorse() : this( "a sea horse" )
 		{
-            Hue = Utility.RandomSlimeHue() | 0x8000;
 		}
 
 		[Constructable]

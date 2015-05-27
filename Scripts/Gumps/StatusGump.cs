@@ -128,13 +128,13 @@ namespace Server.Gumps
                     return;
                 }
 
-                if (p.EoC >= 1500)
+                if (p.EoC >= 500)
                 {
                     p.KOCount--;
-                    p.EoC -= 1500;
+                    p.EoC -= 500;
                 }
 
-                else p.SendMessage("You must have atleast 1,500 eoc to do this.");
+                else p.SendMessage("You must have atleast 500 eoc to do this.");
             }
 
             if (info.ButtonID == (int)Buttons.perkBtn)

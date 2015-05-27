@@ -70,10 +70,12 @@ namespace Server.Items
                     Item handOne = from.FindItemOnLayer(Layer.OneHanded);
                     Item handTwo = from.FindItemOnLayer(Layer.TwoHanded);
 
-                    if( handOne == null || handTwo == null )
-                    {
-                        canUse = true;
-                    }
+                    bool freeHand = handOne == null;
+                    if (!freeHand) 
+                        freeHand = handTwo == null;
+
+                    if( freeHand ) { canUse = true; }
+
                     else
                     {
                         Medic med = Perk.GetByType<Medic>((Player)from);
@@ -91,7 +93,7 @@ namespace Server.Items
                 }
                 else
                 {
-                    from.SendMessage("You need both hands free to work with bandages.");
+                    from.SendMessage("You need atleast one hand free to apply bandages.");
                 }
             }
             else
@@ -130,7 +132,7 @@ namespace Server.Items
                                 if( med != null )
                                 {
                                     consume = !med.TryRecoverBandage();
-                                    from.SendMessage("You manage to salvage some of the bandage.");
+                                        from.SendMessage("You manage to salvage some of the bandage.");
                                 }
                             }
 
@@ -140,6 +142,7 @@ namespace Server.Items
                             }
                         }
                     }
+
                     else
                     {
                         from.SendLocalizedMessage(500295); // You are too far away to do that.
@@ -237,6 +240,9 @@ namespace Server.Items
             int healerNumber = -1, patientNumber = -1;
             bool playSound = true;
             bool checkSkills = false;
+
+            if (Healer is Player)
+                ((Player)Healer).EoC++;
 
             SkillName primarySkill = GetPrimarySkill(m_Patient);
             SkillName secondarySkill = GetSecondarySkill(m_Patient);
@@ -433,7 +439,7 @@ namespace Server.Items
                 {
                     healerNumber = 500969; // You finish applying the bandages.
 
-                    double toHeal = (((anatomy + healing) * 0.05) + Utility.RandomMinMax(0,4));
+                    double toHeal = (((anatomy + healing) * 0.10) + Utility.RandomMinMax(0,4));
 
                     if (m_Healer is Player)
                     {
@@ -442,7 +448,7 @@ namespace Server.Items
 
                         if (med != null && med.IsDoctor())
                         {
-                            toHeal = (toHeal * 2);
+                            toHeal = (toHeal * 1.5);
                         }
                     }
 
@@ -530,28 +536,41 @@ namespace Server.Items
 
                 if( onSelf )
                 {
-                    if( Core.AOS )
-                        seconds = 5.0 + (0.5 * ((double)(120 - dex) / 10)); // TODO: Verify algorithm
-                    else
-                        seconds = 9.4 + (0.6 * ((double)(120 - dex) / 10));
+                    //if( Core.AOS )
+                    
+                    seconds = 4 + (0.5 * ((double)(120 - dex) / 10));
+
+                    Item handOne = healer.FindItemOnLayer(Layer.OneHanded);
+                    Item handTwo = healer.FindItemOnLayer(Layer.TwoHanded);
+
+                    bool freeHand = handOne == null; if (!freeHand) freeHand = handTwo == null;
+
+                    if (!freeHand) seconds++;
+
+                    //else
+                    //    seconds = 9.4 + (0.6 * ((double)(120 - dex) / 10));
                 }
+
                 else
                 {
                     if( Core.AOS && GetPrimarySkill(patient) == SkillName.Veterinary )
                     {
-                        //if ( dex >= 40 )
+                        if ( dex >= 40 )
                         seconds = 2.0;
-                        //else
-                        //	seconds = 3.0;
+                        else
+                        	seconds = 3.0;
                     }
+
                     else
                     {
                         if( dex >= 100 )
-                            seconds = 3.0 + resDelay;
+                            seconds = 2.0 + resDelay;
+
                         else if( dex >= 75 )
-                            seconds = 4.0 + resDelay;
+                            seconds = 3.0 + resDelay;
+
                         else
-                            seconds = 5.0 + resDelay;
+                            seconds = 4.0 + resDelay;
                     }
                 }
 

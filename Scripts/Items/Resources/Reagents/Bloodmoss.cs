@@ -6,8 +6,8 @@ namespace Server.Items
 {
 	public class Bloodmoss : BaseReagent, ICommodity
 	{
-		bool ICommodity.IsDeedable { get { return true; } }
 		int ICommodity.DescriptionNumber { get { return LabelNumber; } }
+		bool ICommodity.IsDeedable { get { return true; } }
 
 		[Constructable]
 		public Bloodmoss() : this( 1 )

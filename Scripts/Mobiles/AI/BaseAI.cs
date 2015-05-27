@@ -1905,7 +1905,8 @@ namespace Server.Mobiles
             }
             else if( m_Mobile.Controlled )
             {
-                if( m_Mobile.ControlOrder == OrderType.Follow && m_Mobile.ControlTarget == m_Mobile.ControlMaster )
+                if( m_Mobile.ControlOrder == OrderType.Follow 
+                    && m_Mobile.ControlTarget == m_Mobile.ControlMaster )
                     delay *= 0.5;
 
                 delay -= 0.075;
@@ -2013,16 +2014,7 @@ namespace Server.Mobiles
                     //waypoint improvements
                     attempts++;
 
-                    if (m_Mobile.CurrentWayPoint != null && m_Mobile.CurrentWayPoint.NextPoint != null)
-                    {
-                        m_Mobile.CurrentWayPoint = m_Mobile.CurrentWayPoint.NextPoint;
-
-                        m_Mobile.DebugSay("I will move towards my waypoint.");
-                        DoMove(m_Mobile.GetDirectionTo(m_Mobile.CurrentWayPoint));
-                    }
-
-
-                    if( m_Mobile.CurrentWayPoint != null && m_Mobile.Combatant == null && attempts > 4)
+                    if (m_Mobile.CurrentWayPoint != null && m_Mobile.Combatant == null && attempts > 4)
                     {
                         m_Mobile.MoveToWorld(new Point3D(m_Mobile.CurrentWayPoint.Location), m_Mobile.Map);
 
@@ -2030,6 +2022,20 @@ namespace Server.Mobiles
 
                         MoveImpl.IgnoreMovableImpassables = false;
                         return MoveResult.Success;
+                    }
+
+                    bool waypointIsNear = false;
+
+                    foreach (Item item in m_Mobile.GetItemsInRange(1))
+                        if (item == m_Mobile.CurrentWayPoint) waypointIsNear = true;
+
+                    if ( waypointIsNear && m_Mobile.CurrentWayPoint != null 
+                        && m_Mobile.CurrentWayPoint.NextPoint != null)
+                    {
+                        m_Mobile.CurrentWayPoint = m_Mobile.CurrentWayPoint.NextPoint;
+
+                        m_Mobile.DebugSay("I will move towards my waypoint.");
+                        DoMove(m_Mobile.GetDirectionTo(m_Mobile.CurrentWayPoint));
                     }
 
                     Map map = m_Mobile.Map;

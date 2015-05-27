@@ -17,10 +17,10 @@ namespace Server.Currency
 
     public static class CurrencySystem
     {
-        public static readonly Type typeofCopper = typeof(Gold);
-        public static readonly Type typeofSilver = typeof(Verite);
-        public static readonly Type typeofGold = typeof(Valorite);
-        public static readonly Type[] AllCurrencies = new Type[] { typeofCopper, typeofSilver, typeofGold };
+        public static readonly Type typeofGold = typeof(Gold);
+        public static readonly Type typeofVerite = typeof(Verite);
+        public static readonly Type typeofValorite = typeof(Valorite);
+        public static readonly Type[] AllCurrencies = new Type[] { typeofGold, typeofVerite, typeofValorite };
 
         private static readonly string savePath = "Saves/Currency";
         private static readonly string saveMintFile = Path.Combine(savePath, "mints.xml");
@@ -169,11 +169,11 @@ namespace Server.Currency
         /// <returns>the known CurrencyType for the given item Type</returns>
         public static CurrencyType FindType( Type itemType )
         {
-            if( itemType == typeofCopper )
-                return CurrencyType.Gold;
-            if( itemType == typeofSilver )
-                return CurrencyType.Verite;
             if( itemType == typeofGold )
+                return CurrencyType.Gold;
+            if( itemType == typeofVerite )
+                return CurrencyType.Verite;
+            if( itemType == typeofValorite )
                 return CurrencyType.Valorite;
 
             return CurrencyType.Unknown;

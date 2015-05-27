@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a liche's corpse")]
+    [CorpseName("a lich's corpse")]
     public class Lich : BaseCreature
     {
         [Constructable]
@@ -47,7 +47,7 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Rich);
-            AddLoot(LootPack.MedScrolls, 2);
+            AddLoot(LootPack.MedScrolls, 1);
         }
 
         public override OppositionGroup OppositionGroup

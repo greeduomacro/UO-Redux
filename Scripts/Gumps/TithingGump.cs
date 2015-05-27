@@ -102,7 +102,7 @@ namespace Server.Gumps
 
 					Container pack = m_From.Backpack;
 
-					if ( pack != null && pack.ConsumeTotal( typeof( Server.Currency.Valorite ), m_Offer ) )
+					if ( pack != null && pack.ConsumeTotal( typeof( Server.Currency.Gold ), m_Offer ) )
 					{
 						// You tithe gold to the shrine as a sign of devotion.
 						m_From.LocalOverheadMessage( MessageType.Regular, 0x3B2, 1060195 );

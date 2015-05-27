@@ -29,22 +29,18 @@ namespace Server.Mobiles
 			ItemID = m_IDs[random * 2 + 1];
 			BaseSoundID = 0xA8;
 
-			SetStr( 98, 198 );
-			SetDex( 98, 128 );
-			SetInt( 20, 46 );
+			SetStr( 22, 98 );
+			SetDex( 56, 75 );
+			SetInt( 6, 10 );
 
-			SetHits( 98, 145 );
+			SetHits( 28, 45 );
 			SetMana( 0 );
 
-			SetDamage( 5, 6 );
+			SetDamage( 3, 4 );
 
 			SetDamageType( ResistanceType.Physical, 100 );
 
-            SetResistance(ResistanceType.Physical, 20, 30);
-            SetResistance(ResistanceType.Fire, 10, 30);
-            SetResistance(ResistanceType.Cold, 10, 30);
-            SetResistance(ResistanceType.Poison, 10, 30);
-            SetResistance(ResistanceType.Energy, 10, 30);
+			SetResistance( ResistanceType.Physical, 15, 20 );
 
 			SetSkill( SkillName.MagicResist, 25.1, 30.0 );
 			SetSkill( SkillName.Tactics, 29.3, 44.0 );

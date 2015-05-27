@@ -4,6 +4,8 @@ using Server.Mobiles;
 using Server.Perks;
 using Server.Spells;
 using Server.Events;
+using Server.Spells.Necromancy;
+using Server.Spells.Ninjitsu;
 
 namespace Server.Misc
 {
@@ -13,8 +15,8 @@ namespace Server.Misc
         public static void Configure()
         {
             Mobile.DefaultHitsRate = TimeSpan.FromSeconds( 10.0 );
-            Mobile.DefaultStamRate = TimeSpan.FromSeconds( 9.0 );
-            Mobile.DefaultManaRate = TimeSpan.FromSeconds( 9.0 );
+            Mobile.DefaultStamRate = TimeSpan.FromSeconds( 8.0 );
+            Mobile.DefaultManaRate = TimeSpan.FromSeconds( 8.0 );
 
             Mobile.ManaRegenRateHandler = new RegenRateHandler(Mobile_ManaRegenRate);
 
@@ -43,14 +45,21 @@ namespace Server.Misc
         {
             return TransformationSpellHelper.UnderTransformation(m, type);
         }
-
+		private static bool CheckAnimal( Mobile m, Type type )
+		{
+			return AnimalForm.UnderTransformation( m, type );
+		}
         private static TimeSpan Mobile_HitsRegenRate( Mobile from )
         {
             int points = AosAttributes.GetValue(from, AosAttribute.RegenHits);
 
             if (from is BaseCreature)
             {
+                if (from is BaseCreature && !((BaseCreature)from).IsAnimatedDead)
+                    points += 4;
+
                 BaseCreature bc = from as BaseCreature;
+
                 if (bc.ControlMaster != null && bc.ControlMaster is Player)
                 {
                     Player master = bc.ControlMaster as Player;
@@ -63,8 +72,17 @@ namespace Server.Misc
                 }
             }
 
-            if (from is Player)
+            if (from is PlayerMobile)
             {
+                if (Utility.RandomBool() == Utility.RandomBool())
+                    ((Player)from).EoC++;
+
+                if (CheckTransform(from, typeof(HorrificBeastSpell)))
+                    points += 20;
+
+                if (CheckAnimal(from, typeof(Dog)) || CheckAnimal(from, typeof(Cat)))
+                    points += from.Skills[SkillName.Ninjitsu].Fixed / 30;
+
                 if (((Player)from).Race == Race.HalfDaemon && ((Player)from).AbilityActive == true)
                 {
                     points += 16;
@@ -72,7 +90,7 @@ namespace Server.Misc
 
                 if (from.Hunger != 0 && from.Thirst != 0)
                 {
-                    int hungerRegen = (int)((from.Hunger + from.Thirst) * 0.085);
+                    int hungerRegen = (int)((from.Hunger + from.Thirst) * 0.1618);
 
                     if (hungerRegen != 0)
                     {
@@ -113,16 +131,16 @@ namespace Server.Misc
             int points = (int)(from.Skills[SkillName.Focus].Value * 0.08);
 
             int cappedPoints = AosAttributes.GetValue(from, AosAttribute.RegenStam);
+			if ( CheckTransform( from, typeof( VampiricEmbraceSpell ) ) )
+				cappedPoints += 15;
+
+			if ( CheckAnimal( from, typeof( Kirin ) ) )
+				cappedPoints += 20;
 
             points += cappedPoints;
 
-            if( from.Player )
-            {
-                bool running = ((Player)from).isRunning && from.Mounted == false;
-
-                if (running)
-                    points -= 32;
-
+            if( from.Player)
+            {             
                 Beastmaster bmr = Perk.GetByType<Beastmaster>((Player)from);
 
                 if (bmr != null)
@@ -160,17 +178,13 @@ namespace Server.Misc
                     points += hungerRegen;
                 }
 
-                //if (from.Hits != 0 && from.HitsMax != 0)
-                //{
-                //    double hitsratio = (int)((from.HitsMax / from.Hits) / 3);
+                if (from.Stam < 10) points += 16;
 
-                //    if (hitsratio >= 1.0)
-                //        points = (int)(points * hitsratio);
-                //}
+                if (from.Stam < from.StamMax * 0.125)
+                    points += 8;
             }
 
-            if(!(from is Player))
-            points += (int)(from.Dex * 0.04);
+            if(!(from is Player)) points += (int)(from.Dex * 0.04);
 
             if (from is BaseCreature)
             {
@@ -205,6 +219,9 @@ namespace Server.Misc
 
             if( points < -1 )
                 points = -1;
+
+            if (((from.Direction & Direction.Running) != 0)
+                && from.Mounted == false) points = (int)(points / 1.618);
 
             return TimeSpan.FromSeconds(1.0 / (0.1 * (2 + points)));
         }
@@ -263,7 +280,7 @@ namespace Server.Misc
 
                 CheckBonusSkill(from, from.Mana, from.ManaMax, SkillName.Focus);
 
-                double focusPoints = (from.Skills[SkillName.Focus].Value * 0.05);
+                double focusPoints = (from.Skills[SkillName.Focus].Value * 0.04);
 
                 if( armorPenalty > 0 )
                     medPoints = 0; // In AOS, wearing any meditation-blocking armor completely removes meditation bonus
@@ -271,6 +288,15 @@ namespace Server.Misc
                 double totalPoints = focusPoints + medPoints + (from.Meditating ? (medPoints > 13.0 ? 13.0 : medPoints) : 0.0);
 
                 int cappedPoints = AosAttributes.GetValue(from, AosAttribute.RegenMana);
+
+				if ( CheckTransform( from, typeof( VampiricEmbraceSpell ) ) )
+					cappedPoints += 3;
+				else if ( CheckTransform( from, typeof( LichFormSpell ) ) )
+					cappedPoints += 13;
+
+				if( Core.ML && from is PlayerMobile )
+					cappedPoints = Math.Min( cappedPoints, 18 );
+
 
                 totalPoints += cappedPoints;
 

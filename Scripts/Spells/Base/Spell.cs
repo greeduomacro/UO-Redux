@@ -7,6 +7,10 @@ using Server.Network;
 using Server.Perks;
 using Server.Spells.Second;
 using Server.Targeting;
+using Server.Spells.Necromancy;
+using Server.Spells.Ninjitsu;
+using System.Collections.Generic;
+using Server.Spells.Bushido;
 
 namespace Server.Spells
 {
@@ -331,6 +335,11 @@ namespace Server.Spells
                     scalar = 2.0;
                 }
 
+				TransformContext context = TransformationSpellHelper.GetContext( defender );
+
+				if( (atkBook.Slayer == SlayerName.Silver || atkBook.Slayer2 == SlayerName.Silver) && context != null && context.Type != typeof( HorrificBeastSpell ) )
+					scalar +=.25; // Every necromancer transformation other than horrific beast take an additional 25% damage
+
                 if( scalar != 1.0 )
                     return scalar;
             }
@@ -473,6 +482,7 @@ namespace Server.Spells
         }
 
         public virtual bool BlockedByHorrificBeast { get { return true; } }
+        public virtual bool BlockedByAnimalForm{ get{ return true; } }
         public virtual bool BlocksMovement { get { return true; } }
 
         public virtual bool CheckNextSpellTime { get { return !(m_Scroll is BaseWand); } }
@@ -492,6 +502,11 @@ namespace Server.Spells
             {
                 m_Caster.SendLocalizedMessage(502642); // You are already casting a spell.
             }
+
+            else if ( BlockedByHorrificBeast && TransformationSpellHelper.UnderTransformation( m_Caster, typeof( HorrificBeastSpell ) ) || ( BlockedByAnimalForm && AnimalForm.UnderTransformation( m_Caster ) ))
+	    {
+	        m_Caster.SendLocalizedMessage( 1061091 ); // You cannot cast that spell in this form.
+	    }
             else if( !(m_Scroll is BaseWand) && (m_Caster.Paralyzed || m_Caster.Frozen) )
             {
                 m_Caster.SendLocalizedMessage(502643); // You can not cast a spell while frozen.
@@ -620,6 +635,9 @@ namespace Server.Spells
         {
             double scalar = 1.0;
 
+	    if ( !Necromancy.MindRotSpell.GetMindRotScalar( Caster, ref scalar ) )
+		scalar = 1.0;
+
             // Lower Mana Cost = 40%
             int lmc = AosAttributes.GetValue(m_Caster, AosAttribute.LowerManaCost);
             if( lmc > 40 )
@@ -650,6 +668,11 @@ namespace Server.Spells
 
             return TimeSpan.FromSeconds(delay);
         }
+
+		public virtual int CastRecoveryBase{ get{ return 6; } }
+		public virtual int CastRecoveryFastScalar{ get{ return 1; } }
+		public virtual int CastRecoveryPerSecond{ get{ return 4; } }
+		public virtual int CastRecoveryMinimum{ get{ return 0; } }
 
         public virtual TimeSpan GetCastRecovery()
         {
@@ -760,7 +783,7 @@ namespace Server.Spells
             {
                 if (m_Scroll is SpellScroll)
                 {
-                    mana = 0;
+                    mana = (int)(mana * 0.75);
                     m_Scroll.Consume();
                 }
 
@@ -793,6 +816,20 @@ namespace Server.Spells
 
                 if( karma != 0 )
                     Misc.Titles.AwardKarma(Caster, karma, true);
+
+				if( TransformationSpellHelper.UnderTransformation( m_Caster, typeof( VampiricEmbraceSpell ) ) )
+				{
+					bool garlic = false;
+
+					for ( int i = 0; !garlic && i < m_Info.Reagents.Length; ++i )
+						garlic = ( m_Info.Reagents[i] == Reagent.Garlic );
+
+					if ( garlic )
+					{
+						m_Caster.SendLocalizedMessage( 1061651 ); // The garlic burns you!
+						AOS.Damage( m_Caster, Utility.RandomMinMax( 17, 23 ), 100, 0, 0, 0, 0 );
+					}
+				}
 
                 return true;
             }

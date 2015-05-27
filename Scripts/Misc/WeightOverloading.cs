@@ -84,9 +84,9 @@ namespace Server.Misc
                 if (((from.Stam * 100) / Math.Max(from.StamMax, 1)) < 10)
                     --from.Stam;
 
-                if (from.Stam == 0)
+                if (from.Stam == 0 && (e.Direction & Direction.Running) != 0)
                 {
-                    from.SendLocalizedMessage(500110); // You are too fatigued to move.
+                    from.SendMessage("You are too fatigued to run!");
                     e.Blocked = true;
                     return;
                 }

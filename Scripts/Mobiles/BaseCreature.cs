@@ -10,6 +10,10 @@ using Server.SkillHandlers;
 using Server.Spells;
 using System;
 using System.Collections.Generic;
+using Server.Spells.Necromancy;
+using Server.Spells.Chivalry;
+
+using Ulmeta.Guards;
 
 namespace Server.Mobiles
 {
@@ -813,6 +817,47 @@ namespace Server.Mobiles
             return (m_iTeam == c.m_iTeam && ((m_bSummoned || m_bControlled) == (c.m_bSummoned || c.m_bControlled))/* && c.Combatant != this */);
         }
         #endregion
+
+        private static Type[] m_AnimateDeadTypes = new Type[]
+			{
+				typeof( MoundOfMaggots ), typeof( HellSteed ), typeof( SkeletalMount ),
+				typeof( WailingBanshee ), typeof( Wraith ), typeof( SkeletalDragon ),
+				typeof( LichLord ), typeof( FleshGolem ), typeof( Lich ),
+				typeof( SkeletalKnight ), typeof( BoneKnight ), typeof( Mummy ),
+				typeof( SkeletalMage ), typeof( BoneMagi ), typeof( PatchworkSkeleton )
+			};
+
+        public virtual bool IsAnimatedDead
+        {
+            get
+            {
+                if (!Summoned)
+                    return false;
+
+                Type type = this.GetType();
+
+                bool contains = false;
+
+                for (int i = 0; !contains && i < m_AnimateDeadTypes.Length; ++i)
+                    contains = (type == m_AnimateDeadTypes[i]);
+
+                return contains;
+            }
+        }
+
+        public virtual bool IsNecroFamiliar
+        {
+            get
+            {
+                if (!Summoned)
+                    return false;
+
+                if (m_ControlMaster != null && SummonFamiliarSpell.Table.Contains(m_ControlMaster))
+                    return SummonFamiliarSpell.Table[m_ControlMaster] == this;
+
+                return false;
+            }
+        }
 
         public virtual bool IsEnemy(Mobile m)
         {
@@ -3301,7 +3346,10 @@ namespace Server.Mobiles
             {
                 if(!guardedRegion.IsDisabled() && guardedRegion.IsGuardCandidate(m) && BeginAction(typeof(GuardedRegion)))
                 {
+
+                    if (!(this is Guard))
                     Say(1013037 + Utility.Random(16));
+
                     guardedRegion.CallGuards(this.Location);
 
                     Timer.DelayCall(TimeSpan.FromSeconds(5.0), new TimerCallback(ReleaseGuardLock));
@@ -3906,6 +3954,25 @@ namespace Server.Mobiles
             gem.Amount = amount;
 
             PackItem(gem);
+        }
+
+        public void PackNecroReg(int min, int max)
+        {
+            PackNecroReg(Utility.RandomMinMax(min, max));
+        }
+
+        public void PackNecroReg(int amount)
+        {
+            for (int i = 0; i < amount; ++i)
+                PackNecroReg();
+        }
+
+        public void PackNecroReg()
+        {
+            //if (!Core.AOS)
+            //    return;
+
+            PackItem(Loot.RandomNecromancyReagent());
         }
 
         public void PackReg(int min, int max)

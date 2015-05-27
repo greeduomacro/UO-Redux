@@ -52,14 +52,14 @@ namespace Server.Perks
         }
 
         /// <summary>
-        /// Applies a 25% chance to bash the attacker at <code>PerkLevel.Fourth</code>
+        /// Applies a 20% chance to bash the attacker at <code>PerkLevel.Fourth</code>
         /// </summary>
         public void TryBash( BaseShield shield, BaseWeapon attackerWeapon )
         {
             if( Level < PerkLevel.Fourth || !ShieldEquipped || attackerWeapon is BaseRanged )
                return;
 
-            if( Utility.RandomDouble() < 0.25 )
+            if( Utility.RandomDouble() < 0.20 )
                 return;
 
             Mobile aggressor = Player.Combatant as Mobile;
@@ -80,13 +80,13 @@ namespace Server.Perks
         }
 
         /// <summary>
-        /// Applies a 20% chance to dodge weapon attacks at <code>PerkLevel.Third</code>
+        /// Applies a 15% chance to dodge weapon attacks at <code>PerkLevel.Third</code>
         /// </summary>
         public bool TryDodge( BaseWeapon weapon )
         {
             if (Level >= PerkLevel.Second && ShieldEquipped)
             {
-                if (Utility.RandomDouble() < 0.20)
+                if (Utility.RandomDouble() < 0.15)
                 {
                     Player.SendMessage("You side-step your opponents attack, leading them through with your shield.");
                     return true;
@@ -97,7 +97,7 @@ namespace Server.Perks
         }
 
         /// <summary>
-        /// Applies a 50% chance to dodge missile attacks at <code>PerkLevel.First</code>
+        /// Applies a 66% chance to dodge missile attacks at <code>PerkLevel.First</code>
         /// </summary>
         public bool TryDodgeMissile()
         {

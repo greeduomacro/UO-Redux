@@ -386,7 +386,7 @@ namespace Server.Items
 							//    from.SendLocalizedMessage( 1060398, m_Cost.ToString() ); // ~1_AMOUNT~ gold has been withdrawn from your bank box.
 							//}
 
-							if( CurrencySystem.Consume( from.FindBankNoCreate(), CurrencySystem.typeofCopper, m_Cost ) )
+							if( CurrencySystem.Consume( from.FindBankNoCreate(), CurrencySystem.typeofGold, m_Cost ) )
 							{
 								from.SendMessage( "{0} copper has been withdrawn from your bank box.", m_Cost.ToString() );
 							}

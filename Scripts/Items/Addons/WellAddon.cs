@@ -94,7 +94,7 @@ namespace Server.Items
 
 					from.SendMessage( msg );
 
-					from.Thirst = 20;
+					from.Thirst += 5;
 				}
 			}
 			else

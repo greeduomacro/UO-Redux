@@ -1,5 +1,7 @@
 using System;
 using Server;
+using Server.Regions;
+using Server.Spells;
 
 namespace Server.Engines.Crops
 {
@@ -28,55 +30,63 @@ namespace Server.Engines.Crops
 
 		public override void OnDoubleClick( Mobile from )
 		{
-			if( this.ItemID == 0x913 )
-			{
-			}
-			else if( !IsChildOf( from.Backpack ) )
+			if( !IsChildOf( from.Backpack ) )
 			{
 				from.SendLocalizedMessage( CommonLocs.MustBeInPack );
 			}
-			else if( from.Mounted )
-			{
-				from.SendMessage( "You cannot do that while mounted." );
-			}
-			else if( !CheckPlantSeed( from.Location, from.Map, 0 ) )
-			{
-				from.SendMessage( "You cannot plant this so close to another crop." );
-			}
-			else if( CheckWeeds( from.Location, from.Map ) )
-			{
-				from.SendMessage( "These weeds will not help your crop grow!" );
-			}
-			else if( CanGrow( from.Location, from.Map ) )
-			{
-				from.Animate( 32, 5, 1, true, false, 0 );
-				from.SendMessage( "You have planted the seed." );
+            else if (from.Region is GuardedRegion)
+            {
+                from.SendMessage("You may not plant that in this area.");
+            }
+            else if (SpellHelper.CheckMulti(from.Location, from.Map, true))
+            {
+                from.SendMessage("You could not dig deep enough to plant the seed.");
+            }
+            else if (from.Mounted)
+            {
+                from.SendMessage("You cannot do that while mounted.");
+            }
+            else if (!CheckPlantSeed(from.Location, from.Map, 0))
+            {
+                from.SendMessage("You cannot plant this so close to another crop.");
+            }
+            else if (CheckWeeds(from.Location, from.Map))
+            {
+                from.SendMessage("These weeds will not help your crop grow!");
+            }
+            else if (CanGrow(from.Location, from.Map))
+            {
+                from.Animate(32, 5, 1, true, false, 0);
+                from.SendMessage("You have planted the seed.");
+                from.ClearHands();
 
-				try
-				{
-					CropSeedling seedling = Activator.CreateInstance( typeof( CropSeedling ), m_FullCropType, m_SeedlingID ) as CropSeedling;
-					BaseCropSeed tempSeed = new BaseCropSeed( 0, null );
-					tempSeed.ItemID = 0x913;
-					tempSeed.Movable = false;
-					tempSeed.MoveToWorld( from.Location, from.Map );
+                try
+                {
+                    CropSeedling seedling = Activator.CreateInstance
+                        (typeof(CropSeedling), m_FullCropType, m_SeedlingID) as CropSeedling;
 
-					if( seedling != null )
-						seedling.Plant( from, tempSeed );
-				}
-				catch( Exception e )
-				{
-					Server.Utilities.ExceptionManager.LogException( "BaseCropSeed.cs", e );
+                    BaseCropSeed tempSeed = new BaseCropSeed(0, null);
+                    tempSeed.ItemID = 0x913;
+                    tempSeed.Movable = false;
+                    tempSeed.MoveToWorld(from.Location, from.Map);
 
-					from.SendMessage( "A problem has ocurred while planting the seed. This exception has been logged. Please contact an administrator for further assistance." );
-				}
+                    if (seedling != null)
+                        seedling.Plant(from, tempSeed);
+                }
+                catch (Exception e)
+                {
+                    Server.Utilities.ExceptionManager.LogException("BaseCropSeed.cs", e);
 
-				if( --(this.Amount) <= 0 )
-					this.Delete();
-			}
-			else
-			{
-				from.SendMessage( "You cannot plant this seed at this location." );
-			}
+                    from.SendMessage("A problem has ocurred while planting the seed. This exception has been logged. Please contact an administrator for further assistance.");
+                }
+
+                if (--(this.Amount) <= 0)
+                    this.Delete();
+            }
+            else
+            {
+                from.SendMessage("You cannot plant this seed at this location.");
+            }
 		}
 
 		public virtual bool CheckPlantSeed( Point3D location, Map map, int range )

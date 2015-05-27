@@ -2,6 +2,8 @@ using System;
 using Server;
 using Server.Targeting;
 using Server.Items;
+using Server.Mobiles;
+using Server.Perks;
 
 namespace Server.Engines.Craft
 {
@@ -92,6 +94,14 @@ namespace Server.Engines.Craft
 						ingot.Amount = 1;
 
 					item.Delete();
+
+                    if (from is Player)
+                    {
+                        Craftsman cm = Perk.GetByType<Craftsman>(from as Player);
+                        if (cm != null && cm.Savvy())
+                            ingot.Amount += Utility.RandomMinMax(1,2);
+                    }
+
 					from.AddToBackpack( ingot );
 
 					from.PlaySound( 0x2A );

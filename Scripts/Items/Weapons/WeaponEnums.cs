@@ -7,8 +7,6 @@ namespace Server.Items
 		Low,
 		Regular,
 		Exceptional,
-        Superb,
-        Exquisite,
         Extraordinary
 	}
 

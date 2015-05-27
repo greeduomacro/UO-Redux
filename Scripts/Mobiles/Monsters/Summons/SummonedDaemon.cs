@@ -42,7 +42,7 @@ namespace Server.Mobiles
 			SetSkill( SkillName.Wrestling, 98.1, 99.0 );
 
 			VirtualArmor = 58;
-			ControlSlots = 4;
+			ControlSlots = 3;
 		}
 
 		public override Poison PoisonImmune{ get{ return Poison.Regular; } } // TODO: Immune to poison?

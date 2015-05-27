@@ -4,28 +4,28 @@ using Server.Mobiles;
 namespace Server.Mobiles
 {
 	[CorpseName( "an ostard corpse" )]
-	public class FemaleOstard : BaseMount
+	public class FrenziedOstard : BaseMount
 	{
 		[Constructable]
-		public FemaleOstard() : this( "a female ostard" )
+		public FrenziedOstard() : this( "a frenzied ostard" )
 		{
 		}
 
 		[Constructable]
-		public FemaleOstard( string name ) : base( name, 0xDB, 0x3EA5, AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4 )
+		public FrenziedOstard( string name ) : base( name, 0xDA, 0x3EA4, AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4 )
 		{
-			Hue = Utility.RandomSlimeHue() | 0x8000;
+			Hue = Utility.RandomHairHue() | 0x8000;
 
-			BaseSoundID = 0x270;
+			BaseSoundID = 0x275;
 
-			SetStr( 98, 190 );
-			SetDex( 156, 175 );
-			SetInt( 116, 130 );
+			SetStr( 94, 170 );
+			SetDex( 96, 115 );
+			SetInt( 6, 10 );
 
-			SetHits( 171, 188 );
+			SetHits( 71, 110 );
 			SetMana( 0 );
 
-			SetDamage( 8, 14 );
+			SetDamage( 11, 17 );
 
 			SetDamageType( ResistanceType.Physical, 100 );
 
@@ -34,23 +34,23 @@ namespace Server.Mobiles
 			SetResistance( ResistanceType.Poison, 20, 25 );
 			SetResistance( ResistanceType.Energy, 20, 25 );
 
-			SetSkill( SkillName.MagicResist, 27.1, 32.0 );
-			SetSkill( SkillName.Tactics, 29.3, 44.0 );
-			SetSkill( SkillName.Wrestling, 29.3, 44.0 );
+			SetSkill( SkillName.MagicResist, 75.1, 80.0 );
+			SetSkill( SkillName.Tactics, 79.3, 94.0 );
+			SetSkill( SkillName.Wrestling, 79.3, 94.0 );
 
-			Fame = 450;
-			Karma = 0;
+			Fame = 1500;
+			Karma = -1500;
 
 			Tamable = true;
 			ControlSlots = 1;
-			MinTameSkill = 49.1;
+			MinTameSkill = 77.1;
 		}
 
 		public override int Meat{ get{ return 3; } }
-		public override FoodType FavoriteFood{ get{ return FoodType.FruitsAndVegies | FoodType.GrainsAndHay; } }
+		public override FoodType FavoriteFood{ get{ return FoodType.Meat | FoodType.Fish | FoodType.Eggs | FoodType.FruitsAndVegies; } }
 		public override PackInstinct PackInstinct{ get{ return PackInstinct.Ostard; } }
 
-		public FemaleOstard( Serial serial ) : base( serial )
+		public FrenziedOstard( Serial serial ) : base( serial )
 		{
 		}
 

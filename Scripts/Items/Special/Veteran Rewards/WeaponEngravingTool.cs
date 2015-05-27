@@ -35,12 +35,12 @@ namespace Server.Items
 		}
 		
 		[Constructable]
-		public WeaponEngravingTool() : this( 10 )
+		public WeaponEngravingTool() : this( 1 )
 		{
 		}
 	
 		[Constructable]
-		public WeaponEngravingTool( int uses ) : base( 0x32F8 )
+		public WeaponEngravingTool( int uses ) : base( 4787 )
 		{
 			LootType = LootType.Blessed;
 			Weight = 1.0;
@@ -59,6 +59,12 @@ namespace Server.Items
 			
 			if ( m_UsesRemaining > 0 )
 			{
+                if (from.Skills.ArmsLore.Value < 100)
+                {
+                    from.SendMessage("You must have 100.0 Arms Lore to engrave a weapon.");
+                    return;
+                }
+
 				from.SendLocalizedMessage( 1072357 ); // Select an object to engrave.
 				from.Target = new TargetWeapon( this );
 			}
@@ -134,7 +140,7 @@ namespace Server.Items
 							guildmaster.Say( 1076165 ); // Your weapon engraver should be good as new!
 						}
 						else
-							guildmaster.Say( "You need a 100,000 gold and a blue diamond to recharge the weapon engraver." );
+							guildmaster.Say( "You need a 100,000 gold and a diamond to recharge the weapon engraver." );
 					}
 					else
 						guildmaster.Say( 1076164 ); // I can only help with this if you are carrying an engraving tool that needs repair.
@@ -155,14 +161,14 @@ namespace Server.Items
 						
 						if ( Utility.RandomDouble() < from.Skills.Tinkering.Value / 100 )
 						{	
-							UsesRemaining = 10;			
+							UsesRemaining = 1;			
 							from.SendLocalizedMessage( 1076165 ); // Your weapon engraver should be good as new! ?????
 						}
 						else
 							from.SendLocalizedMessage( 1076175 ); // You cracked the diamond attempting to fix the weapon engraver.
 					}
 					else
-						from.SendLocalizedMessage( 1076166 ); // You do not have a blue diamond needed to recharge the engraving tool.	
+						from.SendMessage("You do not posess the required diamond."); // You do not have a blue diamond needed to recharge the engraving tool.	
 				}	
 			}		
 		}

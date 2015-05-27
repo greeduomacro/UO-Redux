@@ -40,7 +40,7 @@ namespace Server.Misc
                 {
                     if (state.Mobile is Player)
                     {
-                        if (((Player)state.Mobile).Race != Race.Liche)
+                        if (((Player)state.Mobile).Race != Race.Lich)
                         {
                             if (((Player)state.Mobile).Race != Race.Marid)
                                 HungerDecay(state.Mobile);
@@ -67,7 +67,7 @@ namespace Server.Misc
             }
 
             if ((m != null && m.Alive && m.Hunger >= 1 && m.AccessLevel == AccessLevel.Player) &&
-                ((Player)m).Race != Race.Liche && ((Player)m).Race != Race.Marid)
+                ((Player)m).Race != Race.Lich && ((Player)m).Race != Race.Marid)
                 m.Hunger --;
 
 			if( m != null && m.Alive )
@@ -118,7 +118,7 @@ namespace Server.Misc
             }
 
             if ((m != null && m.Alive && m.Hunger >= 1 && m.AccessLevel == AccessLevel.Player) &&
-                ((Player)m).Race != Race.Liche)
+                ((Player)m).Race != Race.Lich)
 				m.Thirst --;
 
             if (((Player)m).Race == Race.Marid)

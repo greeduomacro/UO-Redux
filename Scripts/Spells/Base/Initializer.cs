@@ -85,6 +85,58 @@ namespace Server.Spells
             Register(61, typeof(Eighth.EarthElementalSpell));
             Register(62, typeof(Eighth.FireElementalSpell));
             Register(63, typeof(Eighth.WaterElementalSpell));
+
+            // Necromancy spells
+            Register(100, typeof(Necromancy.AnimateDeadSpell));
+            Register(101, typeof(Necromancy.BloodOathSpell));
+            Register(102, typeof(Necromancy.CorpseSkinSpell));
+            Register(103, typeof(Necromancy.CurseWeaponSpell));
+            Register(104, typeof(Necromancy.EvilOmenSpell));
+            Register(105, typeof(Necromancy.HorrificBeastSpell));
+            Register(106, typeof(Necromancy.LichFormSpell));
+            Register(107, typeof(Necromancy.MindRotSpell));
+            Register(108, typeof(Necromancy.PainSpikeSpell));
+            Register(109, typeof(Necromancy.PoisonStrikeSpell));
+            Register(110, typeof(Necromancy.StrangleSpell));
+            Register(111, typeof(Necromancy.SummonFamiliarSpell));
+            Register(112, typeof(Necromancy.VampiricEmbraceSpell));
+            Register(113, typeof(Necromancy.VengefulSpiritSpell));
+            Register(114, typeof(Necromancy.WitherSpell));
+            Register(115, typeof(Necromancy.WraithFormSpell));
+
+            //if (false)
+            //    Register(116, typeof(Necromancy.ExorcismSpell));
+
+            // Paladin abilities
+            Register(200, typeof(Chivalry.CleanseByFireSpell));
+            Register(201, typeof(Chivalry.CloseWoundsSpell));
+            Register(202, typeof(Chivalry.ConsecrateWeaponSpell));
+            Register(203, typeof(Chivalry.DispelEvilSpell));
+            Register(204, typeof(Chivalry.DivineFurySpell));
+            Register(205, typeof(Chivalry.EnemyOfOneSpell));
+            Register(206, typeof(Chivalry.HolyLightSpell));
+            Register(207, typeof(Chivalry.NobleSacrificeSpell));
+            Register(208, typeof(Chivalry.RemoveCurseSpell));
+            Register(209, typeof(Chivalry.SacredJourneySpell));
+
+
+            // Samurai abilities
+            Register(400, typeof(Bushido.HonorableExecution));
+            Register(401, typeof(Bushido.Confidence));
+            Register(402, typeof(Bushido.Evasion));
+            Register(403, typeof(Bushido.CounterAttack));
+            Register(404, typeof(Bushido.LightningStrike));
+            Register(405, typeof(Bushido.MomentumStrike));
+
+            // Ninja abilities
+            Register(500, typeof(Ninjitsu.FocusAttack));
+            Register(501, typeof(Ninjitsu.DeathStrike));
+            Register(502, typeof(Ninjitsu.AnimalForm));
+            Register(503, typeof(Ninjitsu.KiAttack));
+            Register(504, typeof(Ninjitsu.SurpriseAttack));
+            Register(505, typeof(Ninjitsu.Backstab));
+            Register(506, typeof(Ninjitsu.Shadowjump));
+            Register(507, typeof(Ninjitsu.MirrorImage));
         }
 
         public static void Register( int spellID, Type type )

@@ -142,7 +142,7 @@ namespace Server
 					typeof( Eagle ),			typeof( ElderGazer ),
 					typeof( EvilMage ),			typeof( EvilMageLord ),		typeof( Executioner ),
 					typeof( Savage ),			typeof( FireElemental ),	typeof( FireGargoyle ),
-					typeof( FireSteed ),		typeof( FemaleOstard ),		typeof( MaleOstard ),
+					typeof( FireSteed ),		typeof( ForestOstard ),		typeof( FrenziedOstard ),
 					typeof( FrostSpider ),		typeof( Gargoyle ),			typeof( Gazer ),
 					typeof( IceSerpent ),		typeof( GiantRat ),			typeof( GiantSerpent ),
 					typeof( GiantSpider ),		typeof( GiantToad ),		typeof( Goat ),

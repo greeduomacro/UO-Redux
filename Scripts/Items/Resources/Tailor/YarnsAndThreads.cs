@@ -83,12 +83,12 @@ namespace Server.Items
 					{
 						from.SendLocalizedMessage( 1042001 ); // That must be in your pack for you to use it.
 					}
-					else if ( loom.Phase < 4 )
+					else if ( loom.Phase < 8 )
 					{
 						m_Material.Consume();
 
 						if ( targeted is Item )
-							((Item)targeted).SendLocalizedMessageTo( from, 1010001 + loom.Phase++ );
+							((Item)targeted).SendLocalizedMessageTo( from, 1010001 + (int)(loom.Phase++ / 2));
 					}
 					else
 					{

@@ -15,6 +15,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using Ulmeta.ContextMenus;
+using Ulmeta.Guards;
 
 namespace Server.Mobiles
 {
@@ -30,7 +31,7 @@ namespace Server.Mobiles
         Human = 0,
         Ogre = 1,
         Terathan = 70,
-        Liche = 24,
+        Lich = 24,
         HalfDaemon = 0,
         Shapeshifter = 58,
         Marid = 0,
@@ -43,7 +44,7 @@ namespace Server.Mobiles
         Human,
         Ogre,
         Terathan,
-        Liche,
+        Lich,
         HalfDaemon,
         Shapeshifter,
         Marid,
@@ -182,7 +183,7 @@ namespace Server.Mobiles
             Mobile from;
 
             public KOProtectionTimer(Mobile m)
-                : base(TimeSpan.FromSeconds(Utility.RandomMinMax(3, 5)))
+                : base(TimeSpan.FromSeconds(5))
             {
                 Priority = TimerPriority.OneSecond;
                 from = m;
@@ -208,6 +209,9 @@ namespace Server.Mobiles
             CantWalk = true;
 
             double koTime = KOCount * 2;
+
+            if (LastKiller is Guard && Criminal)
+                Criminal = false;
 
             SendGump(new KOGump(this, TimeSpan.FromSeconds(koTime)));
         }
@@ -425,10 +429,10 @@ namespace Server.Mobiles
         {   
             if(item.Layer == Layer.OneHanded || item.Layer == Layer.TwoHanded)
             {
-                if (Race == Race.Liche && (item is BaseStaff || item is BaseWand || item is Spellbook))
+                if (Race == Race.Lich && (item is BaseStaff || item is BaseWand || item is Spellbook))
                     return base.OnEquip(item);
 
-                else if (Race == Race.Liche && (!(item is BaseStaff) && !(item is BaseWand) && !(item is Spellbook)))
+                else if (Race == Race.Lich && (!(item is BaseStaff) && !(item is BaseWand) && !(item is Spellbook)))
                 {
                     SendMessage("As a Liche you may only wield spellbooks, staves and wand-type weapons.");
                     return false;
@@ -475,12 +479,25 @@ namespace Server.Mobiles
                     else Thirst--;
 
                     //Idk, some days I want it, some days I don't
-                    //SendMessage("You begin to feel your exertion depleting your body.");
+                    SendMessage("You begin to feel your exertion depleting your body.");
                 }
             }
         }
 
-        public override int MaxWeight { get { return 40 + (int)(3.5 * this.Str); } }
+        public override int MaxWeight
+        {
+            get
+            {
+                Craftsman cm = Perk.GetByType<Craftsman>(this);
+
+                int x = 40;
+
+                if (cm != null && cm.WorkHorse())
+                    x += 50;
+
+                return (x + (int)(3.5 * this.Str));
+            }
+        }
 
         public Player()
             : base()
@@ -809,17 +826,6 @@ namespace Server.Mobiles
             EventDispatcher.InvokePlayerKarmaChange(new PlayerKarmaChangeEventArgs(this, oldValue, Karma));
         }
 
-        /////<summary>
-        /////Overridden to stop players from running with platemale legs.
-        ///// </summary>
-        //public override TimeSpan ComputeMovementSpeed(Direction dir, bool checkTurning)
-        //{
-        //    if (FindItemOnLayer(Layer.Pants) is PlateLegs && !Mounted)
-        //        return Mobile.WalkFoot;
-
-        //    else return base.ComputeMovementSpeed(dir, checkTurning);
-        //}
-
         /// <summary>
         /// Overridden to redesign hidden movement handler
         /// Overriden to Consume Stamina when running.
@@ -832,7 +838,9 @@ namespace Server.Mobiles
 
         protected override bool OnMove(Direction d)
         {
-            lastZ = currentZ; base.OnMove(d); currentZ = Z;
+            lastZ = currentZ; 
+            base.OnMove(d); 
+            currentZ = Z;
 
             EventDispatcher.InvokePlayerMove(new PlayerMoveEventArgs(this, d));
             isRunning = ((d & Direction.Running) != 0);
@@ -845,14 +853,14 @@ namespace Server.Mobiles
                     return true;
 
                 BaseMount mount = this.Mount as BaseMount;
-                double mountCapacity = (double)(mount.Str * 3.865);
-                stamLost += ((double)((TotalWeight * 0.8333) / mountCapacity) + 0.50);
+                double mountCapacity = (double)(mount.Str * 12);
+                stamLost += ((double)((TotalWeight * 0.618) / mountCapacity));
 
                 if (mount.IsInjured)
                     return false;
 
                 if (lastZ < currentZ)
-                    stamLost++;
+                    stamLost = stamLost * 1.618;
 
                 if (stamLost > 1.0)
                 {
@@ -865,7 +873,7 @@ namespace Server.Mobiles
                     if (Utility.RandomDouble() <= 0.08)
                     {
                         mount.Rider = null;
-                        SendMessage("Your steed is ejects you from its back!");
+                        SendMessage("Your steed appears exhuasted!");
                     }
                 }
 
@@ -885,6 +893,9 @@ namespace Server.Mobiles
                 if (AccessLevel > AccessLevel.Player)
                     return true;
 
+                if (Blessed) 
+                    return true;
+
                 if (Hunger < 1 || Thirst < 1)
                     Damage(Utility.RandomMinMax(1, 3));
 
@@ -892,23 +903,22 @@ namespace Server.Mobiles
                 double weightRatio = ((double)(TotalWeight / MaxWeight));
 
                 if (Thirst > 0)
-                    htRatio = (double)((20 / Thirst) / 2);
+                    htRatio = (double)((20 / Thirst) / 8);
 
                 else htRatio = 10.0;
 
                 if (Hunger > 0)
-                    htRatio += (double)((20 / Hunger) / 2);
+                    htRatio += (double)((20 / Hunger) / 8);
 
                 else htRatio += 10.0;
 
-
-                stamLost += (weightRatio + htRatio) * 0.8333 + 0.25;
+                stamLost += (weightRatio + htRatio) * 0.8;
 
                 if (FindItemOnLayer(Layer.Pants) != null)
                     stamLost += FindItemOnLayer(Layer.Pants).Weight * 0.08;
 
                 if (lastZ < currentZ)
-                    stamLost++;
+                    stamLost = stamLost * 1.618;
 
                 if (stamLost > 1.0)
                 {
@@ -947,11 +957,14 @@ namespace Server.Mobiles
             {
                 if (Utility.RandomDouble() <= 0.01)
                 {
-                    this.SendMessage("You've stumbled, and your feet are bare!");
-                    Damage(Utility.RandomMinMax(4, 8));
+                    if (Utility.RandomBool())
+                    {
+                        this.SendMessage("You've stumbled, and your feet are bare!");
+                        Damage(Utility.RandomMinMax(4, 8));
 
-                    if (Utility.RandomDouble() <= 0.15)
-                        BleedAttack.BeginBleed(this, this);
+                        if (Utility.RandomDouble() <= 0.15 && Utility.RandomBool())
+                            BleedAttack.BeginBleed(this, this);
+                    }
                 }
             }
 
@@ -987,6 +1000,7 @@ namespace Server.Mobiles
                                 RevealingAction();
 
                         }
+
                         else if (AllowedStealthSteps-- <= 0)
                         {
                             Server.SkillHandlers.Stealth.OnUse(this);

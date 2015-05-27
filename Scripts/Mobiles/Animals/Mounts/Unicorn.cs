@@ -1,16 +1,17 @@
 using System;
 using Server.Mobiles;
 using Server.Network;
+using Server.Items;
 
 namespace Server.Mobiles
 {
 	[CorpseName( "a unicorn corpse" )]
 	public class Unicorn : BaseMount
 	{
-		public override bool AllowMaleRider { get { return false; } }
-		public override bool AllowMaleTamer { get { return false; } }
+		public override bool AllowMaleRider{ get{ return false; } }
+		public override bool AllowMaleTamer{ get{ return false; } }
 
-		public override bool InitialInnocent { get { return true; } }
+		public override bool InitialInnocent{ get{ return true; } }
 
 		public override TimeSpan MountAbilityDelay { get { return TimeSpan.FromHours( 1.0 ); } }
 
@@ -30,7 +31,7 @@ namespace Server.Mobiles
 
 				if( p != null )
 				{
-					int chanceToCure = 10000 + (int)(this.Skills[SkillName.Magery].Value * 75) - ((p.Level + 1) * (Core.SE ? (p.Level < 4 ? 3300 : 3100) : 1750));
+					int chanceToCure = 10000 + (int)(this.Skills[SkillName.Magery].Value * 75) - ((p.Level + 1) * (Core.AOS ? (p.Level < 4 ? 3300 : 3100) : 1750));
 					chanceToCure /= 100;
 
 					if( chanceToCure > Utility.Random( 100 ) )
@@ -52,14 +53,12 @@ namespace Server.Mobiles
 		}
 
 		[Constructable]
-		public Unicorn()
-			: this( "a unicorn" )
+		public Unicorn() : this( "a unicorn" )
 		{
 		}
 
 		[Constructable]
-		public Unicorn( string name )
-			: base( name, 0x7A, 0x3EB4, AIType.AI_Mage, FightMode.Evil, 10, 1, 0.2, 0.4 )
+		public Unicorn( string name ) : base( name, 0x7A, 0x3EB4, AIType.AI_Mage, FightMode.Evil, 10, 1, 0.2, 0.4 )
 		{
 			BaseSoundID = 0x4BC;
 
@@ -102,19 +101,26 @@ namespace Server.Mobiles
 			AddLoot( LootPack.Potions );
 		}
 
-		public override OppositionGroup OppositionGroup
+		public override void OnDeath( Container c )
 		{
-			get { return OppositionGroup.FeyAndUndead; }
+			base.OnDeath( c );
+
+            //if ( Utility.RandomDouble() < 0.35 )
+            //    c.DropItem( new UnicornRibs() );
 		}
 
-		public override Poison PoisonImmune { get { return Poison.Lethal; } }
-		public override int Meat { get { return 3; } }
-		public override int Hides { get { return 10; } }
-		public override HideType HideType { get { return HideType.Horned; } }
-		public override FoodType FavoriteFood { get { return FoodType.FruitsAndVegies | FoodType.GrainsAndHay; } }
+		public override OppositionGroup OppositionGroup
+		{
+			get{ return OppositionGroup.FeyAndUndead; }
+		}
 
-		public Unicorn( Serial serial )
-			: base( serial )
+		public override Poison PoisonImmune{ get{ return Poison.Lethal; } }
+		public override int Meat{ get{ return 3; } }
+		public override int Hides{ get{ return 10; } }
+		public override HideType HideType{ get{ return HideType.Horned; } }
+		public override FoodType FavoriteFood{ get{ return FoodType.FruitsAndVegies | FoodType.GrainsAndHay; } }
+
+		public Unicorn( Serial serial ) : base( serial )
 		{
 		}
 
@@ -122,7 +128,7 @@ namespace Server.Mobiles
 		{
 			base.Serialize( writer );
 
-			writer.Write( (int)0 ); // version
+			writer.Write( (int) 0 ); // version
 		}
 
 		public override void Deserialize( GenericReader reader )
