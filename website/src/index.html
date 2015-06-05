@@ -1,40 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="uor">
 <head>
-	<link rel="stylesheet" href="../assets/css/site.css"/>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Ultima Online: Redux</title>
+	<meta name="description" content="">
+
+	<link rel="stylesheet" href="assets/css/index.css"/>
 </head>
 <body>
 
-<div class="navbar">
-	<div class="image-header">
-		<img class="logo-image" src="../assets/images/logoImage.gif"/>
-		<img class="logo-text" src="../assets/images/logoText.png"/>
+<div class="pure-g">
+	<div class="pure-u-1 navbar">
+		<div class="image-header">
+			<img class="logo-image" src="assets/images/logoImage.gif"/>
+			<img class="logo-text" src="assets/images/logoText.png"/>
+		</div>
+
+		<ul>
+			<li><a href="#/home">Home</a>
+			<li><a href="#/about">About</a>
+			<li><a href="#/contact">Contact Us</a>
+		</ul>
 	</div>
-
-	<ul>
-		<li><a href="#home">Home<i class="fa-test"></i></a>
-		<li><a href="#news">News</a>
-		<li><a href="#contact">Forum</a>
-		<li><a href="#about">About</a>
-	</ul>
 </div>
 
-<div id="form-container">
-	<form action="contact.php" method="post">
-		<h3>Sign Up For Beta!</h3>
-		<p id="paragraph">Pre-register for open-beta to recieve your own hooded shroud of shadows!</p>
-		<fieldset>
-			<label class="nameLabel" for="account">Account Name:</label>
-			<input id="account" name="acount"/>
-			<label class="emailLabel" for="email">E-mail Address:</label>
-			<input id="email" name="email"/>
-		</fieldset>
-		<fieldset>
-			<input class="btn" type="submit" value="Submit Request"/>
-			<input class="btn" type="reset" value="Reset Form"/>
-		</fieldset>
-	</form>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
+		href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="pure-g">
+	<div class="pure-u-1-5"></div>
+	<div class="pure-u-3-5" ng-view></div>
+	<div class="pure-u-1-5"></div>
 </div>
+
+<!-- In production use:
+  <script src="//code.angularjs.org/x.x.x/angular.min.js"></script>
+  <script src="//code.angularjs.org/x.x.x/angular-route.min.js"></script>
+  -->
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="home/home.js"></script>
+<script src="about/about.js"></script>
+<script src="contact/contact.js"></script>
 
 </body>
 </html>

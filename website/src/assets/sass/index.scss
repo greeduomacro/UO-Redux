@@ -1,0 +1,119 @@
+$fa-font-path: "../../../bower_components/fontawesome/fonts";
+@import "../../../bower_components/fontawesome/scss/font-awesome";
+@import "../../../bower_components/pure/pure";
+@import "../../../bower_components/pure/grids-responsive";
+
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+html,
+body {
+	min-height: 100%;
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #000000 url("../images/background.png") no-repeat fixed center;
+	background-size: contain;
+	color: white;
+}
+
+a {
+	&:link, &:visited {
+		background-color: #000000;
+		color: #FFFFFF;
+		display: block;
+		font-weight: bold;
+		padding: 4px;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		width: 120px;
+	}
+
+	&:hover, &:active {
+		color: #930000;
+	}
+}
+
+.navbar {
+	> ul {
+		opacity: 0.70;
+		text-align: center;
+
+		> li {
+			display: inline-block;
+		}
+	}
+}
+
+.image-header {
+	& > img {
+		vertical-align: middle;
+	}
+}
+
+.logo-image {
+	max-height: 188px;
+}
+
+.logo-text {
+	max-height: 125px;
+}
+
+#form-container {
+	background-color: #000000;
+	border: 5px solid #888888;
+	margin: 10px auto 0;
+	opacity: 0.70;
+	width: 400px;
+
+	> form {
+		margin: 50px auto;
+		width: 300px;
+
+		> #paragraph {
+			color: #EEEEEE;
+		}
+
+		label {
+			color: #999999;
+			display: table-cell;
+			font: 16px sans-serif;
+			font-weight: bold;
+			margin-bottom: 10px;
+			margin-top: 10px;
+		}
+
+		input {
+			margin-bottom: 5px;
+			margin-left: 32px;
+			margin-top: 5px;
+			width: 200px;
+		}
+
+		h3 {
+			color: #FFFFFF;
+			font: 20px sans-serif;
+			font-weight: bold;
+			margin-bottom: 20px;
+			margin-top: 10px;
+		}
+	}
+}
+
+.btn {
+	font-weight: bold;
+	margin-bottom: 3px;
+	margin-left: 50px;
+	width: 175px;
+}
