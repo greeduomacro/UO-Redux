@@ -102,6 +102,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\razor_active_img.png" />
     <None Include="Resources\red_btn.png" />
     <None Include="Resources\blue_hlp_btn.png" />
     <None Include="Resources\active_redux_logo.png" />

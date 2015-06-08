@@ -102,8 +102,7 @@ namespace ReduxLauncher.Modules
         public PatchHandler(PatcherInterface i)
         {
             UI = i;
-
-            if (XmlHandler.CanReadSettings("http://www.uo-redux.com/settings.xml"))
+            if (XmlHandler.CanReadSettings(@"http://data.uo-redux.com/patchsettings/settings.xml"))
             {
                 GatherData();
                 ObtainCurrentVersion();
@@ -271,7 +270,7 @@ namespace ReduxLauncher.Modules
             try
             {
                 versionBytes = webClient.DownloadData(VersionUrl);
-                updateBytes = webClient.DownloadData(@"https://uo-redux.com/patchnotes.txt");
+                updateBytes = webClient.DownloadData(@"http://data.uo-redux.com/patchsettings/patchnotes.txt");
             }
 
             catch (Exception e) 
@@ -423,7 +422,9 @@ namespace ReduxLauncher.Modules
             if (e.Error != null)
             {
                 LogHandler.LogErrors(e.Error.ToString(), this);
-                LogHandler.LogErrors(e.Error.InnerException.ToString(), this);
+
+                if(e.Error.InnerException != null)
+                    LogHandler.LogErrors(e.Error.InnerException.ToString(), this);
             }
         }
 
@@ -498,31 +499,46 @@ namespace ReduxLauncher.Modules
             catch (Exception e)
             {
                 LogHandler.LogErrors(e.ToString(), this);
+                LogHandler.LogErrors(url, this);
                 return null;
             }
         }
 
         internal void LaunchClient()
         {
-            if (UI.UseRazor)
+            try
             {
-                Process client = new Process();
-                client.StartInfo = new ProcessStartInfo("razor.exe");
+                string localPath = new FileInfo
+                (System.Reflection.Assembly.GetEntryAssembly().Location).Directory.ToString();
 
-                client.Start();
+                if (UI.UseRazor)
+                {
+                    Process client = new Process();
+                    client.StartInfo = new ProcessStartInfo(localPath + "/Razor/Razor.exe");
+
+                    client.Start();
+                }
+
+                else
+                {
+                    Process client = new Process();
+                    client.StartInfo = new ProcessStartInfo("No_Crypt_Client_2d.exe");
+                    client.StartInfo.WindowStyle = ProcessWindowStyle.Maximized;
+
+                    client.Start();
+                }
+
+                webClient.Dispose();
+                Process.GetCurrentProcess().Kill();
             }
 
-            else
+            catch (Exception e)
             {
-                Process client = new Process();
-                client.StartInfo = new ProcessStartInfo("client.exe");
-                client.StartInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                LogHandler.LogErrors(e.ToString());
 
-                client.Start();
+                if (e.InnerException != null)
+                    LogHandler.LogErrors(e.InnerException.ToString());
             }
-
-            webClient.Dispose();
-            Process.GetCurrentProcess().Kill();
         }
     }
 }

@@ -27,12 +27,12 @@ namespace ReduxLauncher.Modules
             progressBar.Style = ProgressBarStyle.Blocks;
             progressBar.Maximum = 100;
 
-            //BackColor = Color.WhiteSmoke;
-            //TransparencyKey = Color.WhiteSmoke;
-
-            Background.Load(PatchHelper.BackgroundURL);
-
-            UpdateText.Text = handler.UpdateNotes();
+            try
+            {
+                Background.Load(PatchHelper.BackgroundURL);
+                UpdateText.Text = handler.UpdateNotes();
+            }
+            catch { } /// Incase background can't load from url.
             UpdateText.SelectionStart = UpdateText.Text.Length;
             UpdateText.ScrollToCaret();
         }
@@ -57,6 +57,42 @@ namespace ReduxLauncher.Modules
                     percentage_lbl.Visible = true;
 
                 percentage_lbl.Text = i.ToString() + "%";
+            }
+        }
+
+        void ToggleRazor()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new MethodInvoker(delegate
+                {
+                    if (UseRazor)
+                    {
+                        RazorImg.BackgroundImage = Properties.Resources.razor1_300x213;
+                        UseRazor = false;
+                    }
+
+                    else
+                    {
+                        RazorImg.BackgroundImage = Properties.Resources.razor_active_img;
+                        UseRazor = true;
+                    }
+                }));
+            }
+
+            else
+            {
+                if (UseRazor)
+                {
+                    RazorImg.BackgroundImage = Properties.Resources.razor1_300x213;
+                    UseRazor = false;
+                }
+
+                else
+                {
+                    RazorImg.BackgroundImage = Properties.Resources.razor_active_img;
+                    UseRazor = true;
+                }
             }
         }
 
@@ -238,9 +274,11 @@ namespace ReduxLauncher.Modules
             await handler.InitializeDownload();
         }
 
+        bool useRzr = false;
         internal bool UseRazor
         {
-            get { return false; }
+            get { return useRzr; }
+            set { useRzr = value; }
         }
 
         private void Redux_Chat_Click(object sender, EventArgs e)
@@ -250,7 +288,7 @@ namespace ReduxLauncher.Modules
 
         private void RazorImg_Click(object sender, EventArgs e)
         {
-
+            ToggleRazor();
         }
 
         private void Help_Click(object sender, EventArgs e)

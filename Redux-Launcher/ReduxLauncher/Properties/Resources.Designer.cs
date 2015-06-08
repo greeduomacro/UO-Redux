@@ -83,6 +83,16 @@ namespace ReduxLauncher.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap razor_active_img {
+            get {
+                object obj = ResourceManager.GetObject("razor_active_img", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap razor1_300x213 {
             get {
                 object obj = ResourceManager.GetObject("razor1-300x213", resourceCulture);

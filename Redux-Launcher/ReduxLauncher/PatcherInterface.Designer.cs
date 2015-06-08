@@ -181,6 +181,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(903, 557);
+            this.Controls.Add(this.RazorImg);
             this.Controls.Add(this.UpdateText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.percentage_lbl);
@@ -188,7 +189,6 @@
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.Main_action_btn);
             this.Controls.Add(this.Background);
-            this.Controls.Add(this.RazorImg);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.redux_chat_img);
