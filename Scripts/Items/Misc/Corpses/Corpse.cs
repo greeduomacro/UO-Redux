@@ -8,6 +8,7 @@ using Server.Misc;
 using Server.Mobiles;
 using Server.Network;
 using Ulmeta.Guards;
+using Server.Spells;
 
 namespace Server.Items
 {
@@ -975,6 +976,9 @@ namespace Server.Items
 
             if (Owner is Guard && !(Killer is PlayerMobile))
                 return false;
+
+            if (SpellHelper.IsFeluccaT2A(item.Map, item.Location))
+                return true;
 
             Map map = this.Map;
 

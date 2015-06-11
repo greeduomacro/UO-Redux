@@ -4,6 +4,7 @@ using Server.Misc;
 using Server.Mobiles;
 using Server.Network;
 using Server.Regions;
+using Server.Spells;
 
 namespace Server.SkillHandlers
 {
@@ -21,7 +22,7 @@ namespace Server.SkillHandlers
             if( to.Player )
                 return from.CanBeHarmful(to, false, true); // normal restrictions
 
-            if( map != null && (map.Rules & MapRules.HarmfulRestrictions) == 0 )
+            if( map != null && (SpellHelper.IsFeluccaT2A(map, to.Location)))
                 return true; // felucca you can snoop anybody
 
             GuardedRegion reg = (GuardedRegion)to.Region.GetRegion(typeof(GuardedRegion));

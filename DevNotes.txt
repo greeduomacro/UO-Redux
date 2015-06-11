@@ -431,12 +431,12 @@ Increased the price of runebooks sold by scribes.
 Increased the price of rune-scribing tools.
 Dark Father bone-throw range increased.
 Reduced the amount of runescribing points players receive based on inscription.
-Lowered the required incription for using runescribing tools to 80.0
+Lowered the required inscription for using runescribing tools to 80.0
 
 0.3.0
 Food now decays over the course of five days.
 Food suffering from high levels of rot will poison players and change colors.
-Scribes no longer sell easle and brush kits.
+Scribes no longer sell easel and brush kits.
 Reduced attribute multipliers and caps.
 Server name now "Project: Mend"
 Weapons, Armor, Shields, Jewelry, And Clothing no longer display attributes on hover.
@@ -613,12 +613,12 @@ Merged Spell.cs from RunUO to accomodate necromancy, chivalry, ninjitsu and bush
 Reintroduced ant-type mobiles.
 Added necromancer familiars.
 Removed faction references from Ninjitsu's shadow jump.
-Added squirrels and reptalons to accomodate Ninjitsu's animal form.
+Added squirrels and reptalons to accommodate Ninjitsu's animal form.
 Added Talismans to accomodate Ninjitsu's animal form.
-Converted Talisman's OnRemoved to OnDelete for compatability reasons.
+Converted Talisman's OnRemoved to OnDelete for compatibility reasons.
 Updated all dragon armor pieces to RunUO standards.
 HellSteeds no longer deal chaos damage.
-Modified regen rates to accomodate for necromancer and ninjtsu transformations.
+Modified regen rates to accommodate for necromancer and ninjtsu transformations.
 Removed RunUO dueling references from necromancy's summon familiar.
 Added 'IsFamiliar' and 'IsAnimatedDead' from RunUO's basecreature.
 Necromancy Spells no longer reduce karma (as lower karma increases damage).
@@ -633,14 +633,14 @@ Removed all 'ConPvP' references from chivalry spells.
 Added required variables to PlayerMobile for bushido functionality.
 Added chainmail Hatsuburi.
 Replaced Base Spellbook with Runuo's.
-Added new OnRemoved/OnAdded overloads to accomodate backwards compatability with new items.
+Added new OnRemoved/OnAdded overloads to accomodate backwards compatibility with new items.
 Removed gold drop from ant workers.
 Unicorn and Ki-rin mount abilities now function properly.
 Removed OnDeath Additions from Ki-rin and Unicorn.
-Replaced Bake Kitsune disguise functionality for compatability.
+Replaced Bake Kitsune disguise functionality for compatibility.
 'Guardians' now ride frenzied ostards.
 Removed moonstone references from character creation.
-Modified loot to accomodate necromancy reagents and scrolls.
+Modified loot to accommodate necromancy reagents and scrolls.
 
 0.3.9b
 Converted player mobile references to player in character creation due to upcast. (/crash)
@@ -701,8 +701,14 @@ Seeds now check for multis and houses.
 0.4.2
 Craftsman perk enabled.
 Added new quality level to weapons and armor.
-Level 5 Craftsman now have a 2% chance of crafting an extraordinary item.
+Level 5 Craftsman perl now provides a 2% chance of crafting an extraordinary item.
 Divine fury now increases stamina by 10 + chivalry / 10.
+
+0.4.3
+Felucca ruleset nows applies to The Lost Lands.
+Player may now only snoop other players in The Lost Lands.
+Disabled Courageous' LOS on all faccets aside from Ilshenar.
+
 
 TODO:
 chat button should bring up [msg gump

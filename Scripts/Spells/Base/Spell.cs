@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Server.Events;
 using Server.Items;
 using Server.Mobiles;
@@ -9,8 +8,8 @@ using Server.Spells.Second;
 using Server.Targeting;
 using Server.Spells.Necromancy;
 using Server.Spells.Ninjitsu;
-using System.Collections.Generic;
 using Server.Spells.Bushido;
+using System.Collections.Generic;
 
 namespace Server.Spells
 {

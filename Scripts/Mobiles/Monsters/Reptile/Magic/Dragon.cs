@@ -32,7 +32,7 @@ namespace Server.Mobiles
 			SetResistance( ResistanceType.Energy, 35, 45 );
 
 			SetSkill( SkillName.EvalInt, 30.1, 40.0 );
-			SetSkill( SkillName.Magery, 30.1, 40.0 );
+			SetSkill( SkillName.Magery, 90.1, 140.0 );
 			SetSkill( SkillName.MagicResist, 99.1, 100.0 );
 			SetSkill( SkillName.Tactics, 97.6, 100.0 );
 			SetSkill( SkillName.Wrestling, 90.1, 92.5 );
@@ -42,7 +42,7 @@ namespace Server.Mobiles
 
 			VirtualArmor = 60;
 
-            Tamable = true;
+            Tamable = false;
             ControlSlots = 4;
             MinTameSkill = 119.1;
 		}

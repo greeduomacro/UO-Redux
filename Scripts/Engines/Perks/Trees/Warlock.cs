@@ -124,7 +124,7 @@ namespace Server.Perks
         {
         }
 
-        public override string Description { get { return "Capable of manipulating Ether through metal."; } }
+        public override string Description { get { return "Master of manipulating Ether through metal."; } }
         public override int GumpID { get { return 20741; } }
         public override string Label { get { return "Warlock"; } }
 

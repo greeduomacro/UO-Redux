@@ -5,6 +5,7 @@ using Server.Guilds;
 using Server.Items;
 using Server.Mobiles;
 using Server.Multis;
+using Server.Spells;
 
 namespace Server.Misc
 {
@@ -61,7 +62,7 @@ namespace Server.Misc
 
             Map map = from.Map;
 
-            if( map != null && (map.Rules & MapRules.BeneficialRestrictions) == 0 )
+            if( map != null && (SpellHelper.IsFeluccaT2A(map, target.Location)))
                 return true; // In felucca, anything goes
 
             if( !from.Player )
@@ -86,7 +87,7 @@ namespace Server.Misc
 
             Map map = from.Map;
 
-            if( map != null && (map.Rules & MapRules.HarmfulRestrictions) == 0 )
+            if( map != null && (SpellHelper.IsFeluccaT2A(map, target.Location)))
                 return true; // In felucca, anything goes
 
             Guild fromGuild = GetGuildFor(from.Guild as Guild, from);

@@ -50,7 +50,7 @@ namespace Server.Mobiles
 				Hue = 1153;
 			}
 
-            Tamable = true;
+            Tamable = false;
             ControlSlots = 4;
             MinTameSkill = 119.1;
 		}

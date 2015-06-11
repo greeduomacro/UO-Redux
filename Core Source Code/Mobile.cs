@@ -4037,7 +4037,9 @@ namespace Server
                             if(remPacket == null)
                                 remPacket = this.RemovePacket;
                             // XXX LOS BEGIN
+
                             state.Mobile.RemoveLos(this);
+
                             // XXX LOS END
                             state.Send(remPacket);
                         }
@@ -8576,6 +8578,28 @@ namespace Server
             if(m_NetState == null) return; // things without a netstate cannot benefit from LOS list optimization
             if(m_LosCurrent.ContainsKey(o)) m_LosCurrent.Remove(o);
         }
+
+        // Rx Edit
+
+        public static bool IsFeluccaT2A(object o)
+        {
+            if (o is Mobile)
+            {
+                Mobile m = o as Mobile;
+                return IsFeluccaT2A(m.Map, m.Location);
+            }
+
+            else return false;
+        }
+
+        public static bool IsFeluccaT2A(Map map, Point3D loc)
+        {
+            int x = loc.X, y = loc.Y;
+
+            return (map == Map.Felucca && x >= 5120 && y >= 2304 && x < 6144 && y < 4096);
+        } 
+
+        //Rx End
         // XXX LOS END
 
         public virtual bool CanBeRenamedBy(Mobile from)
