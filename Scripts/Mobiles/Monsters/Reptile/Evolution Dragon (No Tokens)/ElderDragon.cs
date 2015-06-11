@@ -9,15 +9,16 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-	[CorpseName( "an ancient dragon corpse" )]
-	public class AncientDragon : BaseCreature
+	[CorpseName( "an elder dragon corpse" )]
+	public class ElderDragon : BaseCreature
 	{
 		[Constructable]
-		public AncientDragon () : base( AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4 )
+		public ElderDragon () : base( AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4 )
 		{
-			Name = "an ancient dragon";
+            Name = NameList.RandomName("ancient lich") + ",";
+            Title = "the elder dragon";
 			Body = 172;
-			Hue = Utility.RandomList( 1157, 1175, 1172, 1171, 1170, 1169, 1168, 1167, 1166, 1165 );
+            Hue = Utility.RandomSnakeHue();
 			BaseSoundID = 362;
 
 			SetStr( 1196, 1285 );
@@ -53,7 +54,6 @@ namespace Server.Mobiles
 
 			VirtualArmor = 90;
 
-			PackGold( 3000, 3500 );
 			PackMagicItems( 5, 5, 0.95, 0.95 );
 			PackMagicItems( 5, 5, 0.80, 0.65 );
 			PackMagicItems( 5, 5, 0.80, 0.65 );
@@ -79,7 +79,7 @@ namespace Server.Mobiles
 
 		public override bool AutoDispel{ get{ return true; } }
 
-		public AncientDragon( Serial serial ) : base( serial )
+		public ElderDragon( Serial serial ) : base( serial )
 		{
 		}
 
@@ -113,10 +113,10 @@ namespace Server.Mobiles
 
 		private class BreatheTimer : Timer
 		{
-			private AncientDragon d;
+			private ElderDragon d;
 			private Mobile m_Mobile;
 
-			public BreatheTimer( Mobile m, AncientDragon owner ) : base( TimeSpan.FromSeconds( 1.0 ), TimeSpan.FromSeconds( 1.0 ) )
+			public BreatheTimer( Mobile m, ElderDragon owner ) : base( TimeSpan.FromSeconds( 1.0 ), TimeSpan.FromSeconds( 1.0 ) )
 			{
 				d = owner;
 				m_Mobile = m;

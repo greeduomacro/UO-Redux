@@ -15,8 +15,9 @@ namespace Server.Mobiles
 		[Constructable]
 		public YoungDragon () : base( AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4 )
 		{
-			Name = "a young dragon";
-			Hue = Utility.RandomList( 1157, 1175, 1172, 1171, 1170, 1169, 1168, 1167, 1166, 1165 );
+            Name = NameList.RandomName("ancient lich") + ",";
+            Title =  "the young dragon";
+            Hue = Utility.RandomSnakeHue();
 			Body = Utility.RandomList( 60, 61 );
 			BaseSoundID = 362;
 
@@ -53,7 +54,6 @@ namespace Server.Mobiles
 
 			VirtualArmor = 60;
 
-			PackGold( 1400, 1800 );
 			PackMagicItems( 3, 4, 0.95, 0.95 );
 			PackMagicItems( 3, 4, 0.80, 0.65 );
 			PackMagicItems( 3, 4, 0.80, 0.65 );

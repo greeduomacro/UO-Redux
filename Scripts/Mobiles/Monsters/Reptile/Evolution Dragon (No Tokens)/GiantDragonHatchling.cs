@@ -53,7 +53,6 @@ namespace Server.Mobiles
 
 			VirtualArmor = 40;
 
-			PackGold( 500, 800 );
 			PackMagicItems( 2, 3, 0.95, 0.95 );
 			PackMagicItems( 2, 3, 0.80, 0.65 );
 

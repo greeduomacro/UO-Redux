@@ -9,15 +9,16 @@ using Server.Mobiles;
 
 namespace Server.Mobiles
 {
-	[CorpseName( "a dragon lizard corpse" )]
-	public class DragonLizard : BaseCreature
+    [CorpseName("an adolescent dragon corpse")]
+	public class AdolescentDragon : BaseDragon
 	{
 		[Constructable]
-		public DragonLizard() : base( AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4 )
+		public AdolescentDragon() : base( AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4 )
 		{
-			Name = "a dragon lizard";
+            Name = NameList.RandomName("ancient lich") + ",";
+            Title = "an adolescent dragon";
 			Body = 0xCE;
-			Hue = Utility.RandomList( 1157, 1175, 1172, 1171, 1170, 1169, 1168, 1167, 1166, 1165 );
+			Hue = Utility.RandomSnakeHue();
 			BaseSoundID = 0x5A;
 
 			SetStr( 596, 625 );
@@ -53,7 +54,6 @@ namespace Server.Mobiles
 
 			VirtualArmor = 50;
 
-			PackGold( 900, 1300 );
 			PackMagicItems( 3, 3, 0.95, 0.95 );
 			PackMagicItems( 3, 3, 0.80, 0.65 );
 
@@ -65,7 +65,7 @@ namespace Server.Mobiles
 			}
 		}
 
-		public DragonLizard(Serial serial) : base(serial)
+		public AdolescentDragon(Serial serial) : base(serial)
 		{
 		}
 
@@ -99,10 +99,10 @@ namespace Server.Mobiles
 
 		private class BreatheTimer : Timer
 		{
-			private DragonLizard d;
+			private AdolescentDragon d;
 			private Mobile m_Mobile;
 
-			public BreatheTimer( Mobile m, DragonLizard owner ) : base( TimeSpan.FromSeconds( 1.0 ), TimeSpan.FromSeconds( 1.0 ) )
+			public BreatheTimer( Mobile m, AdolescentDragon owner ) : base( TimeSpan.FromSeconds( 1.0 ), TimeSpan.FromSeconds( 1.0 ) )
 			{
 				d = owner;
 				m_Mobile = m;

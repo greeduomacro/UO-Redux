@@ -45,7 +45,6 @@ namespace Server.Mobiles
 
 			VirtualArmor = 30;
 
-			PackGold( 200, 400 );
 			PackMagicItems( 2, 2, 0.95, 0.95 );
 
 			if ( Utility.RandomDouble() <= 0.5 )

@@ -112,7 +112,7 @@ namespace Server.Mobiles
 			Female = Utility.RandomBool();
 			Name = "a dragon hatchling";
 			Body = 52;
-			Hue = Utility.RandomList( 1157, 1175, 1172, 1171, 1170, 1169, 1168, 1167, 1166, 1165 );
+            Hue = Utility.RandomSnakeHue();
 			BaseSoundID = 0xDB;
 			Stage = 1;
 

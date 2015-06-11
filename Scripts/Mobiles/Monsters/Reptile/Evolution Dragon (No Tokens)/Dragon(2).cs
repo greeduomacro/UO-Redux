@@ -15,9 +15,10 @@ namespace Server.Mobiles
 		[Constructable]
 		public Dragon2 () : base( AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4 )
 		{
-			Name = "a dragon";
+            Name = NameList.RandomName("ancient lich") + ",";
+            Title = "the dragon";
 			Body = 46;
-			Hue = Utility.RandomList( 1157, 1175, 1172, 1171, 1170, 1169, 1168, 1167, 1166, 1165 );
+            Hue = Utility.RandomSnakeHue();
 			BaseSoundID = 362;
 
 			SetStr( 896, 925 );
@@ -53,7 +54,6 @@ namespace Server.Mobiles
 
 			VirtualArmor = 80;
 
-			PackGold( 2300, 2600 );
 			PackMagicItems( 4, 5, 0.95, 0.95 );
 			PackMagicItems( 4, 5, 0.80, 0.65 );
 			PackMagicItems( 4, 5, 0.80, 0.65 );

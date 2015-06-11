@@ -12,7 +12,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-	[CorpseName( "a guardian dragon corpse" )]
+	[CorpseName( "a carrying dragon corpse" )]
 	public class GuardianDragon : BaseCreature
 	{
 		public Timer m_DeathTimer;
@@ -20,10 +20,10 @@ namespace Server.Mobiles
 		[Constructable]
 		public GuardianDragon () : base( AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4 )
 		{
-			Name = "a guardian dragon";
+			Name = "a carrying dragon";
 			Body = 172;
 			BaseSoundID = 362;
-			Hue = 1157;
+            Hue = Utility.RandomSnakeHue();
 
 			SetStr( 1396, 1485 );
 			SetDex( 125, 195 );
@@ -60,7 +60,6 @@ namespace Server.Mobiles
 			PackGem();
 			PackGem();
 			PackPotion();
-			PackGold( 30000, 40000 );
 			PackScroll( 2, 8 );
 			PackMagicItems( 3, 5, 0.95, 0.95 );
 			PackMagicItems( 4, 5, 0.80, 0.65 );

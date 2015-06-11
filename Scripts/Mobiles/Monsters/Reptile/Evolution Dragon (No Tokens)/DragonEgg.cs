@@ -1,6 +1,6 @@
     //////////////////////////////////
    //			           //
-  //      Scripted by Raelis      //
+  //      Scripted by Raelis   //
  //		             	 //
 //////////////////////////////////
 using System; 
@@ -58,7 +58,7 @@ namespace Server.Items
          			dragon.Map = from.Map; 
          			dragon.Location = from.Location; 
 
-				dragon.Controled = true;
+				dragon.Controlled = true;
 
 				dragon.ControlMaster = from;
 

@@ -2310,13 +2310,14 @@
     <Compile Include="Mobiles\Monsters\Plant\Melee\Quagmire.cs" />
     <Compile Include="Mobiles\Monsters\Plant\Melee\SwampTentacle.cs" />
     <Compile Include="Mobiles\Monsters\Plant\Melee\WhippingVine.cs" />
-    <Compile Include="Mobiles\Monsters\Reptile\Evolution Dragon %28No Tokens%29\AncientDragon.cs" />
+    <Compile Include="Mobiles\Monsters\Reptile\BaseDragon.cs" />
+    <Compile Include="Mobiles\Monsters\Reptile\Evolution Dragon %28No Tokens%29\ElderDragon.cs" />
     <Compile Include="Mobiles\Monsters\Reptile\Evolution Dragon %28No Tokens%29\Dragon%281%29.cs" />
     <Compile Include="Mobiles\Monsters\Reptile\Evolution Dragon %28No Tokens%29\Dragon%282%29.cs" />
     <Compile Include="Mobiles\Monsters\Reptile\Evolution Dragon %28No Tokens%29\DragonDust.cs" />
     <Compile Include="Mobiles\Monsters\Reptile\Evolution Dragon %28No Tokens%29\DragonEgg.cs" />
     <Compile Include="Mobiles\Monsters\Reptile\Evolution Dragon %28No Tokens%29\DragonHatchling.cs" />
-    <Compile Include="Mobiles\Monsters\Reptile\Evolution Dragon %28No Tokens%29\DragonLizard.cs" />
+    <Compile Include="Mobiles\Monsters\Reptile\Evolution Dragon %28No Tokens%29\AdolescentDragon.cs" />
     <Compile Include="Mobiles\Monsters\Reptile\Evolution Dragon %28No Tokens%29\EvolutionDragon.cs" />
     <Compile Include="Mobiles\Monsters\Reptile\Evolution Dragon %28No Tokens%29\GiantDragonHatchling.cs" />
     <Compile Include="Mobiles\Monsters\Reptile\Evolution Dragon %28No Tokens%29\GuardianDragon.cs" />

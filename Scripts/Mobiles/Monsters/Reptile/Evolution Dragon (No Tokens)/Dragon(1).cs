@@ -15,9 +15,10 @@ namespace Server.Mobiles
 		[Constructable]
 		public Dragon1 () : base( AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4 )
 		{
-			Name = "a dragon";
+            Name = NameList.RandomName("ancient lich") + ",";
+            Title = "the dragon";
 			Body = 59;
-			Hue = Utility.RandomList( 1157, 1175, 1172, 1171, 1170, 1169, 1168, 1167, 1166, 1165 );
+            Hue = Utility.RandomSnakeHue();
 			BaseSoundID = 362;
 
 			SetStr( 796, 825 );
