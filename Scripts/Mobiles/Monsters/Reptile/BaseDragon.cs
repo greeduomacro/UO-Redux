@@ -19,5 +19,26 @@ namespace Server.Mobiles
                 from.SendMessage("Carving into the dragon you notice something pearl white.");
             }  
         }
+
+        public BaseDragon
+            (AIType ai, FightMode mode, int iRangePerception, int iRangeFight, double activeSpeed, double passiveSpeed) 
+            :   base(ai, mode, iRangePerception, iRangeFight, activeSpeed, passiveSpeed)
+        {
+
+        }
+
+        public BaseDragon(Serial serial) : base(serial)
+		{
+		}
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+        }
     }
 }

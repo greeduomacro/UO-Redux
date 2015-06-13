@@ -259,6 +259,7 @@
     <Compile Include="Engines\Chat\Gumps\ChatReadMessageGump.cs" />
     <Compile Include="Engines\Chat\Objects\ChatInfo.cs" />
     <Compile Include="Engines\Chat\Objects\ChatMessage.cs" />
+    <Compile Include="Engines\CompletelyCustomizableVendor.cs" />
     <Compile Include="Engines\Craft\Core\CraftContext.cs" />
     <Compile Include="Engines\Craft\Core\CraftGroup.cs" />
     <Compile Include="Engines\Craft\Core\CraftGroupCol.cs" />
@@ -583,7 +584,6 @@
     <Compile Include="Engines\XmlSpawner\XmlUtils\XmlEdit.cs" />
     <Compile Include="Engines\XmlSpawner\XmlUtils\XmlFind.cs" />
     <Compile Include="Engines\XmlSpawner\XmlUtils\XmlPartialCategorizedAddGump.cs" />
-    <Compile Include="Engines\[RC2] Rewards System.cs" />
     <Compile Include="Events\EventArgs.cs" />
     <Compile Include="Events\EventDispatcher.cs" />
     <Compile Include="Gumps\AddDoorGump.cs" />

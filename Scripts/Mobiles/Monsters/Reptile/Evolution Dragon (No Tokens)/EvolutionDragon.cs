@@ -170,7 +170,7 @@ namespace Server.Mobiles
 				{
 					BaseCreature bc = (BaseCreature)defender;
 
-					if ( bc.Controled != true )
+					if ( bc.Controlled != true )
 					{
 						kpgainmin = 5 + ( bc.HitsMax ) / 10;
 						kpgainmax = 5 + ( bc.HitsMax ) / 5;
@@ -227,7 +227,7 @@ namespace Server.Mobiles
 				{
 					BaseCreature bc = (BaseCreature)defender;
 
-					if ( bc.Controled != true )
+					if ( bc.Controlled != true )
 					{
 						kpgainmin = 5 + ( bc.HitsMax ) / 20;
 						kpgainmax = 5 + ( bc.HitsMax ) / 10;
@@ -284,7 +284,7 @@ namespace Server.Mobiles
 				{
 					BaseCreature bc = (BaseCreature)defender;
 
-					if ( bc.Controled != true )
+					if ( bc.Controlled != true )
 					{
 						kpgainmin = 5 + ( bc.HitsMax ) / 30;
 						kpgainmax = 5 + ( bc.HitsMax ) / 20;
@@ -335,7 +335,7 @@ namespace Server.Mobiles
 				{
 					BaseCreature bc = (BaseCreature)defender;
 
-					if ( bc.Controled != true )
+					if ( bc.Controlled != true )
 					{
 						kpgainmin = 5 + ( bc.HitsMax ) / 50;
 						kpgainmax = 5 + ( bc.HitsMax ) / 40;
@@ -391,7 +391,7 @@ namespace Server.Mobiles
 				{
 					BaseCreature bc = (BaseCreature)defender;
 
-					if ( bc.Controled != true )
+					if ( bc.Controlled != true )
 					{
 						kpgainmin = 5 + ( bc.HitsMax ) / 160;
 						kpgainmax = 5 + ( bc.HitsMax ) / 100;
@@ -442,7 +442,7 @@ namespace Server.Mobiles
 				{
 					BaseCreature bc = (BaseCreature)defender;
 
-					if ( bc.Controled != true )
+					if ( bc.Controlled != true )
 					{
 						kpgainmin = 5 + ( bc.HitsMax ) / 540;
 						kpgainmax = 5 + ( bc.HitsMax ) / 480;
@@ -493,7 +493,7 @@ namespace Server.Mobiles
 				{
 					BaseCreature bc = (BaseCreature)defender;
 
-					if ( bc.Controled != true )
+					if ( bc.Controlled != true )
 					{
 						kpgainmin = 5 + ( bc.Hits ) / 740;
 						kpgainmax = 5 + ( bc.Hits ) / 660;
@@ -540,7 +540,7 @@ namespace Server.Mobiles
 					BaseCreature bc = (BaseCreature)obj;
 					EvolutionDragon ed = (EvolutionDragon)obj;
 
-					if ( ed.Controled == true && ed.ControlMaster == from )
+					if ( ed.Controlled == true && ed.ControlMaster == from )
 					{
 						if ( ed.Female == false )
 						{
@@ -564,7 +564,7 @@ namespace Server.Mobiles
 							from.SendMessage( "This dragon is not male!" );
 						}
 					}
-					else if ( ed.Controled == true )
+					else if ( ed.Controlled == true )
 					{
 						if ( ed.Female == false )
 						{
@@ -603,7 +603,7 @@ namespace Server.Mobiles
 
 		public override void OnDoubleClick( Mobile from )
 		{
-			if ( this.Controled == true && this.ControlMaster == from )
+			if ( this.Controlled == true && this.ControlMaster == from )
 			{
 				if ( this.Female == true )
 				{
@@ -836,7 +836,7 @@ namespace Server.Mobiles
 
 		protected override void OnTick() 
 		{
-			ed.Loyalty = PetLoyalty.WonderfullyHappy;
+			ed.Loyalty = BaseCreature.MaxLoyalty;
 
 			PetLoyaltyTimer lt = new PetLoyaltyTimer( ed, TimeSpan.FromSeconds( 5.0 ) );
 			lt.Start();
