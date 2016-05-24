@@ -44,7 +44,6 @@
             this.patch_lbl = new System.Windows.Forms.Label();
             this.OpacityBar = new System.Windows.Forms.TrackBar();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.VersionLabel = new System.Windows.Forms.Label();
             this.Add_Manually = new System.Windows.Forms.Button();
             this.manual_ver_lbl = new System.Windows.Forms.Label();
             this.manual_ver_box = new System.Windows.Forms.TextBox();
@@ -53,10 +52,14 @@
             this.manual_name_lbl = new System.Windows.Forms.Label();
             this.manual_name_box = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.VersionLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.update_log_loc = new System.Windows.Forms.TextBox();
+            this.updateLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OpacityBar)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // PatchBuildNotes
@@ -65,7 +68,7 @@
             this.PatchBuildNotes.Location = new System.Drawing.Point(13, 25);
             this.PatchBuildNotes.Name = "PatchBuildNotes";
             this.PatchBuildNotes.ReadOnly = true;
-            this.PatchBuildNotes.Size = new System.Drawing.Size(927, 234);
+            this.PatchBuildNotes.Size = new System.Drawing.Size(927, 204);
             this.PatchBuildNotes.TabIndex = 0;
             this.PatchBuildNotes.Text = "";
             this.PatchBuildNotes.ZoomFactor = 1.05F;
@@ -127,9 +130,9 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.BuildPatch_Btn);
             this.panel1.Controls.Add(this.Gen_Settings_Btn);
-            this.panel1.Location = new System.Drawing.Point(541, 264);
+            this.panel1.Location = new System.Drawing.Point(541, 238);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 102);
+            this.panel1.Size = new System.Drawing.Size(400, 128);
             this.panel1.TabIndex = 9;
             // 
             // BuildPatch_Btn
@@ -139,7 +142,7 @@
             this.BuildPatch_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BuildPatch_Btn.Location = new System.Drawing.Point(4, 3);
             this.BuildPatch_Btn.Name = "BuildPatch_Btn";
-            this.BuildPatch_Btn.Size = new System.Drawing.Size(389, 44);
+            this.BuildPatch_Btn.Size = new System.Drawing.Size(389, 51);
             this.BuildPatch_Btn.TabIndex = 1;
             this.BuildPatch_Btn.Text = "Generate Patch";
             this.BuildPatch_Btn.UseVisualStyleBackColor = false;
@@ -149,10 +152,10 @@
             // 
             this.Gen_Settings_Btn.BackColor = System.Drawing.SystemColors.Control;
             this.Gen_Settings_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Gen_Settings_Btn.Location = new System.Drawing.Point(4, 49);
+            this.Gen_Settings_Btn.Location = new System.Drawing.Point(4, 68);
             this.Gen_Settings_Btn.Name = "Gen_Settings_Btn";
             this.Gen_Settings_Btn.Padding = new System.Windows.Forms.Padding(5);
-            this.Gen_Settings_Btn.Size = new System.Drawing.Size(389, 46);
+            this.Gen_Settings_Btn.Size = new System.Drawing.Size(389, 51);
             this.Gen_Settings_Btn.TabIndex = 0;
             this.Gen_Settings_Btn.Text = "Generate Settings";
             this.Gen_Settings_Btn.UseVisualStyleBackColor = false;
@@ -208,15 +211,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(929, 106);
             this.panel2.TabIndex = 14;
-            // 
-            // VersionLabel
-            // 
-            this.VersionLabel.AutoSize = true;
-            this.VersionLabel.Location = new System.Drawing.Point(868, 9);
-            this.VersionLabel.Name = "VersionLabel";
-            this.VersionLabel.Size = new System.Drawing.Size(68, 13);
-            this.VersionLabel.TabIndex = 8;
-            this.VersionLabel.Text = "VersionLabel";
             // 
             // Add_Manually
             // 
@@ -289,13 +283,40 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Add Patch Manually";
             // 
+            // VersionLabel
+            // 
+            this.VersionLabel.AutoSize = true;
+            this.VersionLabel.Location = new System.Drawing.Point(868, 9);
+            this.VersionLabel.Name = "VersionLabel";
+            this.VersionLabel.Size = new System.Drawing.Size(68, 13);
+            this.VersionLabel.TabIndex = 8;
+            this.VersionLabel.Text = "VersionLabel";
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
-            this.panel3.Location = new System.Drawing.Point(12, 265);
+            this.panel3.Controls.Add(this.updateLabel);
+            this.panel3.Location = new System.Drawing.Point(12, 235);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(119, 98);
+            this.panel3.Size = new System.Drawing.Size(119, 128);
             this.panel3.TabIndex = 15;
+            // 
+            // update_log_loc
+            // 
+            this.update_log_loc.Location = new System.Drawing.Point(137, 238);
+            this.update_log_loc.Name = "update_log_loc";
+            this.update_log_loc.Size = new System.Drawing.Size(399, 20);
+            this.update_log_loc.TabIndex = 17;
+            // 
+            // updateLabel
+            // 
+            this.updateLabel.AutoSize = true;
+            this.updateLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.updateLabel.Location = new System.Drawing.Point(4, 8);
+            this.updateLabel.Name = "updateLabel";
+            this.updateLabel.Size = new System.Drawing.Size(110, 13);
+            this.updateLabel.TabIndex = 16;
+            this.updateLabel.Text = "Update Log Location:";
             // 
             // BuilderInterface
             // 
@@ -303,6 +324,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(952, 516);
+            this.Controls.Add(this.update_log_loc);
             this.Controls.Add(this.VersionLabel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.OpacityBar);
@@ -326,6 +348,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.OpacityBar)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,6 +382,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label VersionLabel;
+        private System.Windows.Forms.TextBox update_log_loc;
+        private System.Windows.Forms.Label updateLabel;
     }
 }
 

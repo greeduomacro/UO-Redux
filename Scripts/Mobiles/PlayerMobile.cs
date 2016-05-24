@@ -19,6 +19,7 @@ using Server.Spells.Ninjitsu;
 using Server.Spells.Bushido;
 
 using Ulmeta.Factions;
+using EqPvP;
 
 namespace Server.Mobiles
 {
@@ -61,8 +62,14 @@ namespace Server.Mobiles
     }
     #endregion
 
-    public partial class PlayerMobile : Mobile, IHonorTarget
+    public partial class PlayerMobile : Mobile, IHonorTarget, IPlayerCombatant
     {
+        CombatantProfile m_combatProfile { get; set; }
+        public CombatantProfile CombatProfile
+        {
+            get { return m_combatProfile; }
+            set { m_combatProfile = value; }
+        }
 
         public InteractionState iState;
 
@@ -2605,6 +2612,26 @@ namespace Server.Mobiles
                         break;
                     }
                 }
+            }
+
+            if (((IPlayerCombatant)this).CombatProfile != null)
+            {
+                    string color = "";
+                    int rating = ((IPlayerCombatant)this).CombatProfile.CombatRating;
+                    CombatantProfile profile = ((IPlayerCombatant)this).CombatProfile;
+
+                    switch (profile.Rank)
+                    {
+                        case EqPvP.CombatantProfile.CombatRank.Pawn: color = "#5A5ABA"; break;
+                        case EqPvP.CombatantProfile.CombatRank.Bishop: color = "#5A5ABA"; break;
+                        case EqPvP.CombatantProfile.CombatRank.Knight: color = "#C10000"; break;
+                        case EqPvP.CombatantProfile.CombatRank.Rook: color = "#C10000"; break;
+                        case EqPvP.CombatantProfile.CombatRank.King: color = "#006A00"; break;
+                        case EqPvP.CombatantProfile.CombatRank.Queen: color = "#006A00"; break;
+                        case EqPvP.CombatantProfile.CombatRank.Master: color = "#010198"; break;
+                    }
+
+                    list.Add(1060658, "{0}\t{1}", "Combat Rating", String.Format("<BASEFONT COLOR={0}>{1}", color, profile.CombatRating));
             }
         }
 

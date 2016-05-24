@@ -999,18 +999,8 @@ namespace Ulmeta.Factions
                     int pts = killer.iState.Kills;
                     InteractionState state = killer.iState;
 
-                    if (pts > 50)
-                        state.playerRank = Rank.Corporal;
-                    if (pts > 100)
-                        state.playerRank = Rank.Seargent;
-                    if (pts > 150)
-                        state.playerRank = Rank.Captain;
-                    if (pts > 200)
-                        state.playerRank = Rank.Major;
-                    if (pts > 250)
-                        state.playerRank = Rank.Colonel;
-                    if (pts > 300)
-                        state.playerRank = Rank.General;
+                    int rank = (int)(pts / 50);
+                    state.playerRank = (Rank)rank;
 
                     if (killer.iState.pointDeficit > 0)
                         killer.iState.pointDeficit--;

@@ -1,6 +1,4 @@
-﻿//Copyright (C) 2015 Redux Dev Team (uo-redux.com) All Rights Reserved.
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -12,74 +10,24 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Windows.Forms;
 
 namespace ReduxLauncher.Modules
 {
-    internal static class DownloadCallbackTimer
-    {
-        static System.Timers.Timer timer;
-
-        internal static DateTime LastCallback;
-        internal static DateTime LastQuery;
-
-        internal static WebDirectory CallbackDirectory;
-
-        static PatchHandler Handler;
-
-        internal static bool Downloading()
-        {
-            return PatchHandler.IsDownloading();
-        }
-
-        internal static void Start(PatchHandler handler)
-        {
-            Handler = handler;
-
-            if(timer != null)
-                timer.Dispose();
-
-            timer =  new System.Timers.Timer();
-            timer.Elapsed += new ElapsedEventHandler(TimerElapsed);
-            timer.Interval = (1000 * 30);
-            timer.Enabled = true;
-        }
-
-        internal static void TimerElapsed(object sender, ElapsedEventArgs e)
-        {
-            if (!PatchHandler.IsDownloading())
-            {
-                if (LastCallback + TimeSpan.FromSeconds(30.0) < LastQuery)
-                {
-                    LogHandler.LogActions
-                        ("Sixty seconds passed since last download callback; restarting..");
-                    
-                    if(!Handler.isReady)
-                        Handler.UI.ReadyDownload();
-                }
-            }
-
-            LastQuery = DateTime.UtcNow;
-            Start(Handler);
-        }
-
-        static async void RelayRestart()
-        {
-            await Handler.DownloadIndexedFiles(CallbackDirectory);
-        }
-    }
 
     internal class PatchHandler
     {
-        internal static string MasterUrl  { get   { return PatchHelper.MasterURL;  } }
-        internal static string VersionUrl { get   { return PatchHelper.VersionURL; } }
-        internal static string PatchUrl   { get   { return PatchHelper.PatchURL;   } }
+        internal static string m_DestinationFolder = null;
+        internal static string MasterUrl  { get   { return PatchData.MasterURL;  } }
+        internal static string VersionUrl { get   { return PatchData.VersionURL; } }
+        internal static string PatchUrl   { get   { return PatchData.PatchURL;   } }
+        internal static string UpdatesUrl { get   { return PatchData.UpdatesURL; } }
 
-        static WebClient webClient = new WebClient();
+        static WebClient m_WebClient = new WebClient();
 
         public static bool IsDownloading()
         {
-            bool temp = webClient.IsBusy;
-            return temp;
+            return m_WebClient.IsBusy;
         }
 
         byte[] versionBytes;
@@ -102,22 +50,22 @@ namespace ReduxLauncher.Modules
         public PatchHandler(PatcherInterface i)
         {
             UI = i;
-            if (XmlHandler.CanReadSettings(@"http://data.uo-redux.com/patchsettings/settings.xml"))
+            if (XmlHandler.CanReadSettings(SettingsLocation()))
             {
                 GatherData();
                 ObtainCurrentVersion();
 
-                webClient.UseDefaultCredentials = true;
+                m_WebClient.UseDefaultCredentials = true;
 
                 AppDomain currentDomain = AppDomain.CurrentDomain;
 
                 currentDomain.UnhandledException 
                     += new UnhandledExceptionEventHandler(GlobalErrorHandler);
 
-                webClient.DownloadFileCompleted 
+                m_WebClient.DownloadFileCompleted 
                     += new AsyncCompletedEventHandler(DownloadFinished_Callback);
 
-                webClient.DownloadProgressChanged 
+                m_WebClient.DownloadProgressChanged 
                     += new DownloadProgressChangedEventHandler(DownloadProgress_Callback);
 
                 if (!VersionsMatch())
@@ -127,6 +75,60 @@ namespace ReduxLauncher.Modules
                 {
                     UI.ReadyLaunch();
                     isReady = true;
+                }
+            }
+        }
+
+        private void GetPath()
+        {
+            FilePathParser parser = new FilePathParser();
+            Thread thread = new Thread(parser.GetFilePath);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void PopulateRazorFolder()
+        {
+            FilePathParser parser = new FilePathParser();
+            Thread thread = new Thread(parser.PopulateRazorLocation);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+
+        private class FilePathParser
+        {
+            internal void GetFilePath()
+            {
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        m_DestinationFolder = dialog.SelectedPath;
+                        
+                    }
+                    catch (Exception e)
+                    {
+                        LogHandler.LogErrors(e.ToString());
+                    }
+                }
+            }
+
+            internal void PopulateRazorLocation()
+            {
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        m_RazorLocation = dialog.SelectedPath;
+
+                    }
+                    catch (Exception e)
+                    {
+                        LogHandler.LogErrors(e.ToString());
+                    }
                 }
             }
         }
@@ -175,13 +177,15 @@ namespace ReduxLauncher.Modules
                 UI.ReadyInstall();
         }
 
-        ~PatchHandler() { webClient.Dispose(); }
+        ~PatchHandler() { m_WebClient.Dispose(); }
 
         private bool VersionExists()    { return File.Exists("version.txt"); }
 
         private bool ClientExists()     { return File.Exists("client.exe"); }
 
         internal bool InitialDownload() { return !(ClientExists() && VersionExists()); }
+
+
 
         /// <summary>
         /// Gathers version data from local version.txt
@@ -207,6 +211,45 @@ namespace ReduxLauncher.Modules
             return localVersion;
         }
 
+        internal static string SettingsLocation()
+        {
+            string settingsLocation = string.Empty;
+
+            try
+            {
+                if (File.Exists("settings.cfg"))
+                {
+                    using (FileStream file = new FileStream
+                        ("settings.cfg", FileMode.Open, FileAccess.Read, FileShare.Read))
+                    using (StreamReader reader = new StreamReader(file))
+                        settingsLocation = (string)(reader.ReadLine().Trim().ToLower());
+                }
+            }
+
+            catch (Exception e) { LogHandler.LogErrors(e.ToString()); }
+
+            return settingsLocation;
+        }
+
+        internal static string RazorLocation()
+        {
+            string settingsLocation = null;
+
+            try
+            {
+                if (File.Exists("razor.cfg"))
+                {
+                    using (FileStream file = new FileStream
+                        ("razor.cfg", FileMode.Open, FileAccess.Read, FileShare.Read))
+                    using (StreamReader reader = new StreamReader(file))
+                        settingsLocation = (string)(reader.ReadLine().Trim().ToLower());
+                }
+            }
+
+            catch (Exception e) { LogHandler.LogErrors(e.ToString()); }
+
+            return settingsLocation;
+        }
         /// <summary>
         /// Generates new local directory object based on path of the .exe
         /// </summary>
@@ -214,9 +257,7 @@ namespace ReduxLauncher.Modules
         {
             try
             {
-                string localPath = new FileInfo
-                    (System.Reflection.Assembly.GetEntryAssembly().Location).Directory.ToString();
-
+                string localPath = m_DestinationFolder;
                 localDirectory = new LocalDirectory(localPath, this);
             }
 
@@ -249,7 +290,7 @@ namespace ReduxLauncher.Modules
             {
                 for (int i = 0; i < index.Length; i++)
                 {
-                    directory.AddressIndex.Add(directory.URL + index[i]);
+                    directory.AddressIndex.Add((directory.URL + "/" + index[i]));
                     directory.NameIndex.Add(index[i]);
 
                     UI.UpdateProgressBar();
@@ -269,8 +310,8 @@ namespace ReduxLauncher.Modules
         {
             try
             {
-                versionBytes = webClient.DownloadData(VersionUrl);
-                updateBytes = webClient.DownloadData(@"http://data.uo-redux.com/patchsettings/patchnotes.txt");
+                versionBytes = m_WebClient.DownloadData(VersionUrl);
+                updateBytes = m_WebClient.DownloadData(UpdatesUrl);
             }
 
             catch (Exception e) 
@@ -303,18 +344,17 @@ namespace ReduxLauncher.Modules
 
             else /// None Matching Versions && Not Initial Download
             {
-                XmlHandler.Attempt_ReadPatchFile(PatchHelper.PatchURL);
+                XmlHandler.Attempt_ReadPatchFile(PatchData.PatchURL);
                 XmlHandler.PopulatePatchDirectories(this);
 
                 webDirectory = new WebDirectory(MasterUrl, this);
 
-                for (int i = 0; i < PatchHelper.PatchDirectories.Count; i++)
-                    webDirectory.SubDirectories.Add(PatchHelper.PatchDirectories[i]);
+                for (int i = 0; i < PatchData.PatchDirectories.Count; i++)
+                    webDirectory.SubDirectories.Add(PatchData.PatchDirectories[i]);
             }
 
             if (webDirectory != null)
             {
-                DownloadCallbackTimer.Start(this);
                 await DownloadIndexedFiles(webDirectory);
             }
 
@@ -337,7 +377,6 @@ namespace ReduxLauncher.Modules
             try
             {
                 WebDirectory directory = o as WebDirectory;
-                DownloadCallbackTimer.CallbackDirectory = directory;
 
                 while (directory.AddressIndex.Count > 0)
                 {
@@ -366,7 +405,7 @@ namespace ReduxLauncher.Modules
         {
             try
             {
-                string path = address.Substring(MasterUrl.Length);
+                string path = address.Substring(MasterUrl.Length + 1);
 
                 if (path.Contains('/'))
                 {
@@ -379,9 +418,9 @@ namespace ReduxLauncher.Modules
 
                     else
                         for (int i = 0; i < splitPath.Length - 1; i++)
-                            tempLength += splitPath[i].Length;
+                            tempLength += splitPath[i].Length +1;
 
-                    string folderName = path.Substring(0, tempLength +1);
+                    string folderName = path.Substring(0, tempLength -1);
 
                     QueryDirectory(folderName);
                 }
@@ -389,11 +428,12 @@ namespace ReduxLauncher.Modules
                 UI.UpdatePatchNotes(string.Format("Downloading File ({0}): " +
                     (address.Remove(address.IndexOf(directory.URL), directory.URL.Length)), filesDownloaded));
 
-                string temp_name = address.Remove(address.IndexOf(directory.URL), directory.URL.Length);
+                string temp_name = address.Remove(address.IndexOf(directory.URL), directory.URL.Length + 1);
 
                 UI.UpdateFileName(temp_name, 0, 0);
 
-                await webClient.DownloadFileTaskAsync(new Uri(address), path);
+                if(InitialDownload() && !File.Exists(path))
+                    await m_WebClient.DownloadFileTaskAsync(new Uri(address), path);
 
                 directory.NameIndex.RemoveAt(0); directory.AddressIndex.RemoveAt(0);
             }
@@ -435,8 +475,6 @@ namespace ReduxLauncher.Modules
             double percentage = bytesIn / totalBytes * 100;
 
             UI.UpdatePercentage((int)percentage);
-
-            DownloadCallbackTimer.LastCallback = DateTime.UtcNow;
         }
 
         /// <summary>
@@ -446,6 +484,84 @@ namespace ReduxLauncher.Modules
         /// <param name="directory">Directory object containing properties and methods for indexing and parsing contained folders.</param>
         /// <returns>Returns a string array containing child resource locations parsed from html (href);</returns>
         internal string[] ParseFolderIndex(string url, WebDirectory directory)
+        {
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.Timeout = 3 * 60 * 1000;
+                request.KeepAlive = true;
+
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                bool endMet = false;
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    List<string> fileLocations = new List<string>(); string line;
+                    using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                    {
+                        while (!endMet)
+                        {
+                            line = reader.ReadLine();
+                            //if (line != null && line != "" && line.IndexOf("</a>") >= 0)
+                            if (line != null && line != "" && line.Contains("</A>"))
+                            {
+                                if (line.Contains("</html>")) endMet = true;
+                                string[] segments = line.Replace("\\", "").Split('\"');
+                                List<string> paths = new List<string>();
+                                List<string> files = new List<string>();
+                                for (int i = 0; i < segments.Length; i++)
+                                {
+                                    if (!segments[i].Contains('<'))
+                                        paths.Add(segments[i]);
+                                }
+
+                                paths.RemoveAt(0);
+
+                                foreach (String s in paths)
+                                {
+                                    string[] secondarySegments = s.Split('/');
+                                    if (s.Contains(".") || s.Contains("Verinfo"))
+                                        files.Add(secondarySegments[secondarySegments.Length - 1]);
+                                    else
+                                    {
+                                        directory.SubDirectories.Add(new WebDirectory
+                                            (url + "/" + secondarySegments[secondarySegments.Length - 2], this));
+                                        UI.UpdatePatchNotes("Web Directory Found: " + secondarySegments[secondarySegments.Length - 2]);
+                                    }
+
+                                }
+
+                                foreach (String s in files)
+                                {
+                                    if (!String.IsNullOrEmpty(s) && !s.Contains('%'))
+                                    {
+                                        fileLocations.Add(s);
+                                        UI.UpdatePatchNotes("Web File Found: " + s);
+
+                                        UI.UpdateProgressBar();
+                                    }
+                                }
+
+                                if (line.Contains("</pre")) break;
+                            }
+                        }
+                    }
+
+                    response.Dispose(); /// After ((line = reader.ReadLine()) != null)
+                    return fileLocations.ToArray<string>();
+                }
+
+                else return new string[0]; /// !(HttpStatusCode.OK)
+            }
+
+            catch (Exception e)
+            {
+                LogHandler.LogErrors(e.ToString(), this);
+                LogHandler.LogErrors(url, this);
+                return null;
+            }
+        }
+
+        internal string[] ParseFolderIndex_Alpha(string url, WebDirectory directory)
         {
             try
             {
@@ -485,7 +601,7 @@ namespace ReduxLauncher.Modules
                                     }
                                 }
                             }
-                                else if (line.Contains("</pre")) break;
+                            else if (line.Contains("</pre")) break;
                         }
                     }
 
@@ -504,6 +620,7 @@ namespace ReduxLauncher.Modules
             }
         }
 
+        static string m_RazorLocation = null;
         internal void LaunchClient()
         {
             try
@@ -513,10 +630,30 @@ namespace ReduxLauncher.Modules
 
                 if (UI.UseRazor)
                 {
-                    Process client = new Process();
-                    client.StartInfo = new ProcessStartInfo(localPath + "/Razor/Razor.exe");
+                    if (RazorLocation() != null)
+                    {
+                        Process client = new Process();
+                        if (RazorLocation() != null) m_RazorLocation = RazorLocation();
+                        client.StartInfo = new ProcessStartInfo(m_RazorLocation + "Razor.exe");
 
-                    client.Start();
+                        client.Start();
+                    }
+
+                    else
+                    {
+                        PopulateRazorFolder();
+                        using (StreamWriter writer =
+                            new StreamWriter("razor.cfg", true))
+                        {
+                            writer.WriteLine(m_RazorLocation);
+                        }
+
+                        Process client = new Process();
+                        if (RazorLocation() != null) m_RazorLocation = RazorLocation();
+                        client.StartInfo = new ProcessStartInfo(m_RazorLocation + "Razor.exe");
+
+                        client.Start();
+                    }
                 }
 
                 else
@@ -528,7 +665,7 @@ namespace ReduxLauncher.Modules
                     client.Start();
                 }
 
-                webClient.Dispose();
+                m_WebClient.Dispose();
                 Process.GetCurrentProcess().Kill();
             }
 

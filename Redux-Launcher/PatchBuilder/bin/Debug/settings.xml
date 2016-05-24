@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<Patch-Settings Patch="https://login.uo-redux.com/uploads/patchsettings/patch.xml" Master="https://login.uo-redux.com/uploads/patchdata/" Version="https://login.uo-redux.com/uploads/patchdata/Version.txt" Background="https://login.uo-redux.com/uploads/patchsettings/reduxWhole.bmp" />
+<Patch-Settings Update="http://uo.enroq.com/updates.txt" Patch="http://uo.enroq.com/patch.xml" Master="http://uo.enroq.com/client" Version="http://uo.enroq.com/Version.txt" Background="http://uo.enroq.com/reduxWhole.bmp" />

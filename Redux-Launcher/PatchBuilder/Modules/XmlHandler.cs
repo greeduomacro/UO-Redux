@@ -16,6 +16,7 @@ namespace PatchBuilder.Modules
         internal static string MasterURL = string.Empty;
         internal static string VersionURL = string.Empty;
         internal static string BackgroundURL = string.Empty;
+        internal static string UpdateLogURL = string.Empty;
 
         internal static Dictionary<string, List<PatchFile>> 
             Versions = new Dictionary<string, List<PatchFile>>();
@@ -127,10 +128,11 @@ namespace PatchBuilder.Modules
                     xml.WriteStartDocument(true);
                     xml.WriteStartElement("Patch-Settings");
 
+                    xml.WriteAttributeString("Update"    , PatchHelper.UpdateLogURL);
                     xml.WriteAttributeString("Patch"     , PatchHelper.PatchURL);
                     xml.WriteAttributeString("Master"    , PatchHelper.MasterURL);
                     xml.WriteAttributeString("Version"   , PatchHelper.VersionURL);
-                    xml.WriteAttributeString("Background", PatchHelper.BackgroundURL);                  
+                    xml.WriteAttributeString("Background", PatchHelper.BackgroundURL);
 
                     xml.WriteEndElement();
                     xml.WriteEndDocument();
@@ -272,6 +274,7 @@ namespace PatchBuilder.Modules
                 PatchHelper.MasterURL = root.GetAttribute("Master");
                 PatchHelper.VersionURL = root.GetAttribute("Version");
                 PatchHelper.BackgroundURL = root.GetAttribute("Background");
+                PatchHelper.UpdateLogURL = root.GetAttribute("Update");
             }
 
             catch (Exception e) { LogHandler.LogErrors(e.ToString()); return false; }

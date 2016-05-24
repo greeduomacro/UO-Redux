@@ -29,7 +29,7 @@ namespace ReduxLauncher.Modules
 
             try
             {
-                Background.Load(PatchHelper.BackgroundURL);
+                Background.Load(PatchData.BackgroundURL);
                 UpdateText.Text = handler.UpdateNotes();
             }
             catch { } /// Incase background can't load from url.
@@ -299,6 +299,16 @@ namespace ReduxLauncher.Modules
         private void Exit_Btn_Click(object sender, EventArgs e)
         {
             Process.GetCurrentProcess().Kill();
+        }
+
+        private void UpdateText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void file_name_lbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

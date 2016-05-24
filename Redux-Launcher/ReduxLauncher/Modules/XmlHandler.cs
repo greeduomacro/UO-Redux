@@ -11,7 +11,7 @@ using System.Xml;
 
 namespace ReduxLauncher.Modules
 {
-    internal static class PatchHelper
+    internal static class PatchData
     {
         internal static string PatchURL = string.Empty;
         internal static string MasterURL = string.Empty;
@@ -52,6 +52,8 @@ namespace ReduxLauncher.Modules
             return System.Text.Encoding.UTF8
                 .GetString(VersionBytes()).Trim();
         }
+
+        internal static string UpdatesURL { get; set; }
     }
 
     class XmlHandler
@@ -64,27 +66,27 @@ namespace ReduxLauncher.Modules
         {
             try
             {
-                for (int i = 0; i < PatchHelper.Versions.Count; i++)
+                for (int i = 0; i < PatchData.Versions.Count; i++)
                 {
-                    List<PatchFile> temp = PatchHelper.Versions[PatchHelper.Versions.Keys.ElementAt(i)];
+                    List<PatchFile> temp = PatchData.Versions[PatchData.Versions.Keys.ElementAt(i)];
 
                     for (int n = 0; n < temp.Count; n++)
                     {
-                        string[] segments_ = temp[n].filePath.Split('/');
+                        string[] segments = temp[n].filePath.Split('/');
                         int tempLength = 0;
 
-                        for (int z = 0; z < segments_.Length - 1; z++)
-                            tempLength += segments_[z].Length;
+                        for (int z = 0; z < segments.Length - 1; z++)
+                            tempLength += segments[z].Length;
 
                         string master = temp[n].filePath.Substring
-                            (0, tempLength + segments_.Length - 1);
+                            (0, tempLength + segments.Length - 1);
 
                         WebDirectory tempDir = new WebDirectory(master, handler);
 
                         tempDir.AddressIndex.Add(temp[n].filePath);
                         tempDir.NameIndex.Add(temp[n].fileName);
 
-                        PatchHelper.PatchDirectories.Add(tempDir);
+                        PatchData.PatchDirectories.Add(tempDir);
                     }
                 }
             }
@@ -105,10 +107,11 @@ namespace ReduxLauncher.Modules
                 doc.Load(path);
                 root = doc["Patch-Settings"];
 
-                PatchHelper.PatchURL = root.GetAttribute("Patch");
-                PatchHelper.MasterURL = root.GetAttribute("Master");
-                PatchHelper.VersionURL = root.GetAttribute("Version");
-                PatchHelper.BackgroundURL = root.GetAttribute("Background");
+                PatchData.PatchURL = root.GetAttribute("Patch");
+                PatchData.MasterURL = root.GetAttribute("Master");
+                PatchData.VersionURL = root.GetAttribute("Version");
+                PatchData.BackgroundURL = root.GetAttribute("Background");
+                PatchData.UpdatesURL = root.GetAttribute("Update");
             }
 
             catch (Exception e) { LogHandler.LogErrors(e.ToString()); return false; }
@@ -195,11 +198,11 @@ namespace ReduxLauncher.Modules
                         tempPatches.Add(new PatchFile(location, name, bytes, version));
                     }
 
-                    if (PatchHelper.Versions.ContainsKey(version))              
+                    if (PatchData.Versions.ContainsKey(version))              
                         for (int i = 0; i < tempPatches.Count; i++)
-                            PatchHelper.Versions[version].Add(tempPatches[i]);
+                            PatchData.Versions[version].Add(tempPatches[i]);
                     
-                    else PatchHelper.Versions.Add(version, tempPatches);
+                    else PatchData.Versions.Add(version, tempPatches);
                 }
 
                 return true;

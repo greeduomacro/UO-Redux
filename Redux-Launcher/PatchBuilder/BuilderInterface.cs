@@ -40,6 +40,7 @@ namespace PatchBuilder.Modules
                         master_uri_box.Text = PatchHelper.MasterURL;
                         version_box.Text = PatchHelper.VersionURL;
                         bg_img_box.Text = PatchHelper.BackgroundURL;
+                        update_log_loc.Text = PatchHelper.UpdateLogURL;
 
                         manual_ver_box.Text = PatchHelper.VersionString();
                         VersionLabel.Text = PatchHelper.VersionString();
@@ -87,6 +88,15 @@ namespace PatchBuilder.Modules
                 MessageBox.Show("You appear to have left something empty.");
                 return;
             }
+
+            if (!(String.IsNullOrEmpty(update_log_loc.Text)))
+                PatchHelper.UpdateLogURL = update_log_loc.Text;
+
+            else
+            {
+                MessageBox.Show("You appear to have left something empty.");
+                return;
+            }
         }
 
         private void BuildPatch_Btn_Click(object sender, EventArgs e)
@@ -107,7 +117,7 @@ namespace PatchBuilder.Modules
             {
                 if (InvokeRequired)
                     Invoke(new MethodInvoker
-                        (delegate 
+                        (()=>
                         {
                             PatchBuildNotes.Text += notes + "\n";
                             PatchBuildNotes.SelectionStart = PatchBuildNotes.Text.Length;
