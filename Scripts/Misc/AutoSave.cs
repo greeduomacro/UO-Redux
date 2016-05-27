@@ -102,6 +102,7 @@ namespace Server.Misc
 			if( !Directory.Exists( root ) )
 				Directory.CreateDirectory( root );
 
+            /*
 			string[] existing = Directory.GetDirectories( root );
 
 			for( int i = 0; i < m_Backups.Length; ++i )
@@ -126,7 +127,7 @@ namespace Server.Misc
 					try { dir.Delete( true ); }
 					catch { }
 				}
-			}
+			} */
 
 			string saves = Path.Combine( Core.BaseDirectory, "Saves" );
 

@@ -674,9 +674,6 @@ namespace Ulmeta.Factions
                 }
             }
         }
-
- 
-
     }
 
     public class      FactionHandler

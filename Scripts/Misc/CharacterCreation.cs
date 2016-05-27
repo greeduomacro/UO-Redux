@@ -235,8 +235,8 @@ namespace Server.Misc
             SetStats(newChar, state, args.Str, args.Dex, args.Int);
             SetSkills(newChar, args.Skills, args.Profession);
 
-            newChar.MoveToWorld(new Point3D(1495, 1623, 20), Map.Felucca);
-            ((Player)newChar).RespawnLocation = (new Point3D(1495, 1623, 20));
+            newChar.MoveToWorld(new Point3D(2756, 3808, 50), Map.Felucca); /// Isle of Kesna'buir
+            ((Player)newChar).RespawnLocation = (new Point3D(2756, 3808, 50));
             ((Player)newChar).RespawnMap = Map.Felucca;
 
             Console.WriteLine("Login: {0}: New character being created (account={1})", args.State, args.Account.Username);
