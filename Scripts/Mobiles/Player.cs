@@ -14,8 +14,8 @@ using Server.ContextMenus;
 using System.Collections;
 using System.Collections.Generic;
 
-using Ulmeta.ContextMenus;
-using Ulmeta.Guards;
+using Redux.ContextMenus;
+using Redux.Guards;
 
 namespace Server.Mobiles
 {
@@ -490,10 +490,10 @@ namespace Server.Mobiles
             {
                 Craftsman cm = Perk.GetByType<Craftsman>(this);
 
-                int x = 40;
+                int x = 50;
 
                 if (cm != null && cm.WorkHorse())
-                    x += 50;
+                    x += 60;
 
                 return (x + (int)(3.5 * this.Str));
             }

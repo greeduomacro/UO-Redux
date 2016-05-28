@@ -7,7 +7,7 @@ using Server.Mobiles;
 using Server.Gumps;
 using Server.Commands;
 
-namespace Ulmeta.ContextMenus
+namespace Redux.ContextMenus
 {
     public class JumpEntry : ContextMenuEntry
     {

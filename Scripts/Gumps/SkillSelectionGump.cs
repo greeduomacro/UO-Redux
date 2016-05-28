@@ -117,7 +117,7 @@ namespace Server.SkillCapSelection {
                                             else if (sk.Base >= sk.Cap)
                                                 _from.SendMessage("That skill is at its maximum level. It cannot be raised any further");
 
-                                            else if (((Player)_from).EoC < sk.Base * 10)
+                                            else if (((Player)_from).EoC < (int)((sk.Base * sk.Base) * 10))
                                                 _from.SendMessage("You need {0} Essence of Character to increase this skill's level.", sk.Base * 10);
 
                                             else
@@ -127,7 +127,7 @@ namespace Server.SkillCapSelection {
                                                 if (sk.Base > sk.Cap)
                                                     sk.Base = sk.Cap;
 
-                                                ((Player)_from).EoC -= (int)(sk.Base * 10);
+                                                ((Player)_from).EoC -= (int)((sk.Base * sk.Base) * 10);
                                             }
 											break;
 										}
@@ -141,7 +141,7 @@ namespace Server.SkillCapSelection {
                                             else 
                                             {
                                                 sk.Base -= 1.0;
-                                                ((Player)_from).EoC -= (int)(sk.Base * 5);
+                                                ((Player)_from).EoC -= (int)(sk.Base * 1.618 * 10);
 											}
 
 											break;

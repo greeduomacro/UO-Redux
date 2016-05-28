@@ -18,7 +18,7 @@ using Server.Spells.Necromancy;
 using Server.Spells.Ninjitsu;
 using Server.Spells.Bushido;
 
-using Ulmeta.Factions;
+using Redux.Factions;
 using EqPvP;
 
 namespace Server.Mobiles

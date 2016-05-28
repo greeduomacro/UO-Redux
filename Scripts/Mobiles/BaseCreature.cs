@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using Server.Spells.Necromancy;
 using Server.Spells.Chivalry;
 
-using Ulmeta.Guards;
+using Redux.Guards;
 
 namespace Server.Mobiles
 {

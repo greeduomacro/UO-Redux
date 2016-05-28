@@ -21,8 +21,8 @@ using Server.Items;
 using Server.Spells;
 using Server.ContextMenus;
 using Server.Currency;
-using Ulmeta.Guards;
-using Ulmeta.Factions.Vendors;
+using Redux.Guards;
+using Redux.Factions.Vendors;
 
 #region readme
 //Add to PlayerMobile.cs
@@ -107,7 +107,7 @@ using Ulmeta.Factions.Vendors;
 
 #endregion
 
-namespace Ulmeta.Factions
+namespace Redux.Factions
 {
     public enum Rank
     {
@@ -3737,7 +3737,7 @@ namespace Ulmeta.Factions
     }
 }
 
-namespace Ulmeta.Factions.Vendors
+namespace Redux.Factions.Vendors
 {
     public abstract class FactionVendor : BaseVendor, IFactionEntity
     {

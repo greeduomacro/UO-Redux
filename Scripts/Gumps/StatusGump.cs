@@ -74,13 +74,13 @@ namespace Server.Gumps
                     return;
                 }
 
-                if (p.EoC >= 100 * p.Str)
+                if (p.EoC >= 100 * (p.Str * p.Str))
                 {
                     p.Str++;
-                    p.EoC -= 100 * p.Str;
+                    p.EoC -= 100 * (p.Str * p.Str);
                 }
 
-                else p.SendMessage("You must have atleast {0} E.o.C to do this.", 100 * p.Str);
+                else p.SendMessage("You must have atleast {0} E.o.C to do this.", 100 * (p.Str * p.Str));
             }
 
             if (info.ButtonID == (int)Buttons.dexButton)
@@ -92,13 +92,13 @@ namespace Server.Gumps
                     return;
                 }
 
-                if (p.EoC >= 100 * p.Dex)
+                if (p.EoC >= 100 * (p.Dex* p.Dex))
                 {
                     p.Dex++;
-                    p.EoC -= 100 * p.Dex;
+                    p.EoC -= 100 * (p.Dex * p.Dex);
                 }
 
-                else p.SendMessage("You must have atleast {0} E.o.C to do this.", 100 * p.Dex);
+                else p.SendMessage("You must have atleast {0} E.o.C to do this.", 100 * (p.Dex * p.Dex));
             }
 
             if (info.ButtonID == (int)Buttons.intButton)
@@ -110,13 +110,13 @@ namespace Server.Gumps
                     return;
                 }
 
-                if (p.EoC >= 100 * p.Int)
+                if (p.EoC >= 100 * (p.Int * p.Int))
                 {
                     p.Int++;
-                    p.EoC -= 100 * p.Int;
+                    p.EoC -= 100 * (p.Int * p.Int);
                 }
 
-                else p.SendMessage("You must have atleast {0} E.o.C to do this.", 100 * p.Int);
+                else p.SendMessage("You must have atleast {0} E.o.C to do this.", 100 * (p.Int * p.Int));
             }
 
             if (info.ButtonID == (int)Buttons.koBtn)

@@ -6,7 +6,7 @@ using Server.ContextMenus;
 using Server.Mobiles;
 using Server.Gumps;
 
-namespace Ulmeta.ContextMenus
+namespace Redux.ContextMenus
 {
     public class COVEntry : ContextMenuEntry
     {

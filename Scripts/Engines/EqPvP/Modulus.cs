@@ -22,7 +22,7 @@ namespace EqPvP
     /// <summary>
     /// Main module responsible for data structure and inter-module operations.
     /// </summary>
-    internal abstract class Handler
+    internal class Handler
     {
         private static readonly string SavePath = "Saves\\eqPvp";
         private static readonly string SaveFile = Path.Combine(SavePath, "eqPvp.bin");

@@ -3,9 +3,9 @@ using Server.Items;
 using Server.Mobiles;
 using Server.Spells;
 using System;
-using Ulmeta.Factions;
+using Redux.Factions;
 
-namespace Ulmeta.Guards
+namespace Redux.Guards
 {
     public enum GuardType
     {

@@ -12,7 +12,7 @@ using Server.Targeting;
 using Server.Spells;
 using Server.ContextMenus;
 
-namespace Ulmeta.ContextMenus
+namespace Redux.ContextMenus
 {
     public class RaceAbilityEntry : ContextMenuEntry
     {

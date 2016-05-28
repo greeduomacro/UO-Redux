@@ -7,7 +7,7 @@ using Server.Guilds;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Network;
-using Ulmeta.Guards;
+using Redux.Guards;
 using Server.Spells;
 
 namespace Server.Items
