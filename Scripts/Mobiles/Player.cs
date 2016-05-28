@@ -495,7 +495,7 @@ namespace Server.Mobiles
                 if (cm != null && cm.WorkHorse())
                     x += 60;
 
-                return (x + (int)(3.5 * this.Str));
+                return (x + (int)(3.5 * this.Str)) + 40;
             }
         }
 
