@@ -2107,7 +2107,7 @@
     <Compile Include="Mobiles\Creatures\Ectothermic\Amphibians\BullFrog.cs" />
     <Compile Include="Mobiles\Creatures\Ectothermic\Amphibians\GiantToad.cs" />
     <Compile Include="Mobiles\Creatures\Ectothermic\Reptiles\Base Classes\BaseReptile.cs" />
-    <Compile Include="Mobiles\Creatures\Ectothermic\Reptiles\Base Classes\Reptilian.cs" />
+    <Compile Include="Mobiles\Creatures\Ectothermic\Reptiles\Base Classes\ReptileUtility.cs" />
     <Compile Include="Mobiles\Creatures\Ectothermic\Reptiles\Misc\Alligator.cs" />
     <Compile Include="Mobiles\Creatures\Ectothermic\Reptiles\Serpents\GiantSerpent.cs" />
     <Compile Include="Mobiles\Creatures\Ectothermic\Reptiles\Serpents\IceSerpent.cs" />

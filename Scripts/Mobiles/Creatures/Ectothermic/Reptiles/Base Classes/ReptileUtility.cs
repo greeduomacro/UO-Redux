@@ -96,6 +96,15 @@ namespace Server.Mobiles.Creatures.Reptiles
         {
             if (DateTime.Now > m_Creation)
             {
+                ReptileEvolutionCreature rec = new ReptileEvolutionCreature();
+
+                rec.ControlMaster = from;
+                rec.Controlled = true;
+                rec.IsBonded = true;
+
+                ((BaseReptile)rec).GenerateEffects(rec);
+
+                from.SendMessage("The warmth of your touch seems to spur activity!");
             }
 
             else from.SendMessage("This egg is not yet ready to hatch..");

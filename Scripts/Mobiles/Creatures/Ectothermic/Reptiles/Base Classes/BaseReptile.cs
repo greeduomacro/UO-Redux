@@ -199,7 +199,7 @@ namespace Server.Mobiles.Creatures.Reptiles
             from.VirtualArmor += Utility.RandomMinMax(8, 16);
         }
 
-        private void GenerateEffects(BaseReptile from)
+        internal void GenerateEffects(BaseReptile from)
         {
             Effects.SendLocationParticles(EffectItem.Create(from.Location, from.Map, EffectItem.DefaultDuration), 0, 0, 0, 0, 0, 5060, 0);
             Effects.PlaySound(from.Location, from.Map, 0x243);
