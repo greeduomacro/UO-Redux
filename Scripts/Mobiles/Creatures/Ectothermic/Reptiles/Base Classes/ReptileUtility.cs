@@ -58,9 +58,26 @@ namespace Server.Mobiles.Creatures.Reptiles
         DateTime m_Creation;
         DateTime m_ToHatch;
 
+        EggType m_EggType = EggType.Small;
+        ReptileType m_ParentType = ReptileType.Generic;
+
+        internal static int[] m_ItemIdBySize = new int[] { 0, 0, 0, 0 };
+
+        public EggType Type
+        {
+            get { return m_EggType; }
+        }
+
         public override double DefaultWeight
         {
             get { return 2.0; }
+        }
+
+       
+        public ReptileEgg()
+        {
+            m_Creation = DateTime.Now;
+            m_ToHatch = DateTime.Now;
         }
 
         public ReptileEgg(ReptileType rType)
@@ -104,7 +121,15 @@ namespace Server.Mobiles.Creatures.Reptiles
 
                 ((BaseReptile)rec).GenerateEffects(rec);
 
-                from.SendMessage("The warmth of your touch seems to spur activity!");
+                switch (Utility.RandomMinMax(0, 3))
+                {
+                    case 0: { from.SendMessage("The warmth of your touch seems to spur activity!"); break; }
+                    case 1: { from.SendMessage("You touch the egg and it begins to move.."); break; }
+                    case 2: { from.SendMessage("You place your hand on the egg and it begins to glow!"); break; }
+                    case 3: { from.SendMessage("Something inside the egg seems to be stirring.."); break; }
+                    default: break;
+                }
+                
             }
 
             else from.SendMessage("This egg is not yet ready to hatch..");

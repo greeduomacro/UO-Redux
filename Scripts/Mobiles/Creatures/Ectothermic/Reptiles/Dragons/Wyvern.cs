@@ -51,10 +51,10 @@ namespace Server.Mobiles.Creatures.Reptiles
 		}
 
 		public override bool ReacquireOnMovement{ get{ return true; } }
+		public override int TreasureMapLevel{ get{ return 2; } }
 
 		//public override Poison PoisonImmune{ get{ return Poison.Deadly; } }
 		//public override Poison HitPoison{ get{ return Poison.Deadly; } }
-		public override int TreasureMapLevel{ get{ return 2; } }
 
 		public override int Meat{ get{ return 10; } }
 		public override int Hides{ get{ return 20; } }
