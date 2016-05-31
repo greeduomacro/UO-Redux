@@ -74,12 +74,15 @@ namespace Server.Mobiles.Creatures.Reptiles
         }
 
        
+        [Constructable]
         public ReptileEgg()
         {
             m_Creation = DateTime.Now;
             m_ToHatch = DateTime.Now;
+            m_Type = ReptileType.Generic;
         }
 
+        [Constructable]
         public ReptileEgg(ReptileType rType)
         {
             m_Type = rType;
