@@ -114,7 +114,7 @@ namespace Server
 		{
 			get
 			{
-				return m_BodyID >= 0
+				bool temp = m_BodyID >= 0
 					&& (m_BodyID < m_Types.Length
 					&& m_Types[m_BodyID] == BodyType.Human
 					&& m_BodyID != 402
@@ -124,6 +124,8 @@ namespace Server
 					&& m_BodyID != 970)
 					/** StygianAbyss **/
 					|| m_BodyID == 694 || m_BodyID == 695;
+
+                return temp;
 			}
 		}
 

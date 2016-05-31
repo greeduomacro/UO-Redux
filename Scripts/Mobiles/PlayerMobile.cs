@@ -658,7 +658,7 @@ namespace Server.Mobiles
             return max;
         }
 
-        public override int MaxWeight { get { return 40 + (int)(3.5 * this.Str); } }
+        public override int MaxWeight { get { return 40 + (int)((3.141 * this.Str) * 1.618); } }
 
         private int m_LastGlobalLight = -1, m_LastPersonalLight = -1;
 

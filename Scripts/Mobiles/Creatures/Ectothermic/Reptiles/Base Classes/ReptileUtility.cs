@@ -111,7 +111,7 @@ namespace Server.Mobiles.Creatures.Reptiles
 
         public override void OnDoubleClick(Mobile from)
         {
-            if (DateTime.Now > m_Creation)
+            if (DateTime.Now > m_Creation || from.AccessLevel == AccessLevel.Administrator)
             {
                 ReptileEvolutionCreature rec = new ReptileEvolutionCreature();
 
