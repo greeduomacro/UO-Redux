@@ -4,6 +4,7 @@ using Server.Network;
 using Server.Mobiles;
 using Server.Targeting;
 using Server.Items;
+using Server.Mobiles.Creatures.Reptiles;
 //using Server.Engines.Quests;
 //using Server.Engines.Quests.Necro;
 

@@ -2102,7 +2102,7 @@
     <Compile Include="Mobiles\Animals\Town Critters\Cat.cs" />
     <Compile Include="Mobiles\Animals\Town Critters\Dog.cs" />
     <Compile Include="Mobiles\Animals\Town Critters\Rat.cs" />
-    <Compile Include="Mobiles\BaseCreature.cs" />
+    <Compile Include="Mobiles\Creatures\BaseCreature.cs" />
     <Compile Include="Mobiles\Champion.cs" />
     <Compile Include="Mobiles\Creatures\Herpetology\Amphibians\BullFrog.cs" />
     <Compile Include="Mobiles\Creatures\Herpetology\Amphibians\GiantToad.cs" />

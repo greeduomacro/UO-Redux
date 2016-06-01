@@ -21,7 +21,7 @@ using Server.Items;
 using Server.Spells;
 using Server.ContextMenus;
 using Server.Currency;
-using Redux.Guards;
+using Ulmeta.Guards;
 using Redux.Factions.Vendors;
 
 #region readme
