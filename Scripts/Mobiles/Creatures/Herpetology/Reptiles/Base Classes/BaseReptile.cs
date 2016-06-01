@@ -233,10 +233,10 @@ namespace Server.Mobiles.Creatures.Reptiles
         }
     }
 
-    public class ReptileEvolutionCreature : BaseReptile
+    public class EvolutionCreature : BaseReptile
     {
         [Constructable]
-        public ReptileEvolutionCreature()
+        public EvolutionCreature()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Name = "a" + " " + BaseReptile.m_StageNames[0];
@@ -272,6 +272,20 @@ namespace Server.Mobiles.Creatures.Reptiles
 
             Tamable = true;
             ControlSlots = 1;
+        }
+
+        public EvolutionCreature(Serial serial) : base(serial)
+		{
+		}
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
         }
     }
 }

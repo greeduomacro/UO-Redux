@@ -116,14 +116,25 @@ namespace Server.Mobiles.Creatures.Reptiles
         {
             if (DateTime.Now > m_Creation || from.AccessLevel == AccessLevel.Administrator)
             {
-                ReptileEvolutionCreature rec = new ReptileEvolutionCreature();
+                if (from.Followers + 1 > from.FollowersMax)
+                {
+                    from.SendMessage("You have too many followers to hatch this.");
+                    return;
+                }
+
+                EvolutionCreature rec = new EvolutionCreature();
 
                 rec.ControlMaster = from;
                 rec.Controlled = true;
                 rec.IsBonded = true;
 
-                ((BaseReptile)rec).GenerateEffects(rec);
+                rec.MoveToWorld(from.Location, from.Map);
 
+                ((BaseReptile)rec).GenerateEffects(rec);
+            }
+
+            else
+            {
                 switch (Utility.RandomMinMax(0, 3))
                 {
                     case 0: { from.SendMessage("The warmth of your touch seems to spur activity!"); break; }
@@ -132,10 +143,7 @@ namespace Server.Mobiles.Creatures.Reptiles
                     case 3: { from.SendMessage("Something inside the egg seems to be stirring.."); break; }
                     default: break;
                 }
-                
             }
-
-            else from.SendMessage("This egg is not yet ready to hatch..");
         }
     }
 }
