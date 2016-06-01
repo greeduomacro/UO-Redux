@@ -1,0 +1,20 @@
+/Backups
+/*.suo
+/Scripts/Output
+/Core Source Code/obj
+/Scripts/obj
+/Scripts/bin
+/Server.debug.exe
+/Server.debug.exe.config
+/Server.debug.pdb
+/Server.debug.vshost.exe
+/Server.debug.vshost.exe.config
+/Server.debug.vshost.exe.manifest
+/Logs
+/Saves
+/Data/treasure.cfg
+/Data/market.db3
+/Data
+/docs
+/packages
+/Backups

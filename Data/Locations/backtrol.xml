@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<places>
+    <parent name="Tykari">
+        <parent name="Towns">
+            <parent name="Jinolt">
+                <child name="The Waxing Moon" x="1601" y="798" z="5"/>
+            </parent>
+        </parent>
+        <!--<parent name="Dungeons">
+            <parent name="Destard">
+                <child name="Entrance" x="5291" y="779" z="0"/>
+            </parent>
+        </parent>
+        <parent name="Locations">
+            <child name="Isles of Jun'kol" x="202" y="2859" z="0"/>
+            <child name="Mountaintop Grove" x="4302" y="764" z="15"/>
+            <child name="Abyssal Plane" x="5390" y="198" z="5"/>
+        </parent>-->
+    </parent>
+</places>

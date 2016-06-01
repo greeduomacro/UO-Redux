@@ -709,6 +709,13 @@ Felucca ruleset nows applies to The Lost Lands.
 Player may now only snoop other players in The Lost Lands.
 Disabled Courageous' LOS on all faccets aside from Ilshenar.
 
+0.4.4
+Began Creature Overhaul
+All skills require much more eoc to increase.
+Stats cost more eoc to increase.
+Added BaseReptile, BaseSerpent, BaseDragon
+Added evolution logic to base reptile.
+
 
 TODO:
 chat button should bring up [msg gump

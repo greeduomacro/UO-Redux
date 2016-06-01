@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Alliances limit="14">
+	<alliance serial="0x00000000" name="AllianceOne" leader="0x00000001" hue="1175" mountID="16031">0x00000001</alliance>
+	<alliance serial="0x00000000" name="AllianceTwo" leader="0x00000002" hue="1209" mountID="16034">0x00000002</alliance>
+</Alliances>
