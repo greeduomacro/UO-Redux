@@ -470,6 +470,8 @@ namespace Redux.Guards
         }
         #endregion
 
+        public override bool OnMoveOver(Mobile m)        {            return true; ///Guards Always Push Through        }
+
         public override void OnDeath(Container c)
         {
             if (Faction != null)
