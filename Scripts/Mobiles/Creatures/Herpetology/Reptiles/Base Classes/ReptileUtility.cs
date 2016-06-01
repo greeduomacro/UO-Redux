@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Server.Mobiles.Creatures.Reptiles
 {
-    static enum ReptileType
+    public enum ReptileType
     {
         Generic,
         Dragon,
@@ -13,7 +13,7 @@ namespace Server.Mobiles.Creatures.Reptiles
         Serpent,
     }
 
-    static enum EggType
+    public enum EggType
     {
         Small,
         Medium,

@@ -5,7 +5,7 @@ using Server.Spells;
 using System;
 using Redux.Factions;
 
-namespace Redux.Guards
+namespace Ulmeta.Guards
 {
     public enum GuardType
     {

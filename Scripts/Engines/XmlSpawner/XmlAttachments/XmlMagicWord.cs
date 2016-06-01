@@ -3,6 +3,7 @@ using Server;
 using Server.Items;
 using Server.Network;
 using Server.Mobiles;
+using Server.Mobiles.Creatures.Reptiles;
 
 namespace Server.Engines.XmlSpawner2
 {

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<accounts count="6">
+	<account>
+		<username>eqAdmin</username>
+		<newCryptPassword>5A-35-96-09-B2-4B-F7-6B-EE-BE-75-8B-06-EC-36-0E-1E-17-92-77</newCryptPassword>
+		<accessLevel>Administrator</accessLevel>
+		<created>2016-05-24T12:44:07.4274447-07:00</created>
+		<lastLogin>2016-05-24T12:44:07.4274447-07:00</lastLogin>
+		<totalGameTime>PT18H35M51.3914702S</totalGameTime>
+		<chars>
+			<char index="0">1</char>
+			<char index="1">3</char>
+		</chars>
+		<tags>
+			<tag name="MotD">false</tag>
+		</tags>
+		<addressList count="9">
+			<ip>23.25.111.5</ip>
+			<ip>50.153.177.79</ip>
+			<ip>50.153.177.57</ip>
+			<ip>50.153.177.114</ip>
+			<ip>50.153.178.218</ip>
+			<ip>50.153.177.26</ip>
+			<ip>50.153.179.53</ip>
+			<ip>50.153.179.73</ip>
+			<ip>73.99.89.41</ip>
+		</addressList>
+	</account>
+	<account>
+		<username>marcelman</username>
+		<newCryptPassword>19-87-A3-8C-BD-2B-C9-F6-C6-4B-F2-87-6B-1D-B3-16-2E-BD-6E-B9</newCryptPassword>
+		<created>2016-05-27T19:48:13.1623685-07:00</created>
+		<lastLogin>2016-05-27T19:48:13.1623685-07:00</lastLogin>
+		<totalGameTime>PT5M21.514239S</totalGameTime>
+		<chars>
+			<char index="0">2</char>
+		</chars>
+		<tags>
+			<tag name="MotD">false</tag>
+		</tags>
+		<addressList count="1">
+			<ip>217.241.57.168</ip>
+		</addressList>
+	</account>
+	<account>
+		<username>Orc_Admin</username>
+		<newCryptPassword>E6-0F-7A-BE-94-07-93-42-CE-AB-0C-9D-8B-0A-34-29-AE-4B-B0-A0</newCryptPassword>
+		<created>2016-05-27T23:57:06.8785602-07:00</created>
+		<lastLogin>2016-05-27T23:57:06.8785602-07:00</lastLogin>
+		<totalGameTime>PT0S</totalGameTime>
+		<chars />
+		<tags>
+			<tag name="MotD">true</tag>
+		</tags>
+	</account>
+	<account>
+		<username>Thomas</username>
+		<newCryptPassword>C7-B7-EE-96-93-E5-3E-16-6D-B0-C1-39-25-7C-F0-31-1D-8D-5A-94</newCryptPassword>
+		<created>2016-05-28T13:25:17.4572401-07:00</created>
+		<lastLogin>2016-05-28T13:25:17.4572401-07:00</lastLogin>
+		<totalGameTime>PT2M18.7977583S</totalGameTime>
+		<chars>
+			<char index="0">52</char>
+		</chars>
+		<tags>
+			<tag name="MotD">false</tag>
+		</tags>
+		<addressList count="1">
+			<ip>50.153.178.218</ip>
+		</addressList>
+	</account>
+	<account>
+		<username>Enroq</username>
+		<newCryptPassword>76-91-73-52-A2-D5-76-FC-89-4C-E1-8C-28-EC-92-27-65-B1-9F-4C</newCryptPassword>
+		<created>2016-05-28T19:46:38.1371012-07:00</created>
+		<lastLogin>2016-05-28T19:46:38.1371012-07:00</lastLogin>
+		<totalGameTime>PT10M42.2388385S</totalGameTime>
+		<chars>
+			<char index="0">7</char>
+		</chars>
+		<tags>
+			<tag name="MotD">false</tag>
+		</tags>
+		<addressList count="1">
+			<ip>50.153.178.218</ip>
+		</addressList>
+	</account>
+	<account>
+		<username>sadie27</username>
+		<newCryptPassword>BC-32-65-0E-00-6B-0E-13-06-F2-1F-64-C6-34-6F-5D-82-9A-BC-AA</newCryptPassword>
+		<created>2016-05-30T21:36:47.862416-07:00</created>
+		<lastLogin>2016-05-30T21:36:47.862416-07:00</lastLogin>
+		<totalGameTime>PT1H47M24.1459679S</totalGameTime>
+		<chars>
+			<char index="0">11</char>
+		</chars>
+		<tags>
+			<tag name="MotD">false</tag>
+		</tags>
+		<addressList count="1">
+			<ip>12.8.83.103</ip>
+		</addressList>
+	</account>
+</accounts>

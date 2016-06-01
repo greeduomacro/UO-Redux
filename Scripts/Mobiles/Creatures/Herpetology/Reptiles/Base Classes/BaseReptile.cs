@@ -13,6 +13,10 @@ namespace Server.Mobiles.Creatures.Reptiles
         static int[] m_BodyValueSet0 = new int[] { 52, 92, 0xCA, 0xCE, 62, 61, 59, 46 };
         static int[] m_BodyValueSet1 = new int[] { 52, 92, 0xCA, 0xCE, 62, 61, 59, 46 };
 
+        internal static double Pi = 3.14159265359;
+        internal static double Phi = 1.618;
+        internal static double Modus = ((1024 * 128) / Pi) / Phi;
+
         public static int[] GetBodyValues(BaseReptile m)
         {
             if (m.m_DomRecessive)
@@ -138,7 +142,13 @@ namespace Server.Mobiles.Creatures.Reptiles
         {
             IncreaseExperience(this, Utility.RandomMinMax(1, 3));
             base.DoHarmful(target);
+
         }
+
+        public override void OnGotMeleeAttack( Mobile attacker )
+		{
+			base.OnGotMeleeAttack( attacker );
+		}
 
         public override void OnThink()
         {
@@ -153,9 +163,6 @@ namespace Server.Mobiles.Creatures.Reptiles
             QueryEvolutionStatus(m);
         }
 
-        internal static const double Pi = 3.14159265359;
-        internal static const double Phi = 1.618;
-        internal static const double Modus = ((1024 * 128) / Pi) / Phi;
         private static void QueryEvolutionStatus(BaseReptile m)
         {
             int _temp = (int)(Modus * (m.Level + 1)) / 2;
