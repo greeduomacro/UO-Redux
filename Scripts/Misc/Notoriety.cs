@@ -62,7 +62,7 @@ namespace Server.Misc
 
             Map map = from.Map;
 
-            if( map != null && (SpellHelper.IsFeluccaT2A(map, target.Location)))
+            if (map != null && (map.Rules & MapRules.BeneficialRestrictions) == 0)
                 return true; // In felucca, anything goes
 
             if( !from.Player )
@@ -87,7 +87,7 @@ namespace Server.Misc
 
             Map map = from.Map;
 
-            if( map != null && (SpellHelper.IsFeluccaT2A(map, target.Location)))
+            if (map != null && (map.Rules & MapRules.BeneficialRestrictions) == 0)
                 return true; // In felucca, anything goes
 
             Guild fromGuild = GetGuildFor(from.Guild as Guild, from);
