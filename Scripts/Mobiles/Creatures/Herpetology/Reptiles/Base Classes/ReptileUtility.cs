@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Server.Items;
+using Server.Misc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,26 @@ namespace Server.Mobiles.Creatures.Reptiles
         Medium,
         Large,
         Gigantic
+    }
+
+    public class ReptileUtility
+    {
+        internal static void GenerateEffects(BaseReptile from)
+        {
+            try
+            {
+                Effects.SendLocationParticles(EffectItem.Create(from.Location, from.Map, EffectItem.DefaultDuration), 0, 0, 0, 0, 0, 5060, 0);
+                Effects.PlaySound(from.Location, from.Map, 0x243);
+
+                Effects.SendMovingParticles(new Entity(Serial.Zero, new Point3D(from.X - 6, from.Y - 6, from.Z + 15), from.Map), from, 0x36D4, 7, 0, false, true, 0x497, 0, 9502, 1, 0, (EffectLayer)255, 0x100);
+                Effects.SendMovingParticles(new Entity(Serial.Zero, new Point3D(from.X - 4, from.Y - 6, from.Z + 15), from.Map), from, 0x36D4, 7, 0, false, true, 0x497, 0, 9502, 1, 0, (EffectLayer)255, 0x100);
+                Effects.SendMovingParticles(new Entity(Serial.Zero, new Point3D(from.X - 6, from.Y - 4, from.Z + 15), from.Map), from, 0x36D4, 7, 0, false, true, 0x497, 0, 9502, 1, 0, (EffectLayer)255, 0x100);
+
+                Effects.SendTargetParticles(from, 0x375A, 35, 90, 0x00, 0x00, 9502, (EffectLayer)255, 0x100);
+            }
+
+            catch (Exception e) { eqUtility.HandleMobileException(e, from); }
+        }
     }
 
     public class ReptileVenomSack : Item
@@ -59,7 +81,6 @@ namespace Server.Mobiles.Creatures.Reptiles
         DateTime m_ToHatch;
 
         EggType m_EggType = EggType.Small;
-        ReptileType m_ParentType = ReptileType.Generic;
 
         internal static int[] m_ItemIdBySize = new int[] { 0, 0, 0, 0 };
 
@@ -73,9 +94,20 @@ namespace Server.Mobiles.Creatures.Reptiles
             get { return 2.0; }
         }
 
+        public override int Hue
+        {
+            get
+            {
+                return 1150;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
        
         [Constructable]
-        public ReptileEgg()
+        public ReptileEgg() : base (3164)
         {
             m_Creation = DateTime.Now;
             m_ToHatch = DateTime.Now;
@@ -83,7 +115,7 @@ namespace Server.Mobiles.Creatures.Reptiles
         }
 
         [Constructable]
-        public ReptileEgg(ReptileType rType)
+        public ReptileEgg(ReptileType rType) : base (3164)
         {
             m_Type = rType;
             m_Creation = DateTime.Now;
@@ -116,21 +148,24 @@ namespace Server.Mobiles.Creatures.Reptiles
         {
             if (DateTime.Now > m_Creation || from.AccessLevel == AccessLevel.Administrator)
             {
-                if (from.Followers + 1 > from.FollowersMax)
+                if (from.Followers + 2 > from.FollowersMax)
                 {
                     from.SendMessage("You have too many followers to hatch this.");
                     return;
                 }
 
-                EvolutionCreature rec = new EvolutionCreature();
+                EvolutionCreature ec = new EvolutionCreature();
 
-                rec.ControlMaster = from;
-                rec.Controlled = true;
-                rec.IsBonded = true;
+                ec.ControlMaster = from;
+                ec.Controlled = true;
+                ec.IsBonded = true;
+                ec.ControlOrder = OrderType.Follow;
 
-                rec.MoveToWorld(from.Location, from.Map);
+                ec.MoveToWorld(from.Location, from.Map);
 
-                ((BaseReptile)rec).GenerateEffects(rec);
+                BaseReptile.GenerateEffects(ec);
+
+                this.Delete();
             }
 
             else

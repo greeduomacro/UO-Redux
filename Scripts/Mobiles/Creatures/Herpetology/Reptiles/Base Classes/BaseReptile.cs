@@ -1,4 +1,5 @@
 ﻿using Server.Items;
+using Server.Misc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace Server.Mobiles.Creatures.Reptiles
         internal static double Pi = 3.14159265359;
         internal static double Phi = 1.618;
         internal static double Modus = ((1024 * 128) / Pi) / Phi;
+
+        internal int m_LastLevel;
 
         public static int[] GetBodyValues(BaseReptile m)
         {
@@ -35,6 +38,14 @@ namespace Server.Mobiles.Creatures.Reptiles
             "adult dragon",
             "elder wyrm"
         };
+
+        internal static string GetArticle(int level)
+        {
+            if (level < 6) 
+                return "a";
+            else 
+                return "an";
+        }
 
         static int[] m_StageSounds = new int[]
         {
@@ -86,7 +97,14 @@ namespace Server.Mobiles.Creatures.Reptiles
         public int Level
         {
             get { return m_Level; }
-            set { m_Level = value; Evolve(m_Level); }
+            set { m_Level = value; }
+        }
+
+        [CommandProperty(AccessLevel.GameMaster)]
+        public bool IsEvolving
+        {
+            get { return false; }
+            set { if (value) { Evolve(); } }
         }
 
         public BaseReptile
@@ -125,11 +143,23 @@ namespace Server.Mobiles.Creatures.Reptiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
+            writer.Write(0); //Version
+            writer.Write(m_LastLevel);
+            writer.Write(m_Level);
+            writer.Write(m_LaysEggs);
+            writer.Write(m_MaxLevel);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
+            if (reader.ReadInt() >= 0)
+            {
+                m_LastLevel = reader.ReadInt();
+                m_Level = reader.ReadInt();
+                m_LaysEggs = reader.ReadBool();
+                m_MaxLevel = reader.ReadInt();
+            }
         }
 
         public override void OnDamage(int amount, Mobile from, bool willKill)
@@ -142,7 +172,6 @@ namespace Server.Mobiles.Creatures.Reptiles
         {
             IncreaseExperience(this, Utility.RandomMinMax(1, 3));
             base.DoHarmful(target);
-
         }
 
         public override void OnGotMeleeAttack( Mobile attacker )
@@ -158,64 +187,102 @@ namespace Server.Mobiles.Creatures.Reptiles
 
         public static void IncreaseExperience(BaseReptile m, int val)
         {
-            m.Experience += val;
+            try
+            {
+                m.Experience += val;
+                QueryEvolutionStatus(m);
+            }
 
-            QueryEvolutionStatus(m);
+            catch (Exception e) { eqUtility.HandleMobileException(e, m); }
         }
 
         private static void QueryEvolutionStatus(BaseReptile m)
         {
-            int _temp = (int)(Modus * (m.Level + 1)) / 2;
-            if (m.Experience >= _temp)
+            try
             {
-                m.Evolve(m.Level + 1);
+                int _temp = (int)(Modus * (m.Level + 1)) / 2;
+                if (m.Experience >= _temp)
+                {
+                    m.Evolve();
+                }
             }
+
+            catch (Exception e) { eqUtility.HandleMobileException(e, m); }
         }
 
-        private void Evolve(int level)
+        private void Evolve()
         {
-            UpdateAppearances();
-            Level = level;
-            Experience = 0;
-            GenerateEffects(this);
+            try 
+            {
+                m_LastLevel = Level;
+                Level++;
+
+                UpdateAppearances();
+                Experience = 0;
+                GenerateEffects(this);
+
+                for (int i = m_LastLevel; i <= Level; i++)
+                {
+                    UpgradeStat(this);
+                }
+            }
+
+            catch (Exception e) { eqUtility.HandleMobileException(e, this); }
+
         }
 
         private void UpdateAppearances()
         {
-            Body = GetBodyValues(this)[Level +1];
-            BaseSoundID = m_StageSounds[Level + 1];
-            Name = "a " + m_StageNames[Level + 1];
+            try
+            {
+                Body = GetBodyValues(this)[Level];
+                BaseSoundID = m_StageSounds[Level];
+                Name = "a " + m_StageNames[Level];
+            }
+
+            catch (Exception e) { eqUtility.HandleMobileException(e, this); }
         }
 
         private void UpgradeStat(BaseReptile from)
         {
-            from.RawStr += (int)(RawStr * 1.618);
-            from.RawDex += (int)(RawDex * 1.618);
-            from.RawInt += (int)(RawInt * 1.618);
-
-            foreach (Skill s in from.Skills)
+            try
             {
-                s.Base += s.Base * 0.1618;
+                from.RawStr += (int)(RawStr * 1.618);
+                from.RawDex += (int)(RawDex * 1.618);
+                from.RawInt += (int)(RawInt * 1.618);
+
+                from.HitsMaxSeed += (int)(from.HitsMaxSeed * 1.618);
+                from.ManaMaxSeed += (int)(from.ManaMaxSeed * 1.618);
+
+                SetDamage((int)((DamageMax * 1.618) + Utility.RandomMinMax(2, 3)));
+
+                for(int i = 0; i < from.Skills.Length; ++i)
+                {
+                    Skill s = from.Skills[i];
+                    if (s.Base > 0.0 && s.Base < 120.0)
+                    {
+                        s.Base += (int)
+                            (s.Base * 0.1618 + Utility.RandomMinMax(1, 2));
+
+                        if (s.Base < 120.0) 
+                            s.Base = 120.0;
+                    }
+                }
+
+                for (int i = 0; i < from.Resistances.Length; i++)
+                {
+                    from.Resistances[i] += Utility.RandomMinMax(4,8);
+                }
+
+                from.VirtualArmor += Utility.RandomMinMax(5, 12);
             }
 
-            for (int i = 0; i <= from.Resistances.Length; i++)
-            {
-                from.Resistances[i] += Utility.RandomMinMax(2, 4);
-            }
-
-            from.VirtualArmor += Utility.RandomMinMax(8, 16);
+            catch (Exception e) { eqUtility.HandleMobileException(e, this); }
         }
 
-        internal void GenerateEffects(BaseReptile from)
+        internal static void GenerateEffects(BaseReptile from)
         {
-            Effects.SendLocationParticles(EffectItem.Create(from.Location, from.Map, EffectItem.DefaultDuration), 0, 0, 0, 0, 0, 5060, 0);
-            Effects.PlaySound(from.Location, from.Map, 0x243);
-
-            Effects.SendMovingParticles(new Entity(Serial.Zero, new Point3D(from.X - 6, from.Y - 6, from.Z + 15), from.Map), from, 0x36D4, 7, 0, false, true, 0x497, 0, 9502, 1, 0, (EffectLayer)255, 0x100);
-            Effects.SendMovingParticles(new Entity(Serial.Zero, new Point3D(from.X - 4, from.Y - 6, from.Z + 15), from.Map), from, 0x36D4, 7, 0, false, true, 0x497, 0, 9502, 1, 0, (EffectLayer)255, 0x100);
-            Effects.SendMovingParticles(new Entity(Serial.Zero, new Point3D(from.X - 6, from.Y - 4, from.Z + 15), from.Map), from, 0x36D4, 7, 0, false, true, 0x497, 0, 9502, 1, 0, (EffectLayer)255, 0x100);
-
-            Effects.SendTargetParticles(from, 0x375A, 35, 90, 0x00, 0x00, 9502, (EffectLayer)255, 0x100);
+            ReptileUtility.GenerateEffects(from);
         }
 
         public override void OnCarve(Mobile from, Items.Corpse corpse, Item with)
@@ -237,9 +304,10 @@ namespace Server.Mobiles.Creatures.Reptiles
     {
         [Constructable]
         public EvolutionCreature()
-            : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
+            : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a" + " " + BaseReptile.m_StageNames[0];
+            Name = GetArticle(this.Level) 
+                + " " + BaseReptile.m_StageNames[0];
             Body = 52;
             Hue = Utility.RandomSnakeHue();
             BaseSoundID = 0xDB;
@@ -248,10 +316,10 @@ namespace Server.Mobiles.Creatures.Reptiles
             SetDex(33, 100);
             SetInt(33, 100);
 
-            SetHits(55, 55);
-            SetMana(50, 50);
+            SetHits(55, 100);
+            SetMana(50, 95);
 
-            SetDamage(1, 4);
+            SetDamage(3, 5);
 
             SetDamageType(ResistanceType.Physical, 100);
 
@@ -265,13 +333,15 @@ namespace Server.Mobiles.Creatures.Reptiles
             SetSkill(SkillName.MagicResist, 15.1, 20.0);
             SetSkill(SkillName.Tactics, 19.3, 34.0);
             SetSkill(SkillName.Wrestling, 19.3, 34.0);
+            SetSkill(SkillName.Magery, 19.3, 34.0);
+            SetSkill(SkillName.EvalInt, 19.3, 34.0);
 
             Fame = 300;
 
             VirtualArmor = 16;
 
             Tamable = true;
-            ControlSlots = 1;
+            ControlSlots = 2;
         }
 
         public EvolutionCreature(Serial serial) : base(serial)
@@ -281,11 +351,15 @@ namespace Server.Mobiles.Creatures.Reptiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
+            writer.Write(0); //Version
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
+            if (reader.ReadInt() >= 0)
+            {
+            }
         }
     }
 }
