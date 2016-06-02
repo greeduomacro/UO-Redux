@@ -1,4 +1,5 @@
 ﻿using Server.Items;
+using Server.Misc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -142,7 +143,6 @@ namespace Server.Mobiles.Creatures.Reptiles
         {
             IncreaseExperience(this, Utility.RandomMinMax(1, 3));
             base.DoHarmful(target);
-
         }
 
         public override void OnGotMeleeAttack( Mobile attacker )
@@ -158,64 +158,94 @@ namespace Server.Mobiles.Creatures.Reptiles
 
         public static void IncreaseExperience(BaseReptile m, int val)
         {
-            m.Experience += val;
+            try
+            {
+                m.Experience += val;
+                QueryEvolutionStatus(m);
+            }
 
-            QueryEvolutionStatus(m);
+            catch (Exception e) { eqUtility.HandleMobileException(e, this); }
         }
 
         private static void QueryEvolutionStatus(BaseReptile m)
         {
-            int _temp = (int)(Modus * (m.Level + 1)) / 2;
-            if (m.Experience >= _temp)
+            try
             {
-                m.Evolve(m.Level + 1);
+                int _temp = (int)(Modus * (m.Level + 1)) / 2;
+                if (m.Experience >= _temp)
+                {
+                    m.Evolve(m.Level + 1);
+                }
             }
+
+            catch (Exception e) { eqUtility.HandleMobileException(e, this); }
         }
 
         private void Evolve(int level)
         {
-            UpdateAppearances();
-            Level = level;
-            Experience = 0;
-            GenerateEffects(this);
+            try 
+            {
+                UpdateAppearances();
+                Level = level;
+                Experience = 0;
+                GenerateEffects(this);
+            }
+
+            catch (Exception e) { eqUtility.HandleMobileException(e, this); }
+
         }
 
         private void UpdateAppearances()
         {
-            Body = GetBodyValues(this)[Level +1];
-            BaseSoundID = m_StageSounds[Level + 1];
-            Name = "a " + m_StageNames[Level + 1];
+            try
+            {
+                Body = GetBodyValues(this)[Level + 1];
+                BaseSoundID = m_StageSounds[Level + 1];
+                Name = "a " + m_StageNames[Level + 1];
+            }
+
+            catch (Exception e) { eqUtility.HandleMobileException(e, this); }
         }
 
         private void UpgradeStat(BaseReptile from)
         {
-            from.RawStr += (int)(RawStr * 1.618);
-            from.RawDex += (int)(RawDex * 1.618);
-            from.RawInt += (int)(RawInt * 1.618);
-
-            foreach (Skill s in from.Skills)
+            try
             {
-                s.Base += s.Base * 0.1618;
+                from.RawStr += (int)(RawStr * 1.618);
+                from.RawDex += (int)(RawDex * 1.618);
+                from.RawInt += (int)(RawInt * 1.618);
+
+                foreach (Skill s in from.Skills)
+                {
+                    s.Base += s.Base * 0.1618;
+                }
+
+                for (int i = 0; i <= from.Resistances.Length; i++)
+                {
+                    from.Resistances[i] += Utility.RandomMinMax(2, 4);
+                }
+
+                from.VirtualArmor += Utility.RandomMinMax(8, 16);
             }
 
-            for (int i = 0; i <= from.Resistances.Length; i++)
-            {
-                from.Resistances[i] += Utility.RandomMinMax(2, 4);
-            }
-
-            from.VirtualArmor += Utility.RandomMinMax(8, 16);
+            catch (Exception e) { eqUtility.HandleMobileException(e, this); }
         }
 
-        internal void GenerateEffects(BaseReptile from)
+        internal static void GenerateEffects(BaseReptile from)
         {
-            Effects.SendLocationParticles(EffectItem.Create(from.Location, from.Map, EffectItem.DefaultDuration), 0, 0, 0, 0, 0, 5060, 0);
-            Effects.PlaySound(from.Location, from.Map, 0x243);
+            try
+            {
+                Effects.SendLocationParticles(EffectItem.Create(from.Location, from.Map, EffectItem.DefaultDuration), 0, 0, 0, 0, 0, 5060, 0);
+                Effects.PlaySound(from.Location, from.Map, 0x243);
 
-            Effects.SendMovingParticles(new Entity(Serial.Zero, new Point3D(from.X - 6, from.Y - 6, from.Z + 15), from.Map), from, 0x36D4, 7, 0, false, true, 0x497, 0, 9502, 1, 0, (EffectLayer)255, 0x100);
-            Effects.SendMovingParticles(new Entity(Serial.Zero, new Point3D(from.X - 4, from.Y - 6, from.Z + 15), from.Map), from, 0x36D4, 7, 0, false, true, 0x497, 0, 9502, 1, 0, (EffectLayer)255, 0x100);
-            Effects.SendMovingParticles(new Entity(Serial.Zero, new Point3D(from.X - 6, from.Y - 4, from.Z + 15), from.Map), from, 0x36D4, 7, 0, false, true, 0x497, 0, 9502, 1, 0, (EffectLayer)255, 0x100);
+                Effects.SendMovingParticles(new Entity(Serial.Zero, new Point3D(from.X - 6, from.Y - 6, from.Z + 15), from.Map), from, 0x36D4, 7, 0, false, true, 0x497, 0, 9502, 1, 0, (EffectLayer)255, 0x100);
+                Effects.SendMovingParticles(new Entity(Serial.Zero, new Point3D(from.X - 4, from.Y - 6, from.Z + 15), from.Map), from, 0x36D4, 7, 0, false, true, 0x497, 0, 9502, 1, 0, (EffectLayer)255, 0x100);
+                Effects.SendMovingParticles(new Entity(Serial.Zero, new Point3D(from.X - 6, from.Y - 4, from.Z + 15), from.Map), from, 0x36D4, 7, 0, false, true, 0x497, 0, 9502, 1, 0, (EffectLayer)255, 0x100);
 
-            Effects.SendTargetParticles(from, 0x375A, 35, 90, 0x00, 0x00, 9502, (EffectLayer)255, 0x100);
+                Effects.SendTargetParticles(from, 0x375A, 35, 90, 0x00, 0x00, 9502, (EffectLayer)255, 0x100);
+            }
+
+            catch (Exception e) { eqUtility.HandleMobileException(e, from); }
         }
 
         public override void OnCarve(Mobile from, Items.Corpse corpse, Item with)
