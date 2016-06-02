@@ -3,3 +3,6 @@ C:\Users\Administrator\Documents\uoredux\Core Source Code\obj\Debug\Server.debug
 C:\Users\Administrator\Documents\uoredux\Core Source Code\obj\Debug\Server.debug.pdb
 C:\Users\Administrator\Documents\uoredux\Server.debug.exe
 C:\Users\Administrator\Documents\uoredux\Server.debug.pdb
+C:\Users\Iris\Documents\uoredux\Server.debug.exe.config
+C:\Users\Iris\Documents\uoredux\Core Source Code\obj\Debug\Server.debug.exe
+C:\Users\Iris\Documents\uoredux\Core Source Code\obj\Debug\Server.debug.pdb
