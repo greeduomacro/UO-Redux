@@ -715,6 +715,7 @@ All skills require much more eoc to increase.
 Stats cost more eoc to increase.
 Added BaseReptile, BaseSerpent, BaseDragon
 Added evolution logic to base reptile.
+Enabled Courageous' LOS on All Faccets.
 
 
 TODO:

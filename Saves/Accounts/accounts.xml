@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<accounts count="6">
+<accounts count="8">
 	<account>
 		<username>eqAdmin</username>
 		<newCryptPassword>5A-35-96-09-B2-4B-F7-6B-EE-BE-75-8B-06-EC-36-0E-1E-17-92-77</newCryptPassword>
 		<accessLevel>Administrator</accessLevel>
 		<created>2016-05-24T12:44:07.4274447-07:00</created>
 		<lastLogin>2016-05-24T12:44:07.4274447-07:00</lastLogin>
-		<totalGameTime>PT18H19M22.0137375S</totalGameTime>
+		<totalGameTime>PT23H33M59.4363676S</totalGameTime>
 		<chars>
 			<char index="0">1</char>
 			<char index="1">3</char>
@@ -14,7 +14,7 @@
 		<tags>
 			<tag name="MotD">false</tag>
 		</tags>
-		<addressList count="9">
+		<addressList count="11">
 			<ip>23.25.111.5</ip>
 			<ip>50.153.177.79</ip>
 			<ip>50.153.177.57</ip>
@@ -24,6 +24,8 @@
 			<ip>50.153.179.53</ip>
 			<ip>50.153.179.73</ip>
 			<ip>73.99.89.41</ip>
+			<ip>73.99.89.66</ip>
+			<ip>73.99.89.73</ip>
 		</addressList>
 	</account>
 	<account>
@@ -99,6 +101,38 @@
 		</tags>
 		<addressList count="1">
 			<ip>12.8.83.103</ip>
+		</addressList>
+	</account>
+	<account>
+		<username>Sage22</username>
+		<newCryptPassword>96-5A-D4-F9-96-0F-9D-0D-BF-AC-38-B0-75-A9-3E-ED-3C-36-D5-B3</newCryptPassword>
+		<created>2016-06-02T02:27:25.7481213-07:00</created>
+		<lastLogin>2016-06-02T02:27:25.7481213-07:00</lastLogin>
+		<totalGameTime>PT12.9685893S</totalGameTime>
+		<chars>
+			<char index="0">34</char>
+		</chars>
+		<tags>
+			<tag name="MotD">false</tag>
+		</tags>
+		<addressList count="1">
+			<ip>45.53.226.36</ip>
+		</addressList>
+	</account>
+	<account>
+		<username>Admin</username>
+		<newCryptPassword>9B-36-DD-85-52-64-F3-F9-01-E5-F9-93-C2-A9-2B-BC-2F-05-EA-C6</newCryptPassword>
+		<created>2016-06-02T02:40:39.7260655-07:00</created>
+		<lastLogin>2016-06-02T02:40:39.7260655-07:00</lastLogin>
+		<totalGameTime>PT1H37M27.4624921S</totalGameTime>
+		<chars>
+			<char index="0">38</char>
+		</chars>
+		<tags>
+			<tag name="MotD">false</tag>
+		</tags>
+		<addressList count="1">
+			<ip>45.53.226.36</ip>
 		</addressList>
 	</account>
 </accounts>
