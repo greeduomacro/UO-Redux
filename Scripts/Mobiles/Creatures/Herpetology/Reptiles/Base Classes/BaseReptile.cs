@@ -237,7 +237,7 @@ namespace Server.Mobiles.Creatures.Reptiles
             {
                 Body = GetBodyValues(this)[Level];
                 BaseSoundID = m_StageSounds[Level];
-                Name = "a " + m_StageNames[Level];
+                Name = GetArticle(Level) + " " + m_StageNames[Level];
             }
 
             catch (Exception e) { eqUtility.HandleMobileException(e, this); }
@@ -295,7 +295,7 @@ namespace Server.Mobiles.Creatures.Reptiles
             if (Utility.RandomBool() && Utility.RandomBool())
             {
                 corpse.AddItem(new ReptileEgg(m_Type));
-                from.SendMessage("Carving into the dragon you notice something pearl white.");
+                from.SendMessage("Carving into the creature you notice something pearl white.");
             }
         }
     }
