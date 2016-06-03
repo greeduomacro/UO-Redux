@@ -12,7 +12,7 @@ namespace Server.Mobiles.Creatures.Reptiles
     public class BaseReptile : BaseCreature
     {
         static int[] m_BodyValueSet0 = new int[] { 52, 92, 0xCA, 0xCE, 62, 61, 59, 46 };
-        static int[] m_BodyValueSet1 = new int[] { 52, 92, 0xCA, 0xCE, 62, 61, 59, 46 };
+        static int[] m_BodyValueSet1 = new int[] { 52, 92, 0xCA, 0xCE, 62, 60, 12, 46 };
 
         internal static double Pi = 3.14159265359;
         internal static double Phi = 1.618;
@@ -29,19 +29,19 @@ namespace Server.Mobiles.Creatures.Reptiles
 
         internal static string[] m_StageNames = new string[] 
         { 
-            "reptilian hatchling", // 1
-            "giant serpent",       // 2
-            "large reptile",       // 3
-            "massive lizard",      // 4
-            "young wyrm",          // 5
-            "adolesecent dragon",  // 6
+            "reptilian hatchling", // 0
+            "giant serpent",       // 1
+            "large reptile",       // 2
+            "massive lizard",      // 3
+            "young wyrm",          // 4
+            "adolesecent dragon",  // 5
             "adult dragon",
             "elder wyrm"
         };
 
         internal static string GetArticle(int level)
         {
-            if (level < 6) 
+            if (level < 4) 
                 return "a";
             else 
                 return "an";
@@ -110,9 +110,49 @@ namespace Server.Mobiles.Creatures.Reptiles
         public BaseReptile
             (AIType ai, FightMode mode, int iRangePerception, int iRangeFight, double activeSpeed, double passiveSpeed) 
             :   base(ai, mode, iRangePerception, iRangeFight, activeSpeed, passiveSpeed)
-        {
-            Hue = Utility.RandomSnakeHue();
+        {            
             m_DomRecessive = Utility.RandomBool();
+            QueryLevel();
+            switch (Utility.RandomMinMax(1, 5))
+            {
+                case 1: { Hue = Utility.RandomSnakeHue(); break; }
+                case 2: { Hue = Utility.RandomSkinHue(); break; }
+                case 3: { Hue = Utility.RandomBirdHue(); break; }
+                case 4: { Hue = Utility.RandomMetalHue(); break; }
+                case 5: { Hue = Utility.RandomHairHue(); break; }
+                default: break;
+            }
+        }
+
+        internal void QueryLevel()
+        {
+            if (m_Level == -1)
+            {
+                int temp = QueryLevelFromForm();
+                if (temp != -1) m_Level = temp;
+            }
+        }
+
+        internal int QueryLevelFromForm()
+        {
+            try
+            {
+                int lvl = 0;
+                for (int i = 0; i < m_BodyValueSet0.Length; i++)
+                {
+                    if (m_BodyValueSet0[i] == BodyValue)
+                    {
+                        lvl = i;
+                    }
+                    else if (m_BodyValueSet1[i] == BodyValue)
+                    {
+                        lvl = i;
+                    }
+                }
+                return lvl;
+            }
+
+            catch (Exception e) { eqUtility.HandleGenericException(e); return -1; }
         }
 
         public override bool BardImmune
@@ -170,18 +210,21 @@ namespace Server.Mobiles.Creatures.Reptiles
 
         public override void DoHarmful(Mobile target)
         {
-            IncreaseExperience(this, Utility.RandomMinMax(1, 3));
+            if(Utility.RandomBool())
+                IncreaseExperience(this, Utility.RandomMinMax(1, 3));
             base.DoHarmful(target);
         }
 
         public override void OnGotMeleeAttack( Mobile attacker )
 		{
+            IncreaseExperience(this, 1);
 			base.OnGotMeleeAttack( attacker );
 		}
 
         public override void OnThink()
         {
-            IncreaseExperience(this, 1);
+            if (eqUtility.HardBool())
+                IncreaseExperience(this, 1);
             base.OnThink();
         }
 
@@ -194,6 +237,12 @@ namespace Server.Mobiles.Creatures.Reptiles
             }
 
             catch (Exception e) { eqUtility.HandleMobileException(e, m); }
+        }
+
+        [CommandProperty(AccessLevel.GameMaster)]
+        public int NextEvolution
+        {
+            get { return (int)(Modus * (this.Level + 1)) / 2; }
         }
 
         private static void QueryEvolutionStatus(BaseReptile m)
@@ -247,14 +296,17 @@ namespace Server.Mobiles.Creatures.Reptiles
         {
             try
             {
-                from.RawStr += (int)(RawStr * 1.618);
-                from.RawDex += (int)(RawDex * 1.618);
-                from.RawInt += (int)(RawInt * 1.618);
+                from.RawStr += (int)(from.RawStr * 0.1618);
+                from.RawDex += (int)(from.RawStr * 0.1618);
+                from.RawInt += (int)(from.RawStr * 0.1618);
 
-                from.HitsMaxSeed += (int)(from.HitsMaxSeed * 1.618);
-                from.ManaMaxSeed += (int)(from.ManaMaxSeed * 1.618);
+                from.HitsMaxSeed += (int)(from.HitsMaxSeed * 0.1618);
+                from.ManaMaxSeed += (int)(from.ManaMaxSeed * 0.1618);
 
-                SetDamage((int)((DamageMax * 1.618) + Utility.RandomMinMax(2, 3)));
+                int newMax = DamageMax + Utility.RandomMinMax(3, 9);
+                int newMin = DamageMin + Utility.RandomMinMax(2, 8);
+
+                SetDamage(newMin, newMax);
 
                 for(int i = 0; i < from.Skills.Length; ++i)
                 {
@@ -262,16 +314,16 @@ namespace Server.Mobiles.Creatures.Reptiles
                     if (s.Base > 0.0 && s.Base < 120.0)
                     {
                         s.Base += (int)
-                            (s.Base * 0.1618 + Utility.RandomMinMax(1, 2));
+                            (s.Base * 0.01618 + Utility.RandomMinMax(1, 2));
 
-                        if (s.Base < 120.0) 
+                        if (s.Base > 120.0) 
                             s.Base = 120.0;
                     }
                 }
 
                 for (int i = 0; i < from.Resistances.Length; i++)
                 {
-                    from.Resistances[i] += Utility.RandomMinMax(4,8);
+                    from.Resistances[i] += Utility.RandomMinMax(4,6);
                 }
 
                 from.VirtualArmor += Utility.RandomMinMax(5, 12);
@@ -292,7 +344,7 @@ namespace Server.Mobiles.Creatures.Reptiles
             if (m_PoisonType.Level >= Poison.Lesser.Level)
                 corpse.AddItem(new ReptileVenomSack(m_PoisonType));
 
-            if (Utility.RandomBool() && Utility.RandomBool())
+            if (Utility.RandomDouble() <= 0.015)
             {
                 corpse.AddItem(new ReptileEgg(m_Type));
                 from.SendMessage("Carving into the creature you notice something pearl white.");
@@ -329,20 +381,21 @@ namespace Server.Mobiles.Creatures.Reptiles
             SetResistance(ResistanceType.Energy, 20, 30);
             SetResistance(ResistanceType.Cold, 15, 20);
 
-            SetSkill(SkillName.Poisoning, 50.1, 70.0);
+            SetSkill(SkillName.Anatomy, 15.1, 36.0);
             SetSkill(SkillName.MagicResist, 15.1, 20.0);
             SetSkill(SkillName.Tactics, 19.3, 34.0);
             SetSkill(SkillName.Wrestling, 19.3, 34.0);
             SetSkill(SkillName.Magery, 19.3, 34.0);
             SetSkill(SkillName.EvalInt, 19.3, 34.0);
-
+            SetSkill(SkillName.Meditation, 19.3, 34.0);
             Fame = 300;
 
             VirtualArmor = 16;
-
-            Tamable = true;
-            ControlSlots = 2;
+            Tamable = false;
+            ControlSlots = 3;
         }
+
+        public virtual FoodType FavoriteFood { get { return FoodType.Gold; } }
 
         public EvolutionCreature(Serial serial) : base(serial)
 		{

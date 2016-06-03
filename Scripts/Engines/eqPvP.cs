@@ -1,5 +1,6 @@
 ﻿using Server;
 using Server.Commands;
+using Server.Misc;
 using Server.Mobiles;
 using Server.Targeting;
 using System;
@@ -39,25 +40,37 @@ namespace EqPvP
         [CommandAttribute("IncEqDeaths", AccessLevel.GameMaster)]
         public static void IncDeaths_OnCommand(CommandEventArgs args)
         {
-            string arg = args.ArgString.Trim();
-            int mod; Int32.TryParse(arg, out mod);
-            args.Mobile.Target = new ProfileModTarget(args.Mobile, mod, ProfileModTarget.ModType.Deaths);
+            try
+            {
+                string arg = args.ArgString.Trim();
+                int mod; Int32.TryParse(arg, out mod);
+                args.Mobile.Target = new ProfileModTarget(args.Mobile, mod, ProfileModTarget.ModType.Deaths);
+            }
+            catch (Exception e) { eqUtility.HandleMobileException(e, args.Mobile); }
         }
 
         [CommandAttribute("IncEqKills", AccessLevel.GameMaster)]
         public static void IncKills_OnCommand(CommandEventArgs args)
         {
-            string arg = args.ArgString.Trim();
-            int mod; Int32.TryParse(arg, out mod);
-            args.Mobile.Target = new ProfileModTarget(args.Mobile, mod, ProfileModTarget.ModType.Kills);
+            try
+            {
+                string arg = args.ArgString.Trim();
+                int mod; Int32.TryParse(arg, out mod);
+                args.Mobile.Target = new ProfileModTarget(args.Mobile, mod, ProfileModTarget.ModType.Kills);
+            }
+            catch (Exception e) { eqUtility.HandleMobileException(e, args.Mobile); }
         }
 
         [CommandAttribute("IncEqRating", AccessLevel.GameMaster)]
         public static void IncRating_OnCommand(CommandEventArgs args)
         {
-            string arg = args.ArgString.Trim();
-            int mod; Int32.TryParse(arg, out mod);
-            args.Mobile.Target = new ProfileModTarget(args.Mobile, mod, ProfileModTarget.ModType.Rating);
+            try
+            {
+                string arg = args.ArgString.Trim();
+                int mod; Int32.TryParse(arg, out mod);
+                args.Mobile.Target = new ProfileModTarget(args.Mobile, mod, ProfileModTarget.ModType.Rating);
+            }
+            catch (Exception e) { eqUtility.HandleMobileException(e, args.Mobile); }
         }
 
         internal enum CombatResults
@@ -86,12 +99,16 @@ namespace EqPvP
 
         private static void QueryCombatProfile(LoginEventArgs e)
         {
-            if (e.Mobile is PlayerMobile)
+            try
             {
-                IPlayerCombatant combatant = e.Mobile as IPlayerCombatant;
-                if (combatant.CombatProfile == null)
-                    CreateCombatProfile(e.Mobile);
+                if (e.Mobile is PlayerMobile)
+                {
+                    IPlayerCombatant combatant = e.Mobile as IPlayerCombatant;
+                    if (combatant.CombatProfile == null)
+                        CreateCombatProfile(e.Mobile);
+                }
             }
+            catch (Exception x) { eqUtility.HandleGenericException(x); }
         }
 
         private static void OnCombatantCreated(CharacterCreatedEventArgs e)
@@ -103,10 +120,14 @@ namespace EqPvP
         {
             if (m is PlayerMobile)
             {
-                CombatantProfile cProfile = new CombatantProfile(m as PlayerMobile);
-                m_CombatProfiles.Add(cProfile);
-                Console.WriteLine
-                    ("New Combat Profile Created For: ({0}) [{1}]", m.Name, m.Serial);
+                try
+                {
+                    CombatantProfile cProfile = new CombatantProfile(m as PlayerMobile);
+                    m_CombatProfiles.Add(cProfile);
+                    Console.WriteLine
+                        ("New Combat Profile Created For: ({0}) [{1}]", m.Name, m.Serial);
+                }
+                catch (Exception e) { eqUtility.HandleGenericException(e); }
             }
         }
 
@@ -126,8 +147,7 @@ namespace EqPvP
 
             catch (ArgumentException e)
             {
-                Console.WriteLine("Error: Event_WorldSave Failed in eqPvp Definition..!");
-                Console.WriteLine(e.Message);
+                eqUtility.HandleGenericException(e);
             }
         }
 
@@ -164,7 +184,7 @@ namespace EqPvP
             catch (ArgumentException e)
             {
                 Console.WriteLine("Error: Event_WorldLoad Failed in eqPvp Definition..!");
-                Console.WriteLine(e.Message);
+                eqUtility.HandleGenericException(e);
             }
         }
 
@@ -193,30 +213,37 @@ namespace EqPvP
 
         private static void OnCombatantDeath(PlayerDeathEventArgs e)
         {
-            PlayerMobile victim, killer;
-            if (e.Mobile is PlayerMobile && e.Mobile.LastKiller is PlayerMobile)
+            try
             {
-                victim = e.Mobile as PlayerMobile;
-                killer = victim.LastKiller as PlayerMobile;
+                PlayerMobile victim, killer;
+                if (e.Mobile is PlayerMobile && e.Mobile.LastKiller is PlayerMobile)
+                {
+                    victim = e.Mobile as PlayerMobile;
+                    killer = victim.LastKiller as PlayerMobile;
 
-                CombatantProfile victor = ((IPlayerCombatant)killer).CombatProfile;
-                CombatantProfile defeated = ((IPlayerCombatant)victim).CombatProfile;
+                    CombatantProfile victor = ((IPlayerCombatant)killer).CombatProfile;
+                    CombatantProfile defeated = ((IPlayerCombatant)victim).CombatProfile;
 
-                Handler.IncreaseDeaths(defeated);
-                Handler.IncreaseKills(victor);
+                    Handler.IncreaseDeaths(defeated);
+                    Handler.IncreaseKills(victor);
 
-                QueryRankChange(victor);
-                QueryRankChange(defeated);
+                    QueryRankChange(victor);
+                    QueryRankChange(defeated);
 
-                Handler.CalculateNewRating(victor, defeated.CombatRating, CombatResults.Victory);
-                Handler.CalculateNewRating(defeated, victor.CombatRating, CombatResults.Loss);
+                    Handler.CalculateNewRating(victor, defeated.CombatRating, CombatResults.Victory);
+                    Handler.CalculateNewRating(defeated, victor.CombatRating, CombatResults.Loss);
+                }
+            }
+            catch (Exception x) 
+            {
+                eqUtility.HandleGenericException(x);
             }
         }
 
         internal static void QueryRankChange(CombatantProfile profile)
         {
             int kdSum = profile.TotalKills - profile.TotalDeaths;
-            int rank = kdSum / 50;
+            int rank = kdSum / 20;
             switch (rank)
             {
                 case 0:
@@ -241,7 +268,8 @@ namespace EqPvP
                     }
                 case 5:
                     {
-                        profile.Rank = (profile.IsFemale() ? CombatantProfile.CombatRank.Queen : CombatantProfile.CombatRank.King);
+                        profile.Rank = (profile.IsFemale() 
+                            ? CombatantProfile.CombatRank.Queen : CombatantProfile.CombatRank.King);
                         break;
                     }
                 case 6:
@@ -249,17 +277,27 @@ namespace EqPvP
                         profile.Rank = CombatantProfile.CombatRank.Master;
                         break;
                     }
+
+                default: break;
             }
         }
 
         internal static void IncreaseKills(CombatantProfile profile)
         {
-            profile.TotalKills++;
+            try
+            {
+                profile.TotalKills++;
+            }
+            catch (Exception e) { eqUtility.HandleGenericException(e); }
         }
 
         internal static void IncreaseDeaths(CombatantProfile profile)
         {
-            profile.TotalDeaths++;
+            try
+            {
+                profile.TotalDeaths++;
+            }
+            catch (Exception e) { eqUtility.HandleGenericException(e); }
         }
 
         internal static int CalculateNewRating(CombatantProfile profile, int opRating, CombatResults results)
@@ -288,10 +326,11 @@ namespace EqPvP
                 return newRating;
             }
 
-            catch 
+            catch (Exception e)
             {
                 if (profile.Combatant.AccessLevel == AccessLevel.Administrator)
                     profile.Combatant.SendMessage("Error Updating Combat Rating!");
+                eqUtility.HandleGenericException(e);
                 return profile.CombatRating; 
             }
         }
@@ -505,29 +544,33 @@ namespace EqPvP
 
         protected override void OnTarget(Mobile from, object o)
         {
-            if (o is PlayerMobile)
+            try
             {
-                CombatantProfile profile = ((IPlayerCombatant)o).CombatProfile;
-                switch (m_ModType)
+                if (o is PlayerMobile)
                 {
-                    case ModType.Deaths:
-                        {
-                            profile.TotalDeaths = modifierValue;
-                            break;
-                        }
-                    case ModType.Kills:
-                        {
-                            profile.TotalKills = modifierValue;
-                            break;
-                        }
-                    case ModType.Rating:
-                        {
-                            profile.CombatRating = modifierValue;
-                            break;
-                        }
-                    default: break;
+                    CombatantProfile profile = ((IPlayerCombatant)o).CombatProfile;
+                    switch (m_ModType)
+                    {
+                        case ModType.Deaths:
+                            {
+                                profile.TotalDeaths = modifierValue;
+                                break;
+                            }
+                        case ModType.Kills:
+                            {
+                                profile.TotalKills = modifierValue;
+                                break;
+                            }
+                        case ModType.Rating:
+                            {
+                                profile.CombatRating = modifierValue;
+                                break;
+                            }
+                        default: break;
+                    }
                 }
             }
+            catch (Exception e) { eqUtility.HandleGenericException(e); }
         }
     }
 

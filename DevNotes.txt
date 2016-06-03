@@ -710,14 +710,21 @@ Player may now only snoop other players in The Lost Lands.
 Disabled Courageous' LOS on all faccets aside from Ilshenar.
 
 0.4.4
+Reverted all changes from 0.4.3
 Began Creature Overhaul
 All skills require much more eoc to increase.
 Stats cost more eoc to increase.
 Added BaseReptile, BaseSerpent, BaseDragon
 Added evolution logic to base reptile.
+Added eqPvp foundations.
+Added eqUtility & Exception handling
+Reduced chance of reptiles dropping eggs.
 
 
 TODO:
+Limit backups
+Region effects
+Banner deed cliloc
 chat button should bring up [msg gump
 Houses still say copper when placed.
 Statues don't serialize solidhue
@@ -730,12 +737,7 @@ Ore stacks improperly - incorrect Itemid
 Reevaluate the arcanite's 5th
 Plant Bowl's Cliloc
 Address the mysterious scroll on vendors & in craft.
-
---
 Get rid of the random ecounters engine
-
----
-
 Mobiles should be able to guard objects.
 Need healer ai's that heal their controlling mobile & friends
 Need Mercenaries
@@ -743,15 +745,12 @@ Liche summons have instances where they don't disapear after a certain time (res
 Polymorph needs new mobiles that grant bonuses.
 Summon creature needs new, stronger summons.
 Reduce the time on bladespirt.
-
----
-
 Flying carpets need the wrap function.
 Flying carpets shouldn't be able to fly over black tiles.
 Tents need to check placement.
-Life/Death?
+Life/Death
 Resources/Craft
-Armslore / Gump?
+Armslore / Gump
 ItemID Rename Gump
 Need to change Cliloc to say cp instead of gp
 HEaler AI needs to heal players?
@@ -762,10 +761,11 @@ Need currency converting mobile.
 Need to edit cliloc on follower limit ("You have too many followers" should be "You can not control this many followers")
 Summon creature needs new, selectable summons.
 Carpets need to serialize entities
-
+Convert market to MySql
 
 T.B.E -
 Crash on Market Gump
 Flying carpets seem to be pushing server usage to 50% (from 5-20)
 Can't access the account class from messagepump.cs
+Probably just going to replace carpets/market
 

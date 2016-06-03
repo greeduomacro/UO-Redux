@@ -41,10 +41,6 @@ namespace Server.Mobiles.Creatures.Reptiles
 			Karma = -750;
 
 			VirtualArmor = 60;
-
-            Tamable = false;
-            ControlSlots = 4;
-            MinTameSkill = 119.1;
 		}
 
 		public override void GenerateLoot()

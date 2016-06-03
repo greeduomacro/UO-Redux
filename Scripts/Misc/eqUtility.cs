@@ -10,10 +10,10 @@ namespace Server.Misc
 {
     class eqUtility
     {
-        internal static Random m_Random;
+        internal static Random m_Random = new Random();
         internal static bool eqRandomBool()
         {
-            return m_Random.Next() >= 0.5;
+            return m_Random.Next(2) == 0;
         }
 
         internal static bool HardBool()
@@ -41,19 +41,31 @@ namespace Server.Misc
             LogHandler.LogErrors("H#: " + e.HResult);
             LogHandler.LogErrors(e.StackTrace);
             LogHandler.LogErrors(e.TargetSite.ToString());
+
+            Console.WriteLine(e.Message);
         }
 
+        internal static void HandleGenericException(Exception e, string[] data)
+        {
+            HandleGenericException(e);
+            for (int i = 0; i < data.Length; i++)
+            {
+                LogHandler.LogErrors(data[i]);
+            }
+        }
+
+        private const int m_DISPLAYRANGE = 16;
         internal static void HandleMobileException(Exception e, Mobile from)
         {
             HandleGenericException(e);
-            AlertNearbyStaff(from, e.ToString(), 24);
+            AlertNearbyStaff(from, e.ToString(), m_DISPLAYRANGE);
         }
 
         internal static void AlertNearbyStaff(Mobile from, string msg, int range)
         {
             foreach (NetState state in from.GetClientsInRange(range))
             {
-                if (state.Mobile.AccessLevel > AccessLevel.Counselor)
+                if (state.Mobile.AccessLevel >= AccessLevel.GameMaster)
                 {
                     state.Mobile.SendMessage(msg);
                 }

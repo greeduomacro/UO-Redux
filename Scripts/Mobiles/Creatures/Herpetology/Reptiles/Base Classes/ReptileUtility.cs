@@ -13,6 +13,7 @@ namespace Server.Mobiles.Creatures.Reptiles
         Dragon,
         Ophidian,
         Serpent,
+        Ancient //I think we can now argue that a creature's life impacts its DNA.
     }
 
     public enum EggType
@@ -105,6 +106,14 @@ namespace Server.Mobiles.Creatures.Reptiles
                 base.Hue = value;
             }
         }
+
+        public override string DefaultName
+        {
+            get
+            {
+                return "a large, pearl-like egg.";
+            }
+        } 
        
         [Constructable]
         public ReptileEgg() : base (3164)
@@ -148,7 +157,7 @@ namespace Server.Mobiles.Creatures.Reptiles
         {
             if (DateTime.Now > m_Creation || from.AccessLevel == AccessLevel.Administrator)
             {
-                if (from.Followers + 2 > from.FollowersMax)
+                if (from.Followers + 3 > from.FollowersMax)
                 {
                     from.SendMessage("You have too many followers to hatch this.");
                     return;
