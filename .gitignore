@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Backups
 /*.suo
 /Scripts/Output
@@ -18,3 +19,12 @@
 /docs
 /packages
 /Backups
+=======
+Backups/
+packages/
+Scripts/obj/
+Scripts/Output/
+Logs/
+Core Source Code/obj/
+Saves/
+>>>>>>> 8217516a3193a0e1cf7852998101c552578eaed0

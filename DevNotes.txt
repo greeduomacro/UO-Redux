@@ -716,9 +716,13 @@ All skills require much more eoc to increase.
 Stats cost more eoc to increase.
 Added BaseReptile, BaseSerpent, BaseDragon
 Added evolution logic to base reptile.
+<<<<<<< HEAD
 Added eqPvp foundations.
 Added eqUtility & Exception handling
 Reduced chance of reptiles dropping eggs.
+=======
+Enabled Courageous' LOS on All Faccets.
+>>>>>>> 8217516a3193a0e1cf7852998101c552578eaed0
 
 
 TODO:
